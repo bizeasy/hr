@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "productKeyword": {
+      "home": {
+        "title": "Product Keywords",
+        "createLabel": "Create a new Product Keyword",
+        "createOrEditLabel": "Create or edit a Product Keyword",
+        "notFound": "No Product Keywords found"
+      },
+      "created": "A new Product Keyword is created with identifier {{ param }}",
+      "updated": "A Product Keyword is updated with identifier {{ param }}",
+      "deleted": "A Product Keyword is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Keyword {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Keyword"
+      },
+      "keyword": "Keyword",
+      "relevancyWeight": "Relevancy Weight",
+      "product": "Product",
+      "keywordType": "Keyword Type"
+    }
+  }
+}

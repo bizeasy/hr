@@ -1,0 +1,111 @@
+{
+  "name": "SupplierProduct",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "minOrderQty",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "lastPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "shippingPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "supplierProductId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "leadTimeDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cgst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "igst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "sgst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "supplierProductName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "manufacturerName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "supplierProduct",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "supplierProduct",
+      "relationshipName": "supplier",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "supplierProduct",
+      "relationshipName": "quantityUom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "supplierProduct",
+      "relationshipName": "currencyUom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "supplierProduct",
+      "relationshipName": "manufacturer",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805153149",
+  "entityTableName": "supplier_product",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

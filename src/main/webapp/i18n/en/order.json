@@ -1,0 +1,41 @@
+{
+  "hrApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "createLabel": "Create a new Order",
+        "createOrEditLabel": "Create or edit a Order",
+        "notFound": "No Orders found"
+      },
+      "created": "A new Order is created with identifier {{ param }}",
+      "updated": "A Order is updated with identifier {{ param }}",
+      "deleted": "A Order is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "name": "Name",
+      "externalId": "External Id",
+      "orderDate": "Order Date",
+      "priority": "Priority",
+      "entryDate": "Entry Date",
+      "isRushOrder": "Is Rush Order",
+      "needsInventoryIssuance": "Needs Inventory Issuance",
+      "remainingSubTotal": "Remaining Sub Total",
+      "grandTotal": "Grand Total",
+      "hasRateContract": "Has Rate Contract",
+      "gotQuoteFromVendors": "Got Quote From Vendors",
+      "vendorReason": "Vendor Reason",
+      "expectedDeliveryDate": "Expected Delivery Date",
+      "insuranceResp": "Insurance Resp",
+      "transportResp": "Transport Resp",
+      "unloadingResp": "Unloading Resp",
+      "orderType": "Order Type",
+      "salesChannel": "Sales Channel",
+      "party": "Party",
+      "status": "Status"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "PartyClassification",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "partyClassification",
+      "relationshipName": "party",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "partyClassificationGroup",
+      "otherEntityRelationshipName": "partyClassification",
+      "relationshipName": "classificationGroup",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805145049",
+  "entityTableName": "party_classification",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

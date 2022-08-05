@@ -1,0 +1,67 @@
+{
+  "name": "InventoryTransfer",
+  "fields": [
+    {
+      "fieldName": "sentDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "receivedDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "inventoryTransfer",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryItem",
+      "otherEntityRelationshipName": "inventoryTransfer",
+      "relationshipName": "inventoryItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facility",
+      "otherEntityRelationshipName": "inventoryTransfer",
+      "relationshipName": "facility",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facility",
+      "otherEntityRelationshipName": "inventoryTransfer",
+      "relationshipName": "facilityTo",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "itemIssuance",
+      "otherEntityRelationshipName": "inventoryTransfer",
+      "relationshipName": "issuance",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805143249",
+  "entityTableName": "inventory_transfer",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

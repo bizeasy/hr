@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="payrollPreference">
+            <h2><span jhiTranslate="hrApp.payrollPreference.detail.title">Payroll Preference</span> {{ payrollPreference.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.payrollPreference.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ payrollPreference.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ payrollPreference.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ payrollPreference.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.percentage">Percentage</span></dt>
+                <dd>
+                    <span>{{ payrollPreference.percentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.flatAmount">Flat Amount</span></dt>
+                <dd>
+                    <span>{{ payrollPreference.flatAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.accountNumber">Account Number</span></dt>
+                <dd>
+                    <span>{{ payrollPreference.accountNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.bankName">Bank Name</span></dt>
+                <dd>
+                    <span>{{ payrollPreference.bankName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.ifscCode">Ifsc Code</span></dt>
+                <dd>
+                    <span>{{ payrollPreference.ifscCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.branch">Branch</span></dt>
+                <dd>
+                    <span>{{ payrollPreference.branch }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="payrollPreference.employee">
+                        <a [routerLink]="['/party', payrollPreference.employee?.id, 'view']">{{ payrollPreference.employee?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.deductionType">Deduction Type</span></dt>
+                <dd>
+                    <div *ngIf="payrollPreference.deductionType">
+                        <a [routerLink]="['/deduction-type', payrollPreference.deductionType?.id, 'view']">{{ payrollPreference.deductionType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.paymentMethodType">Payment Method Type</span></dt>
+                <dd>
+                    <div *ngIf="payrollPreference.paymentMethodType">
+                        <a [routerLink]="['/payment-method-type', payrollPreference.paymentMethodType?.id, 'view']">{{ payrollPreference.paymentMethodType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payrollPreference.periodType">Period Type</span></dt>
+                <dd>
+                    <div *ngIf="payrollPreference.periodType">
+                        <a [routerLink]="['/period-type', payrollPreference.periodType?.id, 'view']">{{ payrollPreference.periodType?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payroll-preference', payrollPreference.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

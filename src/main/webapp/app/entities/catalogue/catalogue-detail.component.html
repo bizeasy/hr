@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="catalogue">
+            <h2><span jhiTranslate="hrApp.catalogue.detail.title">Catalogue</span> {{ catalogue.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.catalogue.name">Name</span></dt>
+                <dd>
+                    <span>{{ catalogue.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogue.description">Description</span></dt>
+                <dd>
+                    <span>{{ catalogue.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogue.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ catalogue.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogue.imagePath">Image Path</span></dt>
+                <dd>
+                    <span>{{ catalogue.imagePath }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogue.mobileImagePath">Mobile Image Path</span></dt>
+                <dd>
+                    <span>{{ catalogue.mobileImagePath }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogue.altImage1">Alt Image 1</span></dt>
+                <dd>
+                    <span>{{ catalogue.altImage1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogue.altImage2">Alt Image 2</span></dt>
+                <dd>
+                    <span>{{ catalogue.altImage2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogue.altImage3">Alt Image 3</span></dt>
+                <dd>
+                    <span>{{ catalogue.altImage3 }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/catalogue', catalogue.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

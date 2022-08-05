@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "productFacility": {
+      "home": {
+        "title": "Product Facilities",
+        "createLabel": "Create a new Product Facility",
+        "createOrEditLabel": "Create or edit a Product Facility",
+        "notFound": "No Product Facilities found"
+      },
+      "created": "A new Product Facility is created with identifier {{ param }}",
+      "updated": "A Product Facility is updated with identifier {{ param }}",
+      "deleted": "A Product Facility is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Facility {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Facility"
+      },
+      "minimumStock": "Minimum Stock",
+      "reorderQty": "Reorder Qty",
+      "daysToShip": "Days To Ship",
+      "lastInventoryCount": "Last Inventory Count",
+      "product": "Product",
+      "facility": "Facility"
+    }
+  }
+}

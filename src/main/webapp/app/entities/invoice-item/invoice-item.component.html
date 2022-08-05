@@ -1,0 +1,105 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.invoiceItem.home.title">Invoice Items</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-invoice-item" [routerLink]="['/invoice-item/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.invoiceItem.home.createLabel">
+            Create a new Invoice Item
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="invoiceItems?.length === 0">
+        <span jhiTranslate="hrApp.invoiceItem.home.notFound">No invoiceItems found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="invoiceItems && invoiceItems.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sequenceNo"><span jhiTranslate="hrApp.invoiceItem.sequenceNo">Sequence No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span jhiTranslate="hrApp.invoiceItem.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amount"><span jhiTranslate="hrApp.invoiceItem.amount">Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoice.id"><span jhiTranslate="hrApp.invoiceItem.invoice">Invoice</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoiceItemType.name"><span jhiTranslate="hrApp.invoiceItem.invoiceItemType">Invoice Item Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fromInventoryItem.id"><span jhiTranslate="hrApp.invoiceItem.fromInventoryItem">From Inventory Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="product.name"><span jhiTranslate="hrApp.invoiceItem.product">Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taxAuthRate.name"><span jhiTranslate="hrApp.invoiceItem.taxAuthRate">Tax Auth Rate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let invoiceItem of invoiceItems ;trackBy: trackId">
+                    <td><a [routerLink]="['/invoice-item', invoiceItem.id, 'view']">{{ invoiceItem.id }}</a></td>
+                    <td>{{ invoiceItem.sequenceNo }}</td>
+                    <td>{{ invoiceItem.quantity }}</td>
+                    <td>{{ invoiceItem.amount }}</td>
+                    <td>
+                        <div *ngIf="invoiceItem.invoice">
+                            <a [routerLink]="['/invoice', invoiceItem.invoice?.id, 'view']" >{{ invoiceItem.invoice?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invoiceItem.invoiceItemType">
+                            <a [routerLink]="['/invoice-item-type', invoiceItem.invoiceItemType?.id, 'view']" >{{ invoiceItem.invoiceItemType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invoiceItem.fromInventoryItem">
+                            <a [routerLink]="['/inventory-item', invoiceItem.fromInventoryItem?.id, 'view']" >{{ invoiceItem.fromInventoryItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invoiceItem.product">
+                            <a [routerLink]="['/product', invoiceItem.product?.id, 'view']" >{{ invoiceItem.product?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invoiceItem.taxAuthRate">
+                            <a [routerLink]="['/tax-authority-rate-type', invoiceItem.taxAuthRate?.id, 'view']" >{{ invoiceItem.taxAuthRate?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/invoice-item', invoiceItem.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/invoice-item', invoiceItem.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(invoiceItem)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="invoiceItems && invoiceItems.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

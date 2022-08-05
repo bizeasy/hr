@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderTerm">
+            <h2><span jhiTranslate="hrApp.orderTerm.detail.title">Order Term</span> {{ orderTerm.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.orderTerm.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ orderTerm.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderTerm.name">Name</span></dt>
+                <dd>
+                    <span>{{ orderTerm.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderTerm.detail">Detail</span></dt>
+                <dd>
+                    <span>{{ orderTerm.detail }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderTerm.termValue">Term Value</span></dt>
+                <dd>
+                    <span>{{ orderTerm.termValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderTerm.termDays">Term Days</span></dt>
+                <dd>
+                    <span>{{ orderTerm.termDays }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderTerm.textValue">Text Value</span></dt>
+                <dd>
+                    <span>{{ orderTerm.textValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderTerm.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="orderTerm.order">
+                        <a [routerLink]="['/order', orderTerm.order?.id, 'view']">{{ orderTerm.order?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderTerm.item">Item</span></dt>
+                <dd>
+                    <div *ngIf="orderTerm.item">
+                        <a [routerLink]="['/order-item', orderTerm.item?.id, 'view']">{{ orderTerm.item?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderTerm.term">Term</span></dt>
+                <dd>
+                    <div *ngIf="orderTerm.term">
+                        <a [routerLink]="['/term', orderTerm.term?.id, 'view']">{{ orderTerm.term?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderTerm.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="orderTerm.type">
+                        <a [routerLink]="['/order-term-type', orderTerm.type?.id, 'view']">{{ orderTerm.type?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-term', orderTerm.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

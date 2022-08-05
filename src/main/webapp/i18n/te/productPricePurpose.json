@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productPricePurpose": {
+      "home": {
+        "title": "Product Price Purposes",
+        "createLabel": "కొత్త Product Price Purpose  సృష్టించండి",
+        "createOrEditLabel": "Product Price Purpose సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Product Price Purposes found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Product Price Purpose సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Product Price Purpose సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Product Price Purpose తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Product Price Purpose {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Product Price Purpose"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

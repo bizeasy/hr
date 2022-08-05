@@ -1,0 +1,41 @@
+{
+  "hrApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "createLabel": "కొత్త Order  సృష్టించండి",
+        "createOrEditLabel": "Order సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Orders found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Order సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Order సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Order తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Order {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "name": "Name",
+      "externalId": "External Id",
+      "orderDate": "Order Date",
+      "priority": "Priority",
+      "entryDate": "Entry Date",
+      "isRushOrder": "Is Rush Order",
+      "needsInventoryIssuance": "Needs Inventory Issuance",
+      "remainingSubTotal": "Remaining Sub Total",
+      "grandTotal": "Grand Total",
+      "hasRateContract": "Has Rate Contract",
+      "gotQuoteFromVendors": "Got Quote From Vendors",
+      "vendorReason": "Vendor Reason",
+      "expectedDeliveryDate": "Expected Delivery Date",
+      "insuranceResp": "Insurance Resp",
+      "transportResp": "Transport Resp",
+      "unloadingResp": "Unloading Resp",
+      "orderType": "Order Type",
+      "salesChannel": "Sales Channel",
+      "party": "Party",
+      "status": "Status"
+    }
+  }
+}

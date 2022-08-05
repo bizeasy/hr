@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "workEffortStatus": {
+      "home": {
+        "title": "Work Effort Statuses",
+        "createLabel": "కొత్త Work Effort Status  సృష్టించండి",
+        "createOrEditLabel": "Work Effort Status సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Work Effort Statuses found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Status సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Status సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Status తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Work Effort Status {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Work Effort Status"
+      },
+      "reason": "Reason",
+      "workEffort": "Work Effort",
+      "status": "Status"
+    }
+  }
+}

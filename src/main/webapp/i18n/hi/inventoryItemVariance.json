@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "inventoryItemVariance": {
+      "home": {
+        "title": "InventoryItemVariances",
+        "createLabel": "नया Inventory Item Variance बनाएँ",
+        "createOrEditLabel": "Inventory Item Variance बनाएँ या संपादित करें",
+        "notFound": "No Inventory Item Variances found"
+      },
+      "created": "एक नया Inventory Item Variance [identifier: {{ param }}] तैयार है",
+      "updated": "एक Inventory Item Variance [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Inventory Item Variance [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Inventory Item Variance [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Inventory Item Variance"
+      },
+      "varianceReason": "Variance Reason",
+      "atpVar": "Atp Var",
+      "qohVar": "Qoh Var",
+      "comments": "Comments",
+      "inventoryItem": "Inventory Item",
+      "reason": "Reason"
+    }
+  }
+}

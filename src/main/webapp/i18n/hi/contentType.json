@@ -1,0 +1,22 @@
+{
+  "hrApp": {
+    "contentType": {
+      "home": {
+        "title": "ContentTypes",
+        "createLabel": "नया Content Type बनाएँ",
+        "createOrEditLabel": "Content Type बनाएँ या संपादित करें",
+        "notFound": "No Content Types found"
+      },
+      "created": "एक नया Content Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Content Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Content Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Content Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Content Type"
+      },
+      "name": "Name"
+    }
+  }
+}

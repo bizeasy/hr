@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "equipmentUsageLog": {
+      "home": {
+        "title": "Equipment Usage Logs",
+        "createLabel": "కొత్త Equipment Usage Log  సృష్టించండి",
+        "createOrEditLabel": "Equipment Usage Log సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Equipment Usage Logs found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Equipment Usage Log సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Equipment Usage Log సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Equipment Usage Log తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Equipment Usage Log {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Equipment Usage Log"
+      },
+      "fromTime": "From Time",
+      "toTime": "To Time",
+      "remarks": "Remarks",
+      "equipment": "Equipment",
+      "cleanedBy": "Cleaned By",
+      "checkedBy": "Checked By"
+    }
+  }
+}

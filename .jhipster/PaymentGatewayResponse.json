@@ -1,0 +1,39 @@
+{
+  "name": "PaymentGatewayResponse",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "referenceNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "gatewayMessage",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "paymentMethodType",
+      "otherEntityRelationshipName": "paymentGatewayResponse",
+      "relationshipName": "paymentMethodType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805151149",
+  "entityTableName": "payment_gateway_response",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

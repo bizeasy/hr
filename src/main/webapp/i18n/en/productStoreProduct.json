@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "productStoreProduct": {
+      "home": {
+        "title": "Product Store Products",
+        "createLabel": "Create a new Product Store Product",
+        "createOrEditLabel": "Create or edit a Product Store Product",
+        "notFound": "No Product Store Products found"
+      },
+      "created": "A new Product Store Product is created with identifier {{ param }}",
+      "updated": "A Product Store Product is updated with identifier {{ param }}",
+      "deleted": "A Product Store Product is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Store Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Store Product"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "sequenceNo": "Sequence No",
+      "productStore": "Product Store",
+      "product": "Product"
+    }
+  }
+}

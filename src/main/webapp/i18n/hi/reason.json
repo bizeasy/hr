@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "reason": {
+      "home": {
+        "title": "Reasons",
+        "createLabel": "नया Reason बनाएँ",
+        "createOrEditLabel": "Reason बनाएँ या संपादित करें",
+        "notFound": "No Reasons found"
+      },
+      "created": "एक नया Reason [identifier: {{ param }}] तैयार है",
+      "updated": "एक Reason [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Reason [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Reason [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Reason"
+      },
+      "name": "Name",
+      "description": "Description",
+      "reasonType": "Reason Type"
+    }
+  }
+}

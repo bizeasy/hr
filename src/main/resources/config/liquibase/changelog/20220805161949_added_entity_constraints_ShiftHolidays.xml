@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity ShiftHolidays.
+    -->
+    <changeSet id="20220805161949-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="shift_id"
+                                 baseTableName="shift_holidays"
+                                 constraintName="fk_shift_holidays_shift_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shift"/>
+
+    </changeSet>
+</databaseChangeLog>

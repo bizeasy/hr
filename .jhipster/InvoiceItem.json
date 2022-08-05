@@ -1,0 +1,65 @@
+{
+  "name": "InvoiceItem",
+  "fields": [
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "invoiceItem",
+      "relationshipName": "invoice",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invoiceItemType",
+      "otherEntityRelationshipName": "invoiceItem",
+      "relationshipName": "invoiceItemType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryItem",
+      "otherEntityRelationshipName": "invoiceItem",
+      "relationshipName": "fromInventoryItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "invoiceItem",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taxAuthorityRateType",
+      "otherEntityRelationshipName": "invoiceItem",
+      "relationshipName": "taxAuthRate",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805142749",
+  "entityTableName": "invoice_item",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

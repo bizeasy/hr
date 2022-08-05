@@ -1,0 +1,246 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="product">
+            <h2><span jhiTranslate="hrApp.product.detail.title">Product</span> {{ product.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.product.name">Name</span></dt>
+                <dd>
+                    <span>{{ product.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.internalName">Internal Name</span></dt>
+                <dd>
+                    <span>{{ product.internalName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.brandName">Brand Name</span></dt>
+                <dd>
+                    <span>{{ product.brandName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.variant">Variant</span></dt>
+                <dd>
+                    <span>{{ product.variant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.sku">Sku</span></dt>
+                <dd>
+                    <span>{{ product.sku }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.introductionDate">Introduction Date</span></dt>
+                <dd>
+                    <span>{{ product.introductionDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.releaseDate">Release Date</span></dt>
+                <dd>
+                    <span>{{ product.releaseDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.quantityIncluded">Quantity Included</span></dt>
+                <dd>
+                    <span>{{ product.quantityIncluded }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.piecesIncluded">Pieces Included</span></dt>
+                <dd>
+                    <span>{{ product.piecesIncluded }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.weight">Weight</span></dt>
+                <dd>
+                    <span>{{ product.weight }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.height">Height</span></dt>
+                <dd>
+                    <span>{{ product.height }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.width">Width</span></dt>
+                <dd>
+                    <span>{{ product.width }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.depth">Depth</span></dt>
+                <dd>
+                    <span>{{ product.depth }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.smallImageUrl">Small Image Url</span></dt>
+                <dd>
+                    <span>{{ product.smallImageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.mediumImageUrl">Medium Image Url</span></dt>
+                <dd>
+                    <span>{{ product.mediumImageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.largeImageUrl">Large Image Url</span></dt>
+                <dd>
+                    <span>{{ product.largeImageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.detailImageUrl">Detail Image Url</span></dt>
+                <dd>
+                    <span>{{ product.detailImageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.originalImageUrl">Original Image Url</span></dt>
+                <dd>
+                    <span>{{ product.originalImageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ product.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.cgst">Cgst</span></dt>
+                <dd>
+                    <span>{{ product.cgst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.igst">Igst</span></dt>
+                <dd>
+                    <span>{{ product.igst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.sgst">Sgst</span></dt>
+                <dd>
+                    <span>{{ product.sgst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.price">Price</span></dt>
+                <dd>
+                    <span>{{ product.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.cgstPercentage">Cgst Percentage</span></dt>
+                <dd>
+                    <span>{{ product.cgstPercentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.igstPercentage">Igst Percentage</span></dt>
+                <dd>
+                    <span>{{ product.igstPercentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.sgstPercentage">Sgst Percentage</span></dt>
+                <dd>
+                    <span>{{ product.sgstPercentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.totalPrice">Total Price</span></dt>
+                <dd>
+                    <span>{{ product.totalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.description">Description</span></dt>
+                <dd>
+                    <span>{{ product.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.longDescription">Long Description</span></dt>
+                <dd>
+                    <span>{{ product.longDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.info">Info</span></dt>
+                <dd>
+                    <span>{{ product.info }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.isVirtual">Is Virtual</span></dt>
+                <dd>
+                    <span>{{ product.isVirtual }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.isVariant">Is Variant</span></dt>
+                <dd>
+                    <span>{{ product.isVariant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.requireInventory">Require Inventory</span></dt>
+                <dd>
+                    <span>{{ product.requireInventory }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.returnable">Returnable</span></dt>
+                <dd>
+                    <span>{{ product.returnable }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.isPopular">Is Popular</span></dt>
+                <dd>
+                    <span>{{ product.isPopular }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.changeControlNo">Change Control No</span></dt>
+                <dd>
+                    <span>{{ product.changeControlNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.retestDuration">Retest Duration</span></dt>
+                <dd>
+                    <span>{{ product.retestDuration }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.expiryDuration">Expiry Duration</span></dt>
+                <dd>
+                    <span>{{ product.expiryDuration }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.validationType">Validation Type</span></dt>
+                <dd>
+                    <span>{{ product.validationType }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.shelfLife">Shelf Life</span></dt>
+                <dd>
+                    <span>{{ product.shelfLife }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.productType">Product Type</span></dt>
+                <dd>
+                    <div *ngIf="product.productType">
+                        <a [routerLink]="['/product-type', product.productType?.id, 'view']">{{ product.productType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.quantityUom">Quantity Uom</span></dt>
+                <dd>
+                    <div *ngIf="product.quantityUom">
+                        <a [routerLink]="['/uom', product.quantityUom?.id, 'view']">{{ product.quantityUom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.weightUom">Weight Uom</span></dt>
+                <dd>
+                    <div *ngIf="product.weightUom">
+                        <a [routerLink]="['/uom', product.weightUom?.id, 'view']">{{ product.weightUom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.sizeUom">Size Uom</span></dt>
+                <dd>
+                    <div *ngIf="product.sizeUom">
+                        <a [routerLink]="['/uom', product.sizeUom?.id, 'view']">{{ product.sizeUom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.uom">Uom</span></dt>
+                <dd>
+                    <div *ngIf="product.uom">
+                        <a [routerLink]="['/uom', product.uom?.id, 'view']">{{ product.uom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.primaryProductCategory">Primary Product Category</span></dt>
+                <dd>
+                    <div *ngIf="product.primaryProductCategory">
+                        <a [routerLink]="['/product-category', product.primaryProductCategory?.id, 'view']">{{ product.primaryProductCategory?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.virtualProduct">Virtual Product</span></dt>
+                <dd>
+                    <div *ngIf="product.virtualProduct">
+                        <a [routerLink]="['/product', product.virtualProduct?.id, 'view']">{{ product.virtualProduct?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.inventoryItemType">Inventory Item Type</span></dt>
+                <dd>
+                    <div *ngIf="product.inventoryItemType">
+                        <a [routerLink]="['/inventory-item-type', product.inventoryItemType?.id, 'view']">{{ product.inventoryItemType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.taxSlab">Tax Slab</span></dt>
+                <dd>
+                    <div *ngIf="product.taxSlab">
+                        <a [routerLink]="['/tax-slab', product.taxSlab?.id, 'view']">{{ product.taxSlab?.rate }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.product.shelfLifeUom">Shelf Life Uom</span></dt>
+                <dd>
+                    <div *ngIf="product.shelfLifeUom">
+                        <a [routerLink]="['/uom', product.shelfLifeUom?.id, 'view']">{{ product.shelfLifeUom?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product', product.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "workEffortType": {
+      "home": {
+        "title": "Work Effort Types",
+        "createLabel": "కొత్త Work Effort Type  సృష్టించండి",
+        "createOrEditLabel": "Work Effort Type సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Work Effort Types found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Type సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Type సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Type తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Work Effort Type {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Work Effort Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

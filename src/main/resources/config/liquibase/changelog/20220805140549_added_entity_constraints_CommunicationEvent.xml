@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity CommunicationEvent.
+    -->
+    <changeSet id="20220805140549-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="communication_event_type_id"
+                                 baseTableName="communication_event"
+                                 constraintName="fk_communication_event_communication_event_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="communication_event_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="communication_event"
+                                 constraintName="fk_communication_event_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_mech_type_id"
+                                 baseTableName="communication_event"
+                                 constraintName="fk_communication_event_contact_mech_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_mech_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_mech_from_id"
+                                 baseTableName="communication_event"
+                                 constraintName="fk_communication_event_contact_mech_from_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_mech"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_mech_to_id"
+                                 baseTableName="communication_event"
+                                 constraintName="fk_communication_event_contact_mech_to_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_mech"/>
+
+        <addForeignKeyConstraint baseColumnNames="from_party_id"
+                                 baseTableName="communication_event"
+                                 constraintName="fk_communication_event_from_party_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="to_party_id"
+                                 baseTableName="communication_event"
+                                 constraintName="fk_communication_event_to_party_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+    </changeSet>
+</databaseChangeLog>

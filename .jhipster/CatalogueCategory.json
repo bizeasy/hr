@@ -1,0 +1,43 @@
+{
+  "name": "CatalogueCategory",
+  "fields": [
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalogue",
+      "otherEntityRelationshipName": "catalogueCategory",
+      "relationshipName": "catalogue",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productCategory",
+      "otherEntityRelationshipName": "catalogueCategory",
+      "relationshipName": "productCategory",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalogueCategoryType",
+      "otherEntityRelationshipName": "catalogueCategory",
+      "relationshipName": "catalogueCategoryType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805140349",
+  "entityTableName": "catalogue_category",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

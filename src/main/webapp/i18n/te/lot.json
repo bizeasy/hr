@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "lot": {
+      "home": {
+        "title": "Lots",
+        "createLabel": "కొత్త Lot  సృష్టించండి",
+        "createOrEditLabel": "Lot సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Lots found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Lot సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Lot సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Lot తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Lot {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Lot"
+      },
+      "creationDate": "Creation Date",
+      "quantity": "Quantity",
+      "expirationDate": "Expiration Date",
+      "retestDate": "Retest Date"
+    }
+  }
+}

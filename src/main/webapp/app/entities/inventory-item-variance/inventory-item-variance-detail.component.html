@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="inventoryItemVariance">
+            <h2><span jhiTranslate="hrApp.inventoryItemVariance.detail.title">Inventory Item Variance</span> {{ inventoryItemVariance.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.inventoryItemVariance.varianceReason">Variance Reason</span></dt>
+                <dd>
+                    <span>{{ inventoryItemVariance.varianceReason }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemVariance.atpVar">Atp Var</span></dt>
+                <dd>
+                    <span>{{ inventoryItemVariance.atpVar }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemVariance.qohVar">Qoh Var</span></dt>
+                <dd>
+                    <span>{{ inventoryItemVariance.qohVar }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemVariance.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ inventoryItemVariance.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemVariance.inventoryItem">Inventory Item</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemVariance.inventoryItem">
+                        <a [routerLink]="['/inventory-item', inventoryItemVariance.inventoryItem?.id, 'view']">{{ inventoryItemVariance.inventoryItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemVariance.reason">Reason</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemVariance.reason">
+                        <a [routerLink]="['/reason', inventoryItemVariance.reason?.id, 'view']">{{ inventoryItemVariance.reason?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/inventory-item-variance', inventoryItemVariance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

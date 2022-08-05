@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "productKeyword": {
+      "home": {
+        "title": "Product Keywords",
+        "createLabel": "కొత్త Product Keyword  సృష్టించండి",
+        "createOrEditLabel": "Product Keyword సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Product Keywords found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Product Keyword సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Product Keyword సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Product Keyword తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Product Keyword {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Product Keyword"
+      },
+      "keyword": "Keyword",
+      "relevancyWeight": "Relevancy Weight",
+      "product": "Product",
+      "keywordType": "Keyword Type"
+    }
+  }
+}

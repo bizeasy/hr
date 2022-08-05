@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-party-resume-heading" jhiTranslate="hrApp.partyResume.home.createOrEditLabel">Create or edit a Party Resume</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.partyResume.text" for="field_text">Text</label>
+                    <input type="text" class="form-control" name="text" id="field_text"
+                           formControlName="text"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.partyResume.resumeDate" for="field_resumeDate">Resume Date</label>
+                    <div class="input-group">
+                        <input id="field_resumeDate" type="text" class="form-control" name="resumeDate" ngbDatepicker #resumeDateDp="ngbDatepicker" formControlName="resumeDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="resumeDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.partyResume.fileAttachment" for="field_fileAttachment">File Attachment</label>
+                    <div>
+                        <div *ngIf="editForm.get('fileAttachment')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('fileAttachmentContentType')!.value, editForm.get('fileAttachment')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('fileAttachmentContentType')!.value }}, {{ byteSize(editForm.get('fileAttachment')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({fileAttachment: null});editForm.patchValue({fileAttachmentContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_fileAttachment" (change)="setFileData($event, 'fileAttachment', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="fileAttachment" id="field_fileAttachment"
+                           formControlName="fileAttachment"/>
+                    <input type="hidden" class="form-control" name="fileAttachmentContentType" id="field_fileAttachmentContentType"
+                           formControlName="fileAttachmentContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.partyResume.attachmentUrl" for="field_attachmentUrl">Attachment Url</label>
+                    <input type="text" class="form-control" name="attachmentUrl" id="field_attachmentUrl"
+                           formControlName="attachmentUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.partyResume.mimeType" for="field_mimeType">Mime Type</label>
+                    <input type="text" class="form-control" name="mimeType" id="field_mimeType"
+                           formControlName="mimeType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.partyResume.party" for="field_party">Party</label>
+                    <select class="form-control" id="field_party" name="party" formControlName="party">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('party')!.value?.id ? editForm.get('party')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

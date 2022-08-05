@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "employmentApp": {
+      "home": {
+        "title": "EmploymentApps",
+        "createLabel": "नया Employment App बनाएँ",
+        "createOrEditLabel": "Employment App बनाएँ या संपादित करें",
+        "notFound": "No Employment Apps found"
+      },
+      "created": "एक नया Employment App [identifier: {{ param }}] तैयार है",
+      "updated": "एक Employment App [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Employment App [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Employment App [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Employment App"
+      },
+      "applicationDate": "Application Date",
+      "emplPosition": "Empl Position",
+      "status": "Status",
+      "source": "Source",
+      "applyingParty": "Applying Party",
+      "referredByParty": "Referred By Party",
+      "approverParty": "Approver Party",
+      "jobRequisition": "Job Requisition"
+    }
+  }
+}

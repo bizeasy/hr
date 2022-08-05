@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "emplPositionType": {
+      "home": {
+        "title": "Empl Position Types",
+        "createLabel": "Create a new Empl Position Type",
+        "createOrEditLabel": "Create or edit a Empl Position Type",
+        "notFound": "No Empl Position Types found"
+      },
+      "created": "A new Empl Position Type is created with identifier {{ param }}",
+      "updated": "A Empl Position Type is updated with identifier {{ param }}",
+      "deleted": "A Empl Position Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empl Position Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Empl Position Type"
+      },
+      "name": "Name",
+      "description": "Description",
+      "group": "Group"
+    }
+  }
+}

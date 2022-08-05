@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "terminationType": {
+      "home": {
+        "title": "Termination Types",
+        "createLabel": "Create a new Termination Type",
+        "createOrEditLabel": "Create or edit a Termination Type",
+        "notFound": "No Termination Types found"
+      },
+      "created": "A new Termination Type is created with identifier {{ param }}",
+      "updated": "A Termination Type is updated with identifier {{ param }}",
+      "deleted": "A Termination Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Termination Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Termination Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

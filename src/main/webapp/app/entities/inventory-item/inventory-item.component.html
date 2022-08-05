@@ -1,0 +1,163 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.inventoryItem.home.title">Inventory Items</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventory-item" [routerLink]="['/inventory-item/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.inventoryItem.home.createLabel">
+            Create a new Inventory Item
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="inventoryItems?.length === 0">
+        <span jhiTranslate="hrApp.inventoryItem.home.notFound">No inventoryItems found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="inventoryItems && inventoryItems.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="receivedDate"><span jhiTranslate="hrApp.inventoryItem.receivedDate">Received Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="manufacturedDate"><span jhiTranslate="hrApp.inventoryItem.manufacturedDate">Manufactured Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="expiryDate"><span jhiTranslate="hrApp.inventoryItem.expiryDate">Expiry Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="retestDate"><span jhiTranslate="hrApp.inventoryItem.retestDate">Retest Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="containerId"><span jhiTranslate="hrApp.inventoryItem.containerId">Container Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="batchNo"><span jhiTranslate="hrApp.inventoryItem.batchNo">Batch No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mfgBatchNo"><span jhiTranslate="hrApp.inventoryItem.mfgBatchNo">Mfg Batch No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lotNoStr"><span jhiTranslate="hrApp.inventoryItem.lotNoStr">Lot No Str</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="binNumber"><span jhiTranslate="hrApp.inventoryItem.binNumber">Bin Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="comments"><span jhiTranslate="hrApp.inventoryItem.comments">Comments</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantityOnHandTotal"><span jhiTranslate="hrApp.inventoryItem.quantityOnHandTotal">Quantity On Hand Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="availableToPromiseTotal"><span jhiTranslate="hrApp.inventoryItem.availableToPromiseTotal">Available To Promise Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="accountingQuantityTotal"><span jhiTranslate="hrApp.inventoryItem.accountingQuantityTotal">Accounting Quantity Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="oldQuantityOnHand"><span jhiTranslate="hrApp.inventoryItem.oldQuantityOnHand">Old Quantity On Hand</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="oldAvailableToPromise"><span jhiTranslate="hrApp.inventoryItem.oldAvailableToPromise">Old Available To Promise</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serialNumber"><span jhiTranslate="hrApp.inventoryItem.serialNumber">Serial Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="softIdentifier"><span jhiTranslate="hrApp.inventoryItem.softIdentifier">Soft Identifier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="activationNumber"><span jhiTranslate="hrApp.inventoryItem.activationNumber">Activation Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="activationValidTrue"><span jhiTranslate="hrApp.inventoryItem.activationValidTrue">Activation Valid True</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unitCost"><span jhiTranslate="hrApp.inventoryItem.unitCost">Unit Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventoryItemType.name"><span jhiTranslate="hrApp.inventoryItem.inventoryItemType">Inventory Item Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="product.name"><span jhiTranslate="hrApp.inventoryItem.product">Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplier.organisationName"><span jhiTranslate="hrApp.inventoryItem.supplier">Supplier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ownerParty.id"><span jhiTranslate="hrApp.inventoryItem.ownerParty">Owner Party</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status.name"><span jhiTranslate="hrApp.inventoryItem.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facility.name"><span jhiTranslate="hrApp.inventoryItem.facility">Facility</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="uom.name"><span jhiTranslate="hrApp.inventoryItem.uom">Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="currencyUom.name"><span jhiTranslate="hrApp.inventoryItem.currencyUom">Currency Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lot.id"><span jhiTranslate="hrApp.inventoryItem.lot">Lot</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventoryItem of inventoryItems ;trackBy: trackId">
+                    <td><a [routerLink]="['/inventory-item', inventoryItem.id, 'view']">{{ inventoryItem.id }}</a></td>
+                    <td>{{ inventoryItem.receivedDate | date:'medium' }}</td>
+                    <td>{{ inventoryItem.manufacturedDate | date:'medium' }}</td>
+                    <td>{{ inventoryItem.expiryDate | date:'medium' }}</td>
+                    <td>{{ inventoryItem.retestDate | date:'medium' }}</td>
+                    <td>{{ inventoryItem.containerId }}</td>
+                    <td>{{ inventoryItem.batchNo }}</td>
+                    <td>{{ inventoryItem.mfgBatchNo }}</td>
+                    <td>{{ inventoryItem.lotNoStr }}</td>
+                    <td>{{ inventoryItem.binNumber }}</td>
+                    <td>{{ inventoryItem.comments }}</td>
+                    <td>{{ inventoryItem.quantityOnHandTotal }}</td>
+                    <td>{{ inventoryItem.availableToPromiseTotal }}</td>
+                    <td>{{ inventoryItem.accountingQuantityTotal }}</td>
+                    <td>{{ inventoryItem.oldQuantityOnHand }}</td>
+                    <td>{{ inventoryItem.oldAvailableToPromise }}</td>
+                    <td>{{ inventoryItem.serialNumber }}</td>
+                    <td>{{ inventoryItem.softIdentifier }}</td>
+                    <td>{{ inventoryItem.activationNumber }}</td>
+                    <td>{{ inventoryItem.activationValidTrue | date:'medium' }}</td>
+                    <td>{{ inventoryItem.unitCost }}</td>
+                    <td>
+                        <div *ngIf="inventoryItem.inventoryItemType">
+                            <a [routerLink]="['/inventory-item-type', inventoryItem.inventoryItemType?.id, 'view']" >{{ inventoryItem.inventoryItemType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItem.product">
+                            <a [routerLink]="['/product', inventoryItem.product?.id, 'view']" >{{ inventoryItem.product?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItem.supplier">
+                            <a [routerLink]="['/party', inventoryItem.supplier?.id, 'view']" >{{ inventoryItem.supplier?.organisationName }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItem.ownerParty">
+                            <a [routerLink]="['/party', inventoryItem.ownerParty?.id, 'view']" >{{ inventoryItem.ownerParty?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItem.status">
+                            <a [routerLink]="['/status', inventoryItem.status?.id, 'view']" >{{ inventoryItem.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItem.facility">
+                            <a [routerLink]="['/facility', inventoryItem.facility?.id, 'view']" >{{ inventoryItem.facility?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItem.uom">
+                            <a [routerLink]="['/uom', inventoryItem.uom?.id, 'view']" >{{ inventoryItem.uom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItem.currencyUom">
+                            <a [routerLink]="['/uom', inventoryItem.currencyUom?.id, 'view']" >{{ inventoryItem.currencyUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItem.lot">
+                            <a [routerLink]="['/lot', inventoryItem.lot?.id, 'view']" >{{ inventoryItem.lot?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/inventory-item', inventoryItem.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/inventory-item', inventoryItem.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(inventoryItem)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="inventoryItems && inventoryItems.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

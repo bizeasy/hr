@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productType": {
+      "home": {
+        "title": "ProductTypes",
+        "createLabel": "नया Product Type बनाएँ",
+        "createOrEditLabel": "Product Type बनाएँ या संपादित करें",
+        "notFound": "No Product Types found"
+      },
+      "created": "एक नया Product Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Product Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Product Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Product Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Product Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-inventory-transfer-heading" jhiTranslate="hrApp.inventoryTransfer.home.createOrEditLabel">Create or edit a Inventory Transfer</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryTransfer.sentDate" for="field_sentDate">Sent Date</label>
+                    <div class="d-flex">
+                        <input id="field_sentDate" type="datetime-local" class="form-control" name="sentDate" formControlName="sentDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryTransfer.receivedDate" for="field_receivedDate">Received Date</label>
+                    <div class="d-flex">
+                        <input id="field_receivedDate" type="datetime-local" class="form-control" name="receivedDate" formControlName="receivedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryTransfer.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                    <div *ngIf="editForm.get('comments')!.invalid && (editForm.get('comments')!.dirty || editForm.get('comments')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('comments')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryTransfer.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryTransfer.inventoryItem" for="field_inventoryItem">Inventory Item</label>
+                    <select class="form-control" id="field_inventoryItem" name="inventoryItem" formControlName="inventoryItem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryItemOption.id === editForm.get('inventoryItem')!.value?.id ? editForm.get('inventoryItem')!.value : inventoryItemOption" *ngFor="let inventoryItemOption of inventoryitems; trackBy: trackById">{{ inventoryItemOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryTransfer.facility" for="field_facility">Facility</label>
+                    <select class="form-control" id="field_facility" name="facility" formControlName="facility">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facilityOption.id === editForm.get('facility')!.value?.id ? editForm.get('facility')!.value : facilityOption" *ngFor="let facilityOption of facilities; trackBy: trackById">{{ facilityOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryTransfer.facilityTo" for="field_facilityTo">Facility To</label>
+                    <select class="form-control" id="field_facilityTo" name="facilityTo" formControlName="facilityTo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facilityOption.id === editForm.get('facilityTo')!.value?.id ? editForm.get('facilityTo')!.value : facilityOption" *ngFor="let facilityOption of facilities; trackBy: trackById">{{ facilityOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryTransfer.issuance" for="field_issuance">Issuance</label>
+                    <select class="form-control" id="field_issuance" name="issuance" formControlName="issuance">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="itemIssuanceOption.id === editForm.get('issuance')!.value?.id ? editForm.get('issuance')!.value : itemIssuanceOption" *ngFor="let itemIssuanceOption of itemissuances; trackBy: trackById">{{ itemIssuanceOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

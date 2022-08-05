@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity EmplLeave.
+    -->
+    <changeSet id="20220805160549-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="empl_leave"
+                                 constraintName="fk_empl_leave_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="approver_id"
+                                 baseTableName="empl_leave"
+                                 constraintName="fk_empl_leave_approver_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="leave_type_id"
+                                 baseTableName="empl_leave"
+                                 constraintName="fk_empl_leave_leave_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empl_leave_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="reason_id"
+                                 baseTableName="empl_leave"
+                                 constraintName="fk_empl_leave_reason_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empl_leave_reason_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="empl_leave"
+                                 constraintName="fk_empl_leave_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+    </changeSet>
+</databaseChangeLog>

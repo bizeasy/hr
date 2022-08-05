@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productStoreType": {
+      "home": {
+        "title": "ProductStoreTypes",
+        "createLabel": "नया Product Store Type बनाएँ",
+        "createOrEditLabel": "Product Store Type बनाएँ या संपादित करें",
+        "notFound": "No Product Store Types found"
+      },
+      "created": "एक नया Product Store Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Product Store Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Product Store Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Product Store Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Product Store Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

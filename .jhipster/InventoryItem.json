@@ -1,0 +1,179 @@
+{
+  "name": "InventoryItem",
+  "fields": [
+    {
+      "fieldName": "receivedDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "manufacturedDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "expiryDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "retestDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "containerId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "batchNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "mfgBatchNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "lotNoStr",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "binNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "quantityOnHandTotal",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "availableToPromiseTotal",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "accountingQuantityTotal",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "oldQuantityOnHand",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "oldAvailableToPromise",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "serialNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "softIdentifier",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "activationNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "activationValidTrue",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "unitCost",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryItemType",
+      "otherEntityRelationshipName": "inventoryItem",
+      "relationshipName": "inventoryItemType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "inventoryItem",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "inventoryItem",
+      "relationshipName": "supplier",
+      "otherEntityField": "organisationName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "inventoryItem",
+      "relationshipName": "ownerParty",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "inventoryItem",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facility",
+      "otherEntityRelationshipName": "inventoryItem",
+      "relationshipName": "facility",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "inventoryItem",
+      "relationshipName": "uom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "inventoryItem",
+      "relationshipName": "currencyUom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "lot",
+      "otherEntityRelationshipName": "inventoryItem",
+      "relationshipName": "lot",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805142849",
+  "entityTableName": "inventory_item",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

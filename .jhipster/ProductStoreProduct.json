@@ -1,0 +1,46 @@
+{
+  "name": "ProductStoreProduct",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productStore",
+      "otherEntityRelationshipName": "productStoreProduct",
+      "relationshipValidateRules": "required",
+      "relationshipName": "productStore",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "productStoreProduct",
+      "relationshipValidateRules": "required",
+      "relationshipName": "product",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805151549",
+  "entityTableName": "product_store_product",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

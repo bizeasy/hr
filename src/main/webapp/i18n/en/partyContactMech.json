@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "partyContactMech": {
+      "home": {
+        "title": "Party Contact Meches",
+        "createLabel": "Create a new Party Contact Mech",
+        "createOrEditLabel": "Create or edit a Party Contact Mech",
+        "notFound": "No Party Contact Meches found"
+      },
+      "created": "A new Party Contact Mech is created with identifier {{ param }}",
+      "updated": "A Party Contact Mech is updated with identifier {{ param }}",
+      "deleted": "A Party Contact Mech is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Party Contact Mech {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Contact Mech"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "party": "Party",
+      "contactMech": "Contact Mech",
+      "contactMechPurpose": "Contact Mech Purpose"
+    }
+  }
+}

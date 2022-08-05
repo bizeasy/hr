@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "emplPositionReportingStruct": {
+      "home": {
+        "title": "EmplPositionReportingStructs",
+        "createLabel": "नया Empl Position Reporting Struct बनाएँ",
+        "createOrEditLabel": "Empl Position Reporting Struct बनाएँ या संपादित करें",
+        "notFound": "No Empl Position Reporting Structs found"
+      },
+      "created": "एक नया Empl Position Reporting Struct [identifier: {{ param }}] तैयार है",
+      "updated": "एक Empl Position Reporting Struct [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Empl Position Reporting Struct [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Empl Position Reporting Struct [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Empl Position Reporting Struct"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "comments": "Comments"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.workEffort.home.title">Work Efforts</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-work-effort" [routerLink]="['/work-effort/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.workEffort.home.createLabel">
+            Create a new Work Effort
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="workEfforts?.length === 0">
+        <span jhiTranslate="hrApp.workEffort.home.notFound">No workEfforts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="workEfforts && workEfforts.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="hrApp.workEffort.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="hrApp.workEffort.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="hrApp.workEffort.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="batchSize"><span jhiTranslate="hrApp.workEffort.batchSize">Batch Size</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="minYieldRange"><span jhiTranslate="hrApp.workEffort.minYieldRange">Min Yield Range</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maxYieldRange"><span jhiTranslate="hrApp.workEffort.maxYieldRange">Max Yield Range</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="percentComplete"><span jhiTranslate="hrApp.workEffort.percentComplete">Percent Complete</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="validationType"><span jhiTranslate="hrApp.workEffort.validationType">Validation Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shelfLife"><span jhiTranslate="hrApp.workEffort.shelfLife">Shelf Life</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="outputQty"><span jhiTranslate="hrApp.workEffort.outputQty">Output Qty</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="product.name"><span jhiTranslate="hrApp.workEffort.product">Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ksm.name"><span jhiTranslate="hrApp.workEffort.ksm">Ksm</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type.name"><span jhiTranslate="hrApp.workEffort.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="purpose.name"><span jhiTranslate="hrApp.workEffort.purpose">Purpose</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status.name"><span jhiTranslate="hrApp.workEffort.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facility.name"><span jhiTranslate="hrApp.workEffort.facility">Facility</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shelfListUom.name"><span jhiTranslate="hrApp.workEffort.shelfListUom">Shelf List Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productCategory.name"><span jhiTranslate="hrApp.workEffort.productCategory">Product Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productStore.name"><span jhiTranslate="hrApp.workEffort.productStore">Product Store</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let workEffort of workEfforts ;trackBy: trackId">
+                    <td><a [routerLink]="['/work-effort', workEffort.id, 'view']">{{ workEffort.id }}</a></td>
+                    <td>{{ workEffort.name }}</td>
+                    <td>{{ workEffort.description }}</td>
+                    <td>{{ workEffort.code }}</td>
+                    <td>{{ workEffort.batchSize }}</td>
+                    <td>{{ workEffort.minYieldRange }}</td>
+                    <td>{{ workEffort.maxYieldRange }}</td>
+                    <td>{{ workEffort.percentComplete }}</td>
+                    <td>{{ workEffort.validationType }}</td>
+                    <td>{{ workEffort.shelfLife }}</td>
+                    <td>{{ workEffort.outputQty }}</td>
+                    <td>
+                        <div *ngIf="workEffort.product">
+                            <a [routerLink]="['/product', workEffort.product?.id, 'view']" >{{ workEffort.product?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffort.ksm">
+                            <a [routerLink]="['/product', workEffort.ksm?.id, 'view']" >{{ workEffort.ksm?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffort.type">
+                            <a [routerLink]="['/work-effort-type', workEffort.type?.id, 'view']" >{{ workEffort.type?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffort.purpose">
+                            <a [routerLink]="['/work-effort-purpose', workEffort.purpose?.id, 'view']" >{{ workEffort.purpose?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffort.status">
+                            <a [routerLink]="['/status', workEffort.status?.id, 'view']" >{{ workEffort.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffort.facility">
+                            <a [routerLink]="['/facility', workEffort.facility?.id, 'view']" >{{ workEffort.facility?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffort.shelfListUom">
+                            <a [routerLink]="['/uom', workEffort.shelfListUom?.id, 'view']" >{{ workEffort.shelfListUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffort.productCategory">
+                            <a [routerLink]="['/product-category', workEffort.productCategory?.id, 'view']" >{{ workEffort.productCategory?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffort.productStore">
+                            <a [routerLink]="['/product-store', workEffort.productStore?.id, 'view']" >{{ workEffort.productStore?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/work-effort', workEffort.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/work-effort', workEffort.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(workEffort)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="workEfforts && workEfforts.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

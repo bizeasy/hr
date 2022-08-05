@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emplLeave">
+            <h2><span jhiTranslate="hrApp.emplLeave.detail.title">Empl Leave</span> {{ emplLeave.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.emplLeave.description">Description</span></dt>
+                <dd>
+                    <span>{{ emplLeave.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplLeave.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ emplLeave.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplLeave.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ emplLeave.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplLeave.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="emplLeave.employee">
+                        <a [routerLink]="['/party', emplLeave.employee?.id, 'view']">{{ emplLeave.employee?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplLeave.approver">Approver</span></dt>
+                <dd>
+                    <div *ngIf="emplLeave.approver">
+                        <a [routerLink]="['/party', emplLeave.approver?.id, 'view']">{{ emplLeave.approver?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplLeave.leaveType">Leave Type</span></dt>
+                <dd>
+                    <div *ngIf="emplLeave.leaveType">
+                        <a [routerLink]="['/empl-leave-type', emplLeave.leaveType?.id, 'view']">{{ emplLeave.leaveType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplLeave.reason">Reason</span></dt>
+                <dd>
+                    <div *ngIf="emplLeave.reason">
+                        <a [routerLink]="['/empl-leave-reason-type', emplLeave.reason?.id, 'view']">{{ emplLeave.reason?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplLeave.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="emplLeave.status">
+                        <a [routerLink]="['/status', emplLeave.status?.id, 'view']">{{ emplLeave.status?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empl-leave', emplLeave.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

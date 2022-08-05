@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="salesChannel">
+            <h2><span jhiTranslate="hrApp.salesChannel.detail.title">Sales Channel</span> {{ salesChannel.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.salesChannel.name">Name</span></dt>
+                <dd>
+                    <span>{{ salesChannel.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.salesChannel.description">Description</span></dt>
+                <dd>
+                    <span>{{ salesChannel.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.salesChannel.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ salesChannel.sequenceNo }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sales-channel', salesChannel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,277 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-inventory-item-heading" jhiTranslate="hrApp.inventoryItem.home.createOrEditLabel">Create or edit a Inventory Item</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.receivedDate" for="field_receivedDate">Received Date</label>
+                    <div class="d-flex">
+                        <input id="field_receivedDate" type="datetime-local" class="form-control" name="receivedDate" formControlName="receivedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.manufacturedDate" for="field_manufacturedDate">Manufactured Date</label>
+                    <div class="d-flex">
+                        <input id="field_manufacturedDate" type="datetime-local" class="form-control" name="manufacturedDate" formControlName="manufacturedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.expiryDate" for="field_expiryDate">Expiry Date</label>
+                    <div class="d-flex">
+                        <input id="field_expiryDate" type="datetime-local" class="form-control" name="expiryDate" formControlName="expiryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.retestDate" for="field_retestDate">Retest Date</label>
+                    <div class="d-flex">
+                        <input id="field_retestDate" type="datetime-local" class="form-control" name="retestDate" formControlName="retestDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.containerId" for="field_containerId">Container Id</label>
+                    <input type="text" class="form-control" name="containerId" id="field_containerId"
+                           formControlName="containerId"/>
+                    <div *ngIf="editForm.get('containerId')!.invalid && (editForm.get('containerId')!.dirty || editForm.get('containerId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('containerId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.batchNo" for="field_batchNo">Batch No</label>
+                    <input type="text" class="form-control" name="batchNo" id="field_batchNo"
+                           formControlName="batchNo"/>
+                    <div *ngIf="editForm.get('batchNo')!.invalid && (editForm.get('batchNo')!.dirty || editForm.get('batchNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('batchNo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.mfgBatchNo" for="field_mfgBatchNo">Mfg Batch No</label>
+                    <input type="text" class="form-control" name="mfgBatchNo" id="field_mfgBatchNo"
+                           formControlName="mfgBatchNo"/>
+                    <div *ngIf="editForm.get('mfgBatchNo')!.invalid && (editForm.get('mfgBatchNo')!.dirty || editForm.get('mfgBatchNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mfgBatchNo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.lotNoStr" for="field_lotNoStr">Lot No Str</label>
+                    <input type="text" class="form-control" name="lotNoStr" id="field_lotNoStr"
+                           formControlName="lotNoStr"/>
+                    <div *ngIf="editForm.get('lotNoStr')!.invalid && (editForm.get('lotNoStr')!.dirty || editForm.get('lotNoStr')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lotNoStr')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.binNumber" for="field_binNumber">Bin Number</label>
+                    <input type="text" class="form-control" name="binNumber" id="field_binNumber"
+                           formControlName="binNumber"/>
+                    <div *ngIf="editForm.get('binNumber')!.invalid && (editForm.get('binNumber')!.dirty || editForm.get('binNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('binNumber')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                    <div *ngIf="editForm.get('comments')!.invalid && (editForm.get('comments')!.dirty || editForm.get('comments')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('comments')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.quantityOnHandTotal" for="field_quantityOnHandTotal">Quantity On Hand Total</label>
+                    <input type="number" class="form-control" name="quantityOnHandTotal" id="field_quantityOnHandTotal"
+                           formControlName="quantityOnHandTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.availableToPromiseTotal" for="field_availableToPromiseTotal">Available To Promise Total</label>
+                    <input type="number" class="form-control" name="availableToPromiseTotal" id="field_availableToPromiseTotal"
+                           formControlName="availableToPromiseTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.accountingQuantityTotal" for="field_accountingQuantityTotal">Accounting Quantity Total</label>
+                    <input type="number" class="form-control" name="accountingQuantityTotal" id="field_accountingQuantityTotal"
+                           formControlName="accountingQuantityTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.oldQuantityOnHand" for="field_oldQuantityOnHand">Old Quantity On Hand</label>
+                    <input type="number" class="form-control" name="oldQuantityOnHand" id="field_oldQuantityOnHand"
+                           formControlName="oldQuantityOnHand"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.oldAvailableToPromise" for="field_oldAvailableToPromise">Old Available To Promise</label>
+                    <input type="number" class="form-control" name="oldAvailableToPromise" id="field_oldAvailableToPromise"
+                           formControlName="oldAvailableToPromise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.serialNumber" for="field_serialNumber">Serial Number</label>
+                    <input type="text" class="form-control" name="serialNumber" id="field_serialNumber"
+                           formControlName="serialNumber"/>
+                    <div *ngIf="editForm.get('serialNumber')!.invalid && (editForm.get('serialNumber')!.dirty || editForm.get('serialNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serialNumber')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.softIdentifier" for="field_softIdentifier">Soft Identifier</label>
+                    <input type="text" class="form-control" name="softIdentifier" id="field_softIdentifier"
+                           formControlName="softIdentifier"/>
+                    <div *ngIf="editForm.get('softIdentifier')!.invalid && (editForm.get('softIdentifier')!.dirty || editForm.get('softIdentifier')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('softIdentifier')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.activationNumber" for="field_activationNumber">Activation Number</label>
+                    <input type="text" class="form-control" name="activationNumber" id="field_activationNumber"
+                           formControlName="activationNumber"/>
+                    <div *ngIf="editForm.get('activationNumber')!.invalid && (editForm.get('activationNumber')!.dirty || editForm.get('activationNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('activationNumber')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.activationValidTrue" for="field_activationValidTrue">Activation Valid True</label>
+                    <div class="d-flex">
+                        <input id="field_activationValidTrue" type="datetime-local" class="form-control" name="activationValidTrue" formControlName="activationValidTrue" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.unitCost" for="field_unitCost">Unit Cost</label>
+                    <input type="number" class="form-control" name="unitCost" id="field_unitCost"
+                           formControlName="unitCost"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.inventoryItemType" for="field_inventoryItemType">Inventory Item Type</label>
+                    <select class="form-control" id="field_inventoryItemType" name="inventoryItemType" formControlName="inventoryItemType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryItemTypeOption.id === editForm.get('inventoryItemType')!.value?.id ? editForm.get('inventoryItemType')!.value : inventoryItemTypeOption" *ngFor="let inventoryItemTypeOption of inventoryitemtypes; trackBy: trackById">{{ inventoryItemTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="product">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id === editForm.get('product')!.value?.id ? editForm.get('product')!.value : productOption" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.supplier" for="field_supplier">Supplier</label>
+                    <select class="form-control" id="field_supplier" name="supplier" formControlName="supplier">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('supplier')!.value?.id ? editForm.get('supplier')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.organisationName }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.ownerParty" for="field_ownerParty">Owner Party</label>
+                    <select class="form-control" id="field_ownerParty" name="ownerParty" formControlName="ownerParty">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('ownerParty')!.value?.id ? editForm.get('ownerParty')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.facility" for="field_facility">Facility</label>
+                    <select class="form-control" id="field_facility" name="facility" formControlName="facility">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facilityOption.id === editForm.get('facility')!.value?.id ? editForm.get('facility')!.value : facilityOption" *ngFor="let facilityOption of facilities; trackBy: trackById">{{ facilityOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.uom" for="field_uom">Uom</label>
+                    <select class="form-control" id="field_uom" name="uom" formControlName="uom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('uom')!.value?.id ? editForm.get('uom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.currencyUom" for="field_currencyUom">Currency Uom</label>
+                    <select class="form-control" id="field_currencyUom" name="currencyUom" formControlName="currencyUom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('currencyUom')!.value?.id ? editForm.get('currencyUom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItem.lot" for="field_lot">Lot</label>
+                    <select class="form-control" id="field_lot" name="lot" formControlName="lot">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lotOption.id === editForm.get('lot')!.value?.id ? editForm.get('lot')!.value : lotOption" *ngFor="let lotOption of lots; trackBy: trackById">{{ lotOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

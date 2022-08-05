@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Payment.
+    -->
+    <changeSet id="20220805150849-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="payment_type_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_payment_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="payment_method_type_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_payment_method_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_method_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+        <addForeignKeyConstraint baseColumnNames="payment_method_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_payment_method_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_method"/>
+
+        <addForeignKeyConstraint baseColumnNames="payment_gateway_response_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_payment_gateway_response_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_gateway_response"/>
+
+        <addForeignKeyConstraint baseColumnNames="party_id_from_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_party_id_from_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="party_id_to_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_party_id_to_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="role_type_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_role_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="role_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="currency_uom_id"
+                                 baseTableName="payment"
+                                 constraintName="fk_payment_currency_uom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+    </changeSet>
+</databaseChangeLog>

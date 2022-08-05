@@ -1,0 +1,29 @@
+{
+  "name": "Deduction",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "deductionType",
+      "otherEntityRelationshipName": "deduction",
+      "relationshipName": "type",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805161449",
+  "entityTableName": "deduction",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

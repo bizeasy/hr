@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "partyClassification": {
+      "home": {
+        "title": "PartyClassifications",
+        "createLabel": "नया Party Classification बनाएँ",
+        "createOrEditLabel": "Party Classification बनाएँ या संपादित करें",
+        "notFound": "No Party Classifications found"
+      },
+      "created": "एक नया Party Classification [identifier: {{ param }}] तैयार है",
+      "updated": "एक Party Classification [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Party Classification [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Party Classification [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Party Classification"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "party": "Party",
+      "classificationGroup": "Classification Group"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-custom-time-period-heading" jhiTranslate="hrApp.customTimePeriod.home.createOrEditLabel">Create or edit a Custom Time Period</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.customTimePeriod.fromDate" for="field_fromDate">From Date</label>
+                    <div class="d-flex">
+                        <input id="field_fromDate" type="datetime-local" class="form-control" name="fromDate" formControlName="fromDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.customTimePeriod.thruDate" for="field_thruDate">Thru Date</label>
+                    <div class="d-flex">
+                        <input id="field_thruDate" type="datetime-local" class="form-control" name="thruDate" formControlName="thruDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.customTimePeriod.isClosed" for="field_isClosed">Is Closed</label>
+                    <input type="checkbox" class="form-control" name="isClosed" id="field_isClosed"
+                           formControlName="isClosed"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.customTimePeriod.periodName" for="field_periodName">Period Name</label>
+                    <input type="text" class="form-control" name="periodName" id="field_periodName"
+                           formControlName="periodName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.customTimePeriod.periodNum" for="field_periodNum">Period Num</label>
+                    <input type="number" class="form-control" name="periodNum" id="field_periodNum"
+                           formControlName="periodNum"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.customTimePeriod.periodType" for="field_periodType">Period Type</label>
+                    <select class="form-control" id="field_periodType" name="periodType" formControlName="periodType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="periodTypeOption.id === editForm.get('periodType')!.value?.id ? editForm.get('periodType')!.value : periodTypeOption" *ngFor="let periodTypeOption of periodtypes; trackBy: trackById">{{ periodTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.customTimePeriod.organisationParty" for="field_organisationParty">Organisation Party</label>
+                    <select class="form-control" id="field_organisationParty" name="organisationParty" formControlName="organisationParty">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('organisationParty')!.value?.id ? editForm.get('organisationParty')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.customTimePeriod.parent" for="field_parent">Parent</label>
+                    <select class="form-control" id="field_parent" name="parent" formControlName="parent">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customTimePeriodOption.id === editForm.get('parent')!.value?.id ? editForm.get('parent')!.value : customTimePeriodOption" *ngFor="let customTimePeriodOption of customtimeperiods; trackBy: trackById">{{ customTimePeriodOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "holidayType": {
+      "home": {
+        "title": "HolidayTypes",
+        "createLabel": "नया Holiday Type बनाएँ",
+        "createOrEditLabel": "Holiday Type बनाएँ या संपादित करें",
+        "notFound": "No Holiday Types found"
+      },
+      "created": "एक नया Holiday Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Holiday Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Holiday Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Holiday Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Holiday Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

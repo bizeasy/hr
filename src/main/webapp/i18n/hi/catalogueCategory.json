@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "catalogueCategory": {
+      "home": {
+        "title": "CatalogueCategories",
+        "createLabel": "नया Catalogue Category बनाएँ",
+        "createOrEditLabel": "Catalogue Category बनाएँ या संपादित करें",
+        "notFound": "No Catalogue Categories found"
+      },
+      "created": "एक नया Catalogue Category [identifier: {{ param }}] तैयार है",
+      "updated": "एक Catalogue Category [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Catalogue Category [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Catalogue Category [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Catalogue Category"
+      },
+      "sequenceNo": "Sequence No",
+      "catalogue": "Catalogue",
+      "productCategory": "Product Category",
+      "catalogueCategoryType": "Catalogue Category Type"
+    }
+  }
+}

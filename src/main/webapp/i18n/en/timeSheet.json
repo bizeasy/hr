@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "timeSheet": {
+      "home": {
+        "title": "Time Sheets",
+        "createLabel": "Create a new Time Sheet",
+        "createOrEditLabel": "Create or edit a Time Sheet",
+        "notFound": "No Time Sheets found"
+      },
+      "created": "A new Time Sheet is created with identifier {{ param }}",
+      "updated": "A Time Sheet is updated with identifier {{ param }}",
+      "deleted": "A Time Sheet is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Time Sheet {{ id }}?"
+      },
+      "detail": {
+        "title": "Time Sheet"
+      },
+      "overTimeDays": "Over Time Days",
+      "leaves": "Leaves",
+      "unappliedLeaves": "Unapplied Leaves",
+      "halfDays": "Half Days",
+      "totalWorkingHours": "Total Working Hours",
+      "timePeriod": "Time Period"
+    }
+  }
+}

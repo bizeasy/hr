@@ -1,0 +1,131 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.inventoryItemDelegate.home.title">Inventory Item Delegates</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventory-item-delegate" [routerLink]="['/inventory-item-delegate/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.inventoryItemDelegate.home.createLabel">
+            Create a new Inventory Item Delegate
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="inventoryItemDelegates?.length === 0">
+        <span jhiTranslate="hrApp.inventoryItemDelegate.home.notFound">No inventoryItemDelegates found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="inventoryItemDelegates && inventoryItemDelegates.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sequenceNo"><span jhiTranslate="hrApp.inventoryItemDelegate.sequenceNo">Sequence No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="effectiveDate"><span jhiTranslate="hrApp.inventoryItemDelegate.effectiveDate">Effective Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantityOnHandDiff"><span jhiTranslate="hrApp.inventoryItemDelegate.quantityOnHandDiff">Quantity On Hand Diff</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="availableToPromiseDiff"><span jhiTranslate="hrApp.inventoryItemDelegate.availableToPromiseDiff">Available To Promise Diff</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="accountingQuantityDiff"><span jhiTranslate="hrApp.inventoryItemDelegate.accountingQuantityDiff">Accounting Quantity Diff</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unitCost"><span jhiTranslate="hrApp.inventoryItemDelegate.unitCost">Unit Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remarks"><span jhiTranslate="hrApp.inventoryItemDelegate.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoice.id"><span jhiTranslate="hrApp.inventoryItemDelegate.invoice">Invoice</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoiceItem.id"><span jhiTranslate="hrApp.inventoryItemDelegate.invoiceItem">Invoice Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="order.id"><span jhiTranslate="hrApp.inventoryItemDelegate.order">Order</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderItem.id"><span jhiTranslate="hrApp.inventoryItemDelegate.orderItem">Order Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="itemIssuance.id"><span jhiTranslate="hrApp.inventoryItemDelegate.itemIssuance">Item Issuance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventoryTransfer.id"><span jhiTranslate="hrApp.inventoryItemDelegate.inventoryTransfer">Inventory Transfer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventoryItemVariance.id"><span jhiTranslate="hrApp.inventoryItemDelegate.inventoryItemVariance">Inventory Item Variance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventoryItem.id"><span jhiTranslate="hrApp.inventoryItemDelegate.inventoryItem">Inventory Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventoryItemDelegate of inventoryItemDelegates ;trackBy: trackId">
+                    <td><a [routerLink]="['/inventory-item-delegate', inventoryItemDelegate.id, 'view']">{{ inventoryItemDelegate.id }}</a></td>
+                    <td>{{ inventoryItemDelegate.sequenceNo }}</td>
+                    <td>{{ inventoryItemDelegate.effectiveDate | date:'medium' }}</td>
+                    <td>{{ inventoryItemDelegate.quantityOnHandDiff }}</td>
+                    <td>{{ inventoryItemDelegate.availableToPromiseDiff }}</td>
+                    <td>{{ inventoryItemDelegate.accountingQuantityDiff }}</td>
+                    <td>{{ inventoryItemDelegate.unitCost }}</td>
+                    <td>{{ inventoryItemDelegate.remarks }}</td>
+                    <td>
+                        <div *ngIf="inventoryItemDelegate.invoice">
+                            <a [routerLink]="['/invoice', inventoryItemDelegate.invoice?.id, 'view']" >{{ inventoryItemDelegate.invoice?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItemDelegate.invoiceItem">
+                            <a [routerLink]="['/invoice-item', inventoryItemDelegate.invoiceItem?.id, 'view']" >{{ inventoryItemDelegate.invoiceItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItemDelegate.order">
+                            <a [routerLink]="['/order', inventoryItemDelegate.order?.id, 'view']" >{{ inventoryItemDelegate.order?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItemDelegate.orderItem">
+                            <a [routerLink]="['/order-item', inventoryItemDelegate.orderItem?.id, 'view']" >{{ inventoryItemDelegate.orderItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItemDelegate.itemIssuance">
+                            <a [routerLink]="['/item-issuance', inventoryItemDelegate.itemIssuance?.id, 'view']" >{{ inventoryItemDelegate.itemIssuance?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItemDelegate.inventoryTransfer">
+                            <a [routerLink]="['/inventory-transfer', inventoryItemDelegate.inventoryTransfer?.id, 'view']" >{{ inventoryItemDelegate.inventoryTransfer?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItemDelegate.inventoryItemVariance">
+                            <a [routerLink]="['/inventory-item-variance', inventoryItemDelegate.inventoryItemVariance?.id, 'view']" >{{ inventoryItemDelegate.inventoryItemVariance?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItemDelegate.inventoryItem">
+                            <a [routerLink]="['/inventory-item', inventoryItemDelegate.inventoryItem?.id, 'view']" >{{ inventoryItemDelegate.inventoryItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/inventory-item-delegate', inventoryItemDelegate.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/inventory-item-delegate', inventoryItemDelegate.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(inventoryItemDelegate)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="inventoryItemDelegates && inventoryItemDelegates.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

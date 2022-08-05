@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "uom": {
+      "home": {
+        "title": "Uoms",
+        "createLabel": "नया Uom बनाएँ",
+        "createOrEditLabel": "Uom बनाएँ या संपादित करें",
+        "notFound": "No Uoms found"
+      },
+      "created": "एक नया Uom [identifier: {{ param }}] तैयार है",
+      "updated": "एक Uom [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Uom [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Uom [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Uom"
+      },
+      "name": "Name",
+      "description": "Description",
+      "sequenceNo": "Sequence No",
+      "abbreviation": "Abbreviation",
+      "uomType": "Uom Type"
+    }
+  }
+}

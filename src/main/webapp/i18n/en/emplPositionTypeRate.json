@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "emplPositionTypeRate": {
+      "home": {
+        "title": "Empl Position Type Rates",
+        "createLabel": "Create a new Empl Position Type Rate",
+        "createOrEditLabel": "Create or edit a Empl Position Type Rate",
+        "notFound": "No Empl Position Type Rates found"
+      },
+      "created": "A new Empl Position Type Rate is created with identifier {{ param }}",
+      "updated": "A Empl Position Type Rate is updated with identifier {{ param }}",
+      "deleted": "A Empl Position Type Rate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empl Position Type Rate {{ id }}?"
+      },
+      "detail": {
+        "title": "Empl Position Type Rate"
+      },
+      "rateAmount": "Rate Amount",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "rateType": "Rate Type",
+      "emplPositionType": "Empl Position Type",
+      "payGrade": "Pay Grade"
+    }
+  }
+}

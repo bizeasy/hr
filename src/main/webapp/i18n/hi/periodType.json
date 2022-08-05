@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "periodType": {
+      "home": {
+        "title": "PeriodTypes",
+        "createLabel": "नया Period Type बनाएँ",
+        "createOrEditLabel": "Period Type बनाएँ या संपादित करें",
+        "notFound": "No Period Types found"
+      },
+      "created": "एक नया Period Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Period Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Period Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Period Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Period Type"
+      },
+      "name": "Name",
+      "description": "Description",
+      "periodLength": "Period Length",
+      "uom": "Uom"
+    }
+  }
+}

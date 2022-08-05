@@ -1,0 +1,31 @@
+{
+  "hrApp": {
+    "orderTerm": {
+      "home": {
+        "title": "OrderTerms",
+        "createLabel": "नया Order Term बनाएँ",
+        "createOrEditLabel": "Order Term बनाएँ या संपादित करें",
+        "notFound": "No Order Terms found"
+      },
+      "created": "एक नया Order Term [identifier: {{ param }}] तैयार है",
+      "updated": "एक Order Term [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Order Term [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Order Term [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Order Term"
+      },
+      "sequenceNo": "Sequence No",
+      "name": "Name",
+      "detail": "Detail",
+      "termValue": "Term Value",
+      "termDays": "Term Days",
+      "textValue": "Text Value",
+      "order": "Order",
+      "item": "Item",
+      "term": "Term",
+      "type": "Type"
+    }
+  }
+}

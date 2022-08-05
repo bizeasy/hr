@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "userGroupMember": {
+      "home": {
+        "title": "UserGroupMembers",
+        "createLabel": "नया User Group Member बनाएँ",
+        "createOrEditLabel": "User Group Member बनाएँ या संपादित करें",
+        "notFound": "No User Group Members found"
+      },
+      "created": "एक नया User Group Member [identifier: {{ param }}] तैयार है",
+      "updated": "एक User Group Member [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "User Group Member [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "User Group Member [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "User Group Member"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "userGroup": "User Group",
+      "user": "User"
+    }
+  }
+}

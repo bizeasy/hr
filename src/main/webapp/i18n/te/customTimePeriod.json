@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "customTimePeriod": {
+      "home": {
+        "title": "Custom Time Periods",
+        "createLabel": "కొత్త Custom Time Period  సృష్టించండి",
+        "createOrEditLabel": "Custom Time Period సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Custom Time Periods found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Custom Time Period సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Custom Time Period సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Custom Time Period తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Custom Time Period {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Custom Time Period"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "isClosed": "Is Closed",
+      "periodName": "Period Name",
+      "periodNum": "Period Num",
+      "periodType": "Period Type",
+      "organisationParty": "Organisation Party",
+      "parent": "Parent"
+    }
+  }
+}

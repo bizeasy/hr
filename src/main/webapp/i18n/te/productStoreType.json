@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productStoreType": {
+      "home": {
+        "title": "Product Store Types",
+        "createLabel": "కొత్త Product Store Type  సృష్టించండి",
+        "createOrEditLabel": "Product Store Type సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Product Store Types found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Product Store Type సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Product Store Type సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Product Store Type తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Product Store Type {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Product Store Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

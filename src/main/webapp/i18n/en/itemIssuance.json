@@ -1,0 +1,36 @@
+{
+  "hrApp": {
+    "itemIssuance": {
+      "home": {
+        "title": "Item Issuances",
+        "createLabel": "Create a new Item Issuance",
+        "createOrEditLabel": "Create or edit a Item Issuance",
+        "notFound": "No Item Issuances found"
+      },
+      "created": "A new Item Issuance is created with identifier {{ param }}",
+      "updated": "A Item Issuance is updated with identifier {{ param }}",
+      "deleted": "A Item Issuance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Item Issuance {{ id }}?"
+      },
+      "detail": {
+        "title": "Item Issuance"
+      },
+      "message": "Message",
+      "issuedDate": "Issued Date",
+      "issuedBy": "Issued By",
+      "quantity": "Quantity",
+      "cancelQuantity": "Cancel Quantity",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "equipmentId": "Equipment Id",
+      "order": "Order",
+      "orderItem": "Order Item",
+      "inventoryItem": "Inventory Item",
+      "issuedByUserLogin": "Issued By User Login",
+      "varianceReason": "Variance Reason",
+      "facility": "Facility",
+      "status": "Status"
+    }
+  }
+}

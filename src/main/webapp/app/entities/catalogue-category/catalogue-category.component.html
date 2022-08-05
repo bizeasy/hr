@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.catalogueCategory.home.title">Catalogue Categories</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-catalogue-category" [routerLink]="['/catalogue-category/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.catalogueCategory.home.createLabel">
+            Create a new Catalogue Category
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="catalogueCategories?.length === 0">
+        <span jhiTranslate="hrApp.catalogueCategory.home.notFound">No catalogueCategories found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="catalogueCategories && catalogueCategories.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sequenceNo"><span jhiTranslate="hrApp.catalogueCategory.sequenceNo">Sequence No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="catalogue.name"><span jhiTranslate="hrApp.catalogueCategory.catalogue">Catalogue</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productCategory.name"><span jhiTranslate="hrApp.catalogueCategory.productCategory">Product Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="catalogueCategoryType.name"><span jhiTranslate="hrApp.catalogueCategory.catalogueCategoryType">Catalogue Category Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let catalogueCategory of catalogueCategories ;trackBy: trackId">
+                    <td><a [routerLink]="['/catalogue-category', catalogueCategory.id, 'view']">{{ catalogueCategory.id }}</a></td>
+                    <td>{{ catalogueCategory.sequenceNo }}</td>
+                    <td>
+                        <div *ngIf="catalogueCategory.catalogue">
+                            <a [routerLink]="['/catalogue', catalogueCategory.catalogue?.id, 'view']" >{{ catalogueCategory.catalogue?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="catalogueCategory.productCategory">
+                            <a [routerLink]="['/product-category', catalogueCategory.productCategory?.id, 'view']" >{{ catalogueCategory.productCategory?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="catalogueCategory.catalogueCategoryType">
+                            <a [routerLink]="['/catalogue-category-type', catalogueCategory.catalogueCategoryType?.id, 'view']" >{{ catalogueCategory.catalogueCategoryType?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/catalogue-category', catalogueCategory.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/catalogue-category', catalogueCategory.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(catalogueCategory)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="catalogueCategories && catalogueCategories.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

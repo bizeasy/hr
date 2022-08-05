@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "employmentApp": {
+      "home": {
+        "title": "Employment Apps",
+        "createLabel": "కొత్త Employment App  సృష్టించండి",
+        "createOrEditLabel": "Employment App సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Employment Apps found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Employment App సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Employment App సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Employment App తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Employment App {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Employment App"
+      },
+      "applicationDate": "Application Date",
+      "emplPosition": "Empl Position",
+      "status": "Status",
+      "source": "Source",
+      "applyingParty": "Applying Party",
+      "referredByParty": "Referred By Party",
+      "approverParty": "Approver Party",
+      "jobRequisition": "Job Requisition"
+    }
+  }
+}

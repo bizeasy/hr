@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emplPositionTypeRate">
+            <h2><span jhiTranslate="hrApp.emplPositionTypeRate.detail.title">Empl Position Type Rate</span> {{ emplPositionTypeRate.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.emplPositionTypeRate.rateAmount">Rate Amount</span></dt>
+                <dd>
+                    <span>{{ emplPositionTypeRate.rateAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionTypeRate.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ emplPositionTypeRate.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionTypeRate.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ emplPositionTypeRate.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionTypeRate.rateType">Rate Type</span></dt>
+                <dd>
+                    <div *ngIf="emplPositionTypeRate.rateType">
+                        <a [routerLink]="['/rate-type', emplPositionTypeRate.rateType?.id, 'view']">{{ emplPositionTypeRate.rateType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionTypeRate.emplPositionType">Empl Position Type</span></dt>
+                <dd>
+                    <div *ngIf="emplPositionTypeRate.emplPositionType">
+                        <a [routerLink]="['/empl-position-type', emplPositionTypeRate.emplPositionType?.id, 'view']">{{ emplPositionTypeRate.emplPositionType?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionTypeRate.payGrade">Pay Grade</span></dt>
+                <dd>
+                    <div *ngIf="emplPositionTypeRate.payGrade">
+                        <a [routerLink]="['/pay-grade', emplPositionTypeRate.payGrade?.id, 'view']">{{ emplPositionTypeRate.payGrade?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empl-position-type-rate', emplPositionTypeRate.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

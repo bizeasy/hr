@@ -1,0 +1,36 @@
+{
+  "name": "WorkEffortStatus",
+  "fields": [
+    {
+      "fieldName": "reason",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "workEffort",
+      "otherEntityRelationshipName": "workEffortStatus",
+      "relationshipName": "workEffort",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "workEffortStatus",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805153049",
+  "entityTableName": "work_effort_status",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emplPosition">
+            <h2><span jhiTranslate="hrApp.emplPosition.detail.title">Empl Position</span> {{ emplPosition.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.emplPosition.maxBudget">Max Budget</span></dt>
+                <dd>
+                    <span>{{ emplPosition.maxBudget }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.minBudget">Min Budget</span></dt>
+                <dd>
+                    <span>{{ emplPosition.minBudget }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.estimatedFromDate">Estimated From Date</span></dt>
+                <dd>
+                    <span>{{ emplPosition.estimatedFromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.estimatedThruDate">Estimated Thru Date</span></dt>
+                <dd>
+                    <span>{{ emplPosition.estimatedThruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.paidJob">Paid Job</span></dt>
+                <dd>
+                    <span>{{ emplPosition.paidJob }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.isFulltime">Is Fulltime</span></dt>
+                <dd>
+                    <span>{{ emplPosition.isFulltime }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.isTemporary">Is Temporary</span></dt>
+                <dd>
+                    <span>{{ emplPosition.isTemporary }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.actualFromDate">Actual From Date</span></dt>
+                <dd>
+                    <span>{{ emplPosition.actualFromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.actualThruDate">Actual Thru Date</span></dt>
+                <dd>
+                    <span>{{ emplPosition.actualThruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="emplPosition.type">
+                        <a [routerLink]="['/empl-position-type', emplPosition.type?.id, 'view']">{{ emplPosition.type?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.party">Party</span></dt>
+                <dd>
+                    <div *ngIf="emplPosition.party">
+                        <a [routerLink]="['/party', emplPosition.party?.id, 'view']">{{ emplPosition.party?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPosition.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="emplPosition.status">
+                        <a [routerLink]="['/status', emplPosition.status?.id, 'view']">{{ emplPosition.status?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empl-position', emplPosition.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

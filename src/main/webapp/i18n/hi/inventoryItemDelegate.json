@@ -1,0 +1,36 @@
+{
+  "hrApp": {
+    "inventoryItemDelegate": {
+      "home": {
+        "title": "InventoryItemDelegates",
+        "createLabel": "नया Inventory Item Delegate बनाएँ",
+        "createOrEditLabel": "Inventory Item Delegate बनाएँ या संपादित करें",
+        "notFound": "No Inventory Item Delegates found"
+      },
+      "created": "एक नया Inventory Item Delegate [identifier: {{ param }}] तैयार है",
+      "updated": "एक Inventory Item Delegate [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Inventory Item Delegate [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Inventory Item Delegate [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Inventory Item Delegate"
+      },
+      "sequenceNo": "Sequence No",
+      "effectiveDate": "Effective Date",
+      "quantityOnHandDiff": "Quantity On Hand Diff",
+      "availableToPromiseDiff": "Available To Promise Diff",
+      "accountingQuantityDiff": "Accounting Quantity Diff",
+      "unitCost": "Unit Cost",
+      "remarks": "Remarks",
+      "invoice": "Invoice",
+      "invoiceItem": "Invoice Item",
+      "order": "Order",
+      "orderItem": "Order Item",
+      "itemIssuance": "Item Issuance",
+      "inventoryTransfer": "Inventory Transfer",
+      "inventoryItemVariance": "Inventory Item Variance",
+      "inventoryItem": "Inventory Item"
+    }
+  }
+}

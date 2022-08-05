@@ -1,0 +1,38 @@
+{
+  "hrApp": {
+    "communicationEvent": {
+      "home": {
+        "title": "Communication Events",
+        "createLabel": "కొత్త Communication Event  సృష్టించండి",
+        "createOrEditLabel": "Communication Event సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Communication Events found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Communication Event సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Communication Event సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Communication Event తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Communication Event {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Communication Event"
+      },
+      "entryDate": "Entry Date",
+      "subject": "Subject",
+      "content": "Content",
+      "fromString": "From String",
+      "toString": "To String",
+      "ccString": "Cc String",
+      "message": "Message",
+      "dateStarted": "Date Started",
+      "dateEnded": "Date Ended",
+      "info": "Info",
+      "communicationEventType": "Communication Event Type",
+      "status": "Status",
+      "contactMechType": "Contact Mech Type",
+      "contactMechFrom": "Contact Mech From",
+      "contactMechTo": "Contact Mech To",
+      "fromParty": "From Party",
+      "toParty": "To Party"
+    }
+  }
+}

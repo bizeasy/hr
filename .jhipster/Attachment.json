@@ -1,0 +1,36 @@
+{
+  "name": "Attachment",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "fileAttachment",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "attachmentUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mimeType",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20220805135649",
+  "entityTableName": "attachment",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

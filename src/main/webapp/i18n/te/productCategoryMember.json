@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "productCategoryMember": {
+      "home": {
+        "title": "Product Category Members",
+        "createLabel": "కొత్త Product Category Member  సృష్టించండి",
+        "createOrEditLabel": "Product Category Member సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Product Category Members found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Product Category Member సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Product Category Member సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Product Category Member తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Product Category Member {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Product Category Member"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "sequenceNo": "Sequence No",
+      "product": "Product",
+      "productCategory": "Product Category"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "jobInterviewType": {
+      "home": {
+        "title": "JobInterviewTypes",
+        "createLabel": "नया Job Interview Type बनाएँ",
+        "createOrEditLabel": "Job Interview Type बनाएँ या संपादित करें",
+        "notFound": "No Job Interview Types found"
+      },
+      "created": "एक नया Job Interview Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Job Interview Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Job Interview Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Job Interview Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Job Interview Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

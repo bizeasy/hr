@@ -1,0 +1,125 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.postalAddress.home.title">Postal Addresses</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-postal-address" [routerLink]="['/postal-address/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.postalAddress.home.createLabel">
+            Create a new Postal Address
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="postalAddresses?.length === 0">
+        <span jhiTranslate="hrApp.postalAddress.home.notFound">No postalAddresses found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="postalAddresses && postalAddresses.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="toName"><span jhiTranslate="hrApp.postalAddress.toName">To Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address1"><span jhiTranslate="hrApp.postalAddress.address1">Address 1</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address2"><span jhiTranslate="hrApp.postalAddress.address2">Address 2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="city"><span jhiTranslate="hrApp.postalAddress.city">City</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="landmark"><span jhiTranslate="hrApp.postalAddress.landmark">Landmark</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="postalCode"><span jhiTranslate="hrApp.postalAddress.postalCode">Postal Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isDefault"><span jhiTranslate="hrApp.postalAddress.isDefault">Is Default</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customAddressType"><span jhiTranslate="hrApp.postalAddress.customAddressType">Custom Address Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="stateStr"><span jhiTranslate="hrApp.postalAddress.stateStr">State Str</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="countryStr"><span jhiTranslate="hrApp.postalAddress.countryStr">Country Str</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isIndianAddress"><span jhiTranslate="hrApp.postalAddress.isIndianAddress">Is Indian Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="note"><span jhiTranslate="hrApp.postalAddress.note">Note</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="directions"><span jhiTranslate="hrApp.postalAddress.directions">Directions</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="state.name"><span jhiTranslate="hrApp.postalAddress.state">State</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pincode.code"><span jhiTranslate="hrApp.postalAddress.pincode">Pincode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="country.name"><span jhiTranslate="hrApp.postalAddress.country">Country</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contactMech.id"><span jhiTranslate="hrApp.postalAddress.contactMech">Contact Mech</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="geoPoint.id"><span jhiTranslate="hrApp.postalAddress.geoPoint">Geo Point</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let postalAddress of postalAddresses ;trackBy: trackId">
+                    <td><a [routerLink]="['/postal-address', postalAddress.id, 'view']">{{ postalAddress.id }}</a></td>
+                    <td>{{ postalAddress.toName }}</td>
+                    <td>{{ postalAddress.address1 }}</td>
+                    <td>{{ postalAddress.address2 }}</td>
+                    <td>{{ postalAddress.city }}</td>
+                    <td>{{ postalAddress.landmark }}</td>
+                    <td>{{ postalAddress.postalCode }}</td>
+                    <td>{{ postalAddress.isDefault }}</td>
+                    <td>{{ postalAddress.customAddressType }}</td>
+                    <td>{{ postalAddress.stateStr }}</td>
+                    <td>{{ postalAddress.countryStr }}</td>
+                    <td>{{ postalAddress.isIndianAddress }}</td>
+                    <td>{{ postalAddress.note }}</td>
+                    <td>{{ postalAddress.directions }}</td>
+                    <td>
+                        <div *ngIf="postalAddress.state">
+                            <a [routerLink]="['/geo', postalAddress.state?.id, 'view']" >{{ postalAddress.state?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="postalAddress.pincode">
+                            <a [routerLink]="['/geo', postalAddress.pincode?.id, 'view']" >{{ postalAddress.pincode?.code }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="postalAddress.country">
+                            <a [routerLink]="['/geo', postalAddress.country?.id, 'view']" >{{ postalAddress.country?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="postalAddress.contactMech">
+                            <a [routerLink]="['/contact-mech', postalAddress.contactMech?.id, 'view']" >{{ postalAddress.contactMech?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="postalAddress.geoPoint">
+                            <a [routerLink]="['/geo-point', postalAddress.geoPoint?.id, 'view']" >{{ postalAddress.geoPoint?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/postal-address', postalAddress.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/postal-address', postalAddress.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(postalAddress)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="postalAddresses && postalAddresses.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Product.
+    -->
+    <changeSet id="20220805145849-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="product_type_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_product_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="quantity_uom_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_quantity_uom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+        <addForeignKeyConstraint baseColumnNames="weight_uom_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_weight_uom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+        <addForeignKeyConstraint baseColumnNames="size_uom_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_size_uom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+        <addForeignKeyConstraint baseColumnNames="uom_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_uom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+        <addForeignKeyConstraint baseColumnNames="primary_product_category_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_primary_product_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_category"/>
+
+        <addForeignKeyConstraint baseColumnNames="virtual_product_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_virtual_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
+        <addForeignKeyConstraint baseColumnNames="inventory_item_type_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_inventory_item_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inventory_item_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="tax_slab_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_tax_slab_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_slab"/>
+
+        <addForeignKeyConstraint baseColumnNames="shelf_life_uom_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product_shelf_life_uom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+    </changeSet>
+</databaseChangeLog>

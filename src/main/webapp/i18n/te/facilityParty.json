@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "facilityParty": {
+      "home": {
+        "title": "Facility Parties",
+        "createLabel": "కొత్త Facility Party  సృష్టించండి",
+        "createOrEditLabel": "Facility Party సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Facility Parties found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Facility Party సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Facility Party సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Facility Party తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Facility Party {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Facility Party"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "facility": "Facility",
+      "party": "Party",
+      "roleType": "Role Type"
+    }
+  }
+}

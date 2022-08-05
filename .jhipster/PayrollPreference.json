@@ -1,0 +1,82 @@
+{
+  "name": "PayrollPreference",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "percentage",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "flatAmount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ifscCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "branch",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "payrollPreference",
+      "relationshipName": "employee",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "deductionType",
+      "otherEntityRelationshipName": "payrollPreference",
+      "relationshipName": "deductionType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "paymentMethodType",
+      "otherEntityRelationshipName": "payrollPreference",
+      "relationshipName": "paymentMethodType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "periodType",
+      "otherEntityRelationshipName": "payrollPreference",
+      "relationshipName": "periodType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805161549",
+  "entityTableName": "payroll_preference",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

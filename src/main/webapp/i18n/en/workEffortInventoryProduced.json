@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "workEffortInventoryProduced": {
+      "home": {
+        "title": "Work Effort Inventory Produceds",
+        "createLabel": "Create a new Work Effort Inventory Produced",
+        "createOrEditLabel": "Create or edit a Work Effort Inventory Produced",
+        "notFound": "No Work Effort Inventory Produceds found"
+      },
+      "created": "A new Work Effort Inventory Produced is created with identifier {{ param }}",
+      "updated": "A Work Effort Inventory Produced is updated with identifier {{ param }}",
+      "deleted": "A Work Effort Inventory Produced is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Effort Inventory Produced {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Effort Inventory Produced"
+      },
+      "quantity": "Quantity",
+      "workEffort": "Work Effort",
+      "inventoryItem": "Inventory Item",
+      "status": "Status"
+    }
+  }
+}

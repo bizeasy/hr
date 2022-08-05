@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-order-term-heading" jhiTranslate="hrApp.orderTerm.home.createOrEditLabel">Create or edit a Order Term</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.sequenceNo" for="field_sequenceNo">Sequence No</label>
+                    <input type="number" class="form-control" name="sequenceNo" id="field_sequenceNo"
+                           formControlName="sequenceNo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.detail" for="field_detail">Detail</label>
+                    <input type="text" class="form-control" name="detail" id="field_detail"
+                           formControlName="detail"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.termValue" for="field_termValue">Term Value</label>
+                    <input type="number" class="form-control" name="termValue" id="field_termValue"
+                           formControlName="termValue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.termDays" for="field_termDays">Term Days</label>
+                    <input type="number" class="form-control" name="termDays" id="field_termDays"
+                           formControlName="termDays"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.textValue" for="field_textValue">Text Value</label>
+                    <input type="text" class="form-control" name="textValue" id="field_textValue"
+                           formControlName="textValue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="order">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderOption.id === editForm.get('order')!.value?.id ? editForm.get('order')!.value : orderOption" *ngFor="let orderOption of orders; trackBy: trackById">{{ orderOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.item" for="field_item">Item</label>
+                    <select class="form-control" id="field_item" name="item" formControlName="item">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderItemOption.id === editForm.get('item')!.value?.id ? editForm.get('item')!.value : orderItemOption" *ngFor="let orderItemOption of orderitems; trackBy: trackById">{{ orderItemOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.term" for="field_term">Term</label>
+                    <select class="form-control" id="field_term" name="term" formControlName="term">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="termOption.id === editForm.get('term')!.value?.id ? editForm.get('term')!.value : termOption" *ngFor="let termOption of terms; trackBy: trackById">{{ termOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderTerm.type" for="field_type">Type</label>
+                    <select class="form-control" id="field_type" name="type" formControlName="type">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderTermTypeOption.id === editForm.get('type')!.value?.id ? editForm.get('type')!.value : orderTermTypeOption" *ngFor="let orderTermTypeOption of ordertermtypes; trackBy: trackById">{{ orderTermTypeOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userGroupMember">
+            <h2><span jhiTranslate="hrApp.userGroupMember.detail.title">User Group Member</span> {{ userGroupMember.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.userGroupMember.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ userGroupMember.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.userGroupMember.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ userGroupMember.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.userGroupMember.userGroup">User Group</span></dt>
+                <dd>
+                    <div *ngIf="userGroupMember.userGroup">
+                        <a [routerLink]="['/user-group', userGroupMember.userGroup?.id, 'view']">{{ userGroupMember.userGroup?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.userGroupMember.user">User</span></dt>
+                <dd>
+                    {{ userGroupMember.user?.login }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-group-member', userGroupMember.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+{
+  "name": "FacilityParty",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facility",
+      "otherEntityRelationshipName": "facilityParty",
+      "relationshipName": "facility",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "facilityParty",
+      "relationshipName": "party",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "roleType",
+      "otherEntityRelationshipName": "facilityParty",
+      "relationshipName": "roleType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805141449",
+  "entityTableName": "facility_party",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

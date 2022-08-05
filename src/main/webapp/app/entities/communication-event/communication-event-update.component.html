@@ -1,0 +1,145 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-communication-event-heading" jhiTranslate="hrApp.communicationEvent.home.createOrEditLabel">Create or edit a Communication Event</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.entryDate" for="field_entryDate">Entry Date</label>
+                    <div class="d-flex">
+                        <input id="field_entryDate" type="datetime-local" class="form-control" name="entryDate" formControlName="entryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.subject" for="field_subject">Subject</label>
+                    <input type="text" class="form-control" name="subject" id="field_subject"
+                           formControlName="subject"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.content" for="field_content">Content</label>
+                    <input type="text" class="form-control" name="content" id="field_content"
+                           formControlName="content"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.fromString" for="field_fromString">From String</label>
+                    <input type="text" class="form-control" name="fromString" id="field_fromString"
+                           formControlName="fromString"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.toString" for="field_toString">To String</label>
+                    <input type="text" class="form-control" name="toString" id="field_toString"
+                           formControlName="toString"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.ccString" for="field_ccString">Cc String</label>
+                    <input type="text" class="form-control" name="ccString" id="field_ccString"
+                           formControlName="ccString"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.message" for="field_message">Message</label>
+                    <input type="text" class="form-control" name="message" id="field_message"
+                           formControlName="message"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.dateStarted" for="field_dateStarted">Date Started</label>
+                    <div class="d-flex">
+                        <input id="field_dateStarted" type="datetime-local" class="form-control" name="dateStarted" formControlName="dateStarted" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.dateEnded" for="field_dateEnded">Date Ended</label>
+                    <div class="d-flex">
+                        <input id="field_dateEnded" type="datetime-local" class="form-control" name="dateEnded" formControlName="dateEnded" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.info" for="field_info">Info</label>
+                    <textarea class="form-control" name="info" id="field_info"
+                              formControlName="info"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.communicationEventType" for="field_communicationEventType">Communication Event Type</label>
+                    <select class="form-control" id="field_communicationEventType" name="communicationEventType" formControlName="communicationEventType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="communicationEventTypeOption.id === editForm.get('communicationEventType')!.value?.id ? editForm.get('communicationEventType')!.value : communicationEventTypeOption" *ngFor="let communicationEventTypeOption of communicationeventtypes; trackBy: trackById">{{ communicationEventTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.contactMechType" for="field_contactMechType">Contact Mech Type</label>
+                    <select class="form-control" id="field_contactMechType" name="contactMechType" formControlName="contactMechType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactMechTypeOption.id === editForm.get('contactMechType')!.value?.id ? editForm.get('contactMechType')!.value : contactMechTypeOption" *ngFor="let contactMechTypeOption of contactmechtypes; trackBy: trackById">{{ contactMechTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.contactMechFrom" for="field_contactMechFrom">Contact Mech From</label>
+                    <select class="form-control" id="field_contactMechFrom" name="contactMechFrom" formControlName="contactMechFrom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactMechOption.id === editForm.get('contactMechFrom')!.value?.id ? editForm.get('contactMechFrom')!.value : contactMechOption" *ngFor="let contactMechOption of contactmeches; trackBy: trackById">{{ contactMechOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.contactMechTo" for="field_contactMechTo">Contact Mech To</label>
+                    <select class="form-control" id="field_contactMechTo" name="contactMechTo" formControlName="contactMechTo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactMechOption.id === editForm.get('contactMechTo')!.value?.id ? editForm.get('contactMechTo')!.value : contactMechOption" *ngFor="let contactMechOption of contactmeches; trackBy: trackById">{{ contactMechOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.fromParty" for="field_fromParty">From Party</label>
+                    <select class="form-control" id="field_fromParty" name="fromParty" formControlName="fromParty">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('fromParty')!.value?.id ? editForm.get('fromParty')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.communicationEvent.toParty" for="field_toParty">To Party</label>
+                    <select class="form-control" id="field_toParty" name="toParty" formControlName="toParty">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('toParty')!.value?.id ? editForm.get('toParty')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

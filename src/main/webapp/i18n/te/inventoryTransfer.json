@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "inventoryTransfer": {
+      "home": {
+        "title": "Inventory Transfers",
+        "createLabel": "కొత్త Inventory Transfer  సృష్టించండి",
+        "createOrEditLabel": "Inventory Transfer సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Inventory Transfers found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Inventory Transfer సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Inventory Transfer సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Inventory Transfer తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Inventory Transfer {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Inventory Transfer"
+      },
+      "sentDate": "Sent Date",
+      "receivedDate": "Received Date",
+      "comments": "Comments",
+      "status": "Status",
+      "inventoryItem": "Inventory Item",
+      "facility": "Facility",
+      "facilityTo": "Facility To",
+      "issuance": "Issuance"
+    }
+  }
+}

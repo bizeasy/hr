@@ -1,0 +1,51 @@
+{
+  "name": "EquipmentUsageLog",
+  "fields": [
+    {
+      "fieldName": "fromTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "toTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "remarks",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "equipment",
+      "otherEntityRelationshipName": "equipmentUsageLog",
+      "relationshipName": "equipment",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "equipmentUsageLog",
+      "relationshipName": "cleanedBy",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "equipmentUsageLog",
+      "relationshipName": "checkedBy",
+      "otherEntityField": "login"
+    }
+  ],
+  "changelogDate": "20220805140749",
+  "entityTableName": "equipment_usage_log",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.facilityGroupMember.home.title">Facility Group Members</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-facility-group-member" [routerLink]="['/facility-group-member/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.facilityGroupMember.home.createLabel">
+            Create a new Facility Group Member
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="facilityGroupMembers?.length === 0">
+        <span jhiTranslate="hrApp.facilityGroupMember.home.notFound">No facilityGroupMembers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="facilityGroupMembers && facilityGroupMembers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fromDate"><span jhiTranslate="hrApp.facilityGroupMember.fromDate">From Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="thruDate"><span jhiTranslate="hrApp.facilityGroupMember.thruDate">Thru Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sequenceNo"><span jhiTranslate="hrApp.facilityGroupMember.sequenceNo">Sequence No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facility.name"><span jhiTranslate="hrApp.facilityGroupMember.facility">Facility</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facilityGroup.name"><span jhiTranslate="hrApp.facilityGroupMember.facilityGroup">Facility Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let facilityGroupMember of facilityGroupMembers ;trackBy: trackId">
+                    <td><a [routerLink]="['/facility-group-member', facilityGroupMember.id, 'view']">{{ facilityGroupMember.id }}</a></td>
+                    <td>{{ facilityGroupMember.fromDate | date:'medium' }}</td>
+                    <td>{{ facilityGroupMember.thruDate | date:'medium' }}</td>
+                    <td>{{ facilityGroupMember.sequenceNo }}</td>
+                    <td>
+                        <div *ngIf="facilityGroupMember.facility">
+                            <a [routerLink]="['/facility', facilityGroupMember.facility?.id, 'view']" >{{ facilityGroupMember.facility?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="facilityGroupMember.facilityGroup">
+                            <a [routerLink]="['/facility-group', facilityGroupMember.facilityGroup?.id, 'view']" >{{ facilityGroupMember.facilityGroup?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/facility-group-member', facilityGroupMember.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/facility-group-member', facilityGroupMember.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(facilityGroupMember)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="facilityGroupMembers && facilityGroupMembers.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

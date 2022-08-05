@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "emplPositionGroup": {
+      "home": {
+        "title": "EmplPositionGroups",
+        "createLabel": "नया Empl Position Group बनाएँ",
+        "createOrEditLabel": "Empl Position Group बनाएँ या संपादित करें",
+        "notFound": "No Empl Position Groups found"
+      },
+      "created": "एक नया Empl Position Group [identifier: {{ param }}] तैयार है",
+      "updated": "एक Empl Position Group [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Empl Position Group [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Empl Position Group [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Empl Position Group"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

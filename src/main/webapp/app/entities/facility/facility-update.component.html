@@ -1,0 +1,168 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-facility-heading" jhiTranslate="hrApp.facility.home.createOrEditLabel">Create or edit a Facility</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.facilityCode" for="field_facilityCode">Facility Code</label>
+                    <input type="text" class="form-control" name="facilityCode" id="field_facilityCode"
+                           formControlName="facilityCode"/>
+                    <div *ngIf="editForm.get('facilityCode')!.invalid && (editForm.get('facilityCode')!.dirty || editForm.get('facilityCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('facilityCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.facilitySize" for="field_facilitySize">Facility Size</label>
+                    <input type="number" class="form-control" name="facilitySize" id="field_facilitySize"
+                           formControlName="facilitySize"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.costCenterCode" for="field_costCenterCode">Cost Center Code</label>
+                    <input type="text" class="form-control" name="costCenterCode" id="field_costCenterCode"
+                           formControlName="costCenterCode"/>
+                    <div *ngIf="editForm.get('costCenterCode')!.invalid && (editForm.get('costCenterCode')!.dirty || editForm.get('costCenterCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('costCenterCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.facilityType" for="field_facilityType">Facility Type</label>
+                    <select class="form-control" id="field_facilityType" name="facilityType" formControlName="facilityType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facilityTypeOption.id === editForm.get('facilityType')!.value?.id ? editForm.get('facilityType')!.value : facilityTypeOption" *ngFor="let facilityTypeOption of facilitytypes; trackBy: trackById">{{ facilityTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.parentFacility" for="field_parentFacility">Parent Facility</label>
+                    <select class="form-control" id="field_parentFacility" name="parentFacility" formControlName="parentFacility">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facilityOption.id === editForm.get('parentFacility')!.value?.id ? editForm.get('parentFacility')!.value : facilityOption" *ngFor="let facilityOption of facilities; trackBy: trackById">{{ facilityOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.ownerParty" for="field_ownerParty">Owner Party</label>
+                    <select class="form-control" id="field_ownerParty" name="ownerParty" formControlName="ownerParty">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('ownerParty')!.value?.id ? editForm.get('ownerParty')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.facilityGroup" for="field_facilityGroup">Facility Group</label>
+                    <select class="form-control" id="field_facilityGroup" name="facilityGroup" formControlName="facilityGroup">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facilityGroupOption.id === editForm.get('facilityGroup')!.value?.id ? editForm.get('facilityGroup')!.value : facilityGroupOption" *ngFor="let facilityGroupOption of facilitygroups; trackBy: trackById">{{ facilityGroupOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.sizeUom" for="field_sizeUom">Size Uom</label>
+                    <select class="form-control" id="field_sizeUom" name="sizeUom" formControlName="sizeUom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('sizeUom')!.value?.id ? editForm.get('sizeUom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.geoPoint" for="field_geoPoint">Geo Point</label>
+                    <select class="form-control" id="field_geoPoint" name="geoPoint" formControlName="geoPoint">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="geoPointOption.id === editForm.get('geoPoint')!.value?.id ? editForm.get('geoPoint')!.value : geoPointOption" *ngFor="let geoPointOption of geopoints; trackBy: trackById">{{ geoPointOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.inventoryItemType" for="field_inventoryItemType">Inventory Item Type</label>
+                    <select class="form-control" id="field_inventoryItemType" name="inventoryItemType" formControlName="inventoryItemType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryItemTypeOption.id === editForm.get('inventoryItemType')!.value?.id ? editForm.get('inventoryItemType')!.value : inventoryItemTypeOption" *ngFor="let inventoryItemTypeOption of inventoryitemtypes; trackBy: trackById">{{ inventoryItemTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.usageStatus" for="field_usageStatus">Usage Status</label>
+                    <select class="form-control" id="field_usageStatus" name="usageStatus" formControlName="usageStatus">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('usageStatus')!.value?.id ? editForm.get('usageStatus')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.reviewedBy" for="field_reviewedBy">Reviewed By</label>
+                    <select class="form-control" id="field_reviewedBy" name="reviewedBy" formControlName="reviewedBy">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('reviewedBy')!.value?.id ? editForm.get('reviewedBy')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facility.approvedBy" for="field_approvedBy">Approved By</label>
+                    <select class="form-control" id="field_approvedBy" name="approvedBy" formControlName="approvedBy">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('approvedBy')!.value?.id ? editForm.get('approvedBy')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

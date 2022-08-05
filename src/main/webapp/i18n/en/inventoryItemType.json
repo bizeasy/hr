@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "inventoryItemType": {
+      "home": {
+        "title": "Inventory Item Types",
+        "createLabel": "Create a new Inventory Item Type",
+        "createOrEditLabel": "Create or edit a Inventory Item Type",
+        "notFound": "No Inventory Item Types found"
+      },
+      "created": "A new Inventory Item Type is created with identifier {{ param }}",
+      "updated": "A Inventory Item Type is updated with identifier {{ param }}",
+      "deleted": "A Inventory Item Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Inventory Item Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory Item Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

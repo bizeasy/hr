@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "contactMechType": {
+      "home": {
+        "title": "ContactMechTypes",
+        "createLabel": "नया Contact Mech Type बनाएँ",
+        "createOrEditLabel": "Contact Mech Type बनाएँ या संपादित करें",
+        "notFound": "No Contact Mech Types found"
+      },
+      "created": "एक नया Contact Mech Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Contact Mech Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Contact Mech Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Contact Mech Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Contact Mech Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+export const enum DayOfheWeek {
+  SATURDAY = 'SATURDAY',
+
+  SUNDAY = 'SUNDAY',
+
+  MONDAY = 'MONDAY',
+
+  TUESDAY = 'TUESDAY',
+
+  WEDNESDAY = 'WEDNESDAY',
+
+  THURSDAY = 'THURSDAY',
+
+  FRIDAY = 'FRIDAY',
+}

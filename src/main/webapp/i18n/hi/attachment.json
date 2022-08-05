@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "attachment": {
+      "home": {
+        "title": "Attachments",
+        "createLabel": "नया Attachment बनाएँ",
+        "createOrEditLabel": "Attachment बनाएँ या संपादित करें",
+        "notFound": "No Attachments found"
+      },
+      "created": "एक नया Attachment [identifier: {{ param }}] तैयार है",
+      "updated": "एक Attachment [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Attachment [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Attachment [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Attachment"
+      },
+      "name": "Name",
+      "fileAttachment": "File Attachment",
+      "attachmentUrl": "Attachment Url",
+      "mimeType": "Mime Type"
+    }
+  }
+}

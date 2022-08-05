@@ -1,0 +1,129 @@
+{
+  "name": "WorkEffort",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "batchSize",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "minYieldRange",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "maxYieldRange",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "percentComplete",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "validationType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "shelfLife",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "outputQty",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "workEffort",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "workEffort",
+      "relationshipName": "ksm",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "workEffortType",
+      "otherEntityRelationshipName": "workEffort",
+      "relationshipName": "type",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "workEffortPurpose",
+      "otherEntityRelationshipName": "workEffort",
+      "relationshipName": "purpose",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "workEffort",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facility",
+      "otherEntityRelationshipName": "workEffort",
+      "relationshipName": "facility",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "workEffort",
+      "relationshipName": "shelfListUom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productCategory",
+      "otherEntityRelationshipName": "workEffort",
+      "relationshipName": "productCategory",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productStore",
+      "otherEntityRelationshipName": "workEffort",
+      "relationshipName": "productStore",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805152449",
+  "entityTableName": "work_effort",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

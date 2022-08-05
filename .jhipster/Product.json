@@ -1,0 +1,275 @@
+{
+  "name": "Product",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "internalName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "brandName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "variant",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "sku",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "introductionDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "releaseDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quantityIncluded",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "piecesIncluded",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "height",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "width",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "depth",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "smallImageUrl",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2000"
+    },
+    {
+      "fieldName": "mediumImageUrl",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2000"
+    },
+    {
+      "fieldName": "largeImageUrl",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2000"
+    },
+    {
+      "fieldName": "detailImageUrl",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2000"
+    },
+    {
+      "fieldName": "originalImageUrl",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2000"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "cgst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "igst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "sgst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "cgstPercentage",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "igstPercentage",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "sgstPercentage",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "longDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "info",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "isVirtual",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isVariant",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "requireInventory",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "returnable",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isPopular",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "changeControlNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "retestDuration",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "expiryDuration",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "validationType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "shelfLife",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productType",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "productType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "quantityUom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "weightUom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "sizeUom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "uom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productCategory",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "primaryProductCategory",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "virtualProduct",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryItemType",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "inventoryItemType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taxSlab",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "taxSlab",
+      "otherEntityField": "rate"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "shelfLifeUom",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805145849",
+  "entityTableName": "product",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

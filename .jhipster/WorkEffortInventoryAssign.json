@@ -1,0 +1,43 @@
+{
+  "name": "WorkEffortInventoryAssign",
+  "fields": [
+    {
+      "fieldName": "quantity",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "workEffort",
+      "otherEntityRelationshipName": "workEffortInventoryAssign",
+      "relationshipName": "workEffort",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryItem",
+      "otherEntityRelationshipName": "workEffortInventoryAssign",
+      "relationshipName": "inventoryItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "workEffortInventoryAssign",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805152849",
+  "entityTableName": "work_effort_inventory_assign",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

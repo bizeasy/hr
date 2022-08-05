@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "timeSheet": {
+      "home": {
+        "title": "TimeSheets",
+        "createLabel": "नया Time Sheet बनाएँ",
+        "createOrEditLabel": "Time Sheet बनाएँ या संपादित करें",
+        "notFound": "No Time Sheets found"
+      },
+      "created": "एक नया Time Sheet [identifier: {{ param }}] तैयार है",
+      "updated": "एक Time Sheet [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Time Sheet [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Time Sheet [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Time Sheet"
+      },
+      "overTimeDays": "Over Time Days",
+      "leaves": "Leaves",
+      "unappliedLeaves": "Unapplied Leaves",
+      "halfDays": "Half Days",
+      "totalWorkingHours": "Total Working Hours",
+      "timePeriod": "Time Period"
+    }
+  }
+}

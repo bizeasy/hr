@@ -1,0 +1,39 @@
+{
+  "hrApp": {
+    "postalAddress": {
+      "home": {
+        "title": "Postal Addresses",
+        "createLabel": "కొత్త Postal Address  సృష్టించండి",
+        "createOrEditLabel": "Postal Address సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Postal Addresses found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Postal Address సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Postal Address సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Postal Address తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Postal Address {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Postal Address"
+      },
+      "toName": "To Name",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "landmark": "Landmark",
+      "postalCode": "Postal Code",
+      "isDefault": "Is Default",
+      "customAddressType": "Custom Address Type",
+      "stateStr": "State Str",
+      "countryStr": "Country Str",
+      "isIndianAddress": "Is Indian Address",
+      "note": "Note",
+      "directions": "Directions",
+      "state": "State",
+      "pincode": "Pincode",
+      "country": "Country",
+      "contactMech": "Contact Mech",
+      "geoPoint": "Geo Point"
+    }
+  }
+}

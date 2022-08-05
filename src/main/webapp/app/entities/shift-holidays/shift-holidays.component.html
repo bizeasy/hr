@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.shiftHolidays.home.title">Shift Holidays</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-shift-holidays" [routerLink]="['/shift-holidays/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.shiftHolidays.home.createLabel">
+            Create a new Shift Holidays
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="shiftHolidays?.length === 0">
+        <span jhiTranslate="hrApp.shiftHolidays.home.notFound">No shiftHolidays found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="shiftHolidays && shiftHolidays.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.shiftHolidays.dayOfheWeek">Day Ofhe Week</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.shiftHolidays.monthlyPaidLeaves">Monthly Paid Leaves</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.shiftHolidays.yearlyPaidLeaves">Yearly Paid Leaves</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.shiftHolidays.shift">Shift</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let shiftHolidays of shiftHolidays ;trackBy: trackId">
+                    <td><a [routerLink]="['/shift-holidays', shiftHolidays.id, 'view']">{{ shiftHolidays.id }}</a></td>
+                    <td jhiTranslate="{{ 'hrApp.DayOfheWeek.' + shiftHolidays.dayOfheWeek }}">{{ shiftHolidays.dayOfheWeek }}</td>
+                    <td>{{ shiftHolidays.monthlyPaidLeaves }}</td>
+                    <td>{{ shiftHolidays.yearlyPaidLeaves }}</td>
+                    <td>
+                        <div *ngIf="shiftHolidays.shift">
+                            <a [routerLink]="['/shift', shiftHolidays.shift?.id, 'view']" >{{ shiftHolidays.shift?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/shift-holidays', shiftHolidays.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/shift-holidays', shiftHolidays.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(shiftHolidays)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+{
+  "hrApp": {
+    "orderItem": {
+      "home": {
+        "title": "OrderItems",
+        "createLabel": "नया Order Item बनाएँ",
+        "createOrEditLabel": "Order Item बनाएँ या संपादित करें",
+        "notFound": "No Order Items found"
+      },
+      "created": "एक नया Order Item [identifier: {{ param }}] तैयार है",
+      "updated": "एक Order Item [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Order Item [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Order Item [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Order Item"
+      },
+      "sequenceNo": "Sequence No",
+      "quantity": "Quantity",
+      "cancelQuantity": "Cancel Quantity",
+      "selectedAmount": "Selected Amount",
+      "unitPrice": "Unit Price",
+      "unitListPrice": "Unit List Price",
+      "cgst": "Cgst",
+      "igst": "Igst",
+      "sgst": "Sgst",
+      "cgstPercentage": "Cgst Percentage",
+      "igstPercentage": "Igst Percentage",
+      "sgstPercentage": "Sgst Percentage",
+      "totalPrice": "Total Price",
+      "isModifiedPrice": "Is Modified Price",
+      "estimatedShipDate": "Estimated Ship Date",
+      "estimatedDeliveryDate": "Estimated Delivery Date",
+      "shipBeforeDate": "Ship Before Date",
+      "shipAfterDate": "Ship After Date",
+      "order": "Order",
+      "orderItemType": "Order Item Type",
+      "fromInventoryItem": "From Inventory Item",
+      "product": "Product",
+      "supplierProduct": "Supplier Product",
+      "status": "Status",
+      "taxAuthRate": "Tax Auth Rate"
+    }
+  }
+}

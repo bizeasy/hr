@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "orderItemBilling": {
+      "home": {
+        "title": "Order Item Billings",
+        "createLabel": "Create a new Order Item Billing",
+        "createOrEditLabel": "Create or edit a Order Item Billing",
+        "notFound": "No Order Item Billings found"
+      },
+      "created": "A new Order Item Billing is created with identifier {{ param }}",
+      "updated": "A Order Item Billing is updated with identifier {{ param }}",
+      "deleted": "A Order Item Billing is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order Item Billing {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Item Billing"
+      },
+      "quantity": "Quantity",
+      "amount": "Amount",
+      "orderItem": "Order Item",
+      "invoiceItem": "Invoice Item"
+    }
+  }
+}

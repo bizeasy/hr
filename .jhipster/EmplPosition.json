@@ -1,0 +1,75 @@
+{
+  "name": "EmplPosition",
+  "fields": [
+    {
+      "fieldName": "maxBudget",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "minBudget",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "estimatedFromDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "estimatedThruDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "paidJob",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isFulltime",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isTemporary",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "actualFromDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "actualThruDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "emplPositionType",
+      "otherEntityRelationshipName": "emplPosition",
+      "relationshipName": "type",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "emplPosition",
+      "relationshipName": "party",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "emplPosition",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805154749",
+  "entityTableName": "empl_position",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

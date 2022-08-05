@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "catalogueCategoryType": {
+      "home": {
+        "title": "Catalogue Category Types",
+        "createLabel": "Create a new Catalogue Category Type",
+        "createOrEditLabel": "Create or edit a Catalogue Category Type",
+        "notFound": "No Catalogue Category Types found"
+      },
+      "created": "A new Catalogue Category Type is created with identifier {{ param }}",
+      "updated": "A Catalogue Category Type is updated with identifier {{ param }}",
+      "deleted": "A Catalogue Category Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Catalogue Category Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Catalogue Category Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

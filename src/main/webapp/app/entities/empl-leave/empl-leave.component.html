@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.emplLeave.home.title">Empl Leaves</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-empl-leave" [routerLink]="['/empl-leave/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.emplLeave.home.createLabel">
+            Create a new Empl Leave
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="emplLeaves?.length === 0">
+        <span jhiTranslate="hrApp.emplLeave.home.notFound">No emplLeaves found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="emplLeaves && emplLeaves.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplLeave.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplLeave.fromDate">From Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplLeave.thruDate">Thru Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplLeave.employee">Employee</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplLeave.approver">Approver</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplLeave.leaveType">Leave Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplLeave.reason">Reason</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplLeave.status">Status</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emplLeave of emplLeaves ;trackBy: trackId">
+                    <td><a [routerLink]="['/empl-leave', emplLeave.id, 'view']">{{ emplLeave.id }}</a></td>
+                    <td>{{ emplLeave.description }}</td>
+                    <td>{{ emplLeave.fromDate | date:'mediumDate' }}</td>
+                    <td>{{ emplLeave.thruDate | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="emplLeave.employee">
+                            <a [routerLink]="['/party', emplLeave.employee?.id, 'view']" >{{ emplLeave.employee?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emplLeave.approver">
+                            <a [routerLink]="['/party', emplLeave.approver?.id, 'view']" >{{ emplLeave.approver?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emplLeave.leaveType">
+                            <a [routerLink]="['/empl-leave-type', emplLeave.leaveType?.id, 'view']" >{{ emplLeave.leaveType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emplLeave.reason">
+                            <a [routerLink]="['/empl-leave-reason-type', emplLeave.reason?.id, 'view']" >{{ emplLeave.reason?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emplLeave.status">
+                            <a [routerLink]="['/status', emplLeave.status?.id, 'view']" >{{ emplLeave.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/empl-leave', emplLeave.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/empl-leave', emplLeave.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(emplLeave)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

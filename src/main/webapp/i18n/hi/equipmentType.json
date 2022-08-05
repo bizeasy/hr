@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "equipmentType": {
+      "home": {
+        "title": "EquipmentTypes",
+        "createLabel": "नया Equipment Type बनाएँ",
+        "createOrEditLabel": "Equipment Type बनाएँ या संपादित करें",
+        "notFound": "No Equipment Types found"
+      },
+      "created": "एक नया Equipment Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Equipment Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Equipment Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Equipment Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Equipment Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

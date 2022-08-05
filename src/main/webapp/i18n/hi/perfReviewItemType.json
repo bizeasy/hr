@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "perfReviewItemType": {
+      "home": {
+        "title": "PerfReviewItemTypes",
+        "createLabel": "नया Perf Review Item Type बनाएँ",
+        "createOrEditLabel": "Perf Review Item Type बनाएँ या संपादित करें",
+        "notFound": "No Perf Review Item Types found"
+      },
+      "created": "एक नया Perf Review Item Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Perf Review Item Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Perf Review Item Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Perf Review Item Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Perf Review Item Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

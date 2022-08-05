@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "workEffortInventoryProduced": {
+      "home": {
+        "title": "WorkEffortInventoryProduceds",
+        "createLabel": "नया Work Effort Inventory Produced बनाएँ",
+        "createOrEditLabel": "Work Effort Inventory Produced बनाएँ या संपादित करें",
+        "notFound": "No Work Effort Inventory Produceds found"
+      },
+      "created": "एक नया Work Effort Inventory Produced [identifier: {{ param }}] तैयार है",
+      "updated": "एक Work Effort Inventory Produced [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Work Effort Inventory Produced [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Work Effort Inventory Produced [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Work Effort Inventory Produced"
+      },
+      "quantity": "Quantity",
+      "workEffort": "Work Effort",
+      "inventoryItem": "Inventory Item",
+      "status": "Status"
+    }
+  }
+}

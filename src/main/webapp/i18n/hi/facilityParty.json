@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "facilityParty": {
+      "home": {
+        "title": "FacilityParties",
+        "createLabel": "नया Facility Party बनाएँ",
+        "createOrEditLabel": "Facility Party बनाएँ या संपादित करें",
+        "notFound": "No Facility Parties found"
+      },
+      "created": "एक नया Facility Party [identifier: {{ param }}] तैयार है",
+      "updated": "एक Facility Party [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Facility Party [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Facility Party [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Facility Party"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "facility": "Facility",
+      "party": "Party",
+      "roleType": "Role Type"
+    }
+  }
+}

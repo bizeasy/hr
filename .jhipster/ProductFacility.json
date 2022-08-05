@@ -1,0 +1,48 @@
+{
+  "name": "ProductFacility",
+  "fields": [
+    {
+      "fieldName": "minimumStock",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "reorderQty",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "daysToShip",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastInventoryCount",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "productFacility",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facility",
+      "otherEntityRelationshipName": "productFacility",
+      "relationshipName": "facility",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805150449",
+  "entityTableName": "product_facility",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

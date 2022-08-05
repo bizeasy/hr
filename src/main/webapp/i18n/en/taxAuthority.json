@@ -1,0 +1,22 @@
+{
+  "hrApp": {
+    "taxAuthority": {
+      "home": {
+        "title": "Tax Authorities",
+        "createLabel": "Create a new Tax Authority",
+        "createOrEditLabel": "Create or edit a Tax Authority",
+        "notFound": "No Tax Authorities found"
+      },
+      "created": "A new Tax Authority is created with identifier {{ param }}",
+      "updated": "A Tax Authority is updated with identifier {{ param }}",
+      "deleted": "A Tax Authority is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tax Authority {{ id }}?"
+      },
+      "detail": {
+        "title": "Tax Authority"
+      },
+      "name": "Name"
+    }
+  }
+}

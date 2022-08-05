@@ -1,0 +1,125 @@
+{
+  "name": "Payment",
+  "fields": [
+    {
+      "fieldName": "effectiveDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "paymentDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "paymentRefNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "paymentStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mihpayId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productInfo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "txnId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "actualAmount",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "paymentType",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "paymentType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "paymentMethodType",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "paymentMethodType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "paymentMethod",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "paymentMethod",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "paymentGatewayResponse",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "paymentGatewayResponse",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "partyIdFrom",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "partyIdTo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "roleType",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "roleType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "currencyUom",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805150849",
+  "entityTableName": "payment",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

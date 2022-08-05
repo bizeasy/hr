@@ -1,0 +1,33 @@
+{
+  "name": "Attendance",
+  "fields": [
+    {
+      "fieldName": "punchIn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "punchOut",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "attendance",
+      "relationshipName": "employee",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805161649",
+  "entityTableName": "attendance",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productPrice">
+            <h2><span jhiTranslate="hrApp.productPrice.detail.title">Product Price</span> {{ productPrice.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.productPrice.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ productPrice.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ productPrice.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.price">Price</span></dt>
+                <dd>
+                    <span>{{ productPrice.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.cgst">Cgst</span></dt>
+                <dd>
+                    <span>{{ productPrice.cgst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.igst">Igst</span></dt>
+                <dd>
+                    <span>{{ productPrice.igst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.sgst">Sgst</span></dt>
+                <dd>
+                    <span>{{ productPrice.sgst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.totalPrice">Total Price</span></dt>
+                <dd>
+                    <span>{{ productPrice.totalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="productPrice.product">
+                        <a [routerLink]="['/product', productPrice.product?.id, 'view']">{{ productPrice.product?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.productPriceType">Product Price Type</span></dt>
+                <dd>
+                    <div *ngIf="productPrice.productPriceType">
+                        <a [routerLink]="['/product-price-type', productPrice.productPriceType?.id, 'view']">{{ productPrice.productPriceType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.productPricePurpose">Product Price Purpose</span></dt>
+                <dd>
+                    <div *ngIf="productPrice.productPricePurpose">
+                        <a [routerLink]="['/product-price-purpose', productPrice.productPricePurpose?.id, 'view']">{{ productPrice.productPricePurpose?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productPrice.currencyUom">Currency Uom</span></dt>
+                <dd>
+                    <div *ngIf="productPrice.currencyUom">
+                        <a [routerLink]="['/uom', productPrice.currencyUom?.id, 'view']">{{ productPrice.currencyUom?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-price', productPrice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

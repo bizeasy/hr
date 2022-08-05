@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "jobInterviewType": {
+      "home": {
+        "title": "Job Interview Types",
+        "createLabel": "కొత్త Job Interview Type  సృష్టించండి",
+        "createOrEditLabel": "Job Interview Type సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Job Interview Types found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Job Interview Type సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Job Interview Type సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Job Interview Type తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Job Interview Type {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Job Interview Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

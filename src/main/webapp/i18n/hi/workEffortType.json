@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "workEffortType": {
+      "home": {
+        "title": "WorkEffortTypes",
+        "createLabel": "नया Work Effort Type बनाएँ",
+        "createOrEditLabel": "Work Effort Type बनाएँ या संपादित करें",
+        "notFound": "No Work Effort Types found"
+      },
+      "created": "एक नया Work Effort Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Work Effort Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Work Effort Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Work Effort Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Work Effort Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "rateType": {
+      "home": {
+        "title": "Rate Types",
+        "createLabel": "కొత్త Rate Type  సృష్టించండి",
+        "createOrEditLabel": "Rate Type సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Rate Types found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Rate Type సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Rate Type సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Rate Type తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Rate Type {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Rate Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

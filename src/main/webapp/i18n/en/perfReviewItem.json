@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "perfReviewItem": {
+      "home": {
+        "title": "Perf Review Items",
+        "createLabel": "Create a new Perf Review Item",
+        "createOrEditLabel": "Create or edit a Perf Review Item",
+        "notFound": "No Perf Review Items found"
+      },
+      "created": "A new Perf Review Item is created with identifier {{ param }}",
+      "updated": "A Perf Review Item is updated with identifier {{ param }}",
+      "deleted": "A Perf Review Item is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Perf Review Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Perf Review Item"
+      },
+      "sequenceNo": "Sequence No",
+      "comments": "Comments",
+      "perfReview": "Perf Review",
+      "perfRatingType": "Perf Rating Type",
+      "type": "Type",
+      "employee": "Employee"
+    }
+  }
+}

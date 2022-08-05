@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customTimePeriod">
+            <h2><span jhiTranslate="hrApp.customTimePeriod.detail.title">Custom Time Period</span> {{ customTimePeriod.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.customTimePeriod.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ customTimePeriod.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.customTimePeriod.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ customTimePeriod.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.customTimePeriod.isClosed">Is Closed</span></dt>
+                <dd>
+                    <span>{{ customTimePeriod.isClosed }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.customTimePeriod.periodName">Period Name</span></dt>
+                <dd>
+                    <span>{{ customTimePeriod.periodName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.customTimePeriod.periodNum">Period Num</span></dt>
+                <dd>
+                    <span>{{ customTimePeriod.periodNum }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.customTimePeriod.periodType">Period Type</span></dt>
+                <dd>
+                    <div *ngIf="customTimePeriod.periodType">
+                        <a [routerLink]="['/period-type', customTimePeriod.periodType?.id, 'view']">{{ customTimePeriod.periodType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.customTimePeriod.organisationParty">Organisation Party</span></dt>
+                <dd>
+                    <div *ngIf="customTimePeriod.organisationParty">
+                        <a [routerLink]="['/party', customTimePeriod.organisationParty?.id, 'view']">{{ customTimePeriod.organisationParty?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.customTimePeriod.parent">Parent</span></dt>
+                <dd>
+                    <div *ngIf="customTimePeriod.parent">
+                        <a [routerLink]="['/custom-time-period', customTimePeriod.parent?.id, 'view']">{{ customTimePeriod.parent?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/custom-time-period', customTimePeriod.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

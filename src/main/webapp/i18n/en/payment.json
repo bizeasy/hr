@@ -1,0 +1,41 @@
+{
+  "hrApp": {
+    "payment": {
+      "home": {
+        "title": "Payments",
+        "createLabel": "Create a new Payment",
+        "createOrEditLabel": "Create or edit a Payment",
+        "notFound": "No Payments found"
+      },
+      "created": "A new Payment is created with identifier {{ param }}",
+      "updated": "A Payment is updated with identifier {{ param }}",
+      "deleted": "A Payment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment"
+      },
+      "effectiveDate": "Effective Date",
+      "paymentDate": "Payment Date",
+      "paymentRefNumber": "Payment Ref Number",
+      "amount": "Amount",
+      "paymentStatus": "Payment Status",
+      "mihpayId": "Mihpay Id",
+      "email": "Email",
+      "phone": "Phone",
+      "productInfo": "Product Info",
+      "txnId": "Txn Id",
+      "actualAmount": "Actual Amount",
+      "paymentType": "Payment Type",
+      "paymentMethodType": "Payment Method Type",
+      "status": "Status",
+      "paymentMethod": "Payment Method",
+      "paymentGatewayResponse": "Payment Gateway Response",
+      "partyIdFrom": "Party Id From",
+      "partyIdTo": "Party Id To",
+      "roleType": "Role Type",
+      "currencyUom": "Currency Uom"
+    }
+  }
+}

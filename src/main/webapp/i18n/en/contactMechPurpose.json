@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "contactMechPurpose": {
+      "home": {
+        "title": "Contact Mech Purposes",
+        "createLabel": "Create a new Contact Mech Purpose",
+        "createOrEditLabel": "Create or edit a Contact Mech Purpose",
+        "notFound": "No Contact Mech Purposes found"
+      },
+      "created": "A new Contact Mech Purpose is created with identifier {{ param }}",
+      "updated": "A Contact Mech Purpose is updated with identifier {{ param }}",
+      "deleted": "A Contact Mech Purpose is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contact Mech Purpose {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact Mech Purpose"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

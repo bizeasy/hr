@@ -1,0 +1,33 @@
+{
+  "name": "ShiftWeekends",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "shift",
+      "otherEntityRelationshipName": "shiftWeekends",
+      "relationshipName": "shift",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805162249",
+  "entityTableName": "shift_weekends",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

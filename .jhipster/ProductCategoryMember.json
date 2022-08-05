@@ -1,0 +1,44 @@
+{
+  "name": "ProductCategoryMember",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "productCategoryMember",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productCategory",
+      "otherEntityRelationshipName": "productCategoryMember",
+      "relationshipName": "productCategory",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805145749",
+  "entityTableName": "product_category_member",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

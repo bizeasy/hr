@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "workEffortProduct": {
+      "home": {
+        "title": "Work Effort Products",
+        "createLabel": "కొత్త Work Effort Product  సృష్టించండి",
+        "createOrEditLabel": "Work Effort Product సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Work Effort Products found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Product సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Product సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Product తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Work Effort Product {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Work Effort Product"
+      },
+      "sequenceNo": "Sequence No",
+      "quantity": "Quantity",
+      "workEffort": "Work Effort",
+      "product": "Product"
+    }
+  }
+}

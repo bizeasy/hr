@@ -1,0 +1,47 @@
+{
+  "name": "OrderStatus",
+  "fields": [
+    {
+      "fieldName": "statusDateTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "orderStatus",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "orderStatus",
+      "relationshipName": "order",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "reason",
+      "otherEntityRelationshipName": "orderStatus",
+      "relationshipName": "reason",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805144149",
+  "entityTableName": "order_status",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "deduction": {
+      "home": {
+        "title": "Deductions",
+        "createLabel": "नया Deduction बनाएँ",
+        "createOrEditLabel": "Deduction बनाएँ या संपादित करें",
+        "notFound": "No Deductions found"
+      },
+      "created": "एक नया Deduction [identifier: {{ param }}] तैयार है",
+      "updated": "एक Deduction [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Deduction [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Deduction [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Deduction"
+      },
+      "amount": "Amount",
+      "type": "Type"
+    }
+  }
+}

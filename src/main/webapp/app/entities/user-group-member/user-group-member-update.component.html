@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-user-group-member-heading" jhiTranslate="hrApp.userGroupMember.home.createOrEditLabel">Create or edit a User Group Member</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.userGroupMember.fromDate" for="field_fromDate">From Date</label>
+                    <div class="d-flex">
+                        <input id="field_fromDate" type="datetime-local" class="form-control" name="fromDate" formControlName="fromDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.userGroupMember.thruDate" for="field_thruDate">Thru Date</label>
+                    <div class="d-flex">
+                        <input id="field_thruDate" type="datetime-local" class="form-control" name="thruDate" formControlName="thruDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.userGroupMember.userGroup" for="field_userGroup">User Group</label>
+                    <select class="form-control" id="field_userGroup" name="userGroup" formControlName="userGroup">
+                        <option *ngIf="!editForm.get('userGroup')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="userGroupOption.id === editForm.get('userGroup')!.value?.id ? editForm.get('userGroup')!.value : userGroupOption" *ngFor="let userGroupOption of usergroups; trackBy: trackById">{{ userGroupOption.name }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('userGroup')!.invalid && (editForm.get('userGroup')!.dirty || editForm.get('userGroup')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('userGroup')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.userGroupMember.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option *ngIf="!editForm.get('user')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('user')!.invalid && (editForm.get('user')!.dirty || editForm.get('user')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('user')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

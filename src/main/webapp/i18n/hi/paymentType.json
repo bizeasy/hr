@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "paymentType": {
+      "home": {
+        "title": "PaymentTypes",
+        "createLabel": "नया Payment Type बनाएँ",
+        "createOrEditLabel": "Payment Type बनाएँ या संपादित करें",
+        "notFound": "No Payment Types found"
+      },
+      "created": "एक नया Payment Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Payment Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Payment Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Payment Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Payment Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

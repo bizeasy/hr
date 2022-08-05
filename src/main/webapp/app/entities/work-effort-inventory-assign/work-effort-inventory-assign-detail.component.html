@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="workEffortInventoryAssign">
+            <h2><span jhiTranslate="hrApp.workEffortInventoryAssign.detail.title">Work Effort Inventory Assign</span> {{ workEffortInventoryAssign.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.workEffortInventoryAssign.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ workEffortInventoryAssign.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortInventoryAssign.workEffort">Work Effort</span></dt>
+                <dd>
+                    <div *ngIf="workEffortInventoryAssign.workEffort">
+                        <a [routerLink]="['/work-effort', workEffortInventoryAssign.workEffort?.id, 'view']">{{ workEffortInventoryAssign.workEffort?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortInventoryAssign.inventoryItem">Inventory Item</span></dt>
+                <dd>
+                    <div *ngIf="workEffortInventoryAssign.inventoryItem">
+                        <a [routerLink]="['/inventory-item', workEffortInventoryAssign.inventoryItem?.id, 'view']">{{ workEffortInventoryAssign.inventoryItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortInventoryAssign.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="workEffortInventoryAssign.status">
+                        <a [routerLink]="['/status', workEffortInventoryAssign.status?.id, 'view']">{{ workEffortInventoryAssign.status?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/work-effort-inventory-assign', workEffortInventoryAssign.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

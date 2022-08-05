@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "facilityParty": {
+      "home": {
+        "title": "Facility Parties",
+        "createLabel": "Create a new Facility Party",
+        "createOrEditLabel": "Create or edit a Facility Party",
+        "notFound": "No Facility Parties found"
+      },
+      "created": "A new Facility Party is created with identifier {{ param }}",
+      "updated": "A Facility Party is updated with identifier {{ param }}",
+      "deleted": "A Facility Party is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Facility Party {{ id }}?"
+      },
+      "detail": {
+        "title": "Facility Party"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "facility": "Facility",
+      "party": "Party",
+      "roleType": "Role Type"
+    }
+  }
+}

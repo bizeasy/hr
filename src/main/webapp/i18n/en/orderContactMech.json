@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "orderContactMech": {
+      "home": {
+        "title": "Order Contact Meches",
+        "createLabel": "Create a new Order Contact Mech",
+        "createOrEditLabel": "Create or edit a Order Contact Mech",
+        "notFound": "No Order Contact Meches found"
+      },
+      "created": "A new Order Contact Mech is created with identifier {{ param }}",
+      "updated": "A Order Contact Mech is updated with identifier {{ param }}",
+      "deleted": "A Order Contact Mech is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order Contact Mech {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Contact Mech"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "order": "Order",
+      "contactMech": "Contact Mech",
+      "contactMechPurpose": "Contact Mech Purpose"
+    }
+  }
+}

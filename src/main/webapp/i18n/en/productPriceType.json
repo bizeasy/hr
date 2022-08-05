@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productPriceType": {
+      "home": {
+        "title": "Product Price Types",
+        "createLabel": "Create a new Product Price Type",
+        "createOrEditLabel": "Create or edit a Product Price Type",
+        "notFound": "No Product Price Types found"
+      },
+      "created": "A new Product Price Type is created with identifier {{ param }}",
+      "updated": "A Product Price Type is updated with identifier {{ param }}",
+      "deleted": "A Product Price Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Price Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Price Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

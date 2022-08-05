@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "emplPositionReportingStruct": {
+      "home": {
+        "title": "Empl Position Reporting Structs",
+        "createLabel": "Create a new Empl Position Reporting Struct",
+        "createOrEditLabel": "Create or edit a Empl Position Reporting Struct",
+        "notFound": "No Empl Position Reporting Structs found"
+      },
+      "created": "A new Empl Position Reporting Struct is created with identifier {{ param }}",
+      "updated": "A Empl Position Reporting Struct is updated with identifier {{ param }}",
+      "deleted": "A Empl Position Reporting Struct is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empl Position Reporting Struct {{ id }}?"
+      },
+      "detail": {
+        "title": "Empl Position Reporting Struct"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "comments": "Comments"
+    }
+  }
+}

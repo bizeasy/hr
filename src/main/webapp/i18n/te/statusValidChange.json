@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "statusValidChange": {
+      "home": {
+        "title": "Status Valid Changes",
+        "createLabel": "కొత్త Status Valid Change  సృష్టించండి",
+        "createOrEditLabel": "Status Valid Change సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Status Valid Changes found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Status Valid Change సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Status Valid Change సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Status Valid Change తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Status Valid Change {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Status Valid Change"
+      },
+      "transitionName": "Transition Name",
+      "rules": "Rules",
+      "status": "Status",
+      "statusTo": "Status To"
+    }
+  }
+}

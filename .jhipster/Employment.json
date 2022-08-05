@@ -1,0 +1,68 @@
+{
+  "name": "Employment",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "reason",
+      "otherEntityRelationshipName": "employment",
+      "relationshipName": "terminationReason",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "terminationType",
+      "otherEntityRelationshipName": "employment",
+      "relationshipName": "terminationType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "employment",
+      "relationshipName": "employee",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "employment",
+      "relationshipName": "fromParty",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "roleType",
+      "otherEntityRelationshipName": "employment",
+      "relationshipName": "roleTypeFrom",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "employment",
+      "relationshipName": "roleTypeTo",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805135549",
+  "entityTableName": "employment",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

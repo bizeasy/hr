@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "emplLeaveReasonType": {
+      "home": {
+        "title": "EmplLeaveReasonTypes",
+        "createLabel": "नया Empl Leave Reason Type बनाएँ",
+        "createOrEditLabel": "Empl Leave Reason Type बनाएँ या संपादित करें",
+        "notFound": "No Empl Leave Reason Types found"
+      },
+      "created": "एक नया Empl Leave Reason Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Empl Leave Reason Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Empl Leave Reason Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Empl Leave Reason Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Empl Leave Reason Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="facility">
+            <h2><span jhiTranslate="hrApp.facility.detail.title">Facility</span> {{ facility.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.facility.name">Name</span></dt>
+                <dd>
+                    <span>{{ facility.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.description">Description</span></dt>
+                <dd>
+                    <span>{{ facility.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.facilityCode">Facility Code</span></dt>
+                <dd>
+                    <span>{{ facility.facilityCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.facilitySize">Facility Size</span></dt>
+                <dd>
+                    <span>{{ facility.facilitySize }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.costCenterCode">Cost Center Code</span></dt>
+                <dd>
+                    <span>{{ facility.costCenterCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.facilityType">Facility Type</span></dt>
+                <dd>
+                    <div *ngIf="facility.facilityType">
+                        <a [routerLink]="['/facility-type', facility.facilityType?.id, 'view']">{{ facility.facilityType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.parentFacility">Parent Facility</span></dt>
+                <dd>
+                    <div *ngIf="facility.parentFacility">
+                        <a [routerLink]="['/facility', facility.parentFacility?.id, 'view']">{{ facility.parentFacility?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.ownerParty">Owner Party</span></dt>
+                <dd>
+                    <div *ngIf="facility.ownerParty">
+                        <a [routerLink]="['/party', facility.ownerParty?.id, 'view']">{{ facility.ownerParty?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.facilityGroup">Facility Group</span></dt>
+                <dd>
+                    <div *ngIf="facility.facilityGroup">
+                        <a [routerLink]="['/facility-group', facility.facilityGroup?.id, 'view']">{{ facility.facilityGroup?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.sizeUom">Size Uom</span></dt>
+                <dd>
+                    <div *ngIf="facility.sizeUom">
+                        <a [routerLink]="['/uom', facility.sizeUom?.id, 'view']">{{ facility.sizeUom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.geoPoint">Geo Point</span></dt>
+                <dd>
+                    <div *ngIf="facility.geoPoint">
+                        <a [routerLink]="['/geo-point', facility.geoPoint?.id, 'view']">{{ facility.geoPoint?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.inventoryItemType">Inventory Item Type</span></dt>
+                <dd>
+                    <div *ngIf="facility.inventoryItemType">
+                        <a [routerLink]="['/inventory-item-type', facility.inventoryItemType?.id, 'view']">{{ facility.inventoryItemType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="facility.status">
+                        <a [routerLink]="['/status', facility.status?.id, 'view']">{{ facility.status?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.usageStatus">Usage Status</span></dt>
+                <dd>
+                    <div *ngIf="facility.usageStatus">
+                        <a [routerLink]="['/status', facility.usageStatus?.id, 'view']">{{ facility.usageStatus?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.reviewedBy">Reviewed By</span></dt>
+                <dd>
+                    {{ facility.reviewedBy?.login }}
+                </dd>
+                <dt><span jhiTranslate="hrApp.facility.approvedBy">Approved By</span></dt>
+                <dd>
+                    {{ facility.approvedBy?.login }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/facility', facility.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

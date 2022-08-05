@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "taxSlab": {
+      "home": {
+        "title": "TaxSlabs",
+        "createLabel": "नया Tax Slab बनाएँ",
+        "createOrEditLabel": "Tax Slab बनाएँ या संपादित करें",
+        "notFound": "No Tax Slabs found"
+      },
+      "created": "एक नया Tax Slab [identifier: {{ param }}] तैयार है",
+      "updated": "एक Tax Slab [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Tax Slab [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Tax Slab [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Tax Slab"
+      },
+      "name": "Name",
+      "rate": "Rate"
+    }
+  }
+}

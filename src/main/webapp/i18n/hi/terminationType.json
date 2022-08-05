@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "terminationType": {
+      "home": {
+        "title": "TerminationTypes",
+        "createLabel": "नया Termination Type बनाएँ",
+        "createOrEditLabel": "Termination Type बनाएँ या संपादित करें",
+        "notFound": "No Termination Types found"
+      },
+      "created": "एक नया Termination Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Termination Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Termination Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Termination Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Termination Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

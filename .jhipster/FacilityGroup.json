@@ -1,0 +1,44 @@
+{
+  "name": "FacilityGroup",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facilityGroupType",
+      "otherEntityRelationshipName": "facilityGroup",
+      "relationshipName": "facilityGroupType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facilityGroup",
+      "otherEntityRelationshipName": "facilityGroup",
+      "relationshipName": "facilityGroup",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805141149",
+  "entityTableName": "facility_group",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

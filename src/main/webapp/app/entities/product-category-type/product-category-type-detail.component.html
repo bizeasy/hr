@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productCategoryType">
+            <h2><span jhiTranslate="hrApp.productCategoryType.detail.title">Product Category Type</span> {{ productCategoryType.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.productCategoryType.name">Name</span></dt>
+                <dd>
+                    <span>{{ productCategoryType.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategoryType.description">Description</span></dt>
+                <dd>
+                    <span>{{ productCategoryType.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-category-type', productCategoryType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

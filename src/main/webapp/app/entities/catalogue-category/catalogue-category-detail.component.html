@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="catalogueCategory">
+            <h2><span jhiTranslate="hrApp.catalogueCategory.detail.title">Catalogue Category</span> {{ catalogueCategory.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.catalogueCategory.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ catalogueCategory.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogueCategory.catalogue">Catalogue</span></dt>
+                <dd>
+                    <div *ngIf="catalogueCategory.catalogue">
+                        <a [routerLink]="['/catalogue', catalogueCategory.catalogue?.id, 'view']">{{ catalogueCategory.catalogue?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogueCategory.productCategory">Product Category</span></dt>
+                <dd>
+                    <div *ngIf="catalogueCategory.productCategory">
+                        <a [routerLink]="['/product-category', catalogueCategory.productCategory?.id, 'view']">{{ catalogueCategory.productCategory?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.catalogueCategory.catalogueCategoryType">Catalogue Category Type</span></dt>
+                <dd>
+                    <div *ngIf="catalogueCategory.catalogueCategoryType">
+                        <a [routerLink]="['/catalogue-category-type', catalogueCategory.catalogueCategoryType?.id, 'view']">{{ catalogueCategory.catalogueCategoryType?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/catalogue-category', catalogueCategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

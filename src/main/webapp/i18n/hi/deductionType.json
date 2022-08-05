@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "deductionType": {
+      "home": {
+        "title": "DeductionTypes",
+        "createLabel": "नया Deduction Type बनाएँ",
+        "createOrEditLabel": "Deduction Type बनाएँ या संपादित करें",
+        "notFound": "No Deduction Types found"
+      },
+      "created": "एक नया Deduction Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Deduction Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Deduction Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Deduction Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Deduction Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productFacility">
+            <h2><span jhiTranslate="hrApp.productFacility.detail.title">Product Facility</span> {{ productFacility.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.productFacility.minimumStock">Minimum Stock</span></dt>
+                <dd>
+                    <span>{{ productFacility.minimumStock }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productFacility.reorderQty">Reorder Qty</span></dt>
+                <dd>
+                    <span>{{ productFacility.reorderQty }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productFacility.daysToShip">Days To Ship</span></dt>
+                <dd>
+                    <span>{{ productFacility.daysToShip }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productFacility.lastInventoryCount">Last Inventory Count</span></dt>
+                <dd>
+                    <span>{{ productFacility.lastInventoryCount }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productFacility.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="productFacility.product">
+                        <a [routerLink]="['/product', productFacility.product?.id, 'view']">{{ productFacility.product?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productFacility.facility">Facility</span></dt>
+                <dd>
+                    <div *ngIf="productFacility.facility">
+                        <a [routerLink]="['/facility', productFacility.facility?.id, 'view']">{{ productFacility.facility?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-facility', productFacility.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

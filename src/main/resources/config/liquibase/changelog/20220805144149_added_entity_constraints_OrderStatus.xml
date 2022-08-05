@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity OrderStatus.
+    -->
+    <changeSet id="20220805144149-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="order_status"
+                                 constraintName="fk_order_status_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+        <addForeignKeyConstraint baseColumnNames="order_id"
+                                 baseTableName="order_status"
+                                 constraintName="fk_order_status_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_order"/>
+
+        <addForeignKeyConstraint baseColumnNames="reason_id"
+                                 baseTableName="order_status"
+                                 constraintName="fk_order_status_reason_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reason"/>
+
+    </changeSet>
+</databaseChangeLog>

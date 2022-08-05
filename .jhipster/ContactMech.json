@@ -1,0 +1,31 @@
+{
+  "name": "ContactMech",
+  "fields": [
+    {
+      "fieldName": "infoString",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contactMechType",
+      "otherEntityRelationshipName": "contactMech",
+      "relationshipName": "contactMechType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805135949",
+  "entityTableName": "contact_mech",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

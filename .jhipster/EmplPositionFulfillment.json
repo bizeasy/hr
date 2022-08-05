@@ -1,0 +1,58 @@
+{
+  "name": "EmplPositionFulfillment",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "emplPosition",
+      "otherEntityRelationshipName": "emplPositionFulfillment",
+      "relationshipName": "emplPosition",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "emplPositionFulfillment",
+      "relationshipName": "party",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "emplPositionFulfillment",
+      "relationshipName": "reportingTo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "emplPositionFulfillment",
+      "relationshipName": "managedBy",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805154849",
+  "entityTableName": "empl_position_fulfillment",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

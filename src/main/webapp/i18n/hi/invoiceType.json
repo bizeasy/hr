@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "invoiceType": {
+      "home": {
+        "title": "InvoiceTypes",
+        "createLabel": "नया Invoice Type बनाएँ",
+        "createOrEditLabel": "Invoice Type बनाएँ या संपादित करें",
+        "notFound": "No Invoice Types found"
+      },
+      "created": "एक नया Invoice Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Invoice Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Invoice Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Invoice Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Invoice Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

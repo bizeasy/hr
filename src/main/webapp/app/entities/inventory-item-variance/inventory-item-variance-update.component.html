@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-inventory-item-variance-heading" jhiTranslate="hrApp.inventoryItemVariance.home.createOrEditLabel">Create or edit a Inventory Item Variance</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemVariance.varianceReason" for="field_varianceReason">Variance Reason</label>
+                    <input type="text" class="form-control" name="varianceReason" id="field_varianceReason"
+                           formControlName="varianceReason"/>
+                    <div *ngIf="editForm.get('varianceReason')!.invalid && (editForm.get('varianceReason')!.dirty || editForm.get('varianceReason')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('varianceReason')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemVariance.atpVar" for="field_atpVar">Atp Var</label>
+                    <input type="number" class="form-control" name="atpVar" id="field_atpVar"
+                           formControlName="atpVar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemVariance.qohVar" for="field_qohVar">Qoh Var</label>
+                    <input type="number" class="form-control" name="qohVar" id="field_qohVar"
+                           formControlName="qohVar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemVariance.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                    <div *ngIf="editForm.get('comments')!.invalid && (editForm.get('comments')!.dirty || editForm.get('comments')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('comments')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemVariance.inventoryItem" for="field_inventoryItem">Inventory Item</label>
+                    <select class="form-control" id="field_inventoryItem" name="inventoryItem" formControlName="inventoryItem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryItemOption.id === editForm.get('inventoryItem')!.value?.id ? editForm.get('inventoryItem')!.value : inventoryItemOption" *ngFor="let inventoryItemOption of inventoryitems; trackBy: trackById">{{ inventoryItemOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemVariance.reason" for="field_reason">Reason</label>
+                    <select class="form-control" id="field_reason" name="reason" formControlName="reason">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reasonOption.id === editForm.get('reason')!.value?.id ? editForm.get('reason')!.value : reasonOption" *ngFor="let reasonOption of reasons; trackBy: trackById">{{ reasonOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

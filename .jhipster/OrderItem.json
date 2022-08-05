@@ -1,0 +1,139 @@
+{
+  "name": "OrderItem",
+  "fields": [
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "cancelQuantity",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "selectedAmount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "unitPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "unitListPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "cgst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "igst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "sgst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "cgstPercentage",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "igstPercentage",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "sgstPercentage",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "isModifiedPrice",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "estimatedShipDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "estimatedDeliveryDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "shipBeforeDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "shipAfterDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "orderItem",
+      "relationshipName": "order",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "orderItemType",
+      "otherEntityRelationshipName": "orderItem",
+      "relationshipName": "orderItemType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryItem",
+      "otherEntityRelationshipName": "orderItem",
+      "relationshipName": "fromInventoryItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "orderItem",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "supplierProduct",
+      "otherEntityRelationshipName": "orderItem",
+      "relationshipName": "supplierProduct",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "orderItem",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taxAuthorityRateType",
+      "otherEntityRelationshipName": "orderItem",
+      "relationshipName": "taxAuthRate",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805143949",
+  "entityTableName": "order_item",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,33 @@
+{
+  "hrApp": {
+    "jobRequisition": {
+      "home": {
+        "title": "Job Requisitions",
+        "createLabel": "కొత్త Job Requisition  సృష్టించండి",
+        "createOrEditLabel": "Job Requisition సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Job Requisitions found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Job Requisition సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Job Requisition సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Job Requisition తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Job Requisition {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Job Requisition"
+      },
+      "duration": "Duration",
+      "age": "Age",
+      "gender": "Gender",
+      "experienceMonths": "Experience Months",
+      "experienceYears": "Experience Years",
+      "qualificationStr": "Qualification Str",
+      "noOfResource": "No Of Resource",
+      "requiredOnDate": "Required On Date",
+      "qualificiation": "Qualificiation",
+      "skillType": "Skill Type",
+      "jobLocation": "Job Location",
+      "examType": "Exam Type"
+    }
+  }
+}

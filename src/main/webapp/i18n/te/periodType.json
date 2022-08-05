@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "periodType": {
+      "home": {
+        "title": "Period Types",
+        "createLabel": "కొత్త Period Type  సృష్టించండి",
+        "createOrEditLabel": "Period Type సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Period Types found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Period Type సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Period Type సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Period Type తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Period Type {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Period Type"
+      },
+      "name": "Name",
+      "description": "Description",
+      "periodLength": "Period Length",
+      "uom": "Uom"
+    }
+  }
+}

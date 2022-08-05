@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "catalogueCategoryType": {
+      "home": {
+        "title": "CatalogueCategoryTypes",
+        "createLabel": "नया Catalogue Category Type बनाएँ",
+        "createOrEditLabel": "Catalogue Category Type बनाएँ या संपादित करें",
+        "notFound": "No Catalogue Category Types found"
+      },
+      "created": "एक नया Catalogue Category Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Catalogue Category Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Catalogue Category Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Catalogue Category Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Catalogue Category Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

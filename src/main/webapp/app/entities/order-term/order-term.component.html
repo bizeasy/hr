@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.orderTerm.home.title">Order Terms</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-term" [routerLink]="['/order-term/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.orderTerm.home.createLabel">
+            Create a new Order Term
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orderTerms?.length === 0">
+        <span jhiTranslate="hrApp.orderTerm.home.notFound">No orderTerms found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orderTerms && orderTerms.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.sequenceNo">Sequence No</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.detail">Detail</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.termValue">Term Value</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.termDays">Term Days</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.textValue">Text Value</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.order">Order</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.item">Item</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.term">Term</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.orderTerm.type">Type</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let orderTerm of orderTerms ;trackBy: trackId">
+                    <td><a [routerLink]="['/order-term', orderTerm.id, 'view']">{{ orderTerm.id }}</a></td>
+                    <td>{{ orderTerm.sequenceNo }}</td>
+                    <td>{{ orderTerm.name }}</td>
+                    <td>{{ orderTerm.detail }}</td>
+                    <td>{{ orderTerm.termValue }}</td>
+                    <td>{{ orderTerm.termDays }}</td>
+                    <td>{{ orderTerm.textValue }}</td>
+                    <td>
+                        <div *ngIf="orderTerm.order">
+                            <a [routerLink]="['/order', orderTerm.order?.id, 'view']" >{{ orderTerm.order?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderTerm.item">
+                            <a [routerLink]="['/order-item', orderTerm.item?.id, 'view']" >{{ orderTerm.item?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderTerm.term">
+                            <a [routerLink]="['/term', orderTerm.term?.id, 'view']" >{{ orderTerm.term?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderTerm.type">
+                            <a [routerLink]="['/order-term-type', orderTerm.type?.id, 'view']" >{{ orderTerm.type?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order-term', orderTerm.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order-term', orderTerm.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(orderTerm)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

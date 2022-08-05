@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "holidayType": {
+      "home": {
+        "title": "Holiday Types",
+        "createLabel": "Create a new Holiday Type",
+        "createOrEditLabel": "Create or edit a Holiday Type",
+        "notFound": "No Holiday Types found"
+      },
+      "created": "A new Holiday Type is created with identifier {{ param }}",
+      "updated": "A Holiday Type is updated with identifier {{ param }}",
+      "deleted": "A Holiday Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Holiday Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Holiday Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

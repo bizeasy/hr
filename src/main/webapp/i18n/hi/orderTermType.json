@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "orderTermType": {
+      "home": {
+        "title": "OrderTermTypes",
+        "createLabel": "नया Order Term Type बनाएँ",
+        "createOrEditLabel": "Order Term Type बनाएँ या संपादित करें",
+        "notFound": "No Order Term Types found"
+      },
+      "created": "एक नया Order Term Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Order Term Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Order Term Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Order Term Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Order Term Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

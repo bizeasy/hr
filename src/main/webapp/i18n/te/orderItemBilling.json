@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "orderItemBilling": {
+      "home": {
+        "title": "Order Item Billings",
+        "createLabel": "కొత్త Order Item Billing  సృష్టించండి",
+        "createOrEditLabel": "Order Item Billing సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Order Item Billings found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Order Item Billing సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Order Item Billing సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Order Item Billing తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Order Item Billing {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Order Item Billing"
+      },
+      "quantity": "Quantity",
+      "amount": "Amount",
+      "orderItem": "Order Item",
+      "invoiceItem": "Invoice Item"
+    }
+  }
+}

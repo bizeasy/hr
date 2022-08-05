@@ -1,0 +1,140 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderItem">
+            <h2><span jhiTranslate="hrApp.orderItem.detail.title">Order Item</span> {{ orderItem.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.orderItem.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ orderItem.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ orderItem.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.cancelQuantity">Cancel Quantity</span></dt>
+                <dd>
+                    <span>{{ orderItem.cancelQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.selectedAmount">Selected Amount</span></dt>
+                <dd>
+                    <span>{{ orderItem.selectedAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.unitPrice">Unit Price</span></dt>
+                <dd>
+                    <span>{{ orderItem.unitPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.unitListPrice">Unit List Price</span></dt>
+                <dd>
+                    <span>{{ orderItem.unitListPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.cgst">Cgst</span></dt>
+                <dd>
+                    <span>{{ orderItem.cgst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.igst">Igst</span></dt>
+                <dd>
+                    <span>{{ orderItem.igst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.sgst">Sgst</span></dt>
+                <dd>
+                    <span>{{ orderItem.sgst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.cgstPercentage">Cgst Percentage</span></dt>
+                <dd>
+                    <span>{{ orderItem.cgstPercentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.igstPercentage">Igst Percentage</span></dt>
+                <dd>
+                    <span>{{ orderItem.igstPercentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.sgstPercentage">Sgst Percentage</span></dt>
+                <dd>
+                    <span>{{ orderItem.sgstPercentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.totalPrice">Total Price</span></dt>
+                <dd>
+                    <span>{{ orderItem.totalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.isModifiedPrice">Is Modified Price</span></dt>
+                <dd>
+                    <span>{{ orderItem.isModifiedPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.estimatedShipDate">Estimated Ship Date</span></dt>
+                <dd>
+                    <span>{{ orderItem.estimatedShipDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.estimatedDeliveryDate">Estimated Delivery Date</span></dt>
+                <dd>
+                    <span>{{ orderItem.estimatedDeliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.shipBeforeDate">Ship Before Date</span></dt>
+                <dd>
+                    <span>{{ orderItem.shipBeforeDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.shipAfterDate">Ship After Date</span></dt>
+                <dd>
+                    <span>{{ orderItem.shipAfterDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="orderItem.order">
+                        <a [routerLink]="['/order', orderItem.order?.id, 'view']">{{ orderItem.order?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.orderItemType">Order Item Type</span></dt>
+                <dd>
+                    <div *ngIf="orderItem.orderItemType">
+                        <a [routerLink]="['/order-item-type', orderItem.orderItemType?.id, 'view']">{{ orderItem.orderItemType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.fromInventoryItem">From Inventory Item</span></dt>
+                <dd>
+                    <div *ngIf="orderItem.fromInventoryItem">
+                        <a [routerLink]="['/inventory-item', orderItem.fromInventoryItem?.id, 'view']">{{ orderItem.fromInventoryItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="orderItem.product">
+                        <a [routerLink]="['/product', orderItem.product?.id, 'view']">{{ orderItem.product?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.supplierProduct">Supplier Product</span></dt>
+                <dd>
+                    <div *ngIf="orderItem.supplierProduct">
+                        <a [routerLink]="['/supplier-product', orderItem.supplierProduct?.id, 'view']">{{ orderItem.supplierProduct?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="orderItem.status">
+                        <a [routerLink]="['/status', orderItem.status?.id, 'view']">{{ orderItem.status?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderItem.taxAuthRate">Tax Auth Rate</span></dt>
+                <dd>
+                    <div *ngIf="orderItem.taxAuthRate">
+                        <a [routerLink]="['/tax-authority-rate-type', orderItem.taxAuthRate?.id, 'view']">{{ orderItem.taxAuthRate?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-item', orderItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

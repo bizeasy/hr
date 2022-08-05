@@ -1,0 +1,116 @@
+{
+  "name": "Order",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "externalId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "orderDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "priority",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "10"
+    },
+    {
+      "fieldName": "entryDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "isRushOrder",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "needsInventoryIssuance",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "remainingSubTotal",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "grandTotal",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "hasRateContract",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "gotQuoteFromVendors",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "vendorReason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expectedDeliveryDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "insuranceResp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transportResp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "unloadingResp",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "orderType",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "orderType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "salesChannel",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "salesChannel",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "party",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805143749",
+  "entityTableName": "order",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,179 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-order-heading" jhiTranslate="hrApp.order.home.createOrEditLabel">Create or edit a Order</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.externalId" for="field_externalId">External Id</label>
+                    <input type="text" class="form-control" name="externalId" id="field_externalId"
+                           formControlName="externalId"/>
+                    <div *ngIf="editForm.get('externalId')!.invalid && (editForm.get('externalId')!.dirty || editForm.get('externalId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('externalId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.orderDate" for="field_orderDate">Order Date</label>
+                    <div class="d-flex">
+                        <input id="field_orderDate" type="datetime-local" class="form-control" name="orderDate" formControlName="orderDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.priority" for="field_priority">Priority</label>
+                    <input type="number" class="form-control" name="priority" id="field_priority"
+                           formControlName="priority"/>
+                    <div *ngIf="editForm.get('priority')!.invalid && (editForm.get('priority')!.dirty || editForm.get('priority')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('priority')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 10 }">
+                            This field cannot be more than 10.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('priority')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.entryDate" for="field_entryDate">Entry Date</label>
+                    <div class="d-flex">
+                        <input id="field_entryDate" type="datetime-local" class="form-control" name="entryDate" formControlName="entryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.isRushOrder" for="field_isRushOrder">Is Rush Order</label>
+                    <input type="checkbox" class="form-control" name="isRushOrder" id="field_isRushOrder"
+                           formControlName="isRushOrder"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.needsInventoryIssuance" for="field_needsInventoryIssuance">Needs Inventory Issuance</label>
+                    <input type="checkbox" class="form-control" name="needsInventoryIssuance" id="field_needsInventoryIssuance"
+                           formControlName="needsInventoryIssuance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.remainingSubTotal" for="field_remainingSubTotal">Remaining Sub Total</label>
+                    <input type="number" class="form-control" name="remainingSubTotal" id="field_remainingSubTotal"
+                           formControlName="remainingSubTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.grandTotal" for="field_grandTotal">Grand Total</label>
+                    <input type="number" class="form-control" name="grandTotal" id="field_grandTotal"
+                           formControlName="grandTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.hasRateContract" for="field_hasRateContract">Has Rate Contract</label>
+                    <input type="checkbox" class="form-control" name="hasRateContract" id="field_hasRateContract"
+                           formControlName="hasRateContract"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.gotQuoteFromVendors" for="field_gotQuoteFromVendors">Got Quote From Vendors</label>
+                    <input type="checkbox" class="form-control" name="gotQuoteFromVendors" id="field_gotQuoteFromVendors"
+                           formControlName="gotQuoteFromVendors"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.vendorReason" for="field_vendorReason">Vendor Reason</label>
+                    <input type="text" class="form-control" name="vendorReason" id="field_vendorReason"
+                           formControlName="vendorReason"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.expectedDeliveryDate" for="field_expectedDeliveryDate">Expected Delivery Date</label>
+                    <div class="d-flex">
+                        <input id="field_expectedDeliveryDate" type="datetime-local" class="form-control" name="expectedDeliveryDate" formControlName="expectedDeliveryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.insuranceResp" for="field_insuranceResp">Insurance Resp</label>
+                    <input type="text" class="form-control" name="insuranceResp" id="field_insuranceResp"
+                           formControlName="insuranceResp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.transportResp" for="field_transportResp">Transport Resp</label>
+                    <input type="text" class="form-control" name="transportResp" id="field_transportResp"
+                           formControlName="transportResp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.unloadingResp" for="field_unloadingResp">Unloading Resp</label>
+                    <input type="text" class="form-control" name="unloadingResp" id="field_unloadingResp"
+                           formControlName="unloadingResp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.orderType" for="field_orderType">Order Type</label>
+                    <select class="form-control" id="field_orderType" name="orderType" formControlName="orderType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderTypeOption.id === editForm.get('orderType')!.value?.id ? editForm.get('orderType')!.value : orderTypeOption" *ngFor="let orderTypeOption of ordertypes; trackBy: trackById">{{ orderTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.salesChannel" for="field_salesChannel">Sales Channel</label>
+                    <select class="form-control" id="field_salesChannel" name="salesChannel" formControlName="salesChannel">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="salesChannelOption.id === editForm.get('salesChannel')!.value?.id ? editForm.get('salesChannel')!.value : salesChannelOption" *ngFor="let salesChannelOption of saleschannels; trackBy: trackById">{{ salesChannelOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.party" for="field_party">Party</label>
+                    <select class="form-control" id="field_party" name="party" formControlName="party">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('party')!.value?.id ? editForm.get('party')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.order.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

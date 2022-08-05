@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "rateType": {
+      "home": {
+        "title": "RateTypes",
+        "createLabel": "नया Rate Type बनाएँ",
+        "createOrEditLabel": "Rate Type बनाएँ या संपादित करें",
+        "notFound": "No Rate Types found"
+      },
+      "created": "एक नया Rate Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Rate Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Rate Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Rate Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Rate Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

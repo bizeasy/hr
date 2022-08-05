@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "communicationEventType": {
+      "home": {
+        "title": "Communication Event Types",
+        "createLabel": "Create a new Communication Event Type",
+        "createOrEditLabel": "Create or edit a Communication Event Type",
+        "notFound": "No Communication Event Types found"
+      },
+      "created": "A new Communication Event Type is created with identifier {{ param }}",
+      "updated": "A Communication Event Type is updated with identifier {{ param }}",
+      "deleted": "A Communication Event Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Communication Event Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Communication Event Type"
+      },
+      "name": "Name",
+      "description": "Description",
+      "contactMechType": "Contact Mech Type"
+    }
+  }
+}

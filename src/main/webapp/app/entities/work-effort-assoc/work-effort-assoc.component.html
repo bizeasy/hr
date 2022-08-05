@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.workEffortAssoc.home.title">Work Effort Assocs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-work-effort-assoc" [routerLink]="['/work-effort-assoc/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.workEffortAssoc.home.createLabel">
+            Create a new Work Effort Assoc
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="workEffortAssocs?.length === 0">
+        <span jhiTranslate="hrApp.workEffortAssoc.home.notFound">No workEffortAssocs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="workEffortAssocs && workEffortAssocs.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sequenceNo"><span jhiTranslate="hrApp.workEffortAssoc.sequenceNo">Sequence No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fromDate"><span jhiTranslate="hrApp.workEffortAssoc.fromDate">From Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="thruDate"><span jhiTranslate="hrApp.workEffortAssoc.thruDate">Thru Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type.name"><span jhiTranslate="hrApp.workEffortAssoc.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="weIdFrom.name"><span jhiTranslate="hrApp.workEffortAssoc.weIdFrom">We Id From</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="weIdTo.name"><span jhiTranslate="hrApp.workEffortAssoc.weIdTo">We Id To</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let workEffortAssoc of workEffortAssocs ;trackBy: trackId">
+                    <td><a [routerLink]="['/work-effort-assoc', workEffortAssoc.id, 'view']">{{ workEffortAssoc.id }}</a></td>
+                    <td>{{ workEffortAssoc.sequenceNo }}</td>
+                    <td>{{ workEffortAssoc.fromDate | date:'medium' }}</td>
+                    <td>{{ workEffortAssoc.thruDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="workEffortAssoc.type">
+                            <a [routerLink]="['/work-effort-assoc-type', workEffortAssoc.type?.id, 'view']" >{{ workEffortAssoc.type?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffortAssoc.weIdFrom">
+                            <a [routerLink]="['/work-effort', workEffortAssoc.weIdFrom?.id, 'view']" >{{ workEffortAssoc.weIdFrom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="workEffortAssoc.weIdTo">
+                            <a [routerLink]="['/work-effort', workEffortAssoc.weIdTo?.id, 'view']" >{{ workEffortAssoc.weIdTo?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/work-effort-assoc', workEffortAssoc.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/work-effort-assoc', workEffortAssoc.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(workEffortAssoc)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="workEffortAssocs && workEffortAssocs.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

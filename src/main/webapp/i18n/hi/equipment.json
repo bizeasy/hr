@@ -1,0 +1,33 @@
+{
+  "hrApp": {
+    "equipment": {
+      "home": {
+        "title": "Equipment",
+        "createLabel": "नया Equipment बनाएँ",
+        "createOrEditLabel": "Equipment बनाएँ या संपादित करें",
+        "notFound": "No Equipment found"
+      },
+      "created": "एक नया Equipment [identifier: {{ param }}] तैयार है",
+      "updated": "एक Equipment [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Equipment [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Equipment [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Equipment"
+      },
+      "name": "Name",
+      "description": "Description",
+      "equipmentNumber": "Equipment Number",
+      "minCapacityRange": "Min Capacity Range",
+      "maxCapacityRange": "Max Capacity Range",
+      "minOperationalRange": "Min Operational Range",
+      "maxOperationalRange": "Max Operational Range",
+      "lastCalibratedDate": "Last Calibrated Date",
+      "calibrationDueDate": "Calibration Due Date",
+      "changeControlNo": "Change Control No",
+      "equipmentType": "Equipment Type",
+      "status": "Status"
+    }
+  }
+}

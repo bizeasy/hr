@@ -1,0 +1,38 @@
+{
+  "name": "ShiftHolidays",
+  "fields": [
+    {
+      "fieldName": "dayOfheWeek",
+      "fieldType": "DayOfheWeek",
+      "fieldValues": "SATURDAY,SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY"
+    },
+    {
+      "fieldName": "monthlyPaidLeaves",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "yearlyPaidLeaves",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "shift",
+      "otherEntityRelationshipName": "shiftHolidays",
+      "relationshipName": "shift",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805161949",
+  "entityTableName": "shift_holidays",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

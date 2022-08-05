@@ -1,0 +1,42 @@
+{
+  "name": "ProductKeyword",
+  "fields": [
+    {
+      "fieldName": "keyword",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "relevancyWeight",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "productKeyword",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "keywordType",
+      "otherEntityRelationshipName": "productKeyword",
+      "relationshipName": "keywordType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805150349",
+  "entityTableName": "product_keyword",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

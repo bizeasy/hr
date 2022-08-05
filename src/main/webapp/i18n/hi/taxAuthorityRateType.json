@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "taxAuthorityRateType": {
+      "home": {
+        "title": "TaxAuthorityRateTypes",
+        "createLabel": "नया Tax Authority Rate Type बनाएँ",
+        "createOrEditLabel": "Tax Authority Rate Type बनाएँ या संपादित करें",
+        "notFound": "No Tax Authority Rate Types found"
+      },
+      "created": "एक नया Tax Authority Rate Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Tax Authority Rate Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Tax Authority Rate Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Tax Authority Rate Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Tax Authority Rate Type"
+      },
+      "name": "Name",
+      "description": "Description",
+      "taxAuthority": "Tax Authority",
+      "taxSlab": "Tax Slab"
+    }
+  }
+}

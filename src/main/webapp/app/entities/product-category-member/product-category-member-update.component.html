@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-product-category-member-heading" jhiTranslate="hrApp.productCategoryMember.home.createOrEditLabel">Create or edit a Product Category Member</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.productCategoryMember.fromDate" for="field_fromDate">From Date</label>
+                    <div class="d-flex">
+                        <input id="field_fromDate" type="datetime-local" class="form-control" name="fromDate" formControlName="fromDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.productCategoryMember.thruDate" for="field_thruDate">Thru Date</label>
+                    <div class="d-flex">
+                        <input id="field_thruDate" type="datetime-local" class="form-control" name="thruDate" formControlName="thruDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.productCategoryMember.sequenceNo" for="field_sequenceNo">Sequence No</label>
+                    <input type="number" class="form-control" name="sequenceNo" id="field_sequenceNo"
+                           formControlName="sequenceNo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.productCategoryMember.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="product">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id === editForm.get('product')!.value?.id ? editForm.get('product')!.value : productOption" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.productCategoryMember.productCategory" for="field_productCategory">Product Category</label>
+                    <select class="form-control" id="field_productCategory" name="productCategory" formControlName="productCategory">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productCategoryOption.id === editForm.get('productCategory')!.value?.id ? editForm.get('productCategory')!.value : productCategoryOption" *ngFor="let productCategoryOption of productcategories; trackBy: trackById">{{ productCategoryOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

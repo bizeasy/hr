@@ -1,0 +1,31 @@
+{
+  "hrApp": {
+    "orderTerm": {
+      "home": {
+        "title": "Order Terms",
+        "createLabel": "Create a new Order Term",
+        "createOrEditLabel": "Create or edit a Order Term",
+        "notFound": "No Order Terms found"
+      },
+      "created": "A new Order Term is created with identifier {{ param }}",
+      "updated": "A Order Term is updated with identifier {{ param }}",
+      "deleted": "A Order Term is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order Term {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Term"
+      },
+      "sequenceNo": "Sequence No",
+      "name": "Name",
+      "detail": "Detail",
+      "termValue": "Term Value",
+      "termDays": "Term Days",
+      "textValue": "Text Value",
+      "order": "Order",
+      "item": "Item",
+      "term": "Term",
+      "type": "Type"
+    }
+  }
+}

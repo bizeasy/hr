@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "perfReviewItemType": {
+      "home": {
+        "title": "Perf Review Item Types",
+        "createLabel": "Create a new Perf Review Item Type",
+        "createOrEditLabel": "Create or edit a Perf Review Item Type",
+        "notFound": "No Perf Review Item Types found"
+      },
+      "created": "A new Perf Review Item Type is created with identifier {{ param }}",
+      "updated": "A Perf Review Item Type is updated with identifier {{ param }}",
+      "deleted": "A Perf Review Item Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Perf Review Item Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Perf Review Item Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

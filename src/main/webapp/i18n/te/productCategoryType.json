@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productCategoryType": {
+      "home": {
+        "title": "Product Category Types",
+        "createLabel": "కొత్త Product Category Type  సృష్టించండి",
+        "createOrEditLabel": "Product Category Type సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Product Category Types found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Product Category Type సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Product Category Type సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Product Category Type తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Product Category Type {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Product Category Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

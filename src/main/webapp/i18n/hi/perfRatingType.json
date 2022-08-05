@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "perfRatingType": {
+      "home": {
+        "title": "PerfRatingTypes",
+        "createLabel": "नया Perf Rating Type बनाएँ",
+        "createOrEditLabel": "Perf Rating Type बनाएँ या संपादित करें",
+        "notFound": "No Perf Rating Types found"
+      },
+      "created": "एक नया Perf Rating Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Perf Rating Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Perf Rating Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Perf Rating Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Perf Rating Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

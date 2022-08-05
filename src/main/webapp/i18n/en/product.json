@@ -1,0 +1,71 @@
+{
+  "hrApp": {
+    "product": {
+      "home": {
+        "title": "Products",
+        "createLabel": "Create a new Product",
+        "createOrEditLabel": "Create or edit a Product",
+        "notFound": "No Products found"
+      },
+      "created": "A new Product is created with identifier {{ param }}",
+      "updated": "A Product is updated with identifier {{ param }}",
+      "deleted": "A Product is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "name": "Name",
+      "internalName": "Internal Name",
+      "brandName": "Brand Name",
+      "variant": "Variant",
+      "sku": "Sku",
+      "introductionDate": "Introduction Date",
+      "releaseDate": "Release Date",
+      "quantityIncluded": "Quantity Included",
+      "piecesIncluded": "Pieces Included",
+      "weight": "Weight",
+      "height": "Height",
+      "width": "Width",
+      "depth": "Depth",
+      "smallImageUrl": "Small Image Url",
+      "mediumImageUrl": "Medium Image Url",
+      "largeImageUrl": "Large Image Url",
+      "detailImageUrl": "Detail Image Url",
+      "originalImageUrl": "Original Image Url",
+      "quantity": "Quantity",
+      "cgst": "Cgst",
+      "igst": "Igst",
+      "sgst": "Sgst",
+      "price": "Price",
+      "cgstPercentage": "Cgst Percentage",
+      "igstPercentage": "Igst Percentage",
+      "sgstPercentage": "Sgst Percentage",
+      "totalPrice": "Total Price",
+      "description": "Description",
+      "longDescription": "Long Description",
+      "info": "Info",
+      "isVirtual": "Is Virtual",
+      "isVariant": "Is Variant",
+      "requireInventory": "Require Inventory",
+      "returnable": "Returnable",
+      "isPopular": "Is Popular",
+      "changeControlNo": "Change Control No",
+      "retestDuration": "Retest Duration",
+      "expiryDuration": "Expiry Duration",
+      "validationType": "Validation Type",
+      "shelfLife": "Shelf Life",
+      "productType": "Product Type",
+      "quantityUom": "Quantity Uom",
+      "weightUom": "Weight Uom",
+      "sizeUom": "Size Uom",
+      "uom": "Uom",
+      "primaryProductCategory": "Primary Product Category",
+      "virtualProduct": "Virtual Product",
+      "inventoryItemType": "Inventory Item Type",
+      "taxSlab": "Tax Slab",
+      "shelfLifeUom": "Shelf Life Uom"
+    }
+  }
+}

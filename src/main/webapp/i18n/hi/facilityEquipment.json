@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "facilityEquipment": {
+      "home": {
+        "title": "FacilityEquipments",
+        "createLabel": "नया Facility Equipment बनाएँ",
+        "createOrEditLabel": "Facility Equipment बनाएँ या संपादित करें",
+        "notFound": "No Facility Equipments found"
+      },
+      "created": "एक नया Facility Equipment [identifier: {{ param }}] तैयार है",
+      "updated": "एक Facility Equipment [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Facility Equipment [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Facility Equipment [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Facility Equipment"
+      },
+      "name": "Name",
+      "description": "Description",
+      "facility": "Facility",
+      "equipment": "Equipment"
+    }
+  }
+}

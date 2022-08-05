@@ -1,0 +1,137 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.party.home.title">Parties</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-party" [routerLink]="['/party/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.party.home.createLabel">
+            Create a new Party
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="parties?.length === 0">
+        <span jhiTranslate="hrApp.party.home.notFound">No parties found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="parties && parties.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isOrganisation"><span jhiTranslate="hrApp.party.isOrganisation">Is Organisation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="organisationName"><span jhiTranslate="hrApp.party.organisationName">Organisation Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="organisationShortName"><span jhiTranslate="hrApp.party.organisationShortName">Organisation Short Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="salutation"><span jhiTranslate="hrApp.party.salutation">Salutation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="firstName"><span jhiTranslate="hrApp.party.firstName">First Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="middleName"><span jhiTranslate="hrApp.party.middleName">Middle Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastName"><span jhiTranslate="hrApp.party.lastName">Last Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gender"><span jhiTranslate="hrApp.party.gender">Gender</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="birthDate"><span jhiTranslate="hrApp.party.birthDate">Birth Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primaryPhone"><span jhiTranslate="hrApp.party.primaryPhone">Primary Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primaryEmail"><span jhiTranslate="hrApp.party.primaryEmail">Primary Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isTemporaryPassword"><span jhiTranslate="hrApp.party.isTemporaryPassword">Is Temporary Password</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="logoImageUrl"><span jhiTranslate="hrApp.party.logoImageUrl">Logo Image Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="profileImageUrl"><span jhiTranslate="hrApp.party.profileImageUrl">Profile Image Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notes"><span jhiTranslate="hrApp.party.notes">Notes</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="birthdate"><span jhiTranslate="hrApp.party.birthdate">Birthdate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateOfJoining"><span jhiTranslate="hrApp.party.dateOfJoining">Date Of Joining</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="trainingCompletedDate"><span jhiTranslate="hrApp.party.trainingCompletedDate">Training Completed Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="jdApprovedOn"><span jhiTranslate="hrApp.party.jdApprovedOn">Jd Approved On</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="employeeId"><span jhiTranslate="hrApp.party.employeeId">Employee Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="authString"><span jhiTranslate="hrApp.party.authString">Auth String</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userGroupString"><span jhiTranslate="hrApp.party.userGroupString">User Group String</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tanNo"><span jhiTranslate="hrApp.party.tanNo">Tan No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="panNo"><span jhiTranslate="hrApp.party.panNo">Pan No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gstNo"><span jhiTranslate="hrApp.party.gstNo">Gst No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="aadharNo"><span jhiTranslate="hrApp.party.aadharNo">Aadhar No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.login"><span jhiTranslate="hrApp.party.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="partyType.name"><span jhiTranslate="hrApp.party.partyType">Party Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status.name"><span jhiTranslate="hrApp.party.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let party of parties ;trackBy: trackId">
+                    <td><a [routerLink]="['/party', party.id, 'view']">{{ party.id }}</a></td>
+                    <td>{{ party.isOrganisation }}</td>
+                    <td>{{ party.organisationName }}</td>
+                    <td>{{ party.organisationShortName }}</td>
+                    <td>{{ party.salutation }}</td>
+                    <td>{{ party.firstName }}</td>
+                    <td>{{ party.middleName }}</td>
+                    <td>{{ party.lastName }}</td>
+                    <td jhiTranslate="{{ 'hrApp.Gender.' + party.gender }}">{{ party.gender }}</td>
+                    <td>{{ party.birthDate | date:'mediumDate' }}</td>
+                    <td>{{ party.primaryPhone }}</td>
+                    <td>{{ party.primaryEmail }}</td>
+                    <td>{{ party.isTemporaryPassword }}</td>
+                    <td>{{ party.logoImageUrl }}</td>
+                    <td>{{ party.profileImageUrl }}</td>
+                    <td>{{ party.notes }}</td>
+                    <td>{{ party.birthdate | date:'medium' }}</td>
+                    <td>{{ party.dateOfJoining | date:'medium' }}</td>
+                    <td>{{ party.trainingCompletedDate | date:'medium' }}</td>
+                    <td>{{ party.jdApprovedOn | date:'medium' }}</td>
+                    <td>{{ party.employeeId }}</td>
+                    <td>{{ party.authString }}</td>
+                    <td>{{ party.userGroupString }}</td>
+                    <td>{{ party.tanNo }}</td>
+                    <td>{{ party.panNo }}</td>
+                    <td>{{ party.gstNo }}</td>
+                    <td>{{ party.aadharNo }}</td>
+                    <td>
+                        {{ party.user?.login }}
+                    </td>
+                    <td>
+                        <div *ngIf="party.partyType">
+                            <a [routerLink]="['/party-type', party.partyType?.id, 'view']" >{{ party.partyType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="party.status">
+                            <a [routerLink]="['/status', party.status?.id, 'view']" >{{ party.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/party', party.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/party', party.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(party)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="parties && parties.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

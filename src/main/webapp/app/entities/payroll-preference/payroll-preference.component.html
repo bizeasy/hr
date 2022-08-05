@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.payrollPreference.home.title">Payroll Preferences</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-payroll-preference" [routerLink]="['/payroll-preference/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.payrollPreference.home.createLabel">
+            Create a new Payroll Preference
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="payrollPreferences?.length === 0">
+        <span jhiTranslate="hrApp.payrollPreference.home.notFound">No payrollPreferences found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="payrollPreferences && payrollPreferences.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.fromDate">From Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.thruDate">Thru Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.sequenceNo">Sequence No</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.percentage">Percentage</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.flatAmount">Flat Amount</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.accountNumber">Account Number</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.bankName">Bank Name</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.ifscCode">Ifsc Code</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.branch">Branch</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.employee">Employee</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.deductionType">Deduction Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.paymentMethodType">Payment Method Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.payrollPreference.periodType">Period Type</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let payrollPreference of payrollPreferences ;trackBy: trackId">
+                    <td><a [routerLink]="['/payroll-preference', payrollPreference.id, 'view']">{{ payrollPreference.id }}</a></td>
+                    <td>{{ payrollPreference.fromDate | date:'medium' }}</td>
+                    <td>{{ payrollPreference.thruDate | date:'medium' }}</td>
+                    <td>{{ payrollPreference.sequenceNo }}</td>
+                    <td>{{ payrollPreference.percentage }}</td>
+                    <td>{{ payrollPreference.flatAmount }}</td>
+                    <td>{{ payrollPreference.accountNumber }}</td>
+                    <td>{{ payrollPreference.bankName }}</td>
+                    <td>{{ payrollPreference.ifscCode }}</td>
+                    <td>{{ payrollPreference.branch }}</td>
+                    <td>
+                        <div *ngIf="payrollPreference.employee">
+                            <a [routerLink]="['/party', payrollPreference.employee?.id, 'view']" >{{ payrollPreference.employee?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payrollPreference.deductionType">
+                            <a [routerLink]="['/deduction-type', payrollPreference.deductionType?.id, 'view']" >{{ payrollPreference.deductionType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payrollPreference.paymentMethodType">
+                            <a [routerLink]="['/payment-method-type', payrollPreference.paymentMethodType?.id, 'view']" >{{ payrollPreference.paymentMethodType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payrollPreference.periodType">
+                            <a [routerLink]="['/period-type', payrollPreference.periodType?.id, 'view']" >{{ payrollPreference.periodType?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/payroll-preference', payrollPreference.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/payroll-preference', payrollPreference.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(payrollPreference)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

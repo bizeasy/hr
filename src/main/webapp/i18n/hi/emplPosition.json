@@ -1,0 +1,33 @@
+{
+  "hrApp": {
+    "emplPosition": {
+      "home": {
+        "title": "EmplPositions",
+        "createLabel": "नया Empl Position बनाएँ",
+        "createOrEditLabel": "Empl Position बनाएँ या संपादित करें",
+        "notFound": "No Empl Positions found"
+      },
+      "created": "एक नया Empl Position [identifier: {{ param }}] तैयार है",
+      "updated": "एक Empl Position [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Empl Position [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Empl Position [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Empl Position"
+      },
+      "maxBudget": "Max Budget",
+      "minBudget": "Min Budget",
+      "estimatedFromDate": "Estimated From Date",
+      "estimatedThruDate": "Estimated Thru Date",
+      "paidJob": "Paid Job",
+      "isFulltime": "Is Fulltime",
+      "isTemporary": "Is Temporary",
+      "actualFromDate": "Actual From Date",
+      "actualThruDate": "Actual Thru Date",
+      "type": "Type",
+      "party": "Party",
+      "status": "Status"
+    }
+  }
+}

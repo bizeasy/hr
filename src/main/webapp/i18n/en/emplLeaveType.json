@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "emplLeaveType": {
+      "home": {
+        "title": "Empl Leave Types",
+        "createLabel": "Create a new Empl Leave Type",
+        "createOrEditLabel": "Create or edit a Empl Leave Type",
+        "notFound": "No Empl Leave Types found"
+      },
+      "created": "A new Empl Leave Type is created with identifier {{ param }}",
+      "updated": "A Empl Leave Type is updated with identifier {{ param }}",
+      "deleted": "A Empl Leave Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empl Leave Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Empl Leave Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

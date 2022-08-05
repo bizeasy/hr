@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="interviewGrade">
+            <h2><span jhiTranslate="hrApp.interviewGrade.detail.title">Interview Grade</span> {{ interviewGrade.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.interviewGrade.name">Name</span></dt>
+                <dd>
+                    <span>{{ interviewGrade.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.interviewGrade.description">Description</span></dt>
+                <dd>
+                    <span>{{ interviewGrade.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/interview-grade', interviewGrade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="shift">
+            <h2><span jhiTranslate="hrApp.shift.detail.title">Shift</span> {{ shift.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.shift.name">Name</span></dt>
+                <dd>
+                    <span>{{ shift.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.shift.fromTime">From Time</span></dt>
+                <dd>
+                    <span>{{ shift.fromTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.shift.toTime">To Time</span></dt>
+                <dd>
+                    <span>{{ shift.toTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.shift.workingHrs">Working Hrs</span></dt>
+                <dd>
+                    <span>{{ shift.workingHrs }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.shift.monthlyPaidLeaves">Monthly Paid Leaves</span></dt>
+                <dd>
+                    <span>{{ shift.monthlyPaidLeaves }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/shift', shift.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

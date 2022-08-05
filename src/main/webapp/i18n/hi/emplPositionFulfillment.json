@@ -1,0 +1,28 @@
+{
+  "hrApp": {
+    "emplPositionFulfillment": {
+      "home": {
+        "title": "EmplPositionFulfillments",
+        "createLabel": "नया Empl Position Fulfillment बनाएँ",
+        "createOrEditLabel": "Empl Position Fulfillment बनाएँ या संपादित करें",
+        "notFound": "No Empl Position Fulfillments found"
+      },
+      "created": "एक नया Empl Position Fulfillment [identifier: {{ param }}] तैयार है",
+      "updated": "एक Empl Position Fulfillment [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Empl Position Fulfillment [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Empl Position Fulfillment [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Empl Position Fulfillment"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "comments": "Comments",
+      "emplPosition": "Empl Position",
+      "party": "Party",
+      "reportingTo": "Reporting To",
+      "managedBy": "Managed By"
+    }
+  }
+}

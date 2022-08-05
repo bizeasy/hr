@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "facilityGroupMember": {
+      "home": {
+        "title": "Facility Group Members",
+        "createLabel": "కొత్త Facility Group Member  సృష్టించండి",
+        "createOrEditLabel": "Facility Group Member సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Facility Group Members found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Facility Group Member సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Facility Group Member సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Facility Group Member తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Facility Group Member {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Facility Group Member"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "sequenceNo": "Sequence No",
+      "facility": "Facility",
+      "facilityGroup": "Facility Group"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "name": "Equipment",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "200"
+    },
+    {
+      "fieldName": "equipmentNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "minCapacityRange",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "maxCapacityRange",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "minOperationalRange",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "maxOperationalRange",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lastCalibratedDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "calibrationDueDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "changeControlNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "equipmentType",
+      "otherEntityRelationshipName": "equipment",
+      "relationshipName": "equipmentType",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "equipment",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805140649",
+  "entityTableName": "equipment",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

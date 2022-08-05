@@ -1,0 +1,34 @@
+{
+  "hrApp": {
+    "payrollPreference": {
+      "home": {
+        "title": "Payroll Preferences",
+        "createLabel": "Create a new Payroll Preference",
+        "createOrEditLabel": "Create or edit a Payroll Preference",
+        "notFound": "No Payroll Preferences found"
+      },
+      "created": "A new Payroll Preference is created with identifier {{ param }}",
+      "updated": "A Payroll Preference is updated with identifier {{ param }}",
+      "deleted": "A Payroll Preference is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payroll Preference {{ id }}?"
+      },
+      "detail": {
+        "title": "Payroll Preference"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "sequenceNo": "Sequence No",
+      "percentage": "Percentage",
+      "flatAmount": "Flat Amount",
+      "accountNumber": "Account Number",
+      "bankName": "Bank Name",
+      "ifscCode": "Ifsc Code",
+      "branch": "Branch",
+      "employee": "Employee",
+      "deductionType": "Deduction Type",
+      "paymentMethodType": "Payment Method Type",
+      "periodType": "Period Type"
+    }
+  }
+}

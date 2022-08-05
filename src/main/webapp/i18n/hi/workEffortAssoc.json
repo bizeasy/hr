@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "workEffortAssoc": {
+      "home": {
+        "title": "WorkEffortAssocs",
+        "createLabel": "नया Work Effort Assoc बनाएँ",
+        "createOrEditLabel": "Work Effort Assoc बनाएँ या संपादित करें",
+        "notFound": "No Work Effort Assocs found"
+      },
+      "created": "एक नया Work Effort Assoc [identifier: {{ param }}] तैयार है",
+      "updated": "एक Work Effort Assoc [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Work Effort Assoc [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Work Effort Assoc [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Work Effort Assoc"
+      },
+      "sequenceNo": "Sequence No",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "type": "Type",
+      "weIdFrom": "We Id From",
+      "weIdTo": "We Id To"
+    }
+  }
+}

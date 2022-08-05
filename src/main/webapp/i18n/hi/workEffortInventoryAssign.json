@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "workEffortInventoryAssign": {
+      "home": {
+        "title": "WorkEffortInventoryAssigns",
+        "createLabel": "नया Work Effort Inventory Assign बनाएँ",
+        "createOrEditLabel": "Work Effort Inventory Assign बनाएँ या संपादित करें",
+        "notFound": "No Work Effort Inventory Assigns found"
+      },
+      "created": "एक नया Work Effort Inventory Assign [identifier: {{ param }}] तैयार है",
+      "updated": "एक Work Effort Inventory Assign [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Work Effort Inventory Assign [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Work Effort Inventory Assign [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Work Effort Inventory Assign"
+      },
+      "quantity": "Quantity",
+      "workEffort": "Work Effort",
+      "inventoryItem": "Inventory Item",
+      "status": "Status"
+    }
+  }
+}

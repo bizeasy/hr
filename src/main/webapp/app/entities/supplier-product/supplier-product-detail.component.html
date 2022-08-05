@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="supplierProduct">
+            <h2><span jhiTranslate="hrApp.supplierProduct.detail.title">Supplier Product</span> {{ supplierProduct.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.supplierProduct.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.minOrderQty">Min Order Qty</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.minOrderQty }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.lastPrice">Last Price</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.lastPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.shippingPrice">Shipping Price</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.shippingPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.supplierProductId">Supplier Product Id</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.supplierProductId }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.leadTimeDays">Lead Time Days</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.leadTimeDays }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.cgst">Cgst</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.cgst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.igst">Igst</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.igst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.sgst">Sgst</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.sgst }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.totalPrice">Total Price</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.totalPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.supplierProductName">Supplier Product Name</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.supplierProductName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.manufacturerName">Manufacturer Name</span></dt>
+                <dd>
+                    <span>{{ supplierProduct.manufacturerName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="supplierProduct.product">
+                        <a [routerLink]="['/product', supplierProduct.product?.id, 'view']">{{ supplierProduct.product?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="supplierProduct.supplier">
+                        <a [routerLink]="['/party', supplierProduct.supplier?.id, 'view']">{{ supplierProduct.supplier?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.quantityUom">Quantity Uom</span></dt>
+                <dd>
+                    <div *ngIf="supplierProduct.quantityUom">
+                        <a [routerLink]="['/uom', supplierProduct.quantityUom?.id, 'view']">{{ supplierProduct.quantityUom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.currencyUom">Currency Uom</span></dt>
+                <dd>
+                    <div *ngIf="supplierProduct.currencyUom">
+                        <a [routerLink]="['/uom', supplierProduct.currencyUom?.id, 'view']">{{ supplierProduct.currencyUom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.supplierProduct.manufacturer">Manufacturer</span></dt>
+                <dd>
+                    <div *ngIf="supplierProduct.manufacturer">
+                        <a [routerLink]="['/party', supplierProduct.manufacturer?.id, 'view']">{{ supplierProduct.manufacturer?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/supplier-product', supplierProduct.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

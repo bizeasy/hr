@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "partyClassificationType": {
+      "home": {
+        "title": "PartyClassificationTypes",
+        "createLabel": "नया Party Classification Type बनाएँ",
+        "createOrEditLabel": "Party Classification Type बनाएँ या संपादित करें",
+        "notFound": "No Party Classification Types found"
+      },
+      "created": "एक नया Party Classification Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Party Classification Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Party Classification Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Party Classification Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Party Classification Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

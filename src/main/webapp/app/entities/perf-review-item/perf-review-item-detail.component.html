@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="perfReviewItem">
+            <h2><span jhiTranslate="hrApp.perfReviewItem.detail.title">Perf Review Item</span> {{ perfReviewItem.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.perfReviewItem.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ perfReviewItem.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReviewItem.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ perfReviewItem.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReviewItem.perfReview">Perf Review</span></dt>
+                <dd>
+                    <div *ngIf="perfReviewItem.perfReview">
+                        <a [routerLink]="['/perf-review', perfReviewItem.perfReview?.id, 'view']">{{ perfReviewItem.perfReview?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReviewItem.perfRatingType">Perf Rating Type</span></dt>
+                <dd>
+                    <div *ngIf="perfReviewItem.perfRatingType">
+                        <a [routerLink]="['/perf-rating-type', perfReviewItem.perfRatingType?.id, 'view']">{{ perfReviewItem.perfRatingType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReviewItem.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="perfReviewItem.type">
+                        <a [routerLink]="['/perf-review-item-type', perfReviewItem.type?.id, 'view']">{{ perfReviewItem.type?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReviewItem.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="perfReviewItem.employee">
+                        <a [routerLink]="['/party', perfReviewItem.employee?.id, 'view']">{{ perfReviewItem.employee?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/perf-review-item', perfReviewItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

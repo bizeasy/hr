@@ -1,0 +1,32 @@
+{
+  "hrApp": {
+    "productPrice": {
+      "home": {
+        "title": "Product Prices",
+        "createLabel": "Create a new Product Price",
+        "createOrEditLabel": "Create or edit a Product Price",
+        "notFound": "No Product Prices found"
+      },
+      "created": "A new Product Price is created with identifier {{ param }}",
+      "updated": "A Product Price is updated with identifier {{ param }}",
+      "deleted": "A Product Price is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Price {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Price"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "price": "Price",
+      "cgst": "Cgst",
+      "igst": "Igst",
+      "sgst": "Sgst",
+      "totalPrice": "Total Price",
+      "product": "Product",
+      "productPriceType": "Product Price Type",
+      "productPricePurpose": "Product Price Purpose",
+      "currencyUom": "Currency Uom"
+    }
+  }
+}

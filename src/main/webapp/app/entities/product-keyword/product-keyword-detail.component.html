@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productKeyword">
+            <h2><span jhiTranslate="hrApp.productKeyword.detail.title">Product Keyword</span> {{ productKeyword.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.productKeyword.keyword">Keyword</span></dt>
+                <dd>
+                    <span>{{ productKeyword.keyword }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productKeyword.relevancyWeight">Relevancy Weight</span></dt>
+                <dd>
+                    <span>{{ productKeyword.relevancyWeight }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productKeyword.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="productKeyword.product">
+                        <a [routerLink]="['/product', productKeyword.product?.id, 'view']">{{ productKeyword.product?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productKeyword.keywordType">Keyword Type</span></dt>
+                <dd>
+                    <div *ngIf="productKeyword.keywordType">
+                        <a [routerLink]="['/keyword-type', productKeyword.keywordType?.id, 'view']">{{ productKeyword.keywordType?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-keyword', productKeyword.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

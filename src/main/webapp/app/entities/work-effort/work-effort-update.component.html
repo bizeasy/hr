@@ -1,0 +1,182 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-work-effort-heading" jhiTranslate="hrApp.workEffort.home.createOrEditLabel">Create or edit a Work Effort</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                    <div *ngIf="editForm.get('code')!.invalid && (editForm.get('code')!.dirty || editForm.get('code')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('code')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.batchSize" for="field_batchSize">Batch Size</label>
+                    <input type="number" class="form-control" name="batchSize" id="field_batchSize"
+                           formControlName="batchSize"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.minYieldRange" for="field_minYieldRange">Min Yield Range</label>
+                    <input type="number" class="form-control" name="minYieldRange" id="field_minYieldRange"
+                           formControlName="minYieldRange"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.maxYieldRange" for="field_maxYieldRange">Max Yield Range</label>
+                    <input type="number" class="form-control" name="maxYieldRange" id="field_maxYieldRange"
+                           formControlName="maxYieldRange"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.percentComplete" for="field_percentComplete">Percent Complete</label>
+                    <input type="number" class="form-control" name="percentComplete" id="field_percentComplete"
+                           formControlName="percentComplete"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.validationType" for="field_validationType">Validation Type</label>
+                    <input type="text" class="form-control" name="validationType" id="field_validationType"
+                           formControlName="validationType"/>
+                    <div *ngIf="editForm.get('validationType')!.invalid && (editForm.get('validationType')!.dirty || editForm.get('validationType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('validationType')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.shelfLife" for="field_shelfLife">Shelf Life</label>
+                    <input type="number" class="form-control" name="shelfLife" id="field_shelfLife"
+                           formControlName="shelfLife"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.outputQty" for="field_outputQty">Output Qty</label>
+                    <input type="number" class="form-control" name="outputQty" id="field_outputQty"
+                           formControlName="outputQty"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="product">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id === editForm.get('product')!.value?.id ? editForm.get('product')!.value : productOption" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.ksm" for="field_ksm">Ksm</label>
+                    <select class="form-control" id="field_ksm" name="ksm" formControlName="ksm">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id === editForm.get('ksm')!.value?.id ? editForm.get('ksm')!.value : productOption" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.type" for="field_type">Type</label>
+                    <select class="form-control" id="field_type" name="type" formControlName="type">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="workEffortTypeOption.id === editForm.get('type')!.value?.id ? editForm.get('type')!.value : workEffortTypeOption" *ngFor="let workEffortTypeOption of workefforttypes; trackBy: trackById">{{ workEffortTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.purpose" for="field_purpose">Purpose</label>
+                    <select class="form-control" id="field_purpose" name="purpose" formControlName="purpose">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="workEffortPurposeOption.id === editForm.get('purpose')!.value?.id ? editForm.get('purpose')!.value : workEffortPurposeOption" *ngFor="let workEffortPurposeOption of workeffortpurposes; trackBy: trackById">{{ workEffortPurposeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.facility" for="field_facility">Facility</label>
+                    <select class="form-control" id="field_facility" name="facility" formControlName="facility">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facilityOption.id === editForm.get('facility')!.value?.id ? editForm.get('facility')!.value : facilityOption" *ngFor="let facilityOption of facilities; trackBy: trackById">{{ facilityOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.shelfListUom" for="field_shelfListUom">Shelf List Uom</label>
+                    <select class="form-control" id="field_shelfListUom" name="shelfListUom" formControlName="shelfListUom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('shelfListUom')!.value?.id ? editForm.get('shelfListUom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.productCategory" for="field_productCategory">Product Category</label>
+                    <select class="form-control" id="field_productCategory" name="productCategory" formControlName="productCategory">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productCategoryOption.id === editForm.get('productCategory')!.value?.id ? editForm.get('productCategory')!.value : productCategoryOption" *ngFor="let productCategoryOption of productcategories; trackBy: trackById">{{ productCategoryOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.workEffort.productStore" for="field_productStore">Product Store</label>
+                    <select class="form-control" id="field_productStore" name="productStore" formControlName="productStore">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productStoreOption.id === editForm.get('productStore')!.value?.id ? editForm.get('productStore')!.value : productStoreOption" *ngFor="let productStoreOption of productstores; trackBy: trackById">{{ productStoreOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

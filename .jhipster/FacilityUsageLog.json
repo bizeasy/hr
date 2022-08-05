@@ -1,0 +1,51 @@
+{
+  "name": "FacilityUsageLog",
+  "fields": [
+    {
+      "fieldName": "fromTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "toTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "remarks",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facility",
+      "otherEntityRelationshipName": "facilityUsageLog",
+      "relationshipName": "facility",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "facilityUsageLog",
+      "relationshipName": "cleanedBy",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "facilityUsageLog",
+      "relationshipName": "checkedBy",
+      "otherEntityField": "login"
+    }
+  ],
+  "changelogDate": "20220805141349",
+  "entityTableName": "facility_usage_log",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

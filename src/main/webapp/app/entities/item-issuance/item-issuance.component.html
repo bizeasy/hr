@@ -1,0 +1,125 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.itemIssuance.home.title">Item Issuances</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-item-issuance" [routerLink]="['/item-issuance/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.itemIssuance.home.createLabel">
+            Create a new Item Issuance
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="itemIssuances?.length === 0">
+        <span jhiTranslate="hrApp.itemIssuance.home.notFound">No itemIssuances found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="itemIssuances && itemIssuances.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="message"><span jhiTranslate="hrApp.itemIssuance.message">Message</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="issuedDate"><span jhiTranslate="hrApp.itemIssuance.issuedDate">Issued Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="issuedBy"><span jhiTranslate="hrApp.itemIssuance.issuedBy">Issued By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span jhiTranslate="hrApp.itemIssuance.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cancelQuantity"><span jhiTranslate="hrApp.itemIssuance.cancelQuantity">Cancel Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fromDate"><span jhiTranslate="hrApp.itemIssuance.fromDate">From Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="thruDate"><span jhiTranslate="hrApp.itemIssuance.thruDate">Thru Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="equipmentId"><span jhiTranslate="hrApp.itemIssuance.equipmentId">Equipment Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="order.id"><span jhiTranslate="hrApp.itemIssuance.order">Order</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderItem.id"><span jhiTranslate="hrApp.itemIssuance.orderItem">Order Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventoryItem.id"><span jhiTranslate="hrApp.itemIssuance.inventoryItem">Inventory Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="issuedByUserLogin.login"><span jhiTranslate="hrApp.itemIssuance.issuedByUserLogin">Issued By User Login</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="varianceReason.name"><span jhiTranslate="hrApp.itemIssuance.varianceReason">Variance Reason</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facility.name"><span jhiTranslate="hrApp.itemIssuance.facility">Facility</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status.name"><span jhiTranslate="hrApp.itemIssuance.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let itemIssuance of itemIssuances ;trackBy: trackId">
+                    <td><a [routerLink]="['/item-issuance', itemIssuance.id, 'view']">{{ itemIssuance.id }}</a></td>
+                    <td>{{ itemIssuance.message }}</td>
+                    <td>{{ itemIssuance.issuedDate | date:'medium' }}</td>
+                    <td>{{ itemIssuance.issuedBy }}</td>
+                    <td>{{ itemIssuance.quantity }}</td>
+                    <td>{{ itemIssuance.cancelQuantity }}</td>
+                    <td>{{ itemIssuance.fromDate | date:'medium' }}</td>
+                    <td>{{ itemIssuance.thruDate | date:'medium' }}</td>
+                    <td>{{ itemIssuance.equipmentId }}</td>
+                    <td>
+                        <div *ngIf="itemIssuance.order">
+                            <a [routerLink]="['/order', itemIssuance.order?.id, 'view']" >{{ itemIssuance.order?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="itemIssuance.orderItem">
+                            <a [routerLink]="['/order-item', itemIssuance.orderItem?.id, 'view']" >{{ itemIssuance.orderItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="itemIssuance.inventoryItem">
+                            <a [routerLink]="['/inventory-item', itemIssuance.inventoryItem?.id, 'view']" >{{ itemIssuance.inventoryItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        {{ itemIssuance.issuedByUserLogin?.login }}
+                    </td>
+                    <td>
+                        <div *ngIf="itemIssuance.varianceReason">
+                            <a [routerLink]="['/reason', itemIssuance.varianceReason?.id, 'view']" >{{ itemIssuance.varianceReason?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="itemIssuance.facility">
+                            <a [routerLink]="['/facility', itemIssuance.facility?.id, 'view']" >{{ itemIssuance.facility?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="itemIssuance.status">
+                            <a [routerLink]="['/status', itemIssuance.status?.id, 'view']" >{{ itemIssuance.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/item-issuance', itemIssuance.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/item-issuance', itemIssuance.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(itemIssuance)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="itemIssuances && itemIssuances.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

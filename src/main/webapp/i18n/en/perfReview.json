@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "perfReview": {
+      "home": {
+        "title": "Perf Reviews",
+        "createLabel": "Create a new Perf Review",
+        "createOrEditLabel": "Create or edit a Perf Review",
+        "notFound": "No Perf Reviews found"
+      },
+      "created": "A new Perf Review is created with identifier {{ param }}",
+      "updated": "A Perf Review is updated with identifier {{ param }}",
+      "deleted": "A Perf Review is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Perf Review {{ id }}?"
+      },
+      "detail": {
+        "title": "Perf Review"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "comments": "Comments",
+      "employee": "Employee",
+      "manager": "Manager",
+      "emplPosition": "Empl Position"
+    }
+  }
+}

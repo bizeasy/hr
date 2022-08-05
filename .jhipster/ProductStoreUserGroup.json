@@ -1,0 +1,46 @@
+{
+  "name": "ProductStoreUserGroup",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userGroup",
+      "otherEntityRelationshipName": "productStoreUserGroup",
+      "relationshipName": "userGroup",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "productStoreUserGroup",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "productStoreUserGroup",
+      "relationshipName": "party",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productStore",
+      "otherEntityRelationshipName": "productStoreUserGroup",
+      "relationshipValidateRules": "required",
+      "relationshipName": "productStore",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805151649",
+  "entityTableName": "product_store_user_group",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

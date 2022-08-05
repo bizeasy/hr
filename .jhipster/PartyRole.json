@@ -1,0 +1,31 @@
+{
+  "name": "PartyRole",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "partyRole",
+      "relationshipName": "party",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "roleType",
+      "otherEntityRelationshipName": "partyRole",
+      "relationshipName": "roleType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805144549",
+  "entityTableName": "party_role",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "productStoreUserGroup": {
+      "home": {
+        "title": "Product Store User Groups",
+        "createLabel": "Create a new Product Store User Group",
+        "createOrEditLabel": "Create or edit a Product Store User Group",
+        "notFound": "No Product Store User Groups found"
+      },
+      "created": "A new Product Store User Group is created with identifier {{ param }}",
+      "updated": "A Product Store User Group is updated with identifier {{ param }}",
+      "deleted": "A Product Store User Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Store User Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Store User Group"
+      },
+      "userGroup": "User Group",
+      "user": "User",
+      "party": "Party",
+      "productStore": "Product Store"
+    }
+  }
+}

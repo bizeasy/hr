@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="itemIssuance">
+            <h2><span jhiTranslate="hrApp.itemIssuance.detail.title">Item Issuance</span> {{ itemIssuance.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.itemIssuance.message">Message</span></dt>
+                <dd>
+                    <span>{{ itemIssuance.message }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.issuedDate">Issued Date</span></dt>
+                <dd>
+                    <span>{{ itemIssuance.issuedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.issuedBy">Issued By</span></dt>
+                <dd>
+                    <span>{{ itemIssuance.issuedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ itemIssuance.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.cancelQuantity">Cancel Quantity</span></dt>
+                <dd>
+                    <span>{{ itemIssuance.cancelQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ itemIssuance.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ itemIssuance.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.equipmentId">Equipment Id</span></dt>
+                <dd>
+                    <span>{{ itemIssuance.equipmentId }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="itemIssuance.order">
+                        <a [routerLink]="['/order', itemIssuance.order?.id, 'view']">{{ itemIssuance.order?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.orderItem">Order Item</span></dt>
+                <dd>
+                    <div *ngIf="itemIssuance.orderItem">
+                        <a [routerLink]="['/order-item', itemIssuance.orderItem?.id, 'view']">{{ itemIssuance.orderItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.inventoryItem">Inventory Item</span></dt>
+                <dd>
+                    <div *ngIf="itemIssuance.inventoryItem">
+                        <a [routerLink]="['/inventory-item', itemIssuance.inventoryItem?.id, 'view']">{{ itemIssuance.inventoryItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.issuedByUserLogin">Issued By User Login</span></dt>
+                <dd>
+                    {{ itemIssuance.issuedByUserLogin?.login }}
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.varianceReason">Variance Reason</span></dt>
+                <dd>
+                    <div *ngIf="itemIssuance.varianceReason">
+                        <a [routerLink]="['/reason', itemIssuance.varianceReason?.id, 'view']">{{ itemIssuance.varianceReason?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.facility">Facility</span></dt>
+                <dd>
+                    <div *ngIf="itemIssuance.facility">
+                        <a [routerLink]="['/facility', itemIssuance.facility?.id, 'view']">{{ itemIssuance.facility?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.itemIssuance.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="itemIssuance.status">
+                        <a [routerLink]="['/status', itemIssuance.status?.id, 'view']">{{ itemIssuance.status?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item-issuance', itemIssuance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

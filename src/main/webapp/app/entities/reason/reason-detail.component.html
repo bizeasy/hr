@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reason">
+            <h2><span jhiTranslate="hrApp.reason.detail.title">Reason</span> {{ reason.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.reason.name">Name</span></dt>
+                <dd>
+                    <span>{{ reason.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.reason.description">Description</span></dt>
+                <dd>
+                    <span>{{ reason.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.reason.reasonType">Reason Type</span></dt>
+                <dd>
+                    <div *ngIf="reason.reasonType">
+                        <a [routerLink]="['/reason-type', reason.reasonType?.id, 'view']">{{ reason.reasonType?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reason', reason.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

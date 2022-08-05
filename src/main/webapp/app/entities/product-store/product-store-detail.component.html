@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productStore">
+            <h2><span jhiTranslate="hrApp.productStore.detail.title">Product Store</span> {{ productStore.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.productStore.name">Name</span></dt>
+                <dd>
+                    <span>{{ productStore.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStore.title">Title</span></dt>
+                <dd>
+                    <span>{{ productStore.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStore.subtitle">Subtitle</span></dt>
+                <dd>
+                    <span>{{ productStore.subtitle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStore.imageUrl">Image Url</span></dt>
+                <dd>
+                    <span>{{ productStore.imageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStore.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ productStore.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStore.code">Code</span></dt>
+                <dd>
+                    <span>{{ productStore.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStore.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="productStore.type">
+                        <a [routerLink]="['/product-store-type', productStore.type?.id, 'view']">{{ productStore.type?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStore.parent">Parent</span></dt>
+                <dd>
+                    <div *ngIf="productStore.parent">
+                        <a [routerLink]="['/product-store', productStore.parent?.id, 'view']">{{ productStore.parent?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStore.owner">Owner</span></dt>
+                <dd>
+                    <div *ngIf="productStore.owner">
+                        <a [routerLink]="['/party', productStore.owner?.id, 'view']">{{ productStore.owner?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStore.postalAddress">Postal Address</span></dt>
+                <dd>
+                    <div *ngIf="productStore.postalAddress">
+                        <a [routerLink]="['/postal-address', productStore.postalAddress?.id, 'view']">{{ productStore.postalAddress?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-store', productStore.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

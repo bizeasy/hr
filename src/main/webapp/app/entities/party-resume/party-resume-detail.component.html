@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="partyResume">
+            <h2><span jhiTranslate="hrApp.partyResume.detail.title">Party Resume</span> {{ partyResume.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.partyResume.text">Text</span></dt>
+                <dd>
+                    <span>{{ partyResume.text }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.partyResume.resumeDate">Resume Date</span></dt>
+                <dd>
+                    <span>{{ partyResume.resumeDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.partyResume.fileAttachment">File Attachment</span></dt>
+                <dd>
+                    <div *ngIf="partyResume.fileAttachment">
+                        <a (click)="openFile(partyResume.fileAttachmentContentType, partyResume.fileAttachment)" jhiTranslate="entity.action.open">open</a>
+                        {{ partyResume.fileAttachmentContentType }}, {{ byteSize(partyResume.fileAttachment) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.partyResume.attachmentUrl">Attachment Url</span></dt>
+                <dd>
+                    <span>{{ partyResume.attachmentUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.partyResume.mimeType">Mime Type</span></dt>
+                <dd>
+                    <span>{{ partyResume.mimeType }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.partyResume.party">Party</span></dt>
+                <dd>
+                    <div *ngIf="partyResume.party">
+                        <a [routerLink]="['/party', partyResume.party?.id, 'view']">{{ partyResume.party?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/party-resume', partyResume.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

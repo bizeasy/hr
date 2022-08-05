@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="jobRequisition">
+            <h2><span jhiTranslate="hrApp.jobRequisition.detail.title">Job Requisition</span> {{ jobRequisition.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.jobRequisition.duration">Duration</span></dt>
+                <dd>
+                    <span>{{ jobRequisition.duration }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.age">Age</span></dt>
+                <dd>
+                    <span>{{ jobRequisition.age }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'hrApp.Gender.' + jobRequisition.gender }}">{{ jobRequisition.gender }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.experienceMonths">Experience Months</span></dt>
+                <dd>
+                    <span>{{ jobRequisition.experienceMonths }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.experienceYears">Experience Years</span></dt>
+                <dd>
+                    <span>{{ jobRequisition.experienceYears }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.qualificationStr">Qualification Str</span></dt>
+                <dd>
+                    <span>{{ jobRequisition.qualificationStr }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.noOfResource">No Of Resource</span></dt>
+                <dd>
+                    <span>{{ jobRequisition.noOfResource }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.requiredOnDate">Required On Date</span></dt>
+                <dd>
+                    <span>{{ jobRequisition.requiredOnDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.qualificiation">Qualificiation</span></dt>
+                <dd>
+                    <div *ngIf="jobRequisition.qualificiation">
+                        <a [routerLink]="['/qualification', jobRequisition.qualificiation?.id, 'view']">{{ jobRequisition.qualificiation?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.skillType">Skill Type</span></dt>
+                <dd>
+                    <div *ngIf="jobRequisition.skillType">
+                        <a [routerLink]="['/skill-type', jobRequisition.skillType?.id, 'view']">{{ jobRequisition.skillType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.jobLocation">Job Location</span></dt>
+                <dd>
+                    <div *ngIf="jobRequisition.jobLocation">
+                        <a [routerLink]="['/geo', jobRequisition.jobLocation?.id, 'view']">{{ jobRequisition.jobLocation?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobRequisition.examType">Exam Type</span></dt>
+                <dd>
+                    <div *ngIf="jobRequisition.examType">
+                        <a [routerLink]="['/exam-type', jobRequisition.examType?.id, 'view']">{{ jobRequisition.examType?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/job-requisition', jobRequisition.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

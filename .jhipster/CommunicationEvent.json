@@ -1,0 +1,108 @@
+{
+  "name": "CommunicationEvent",
+  "fields": [
+    {
+      "fieldName": "entryDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "subject",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fromString",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "toString",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ccString",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "message",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateStarted",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dateEnded",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "info",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "communicationEventType",
+      "otherEntityRelationshipName": "communicationEvent",
+      "relationshipName": "communicationEventType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "communicationEvent",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contactMechType",
+      "otherEntityRelationshipName": "communicationEvent",
+      "relationshipName": "contactMechType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contactMech",
+      "otherEntityRelationshipName": "communicationEvent",
+      "relationshipName": "contactMechFrom",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contactMech",
+      "otherEntityRelationshipName": "communicationEvent",
+      "relationshipName": "contactMechTo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "communicationEvent",
+      "relationshipName": "fromParty",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "communicationEvent",
+      "relationshipName": "toParty",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805140549",
+  "entityTableName": "communication_event",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

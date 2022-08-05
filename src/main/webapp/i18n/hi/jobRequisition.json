@@ -1,0 +1,33 @@
+{
+  "hrApp": {
+    "jobRequisition": {
+      "home": {
+        "title": "JobRequisitions",
+        "createLabel": "नया Job Requisition बनाएँ",
+        "createOrEditLabel": "Job Requisition बनाएँ या संपादित करें",
+        "notFound": "No Job Requisitions found"
+      },
+      "created": "एक नया Job Requisition [identifier: {{ param }}] तैयार है",
+      "updated": "एक Job Requisition [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Job Requisition [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Job Requisition [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Job Requisition"
+      },
+      "duration": "Duration",
+      "age": "Age",
+      "gender": "Gender",
+      "experienceMonths": "Experience Months",
+      "experienceYears": "Experience Years",
+      "qualificationStr": "Qualification Str",
+      "noOfResource": "No Of Resource",
+      "requiredOnDate": "Required On Date",
+      "qualificiation": "Qualificiation",
+      "skillType": "Skill Type",
+      "jobLocation": "Job Location",
+      "examType": "Exam Type"
+    }
+  }
+}

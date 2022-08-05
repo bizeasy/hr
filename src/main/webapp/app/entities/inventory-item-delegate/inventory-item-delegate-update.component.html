@@ -1,0 +1,139 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-inventory-item-delegate-heading" jhiTranslate="hrApp.inventoryItemDelegate.home.createOrEditLabel">Create or edit a Inventory Item Delegate</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.sequenceNo" for="field_sequenceNo">Sequence No</label>
+                    <input type="number" class="form-control" name="sequenceNo" id="field_sequenceNo"
+                           formControlName="sequenceNo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.effectiveDate" for="field_effectiveDate">Effective Date</label>
+                    <div class="d-flex">
+                        <input id="field_effectiveDate" type="datetime-local" class="form-control" name="effectiveDate" formControlName="effectiveDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.quantityOnHandDiff" for="field_quantityOnHandDiff">Quantity On Hand Diff</label>
+                    <input type="number" class="form-control" name="quantityOnHandDiff" id="field_quantityOnHandDiff"
+                           formControlName="quantityOnHandDiff"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.availableToPromiseDiff" for="field_availableToPromiseDiff">Available To Promise Diff</label>
+                    <input type="number" class="form-control" name="availableToPromiseDiff" id="field_availableToPromiseDiff"
+                           formControlName="availableToPromiseDiff"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.accountingQuantityDiff" for="field_accountingQuantityDiff">Accounting Quantity Diff</label>
+                    <input type="number" class="form-control" name="accountingQuantityDiff" id="field_accountingQuantityDiff"
+                           formControlName="accountingQuantityDiff"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.unitCost" for="field_unitCost">Unit Cost</label>
+                    <input type="number" class="form-control" name="unitCost" id="field_unitCost"
+                           formControlName="unitCost"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                           formControlName="remarks"/>
+                    <div *ngIf="editForm.get('remarks')!.invalid && (editForm.get('remarks')!.dirty || editForm.get('remarks')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('remarks')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.invoice" for="field_invoice">Invoice</label>
+                    <select class="form-control" id="field_invoice" name="invoice" formControlName="invoice">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="invoiceOption.id === editForm.get('invoice')!.value?.id ? editForm.get('invoice')!.value : invoiceOption" *ngFor="let invoiceOption of invoices; trackBy: trackById">{{ invoiceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.invoiceItem" for="field_invoiceItem">Invoice Item</label>
+                    <select class="form-control" id="field_invoiceItem" name="invoiceItem" formControlName="invoiceItem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="invoiceItemOption.id === editForm.get('invoiceItem')!.value?.id ? editForm.get('invoiceItem')!.value : invoiceItemOption" *ngFor="let invoiceItemOption of invoiceitems; trackBy: trackById">{{ invoiceItemOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="order">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderOption.id === editForm.get('order')!.value?.id ? editForm.get('order')!.value : orderOption" *ngFor="let orderOption of orders; trackBy: trackById">{{ orderOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.orderItem" for="field_orderItem">Order Item</label>
+                    <select class="form-control" id="field_orderItem" name="orderItem" formControlName="orderItem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderItemOption.id === editForm.get('orderItem')!.value?.id ? editForm.get('orderItem')!.value : orderItemOption" *ngFor="let orderItemOption of orderitems; trackBy: trackById">{{ orderItemOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.itemIssuance" for="field_itemIssuance">Item Issuance</label>
+                    <select class="form-control" id="field_itemIssuance" name="itemIssuance" formControlName="itemIssuance">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="itemIssuanceOption.id === editForm.get('itemIssuance')!.value?.id ? editForm.get('itemIssuance')!.value : itemIssuanceOption" *ngFor="let itemIssuanceOption of itemissuances; trackBy: trackById">{{ itemIssuanceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.inventoryTransfer" for="field_inventoryTransfer">Inventory Transfer</label>
+                    <select class="form-control" id="field_inventoryTransfer" name="inventoryTransfer" formControlName="inventoryTransfer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryTransferOption.id === editForm.get('inventoryTransfer')!.value?.id ? editForm.get('inventoryTransfer')!.value : inventoryTransferOption" *ngFor="let inventoryTransferOption of inventorytransfers; trackBy: trackById">{{ inventoryTransferOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.inventoryItemVariance" for="field_inventoryItemVariance">Inventory Item Variance</label>
+                    <select class="form-control" id="field_inventoryItemVariance" name="inventoryItemVariance" formControlName="inventoryItemVariance">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryItemVarianceOption.id === editForm.get('inventoryItemVariance')!.value?.id ? editForm.get('inventoryItemVariance')!.value : inventoryItemVarianceOption" *ngFor="let inventoryItemVarianceOption of inventoryitemvariances; trackBy: trackById">{{ inventoryItemVarianceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.inventoryItemDelegate.inventoryItem" for="field_inventoryItem">Inventory Item</label>
+                    <select class="form-control" id="field_inventoryItem" name="inventoryItem" formControlName="inventoryItem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryItemOption.id === editForm.get('inventoryItem')!.value?.id ? editForm.get('inventoryItem')!.value : inventoryItemOption" *ngFor="let inventoryItemOption of inventoryitems; trackBy: trackById">{{ inventoryItemOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

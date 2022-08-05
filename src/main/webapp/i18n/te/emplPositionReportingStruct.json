@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "emplPositionReportingStruct": {
+      "home": {
+        "title": "Empl Position Reporting Structs",
+        "createLabel": "కొత్త Empl Position Reporting Struct  సృష్టించండి",
+        "createOrEditLabel": "Empl Position Reporting Struct సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Empl Position Reporting Structs found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Empl Position Reporting Struct సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Empl Position Reporting Struct సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Empl Position Reporting Struct తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Empl Position Reporting Struct {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Empl Position Reporting Struct"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "comments": "Comments"
+    }
+  }
+}

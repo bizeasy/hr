@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "publicHolidays": {
+      "home": {
+        "title": "Public Holidays",
+        "createLabel": "కొత్త Public Holidays  సృష్టించండి",
+        "createOrEditLabel": "Public Holidays సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Public Holidays found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Public Holidays సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Public Holidays సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Public Holidays తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Public Holidays {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Public Holidays"
+      },
+      "name": "Name",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "noOfHolidays": "No Of Holidays",
+      "type": "Type"
+    }
+  }
+}

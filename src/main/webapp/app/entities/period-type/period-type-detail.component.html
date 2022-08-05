@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="periodType">
+            <h2><span jhiTranslate="hrApp.periodType.detail.title">Period Type</span> {{ periodType.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.periodType.name">Name</span></dt>
+                <dd>
+                    <span>{{ periodType.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.periodType.description">Description</span></dt>
+                <dd>
+                    <span>{{ periodType.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.periodType.periodLength">Period Length</span></dt>
+                <dd>
+                    <span>{{ periodType.periodLength }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.periodType.uom">Uom</span></dt>
+                <dd>
+                    <div *ngIf="periodType.uom">
+                        <a [routerLink]="['/uom', periodType.uom?.id, 'view']">{{ periodType.uom?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/period-type', periodType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

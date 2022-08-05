@@ -1,0 +1,36 @@
+{
+  "hrApp": {
+    "itemIssuance": {
+      "home": {
+        "title": "ItemIssuances",
+        "createLabel": "नया Item Issuance बनाएँ",
+        "createOrEditLabel": "Item Issuance बनाएँ या संपादित करें",
+        "notFound": "No Item Issuances found"
+      },
+      "created": "एक नया Item Issuance [identifier: {{ param }}] तैयार है",
+      "updated": "एक Item Issuance [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Item Issuance [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Item Issuance [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Item Issuance"
+      },
+      "message": "Message",
+      "issuedDate": "Issued Date",
+      "issuedBy": "Issued By",
+      "quantity": "Quantity",
+      "cancelQuantity": "Cancel Quantity",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "equipmentId": "Equipment Id",
+      "order": "Order",
+      "orderItem": "Order Item",
+      "inventoryItem": "Inventory Item",
+      "issuedByUserLogin": "Issued By User Login",
+      "varianceReason": "Variance Reason",
+      "facility": "Facility",
+      "status": "Status"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "hrApp": {
+    "inventoryItem": {
+      "home": {
+        "title": "Inventory Items",
+        "createLabel": "కొత్త Inventory Item  సృష్టించండి",
+        "createOrEditLabel": "Inventory Item సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Inventory Items found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Inventory Item సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Inventory Item సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Inventory Item తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Inventory Item {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Inventory Item"
+      },
+      "receivedDate": "Received Date",
+      "manufacturedDate": "Manufactured Date",
+      "expiryDate": "Expiry Date",
+      "retestDate": "Retest Date",
+      "containerId": "Container Id",
+      "batchNo": "Batch No",
+      "mfgBatchNo": "Mfg Batch No",
+      "lotNoStr": "Lot No Str",
+      "binNumber": "Bin Number",
+      "comments": "Comments",
+      "quantityOnHandTotal": "Quantity On Hand Total",
+      "availableToPromiseTotal": "Available To Promise Total",
+      "accountingQuantityTotal": "Accounting Quantity Total",
+      "oldQuantityOnHand": "Old Quantity On Hand",
+      "oldAvailableToPromise": "Old Available To Promise",
+      "serialNumber": "Serial Number",
+      "softIdentifier": "Soft Identifier",
+      "activationNumber": "Activation Number",
+      "activationValidTrue": "Activation Valid True",
+      "unitCost": "Unit Cost",
+      "inventoryItemType": "Inventory Item Type",
+      "product": "Product",
+      "supplier": "Supplier",
+      "ownerParty": "Owner Party",
+      "status": "Status",
+      "facility": "Facility",
+      "uom": "Uom",
+      "currencyUom": "Currency Uom",
+      "lot": "Lot"
+    }
+  }
+}

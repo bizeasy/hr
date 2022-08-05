@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productStoreType": {
+      "home": {
+        "title": "Product Store Types",
+        "createLabel": "Create a new Product Store Type",
+        "createOrEditLabel": "Create or edit a Product Store Type",
+        "notFound": "No Product Store Types found"
+      },
+      "created": "A new Product Store Type is created with identifier {{ param }}",
+      "updated": "A Product Store Type is updated with identifier {{ param }}",
+      "deleted": "A Product Store Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Store Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Store Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

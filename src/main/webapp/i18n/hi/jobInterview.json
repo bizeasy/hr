@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "jobInterview": {
+      "home": {
+        "title": "JobInterviews",
+        "createLabel": "नया Job Interview बनाएँ",
+        "createOrEditLabel": "Job Interview बनाएँ या संपादित करें",
+        "notFound": "No Job Interviews found"
+      },
+      "created": "एक नया Job Interview [identifier: {{ param }}] तैयार है",
+      "updated": "एक Job Interview [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Job Interview [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Job Interview [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Job Interview"
+      },
+      "remarks": "Remarks",
+      "interviewDate": "Interview Date",
+      "interviewee": "Interviewee",
+      "interviewer": "Interviewer",
+      "type": "Type",
+      "jobRequisition": "Job Requisition",
+      "gradeSecured": "Grade Secured",
+      "result": "Result"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productCategoryType": {
+      "home": {
+        "title": "ProductCategoryTypes",
+        "createLabel": "नया Product Category Type बनाएँ",
+        "createOrEditLabel": "Product Category Type बनाएँ या संपादित करें",
+        "notFound": "No Product Category Types found"
+      },
+      "created": "एक नया Product Category Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Product Category Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Product Category Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Product Category Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Product Category Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "hrApp": {
+    "emplPosition": {
+      "home": {
+        "title": "Empl Positions",
+        "createLabel": "కొత్త Empl Position  సృష్టించండి",
+        "createOrEditLabel": "Empl Position సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Empl Positions found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Empl Position సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Empl Position సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Empl Position తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Empl Position {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Empl Position"
+      },
+      "maxBudget": "Max Budget",
+      "minBudget": "Min Budget",
+      "estimatedFromDate": "Estimated From Date",
+      "estimatedThruDate": "Estimated Thru Date",
+      "paidJob": "Paid Job",
+      "isFulltime": "Is Fulltime",
+      "isTemporary": "Is Temporary",
+      "actualFromDate": "Actual From Date",
+      "actualThruDate": "Actual Thru Date",
+      "type": "Type",
+      "party": "Party",
+      "status": "Status"
+    }
+  }
+}

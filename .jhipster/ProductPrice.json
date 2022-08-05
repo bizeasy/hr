@@ -1,0 +1,74 @@
+{
+  "name": "ProductPrice",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "cgst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "igst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "sgst",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "productPrice",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productPriceType",
+      "otherEntityRelationshipName": "productPrice",
+      "relationshipName": "productPriceType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "productPricePurpose",
+      "otherEntityRelationshipName": "productPrice",
+      "relationshipName": "productPricePurpose",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uom",
+      "otherEntityRelationshipName": "productPrice",
+      "relationshipName": "currencyUom",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805150249",
+  "entityTableName": "product_price",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

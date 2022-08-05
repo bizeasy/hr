@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "lot": {
+      "home": {
+        "title": "Lots",
+        "createLabel": "Create a new Lot",
+        "createOrEditLabel": "Create or edit a Lot",
+        "notFound": "No Lots found"
+      },
+      "created": "A new Lot is created with identifier {{ param }}",
+      "updated": "A Lot is updated with identifier {{ param }}",
+      "deleted": "A Lot is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Lot {{ id }}?"
+      },
+      "detail": {
+        "title": "Lot"
+      },
+      "creationDate": "Creation Date",
+      "quantity": "Quantity",
+      "expirationDate": "Expiration Date",
+      "retestDate": "Retest Date"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "hrApp": {
+    "taxAuthority": {
+      "home": {
+        "title": "TaxAuthorities",
+        "createLabel": "नया Tax Authority बनाएँ",
+        "createOrEditLabel": "Tax Authority बनाएँ या संपादित करें",
+        "notFound": "No Tax Authorities found"
+      },
+      "created": "एक नया Tax Authority [identifier: {{ param }}] तैयार है",
+      "updated": "एक Tax Authority [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Tax Authority [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Tax Authority [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Tax Authority"
+      },
+      "name": "Name"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "emplLeave": {
+      "home": {
+        "title": "Empl Leaves",
+        "createLabel": "Create a new Empl Leave",
+        "createOrEditLabel": "Create or edit a Empl Leave",
+        "notFound": "No Empl Leaves found"
+      },
+      "created": "A new Empl Leave is created with identifier {{ param }}",
+      "updated": "A Empl Leave is updated with identifier {{ param }}",
+      "deleted": "A Empl Leave is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empl Leave {{ id }}?"
+      },
+      "detail": {
+        "title": "Empl Leave"
+      },
+      "description": "Description",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "employee": "Employee",
+      "approver": "Approver",
+      "leaveType": "Leave Type",
+      "reason": "Reason",
+      "status": "Status"
+    }
+  }
+}

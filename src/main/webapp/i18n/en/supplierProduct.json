@@ -1,0 +1,40 @@
+{
+  "hrApp": {
+    "supplierProduct": {
+      "home": {
+        "title": "Supplier Products",
+        "createLabel": "Create a new Supplier Product",
+        "createOrEditLabel": "Create or edit a Supplier Product",
+        "notFound": "No Supplier Products found"
+      },
+      "created": "A new Supplier Product is created with identifier {{ param }}",
+      "updated": "A Supplier Product is updated with identifier {{ param }}",
+      "deleted": "A Supplier Product is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Supplier Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Supplier Product"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "minOrderQty": "Min Order Qty",
+      "lastPrice": "Last Price",
+      "shippingPrice": "Shipping Price",
+      "supplierProductId": "Supplier Product Id",
+      "leadTimeDays": "Lead Time Days",
+      "cgst": "Cgst",
+      "igst": "Igst",
+      "sgst": "Sgst",
+      "totalPrice": "Total Price",
+      "comments": "Comments",
+      "supplierProductName": "Supplier Product Name",
+      "manufacturerName": "Manufacturer Name",
+      "product": "Product",
+      "supplier": "Supplier",
+      "quantityUom": "Quantity Uom",
+      "currencyUom": "Currency Uom",
+      "manufacturer": "Manufacturer"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.productStoreUserGroup.home.title">Product Store User Groups</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-store-user-group" [routerLink]="['/product-store-user-group/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.productStoreUserGroup.home.createLabel">
+            Create a new Product Store User Group
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productStoreUserGroups?.length === 0">
+        <span jhiTranslate="hrApp.productStoreUserGroup.home.notFound">No productStoreUserGroups found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productStoreUserGroups && productStoreUserGroups.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userGroup.name"><span jhiTranslate="hrApp.productStoreUserGroup.userGroup">User Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.login"><span jhiTranslate="hrApp.productStoreUserGroup.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="party.id"><span jhiTranslate="hrApp.productStoreUserGroup.party">Party</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productStore.name"><span jhiTranslate="hrApp.productStoreUserGroup.productStore">Product Store</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productStoreUserGroup of productStoreUserGroups ;trackBy: trackId">
+                    <td><a [routerLink]="['/product-store-user-group', productStoreUserGroup.id, 'view']">{{ productStoreUserGroup.id }}</a></td>
+                    <td>
+                        <div *ngIf="productStoreUserGroup.userGroup">
+                            <a [routerLink]="['/user-group', productStoreUserGroup.userGroup?.id, 'view']" >{{ productStoreUserGroup.userGroup?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        {{ productStoreUserGroup.user?.login }}
+                    </td>
+                    <td>
+                        <div *ngIf="productStoreUserGroup.party">
+                            <a [routerLink]="['/party', productStoreUserGroup.party?.id, 'view']" >{{ productStoreUserGroup.party?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="productStoreUserGroup.productStore">
+                            <a [routerLink]="['/product-store', productStoreUserGroup.productStore?.id, 'view']" >{{ productStoreUserGroup.productStore?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product-store-user-group', productStoreUserGroup.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product-store-user-group', productStoreUserGroup.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productStoreUserGroup)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="productStoreUserGroups && productStoreUserGroups.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

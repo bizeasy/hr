@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-shift-holidays-heading" jhiTranslate="hrApp.shiftHolidays.home.createOrEditLabel">Create or edit a Shift Holidays</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.shiftHolidays.dayOfheWeek" for="field_dayOfheWeek">Day Ofhe Week</label>
+                    <select class="form-control" name="dayOfheWeek" formControlName="dayOfheWeek" id="field_dayOfheWeek">
+                        <option value="SATURDAY">{{ 'hrApp.DayOfheWeek.SATURDAY' | translate }}</option>
+                        <option value="SUNDAY">{{ 'hrApp.DayOfheWeek.SUNDAY' | translate }}</option>
+                        <option value="MONDAY">{{ 'hrApp.DayOfheWeek.MONDAY' | translate }}</option>
+                        <option value="TUESDAY">{{ 'hrApp.DayOfheWeek.TUESDAY' | translate }}</option>
+                        <option value="WEDNESDAY">{{ 'hrApp.DayOfheWeek.WEDNESDAY' | translate }}</option>
+                        <option value="THURSDAY">{{ 'hrApp.DayOfheWeek.THURSDAY' | translate }}</option>
+                        <option value="FRIDAY">{{ 'hrApp.DayOfheWeek.FRIDAY' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.shiftHolidays.monthlyPaidLeaves" for="field_monthlyPaidLeaves">Monthly Paid Leaves</label>
+                    <input type="number" class="form-control" name="monthlyPaidLeaves" id="field_monthlyPaidLeaves"
+                           formControlName="monthlyPaidLeaves"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.shiftHolidays.yearlyPaidLeaves" for="field_yearlyPaidLeaves">Yearly Paid Leaves</label>
+                    <input type="number" class="form-control" name="yearlyPaidLeaves" id="field_yearlyPaidLeaves"
+                           formControlName="yearlyPaidLeaves"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.shiftHolidays.shift" for="field_shift">Shift</label>
+                    <select class="form-control" id="field_shift" name="shift" formControlName="shift">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shiftOption.id === editForm.get('shift')!.value?.id ? editForm.get('shift')!.value : shiftOption" *ngFor="let shiftOption of shifts; trackBy: trackById">{{ shiftOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

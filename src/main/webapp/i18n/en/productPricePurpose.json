@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productPricePurpose": {
+      "home": {
+        "title": "Product Price Purposes",
+        "createLabel": "Create a new Product Price Purpose",
+        "createOrEditLabel": "Create or edit a Product Price Purpose",
+        "notFound": "No Product Price Purposes found"
+      },
+      "created": "A new Product Price Purpose is created with identifier {{ param }}",
+      "updated": "A Product Price Purpose is updated with identifier {{ param }}",
+      "deleted": "A Product Price Purpose is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Price Purpose {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Price Purpose"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

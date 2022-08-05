@@ -1,0 +1,70 @@
+{
+  "name": "OrderTerm",
+  "fields": [
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "detail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "termValue",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "termDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "textValue",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "orderTerm",
+      "relationshipName": "order",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "orderItem",
+      "otherEntityRelationshipName": "orderTerm",
+      "relationshipName": "item",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "term",
+      "otherEntityRelationshipName": "orderTerm",
+      "relationshipName": "term",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "orderTermType",
+      "otherEntityRelationshipName": "orderTerm",
+      "relationshipName": "type",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805144449",
+  "entityTableName": "order_term",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

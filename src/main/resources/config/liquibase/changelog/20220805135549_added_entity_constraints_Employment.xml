@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Employment.
+    -->
+    <changeSet id="20220805135549-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="termination_reason_id"
+                                 baseTableName="employment"
+                                 constraintName="fk_employment_termination_reason_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reason"/>
+
+        <addForeignKeyConstraint baseColumnNames="termination_type_id"
+                                 baseTableName="employment"
+                                 constraintName="fk_employment_termination_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="termination_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="employment"
+                                 constraintName="fk_employment_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="from_party_id"
+                                 baseTableName="employment"
+                                 constraintName="fk_employment_from_party_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="role_type_from_id"
+                                 baseTableName="employment"
+                                 constraintName="fk_employment_role_type_from_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="role_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="role_type_to_id"
+                                 baseTableName="employment"
+                                 constraintName="fk_employment_role_type_to_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+    </changeSet>
+</databaseChangeLog>

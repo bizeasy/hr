@@ -1,0 +1,127 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.supplierProduct.home.title">Supplier Products</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-supplier-product" [routerLink]="['/supplier-product/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.supplierProduct.home.createLabel">
+            Create a new Supplier Product
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="supplierProducts?.length === 0">
+        <span jhiTranslate="hrApp.supplierProduct.home.notFound">No supplierProducts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="supplierProducts && supplierProducts.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fromDate"><span jhiTranslate="hrApp.supplierProduct.fromDate">From Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="thruDate"><span jhiTranslate="hrApp.supplierProduct.thruDate">Thru Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="minOrderQty"><span jhiTranslate="hrApp.supplierProduct.minOrderQty">Min Order Qty</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastPrice"><span jhiTranslate="hrApp.supplierProduct.lastPrice">Last Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shippingPrice"><span jhiTranslate="hrApp.supplierProduct.shippingPrice">Shipping Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplierProductId"><span jhiTranslate="hrApp.supplierProduct.supplierProductId">Supplier Product Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="leadTimeDays"><span jhiTranslate="hrApp.supplierProduct.leadTimeDays">Lead Time Days</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cgst"><span jhiTranslate="hrApp.supplierProduct.cgst">Cgst</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="igst"><span jhiTranslate="hrApp.supplierProduct.igst">Igst</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sgst"><span jhiTranslate="hrApp.supplierProduct.sgst">Sgst</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalPrice"><span jhiTranslate="hrApp.supplierProduct.totalPrice">Total Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="comments"><span jhiTranslate="hrApp.supplierProduct.comments">Comments</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplierProductName"><span jhiTranslate="hrApp.supplierProduct.supplierProductName">Supplier Product Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="manufacturerName"><span jhiTranslate="hrApp.supplierProduct.manufacturerName">Manufacturer Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="product.name"><span jhiTranslate="hrApp.supplierProduct.product">Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplier.id"><span jhiTranslate="hrApp.supplierProduct.supplier">Supplier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantityUom.name"><span jhiTranslate="hrApp.supplierProduct.quantityUom">Quantity Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="currencyUom.name"><span jhiTranslate="hrApp.supplierProduct.currencyUom">Currency Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="manufacturer.id"><span jhiTranslate="hrApp.supplierProduct.manufacturer">Manufacturer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let supplierProduct of supplierProducts ;trackBy: trackId">
+                    <td><a [routerLink]="['/supplier-product', supplierProduct.id, 'view']">{{ supplierProduct.id }}</a></td>
+                    <td>{{ supplierProduct.fromDate | date:'medium' }}</td>
+                    <td>{{ supplierProduct.thruDate | date:'medium' }}</td>
+                    <td>{{ supplierProduct.minOrderQty }}</td>
+                    <td>{{ supplierProduct.lastPrice }}</td>
+                    <td>{{ supplierProduct.shippingPrice }}</td>
+                    <td>{{ supplierProduct.supplierProductId }}</td>
+                    <td>{{ supplierProduct.leadTimeDays }}</td>
+                    <td>{{ supplierProduct.cgst }}</td>
+                    <td>{{ supplierProduct.igst }}</td>
+                    <td>{{ supplierProduct.sgst }}</td>
+                    <td>{{ supplierProduct.totalPrice }}</td>
+                    <td>{{ supplierProduct.comments }}</td>
+                    <td>{{ supplierProduct.supplierProductName }}</td>
+                    <td>{{ supplierProduct.manufacturerName }}</td>
+                    <td>
+                        <div *ngIf="supplierProduct.product">
+                            <a [routerLink]="['/product', supplierProduct.product?.id, 'view']" >{{ supplierProduct.product?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supplierProduct.supplier">
+                            <a [routerLink]="['/party', supplierProduct.supplier?.id, 'view']" >{{ supplierProduct.supplier?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supplierProduct.quantityUom">
+                            <a [routerLink]="['/uom', supplierProduct.quantityUom?.id, 'view']" >{{ supplierProduct.quantityUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supplierProduct.currencyUom">
+                            <a [routerLink]="['/uom', supplierProduct.currencyUom?.id, 'view']" >{{ supplierProduct.currencyUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="supplierProduct.manufacturer">
+                            <a [routerLink]="['/party', supplierProduct.manufacturer?.id, 'view']" >{{ supplierProduct.manufacturer?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/supplier-product', supplierProduct.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/supplier-product', supplierProduct.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(supplierProduct)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="supplierProducts && supplierProducts.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

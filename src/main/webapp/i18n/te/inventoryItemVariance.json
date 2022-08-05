@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "inventoryItemVariance": {
+      "home": {
+        "title": "Inventory Item Variances",
+        "createLabel": "కొత్త Inventory Item Variance  సృష్టించండి",
+        "createOrEditLabel": "Inventory Item Variance సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Inventory Item Variances found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Inventory Item Variance సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Inventory Item Variance సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Inventory Item Variance తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Inventory Item Variance {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Inventory Item Variance"
+      },
+      "varianceReason": "Variance Reason",
+      "atpVar": "Atp Var",
+      "qohVar": "Qoh Var",
+      "comments": "Comments",
+      "inventoryItem": "Inventory Item",
+      "reason": "Reason"
+    }
+  }
+}

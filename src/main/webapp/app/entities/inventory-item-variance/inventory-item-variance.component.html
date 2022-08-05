@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.inventoryItemVariance.home.title">Inventory Item Variances</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventory-item-variance" [routerLink]="['/inventory-item-variance/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.inventoryItemVariance.home.createLabel">
+            Create a new Inventory Item Variance
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="inventoryItemVariances?.length === 0">
+        <span jhiTranslate="hrApp.inventoryItemVariance.home.notFound">No inventoryItemVariances found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="inventoryItemVariances && inventoryItemVariances.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="varianceReason"><span jhiTranslate="hrApp.inventoryItemVariance.varianceReason">Variance Reason</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="atpVar"><span jhiTranslate="hrApp.inventoryItemVariance.atpVar">Atp Var</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="qohVar"><span jhiTranslate="hrApp.inventoryItemVariance.qohVar">Qoh Var</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="comments"><span jhiTranslate="hrApp.inventoryItemVariance.comments">Comments</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventoryItem.id"><span jhiTranslate="hrApp.inventoryItemVariance.inventoryItem">Inventory Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reason.name"><span jhiTranslate="hrApp.inventoryItemVariance.reason">Reason</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventoryItemVariance of inventoryItemVariances ;trackBy: trackId">
+                    <td><a [routerLink]="['/inventory-item-variance', inventoryItemVariance.id, 'view']">{{ inventoryItemVariance.id }}</a></td>
+                    <td>{{ inventoryItemVariance.varianceReason }}</td>
+                    <td>{{ inventoryItemVariance.atpVar }}</td>
+                    <td>{{ inventoryItemVariance.qohVar }}</td>
+                    <td>{{ inventoryItemVariance.comments }}</td>
+                    <td>
+                        <div *ngIf="inventoryItemVariance.inventoryItem">
+                            <a [routerLink]="['/inventory-item', inventoryItemVariance.inventoryItem?.id, 'view']" >{{ inventoryItemVariance.inventoryItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryItemVariance.reason">
+                            <a [routerLink]="['/reason', inventoryItemVariance.reason?.id, 'view']" >{{ inventoryItemVariance.reason?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/inventory-item-variance', inventoryItemVariance.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/inventory-item-variance', inventoryItemVariance.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(inventoryItemVariance)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="inventoryItemVariances && inventoryItemVariances.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

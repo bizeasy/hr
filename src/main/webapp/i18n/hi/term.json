@@ -1,0 +1,28 @@
+{
+  "hrApp": {
+    "term": {
+      "home": {
+        "title": "Terms",
+        "createLabel": "नया Term बनाएँ",
+        "createOrEditLabel": "Term बनाएँ या संपादित करें",
+        "notFound": "No Terms found"
+      },
+      "created": "एक नया Term [identifier: {{ param }}] तैयार है",
+      "updated": "एक Term [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Term [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Term [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Term"
+      },
+      "name": "Name",
+      "description": "Description",
+      "termDetail": "Term Detail",
+      "termValue": "Term Value",
+      "termDays": "Term Days",
+      "textValue": "Text Value",
+      "termType": "Term Type"
+    }
+  }
+}

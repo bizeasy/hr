@@ -1,0 +1,145 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.payment.home.title">Payments</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-payment" [routerLink]="['/payment/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.payment.home.createLabel">
+            Create a new Payment
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="payments?.length === 0">
+        <span jhiTranslate="hrApp.payment.home.notFound">No payments found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="payments && payments.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="effectiveDate"><span jhiTranslate="hrApp.payment.effectiveDate">Effective Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentDate"><span jhiTranslate="hrApp.payment.paymentDate">Payment Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentRefNumber"><span jhiTranslate="hrApp.payment.paymentRefNumber">Payment Ref Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amount"><span jhiTranslate="hrApp.payment.amount">Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentStatus"><span jhiTranslate="hrApp.payment.paymentStatus">Payment Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mihpayId"><span jhiTranslate="hrApp.payment.mihpayId">Mihpay Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="hrApp.payment.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="phone"><span jhiTranslate="hrApp.payment.phone">Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productInfo"><span jhiTranslate="hrApp.payment.productInfo">Product Info</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="txnId"><span jhiTranslate="hrApp.payment.txnId">Txn Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="actualAmount"><span jhiTranslate="hrApp.payment.actualAmount">Actual Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentType.name"><span jhiTranslate="hrApp.payment.paymentType">Payment Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentMethodType.name"><span jhiTranslate="hrApp.payment.paymentMethodType">Payment Method Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status.name"><span jhiTranslate="hrApp.payment.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentMethod.id"><span jhiTranslate="hrApp.payment.paymentMethod">Payment Method</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentGatewayResponse.id"><span jhiTranslate="hrApp.payment.paymentGatewayResponse">Payment Gateway Response</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="partyIdFrom.id"><span jhiTranslate="hrApp.payment.partyIdFrom">Party Id From</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="partyIdTo.id"><span jhiTranslate="hrApp.payment.partyIdTo">Party Id To</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roleType.name"><span jhiTranslate="hrApp.payment.roleType">Role Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="currencyUom.name"><span jhiTranslate="hrApp.payment.currencyUom">Currency Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let payment of payments ;trackBy: trackId">
+                    <td><a [routerLink]="['/payment', payment.id, 'view']">{{ payment.id }}</a></td>
+                    <td>{{ payment.effectiveDate | date:'medium' }}</td>
+                    <td>{{ payment.paymentDate | date:'medium' }}</td>
+                    <td>{{ payment.paymentRefNumber }}</td>
+                    <td>{{ payment.amount }}</td>
+                    <td>{{ payment.paymentStatus }}</td>
+                    <td>{{ payment.mihpayId }}</td>
+                    <td>{{ payment.email }}</td>
+                    <td>{{ payment.phone }}</td>
+                    <td>{{ payment.productInfo }}</td>
+                    <td>{{ payment.txnId }}</td>
+                    <td>{{ payment.actualAmount }}</td>
+                    <td>
+                        <div *ngIf="payment.paymentType">
+                            <a [routerLink]="['/payment-type', payment.paymentType?.id, 'view']" >{{ payment.paymentType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payment.paymentMethodType">
+                            <a [routerLink]="['/payment-method-type', payment.paymentMethodType?.id, 'view']" >{{ payment.paymentMethodType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payment.status">
+                            <a [routerLink]="['/status', payment.status?.id, 'view']" >{{ payment.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payment.paymentMethod">
+                            <a [routerLink]="['/payment-method', payment.paymentMethod?.id, 'view']" >{{ payment.paymentMethod?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payment.paymentGatewayResponse">
+                            <a [routerLink]="['/payment-gateway-response', payment.paymentGatewayResponse?.id, 'view']" >{{ payment.paymentGatewayResponse?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payment.partyIdFrom">
+                            <a [routerLink]="['/party', payment.partyIdFrom?.id, 'view']" >{{ payment.partyIdFrom?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payment.partyIdTo">
+                            <a [routerLink]="['/party', payment.partyIdTo?.id, 'view']" >{{ payment.partyIdTo?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payment.roleType">
+                            <a [routerLink]="['/role-type', payment.roleType?.id, 'view']" >{{ payment.roleType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="payment.currencyUom">
+                            <a [routerLink]="['/uom', payment.currencyUom?.id, 'view']" >{{ payment.currencyUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/payment', payment.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/payment', payment.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(payment)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="payments && payments.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

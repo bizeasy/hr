@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="facilityContactMech">
+            <h2><span jhiTranslate="hrApp.facilityContactMech.detail.title">Facility Contact Mech</span> {{ facilityContactMech.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.facilityContactMech.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ facilityContactMech.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityContactMech.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ facilityContactMech.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityContactMech.facility">Facility</span></dt>
+                <dd>
+                    <div *ngIf="facilityContactMech.facility">
+                        <a [routerLink]="['/facility', facilityContactMech.facility?.id, 'view']">{{ facilityContactMech.facility?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityContactMech.contactMech">Contact Mech</span></dt>
+                <dd>
+                    <div *ngIf="facilityContactMech.contactMech">
+                        <a [routerLink]="['/contact-mech', facilityContactMech.contactMech?.id, 'view']">{{ facilityContactMech.contactMech?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityContactMech.contactMechPurpose">Contact Mech Purpose</span></dt>
+                <dd>
+                    <div *ngIf="facilityContactMech.contactMechPurpose">
+                        <a [routerLink]="['/contact-mech-purpose', facilityContactMech.contactMechPurpose?.id, 'view']">{{ facilityContactMech.contactMechPurpose?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/facility-contact-mech', facilityContactMech.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

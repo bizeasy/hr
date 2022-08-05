@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "emplPositionTypeRate": {
+      "home": {
+        "title": "EmplPositionTypeRates",
+        "createLabel": "नया Empl Position Type Rate बनाएँ",
+        "createOrEditLabel": "Empl Position Type Rate बनाएँ या संपादित करें",
+        "notFound": "No Empl Position Type Rates found"
+      },
+      "created": "एक नया Empl Position Type Rate [identifier: {{ param }}] तैयार है",
+      "updated": "एक Empl Position Type Rate [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Empl Position Type Rate [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Empl Position Type Rate [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Empl Position Type Rate"
+      },
+      "rateAmount": "Rate Amount",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "rateType": "Rate Type",
+      "emplPositionType": "Empl Position Type",
+      "payGrade": "Pay Grade"
+    }
+  }
+}

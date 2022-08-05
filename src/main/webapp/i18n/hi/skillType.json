@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "skillType": {
+      "home": {
+        "title": "SkillTypes",
+        "createLabel": "नया Skill Type बनाएँ",
+        "createOrEditLabel": "Skill Type बनाएँ या संपादित करें",
+        "notFound": "No Skill Types found"
+      },
+      "created": "एक नया Skill Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Skill Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Skill Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Skill Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Skill Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="equipment">
+            <h2><span jhiTranslate="hrApp.equipment.detail.title">Equipment</span> {{ equipment.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.equipment.name">Name</span></dt>
+                <dd>
+                    <span>{{ equipment.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.description">Description</span></dt>
+                <dd>
+                    <span>{{ equipment.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.equipmentNumber">Equipment Number</span></dt>
+                <dd>
+                    <span>{{ equipment.equipmentNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.minCapacityRange">Min Capacity Range</span></dt>
+                <dd>
+                    <span>{{ equipment.minCapacityRange }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.maxCapacityRange">Max Capacity Range</span></dt>
+                <dd>
+                    <span>{{ equipment.maxCapacityRange }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.minOperationalRange">Min Operational Range</span></dt>
+                <dd>
+                    <span>{{ equipment.minOperationalRange }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.maxOperationalRange">Max Operational Range</span></dt>
+                <dd>
+                    <span>{{ equipment.maxOperationalRange }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.lastCalibratedDate">Last Calibrated Date</span></dt>
+                <dd>
+                    <span>{{ equipment.lastCalibratedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.calibrationDueDate">Calibration Due Date</span></dt>
+                <dd>
+                    <span>{{ equipment.calibrationDueDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.changeControlNo">Change Control No</span></dt>
+                <dd>
+                    <span>{{ equipment.changeControlNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.equipmentType">Equipment Type</span></dt>
+                <dd>
+                    <div *ngIf="equipment.equipmentType">
+                        <a [routerLink]="['/equipment-type', equipment.equipmentType?.id, 'view']">{{ equipment.equipmentType?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipment.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="equipment.status">
+                        <a [routerLink]="['/status', equipment.status?.id, 'view']">{{ equipment.status?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/equipment', equipment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="order">
+            <h2><span jhiTranslate="hrApp.order.detail.title">Order</span> {{ order.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.order.name">Name</span></dt>
+                <dd>
+                    <span>{{ order.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.externalId">External Id</span></dt>
+                <dd>
+                    <span>{{ order.externalId }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.orderDate">Order Date</span></dt>
+                <dd>
+                    <span>{{ order.orderDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.priority">Priority</span></dt>
+                <dd>
+                    <span>{{ order.priority }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.entryDate">Entry Date</span></dt>
+                <dd>
+                    <span>{{ order.entryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.isRushOrder">Is Rush Order</span></dt>
+                <dd>
+                    <span>{{ order.isRushOrder }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.needsInventoryIssuance">Needs Inventory Issuance</span></dt>
+                <dd>
+                    <span>{{ order.needsInventoryIssuance }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.remainingSubTotal">Remaining Sub Total</span></dt>
+                <dd>
+                    <span>{{ order.remainingSubTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.grandTotal">Grand Total</span></dt>
+                <dd>
+                    <span>{{ order.grandTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.hasRateContract">Has Rate Contract</span></dt>
+                <dd>
+                    <span>{{ order.hasRateContract }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.gotQuoteFromVendors">Got Quote From Vendors</span></dt>
+                <dd>
+                    <span>{{ order.gotQuoteFromVendors }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.vendorReason">Vendor Reason</span></dt>
+                <dd>
+                    <span>{{ order.vendorReason }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.expectedDeliveryDate">Expected Delivery Date</span></dt>
+                <dd>
+                    <span>{{ order.expectedDeliveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.insuranceResp">Insurance Resp</span></dt>
+                <dd>
+                    <span>{{ order.insuranceResp }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.transportResp">Transport Resp</span></dt>
+                <dd>
+                    <span>{{ order.transportResp }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.unloadingResp">Unloading Resp</span></dt>
+                <dd>
+                    <span>{{ order.unloadingResp }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.orderType">Order Type</span></dt>
+                <dd>
+                    <div *ngIf="order.orderType">
+                        <a [routerLink]="['/order-type', order.orderType?.id, 'view']">{{ order.orderType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.salesChannel">Sales Channel</span></dt>
+                <dd>
+                    <div *ngIf="order.salesChannel">
+                        <a [routerLink]="['/sales-channel', order.salesChannel?.id, 'view']">{{ order.salesChannel?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.party">Party</span></dt>
+                <dd>
+                    <div *ngIf="order.party">
+                        <a [routerLink]="['/party', order.party?.id, 'view']">{{ order.party?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.order.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="order.status">
+                        <a [routerLink]="['/status', order.status?.id, 'view']">{{ order.status?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order', order.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

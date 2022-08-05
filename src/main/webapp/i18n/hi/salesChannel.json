@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "salesChannel": {
+      "home": {
+        "title": "SalesChannels",
+        "createLabel": "नया Sales Channel बनाएँ",
+        "createOrEditLabel": "Sales Channel बनाएँ या संपादित करें",
+        "notFound": "No Sales Channels found"
+      },
+      "created": "एक नया Sales Channel [identifier: {{ param }}] तैयार है",
+      "updated": "एक Sales Channel [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Sales Channel [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Sales Channel [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Sales Channel"
+      },
+      "name": "Name",
+      "description": "Description",
+      "sequenceNo": "Sequence No"
+    }
+  }
+}

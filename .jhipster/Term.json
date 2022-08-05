@@ -1,0 +1,53 @@
+{
+  "name": "Term",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "termDetail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "termValue",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "termDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "textValue",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "termType",
+      "otherEntityRelationshipName": "term",
+      "relationshipName": "termType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805152149",
+  "entityTableName": "term",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

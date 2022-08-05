@@ -1,0 +1,32 @@
+{
+  "hrApp": {
+    "productPrice": {
+      "home": {
+        "title": "Product Prices",
+        "createLabel": "కొత్త Product Price  సృష్టించండి",
+        "createOrEditLabel": "Product Price సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Product Prices found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Product Price సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Product Price సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Product Price తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Product Price {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Product Price"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "price": "Price",
+      "cgst": "Cgst",
+      "igst": "Igst",
+      "sgst": "Sgst",
+      "totalPrice": "Total Price",
+      "product": "Product",
+      "productPriceType": "Product Price Type",
+      "productPricePurpose": "Product Price Purpose",
+      "currencyUom": "Currency Uom"
+    }
+  }
+}

@@ -1,0 +1,1468 @@
+application {
+  config {
+    databaseType sql
+    devDatabaseType postgresql
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation true
+    jhiPrefix sys
+    languages [en, hi, te]
+    nativeLanguage en
+    packageName com.hr
+    prodDatabaseType postgresql
+    serviceDiscoveryType false
+    skipClient false
+    skipServer false
+    testFrameworks [gatling, cucumber, protractor]
+    websocket spring-websocket
+    applicationType monolith
+    baseName hr
+    serverPort 8080
+    authenticationType jwt
+    cacheProvider hazelcast
+    buildTool gradle
+    useSass true
+    clientPackageManager npm
+    clientFramework angularX
+  }
+  entities *
+}
+
+
+
+entity Employment {
+  fromDate LocalDate
+  thruDate LocalDate
+  
+
+}
+
+
+entity Attachment {
+  name String maxlength(25)
+  fileAttachment Blob
+  attachmentUrl String
+  mimeType String
+}
+
+entity ContactMechPurpose {
+	name String unique maxlength(25)
+	description String maxlength(100)
+}
+
+entity ContactMechType {
+	name String unique maxlength(25)
+	description String maxlength(100)
+}
+
+entity ContactMech {
+	infoString String maxlength(255)
+}
+
+entity ContentType {
+	name String unique maxlength(25)
+}
+
+entity Catalogue {
+  name String unique maxlength(60)
+  description String maxlength(100)
+  sequenceNo Integer
+  imagePath String 
+  mobileImagePath String
+  altImage1 String
+  altImage2 String
+  altImage3 String
+}
+
+entity CatalogueCategoryType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity CatalogueCategory {
+	sequenceNo Integer
+}
+entity CommunicationEventType {
+	name String
+	description String
+}
+
+entity CommunicationEvent {
+	entryDate ZonedDateTime
+	subject String
+	content String
+	fromString String
+	toString String
+	ccString String
+	message String
+	dateStarted ZonedDateTime
+	dateEnded ZonedDateTime
+	info TextBlob
+}
+
+entity Equipment {
+  name String maxlength(100)
+  description String maxlength(200)
+  equipmentNumber String maxlength(60)
+  minCapacityRange Double
+  maxCapacityRange Double
+  minOperationalRange Double
+  maxOperationalRange Double
+  lastCalibratedDate ZonedDateTime
+  calibrationDueDate ZonedDateTime
+  changeControlNo String maxlength(60)
+}
+
+entity EquipmentUsageLog {
+	fromTime Instant
+	toTime Instant
+	remarks String
+	
+}
+
+entity EquipmentType {
+  name String unique maxlength(25)
+  description String maxlength(60)
+}
+
+entity FacilityType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity FacilityGroupType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity FacilityGroup {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity Facility {
+	name String unique maxlength(60)
+	description String maxlength(100)
+	facilityCode String maxlength(20)
+	facilitySize BigDecimal
+	costCenterCode String maxlength(25)
+}
+
+entity FacilityUsageLog {
+	fromTime Instant
+	toTime Instant
+	remarks String
+	
+}
+
+entity FacilityParty {
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+	
+}
+
+entity FacilityGroupMember {
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+	sequenceNo Integer
+}
+
+entity FacilityContactMech {
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+}
+
+entity FacilityEquipment {
+  name String maxlength(25)
+  description String maxlength(60)
+}
+
+entity GeoType {
+  name String unique maxlength(25)
+}
+
+entity GeoAssocType {
+  name String unique maxlength(25)
+}
+
+entity Geo {
+  name String maxlength(25)
+  code String unique maxlength(10)
+  abbreviation String maxlength(10)
+}
+
+enum Gender {
+  MALE,
+  FEMALE,
+  OTHER
+}
+
+entity GeoAssoc {
+
+}
+
+entity GeoPoint {
+	latitude BigDecimal
+	longitude BigDecimal
+}
+
+entity InventoryItemType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity InvoiceType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity Invoice {
+	invoiceDate ZonedDateTime
+	dueDate ZonedDateTime
+	paidDate ZonedDateTime
+	invoiceMessage String maxlength(255)
+	referenceNumber String maxlength(60)
+}
+
+entity InvoiceItemType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity InvoiceItem {
+	sequenceNo Integer
+	quantity BigDecimal
+	amount BigDecimal
+}
+
+entity InventoryItem {
+	receivedDate ZonedDateTime
+	manufacturedDate ZonedDateTime
+	expiryDate ZonedDateTime
+	retestDate ZonedDateTime
+	containerId String maxlength(60)
+	batchNo String maxlength(60)
+	mfgBatchNo String maxlength(60)
+	lotNoStr String maxlength(60)
+	binNumber String maxlength(60)
+	comments String maxlength(255)
+	quantityOnHandTotal BigDecimal
+	availableToPromiseTotal BigDecimal
+	accountingQuantityTotal BigDecimal
+	oldQuantityOnHand BigDecimal
+	oldAvailableToPromise BigDecimal
+	serialNumber String maxlength(255)
+	softIdentifier String maxlength(255)
+	activationNumber String maxlength(255)
+	activationValidTrue ZonedDateTime
+	unitCost BigDecimal
+}
+
+entity InventoryItemDelegate {
+	sequenceNo Integer
+	effectiveDate ZonedDateTime
+	quantityOnHandDiff BigDecimal
+	availableToPromiseDiff BigDecimal
+	accountingQuantityDiff BigDecimal
+	unitCost BigDecimal
+	remarks String maxlength(255)
+}
+
+entity ItemIssuance{
+	message String maxlength(255)
+	issuedDate ZonedDateTime
+	issuedBy String maxlength(60)
+	quantity BigDecimal
+	cancelQuantity BigDecimal
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+	equipmentId String maxlength(20)
+}
+
+entity InventoryItemVariance{
+	varianceReason String maxlength(255)
+	atpVar BigDecimal
+	qohVar BigDecimal
+	comments String maxlength(255)
+}
+
+entity InventoryTransfer{
+	sentDate ZonedDateTime
+	receivedDate ZonedDateTime
+	comments String maxlength(255)
+}
+
+entity KeywordType {
+	name String unique maxlength(60)
+}
+
+entity LocationType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity Lot {
+	creationDate ZonedDateTime
+	quantity BigDecimal
+	expirationDate ZonedDateTime
+	retestDate ZonedDateTime
+}
+
+entity OrderType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity Order {
+	name String maxlength(60)
+	externalId String maxlength(25)
+	orderDate ZonedDateTime
+	priority Integer max(10)
+	entryDate ZonedDateTime
+	isRushOrder Boolean
+	needsInventoryIssuance Boolean
+	remainingSubTotal BigDecimal
+	grandTotal BigDecimal
+	hasRateContract Boolean
+	gotQuoteFromVendors Boolean
+	vendorReason String
+	expectedDeliveryDate ZonedDateTime
+	InsuranceResp String
+	TransportResp String
+	UnloadingResp String
+}
+
+entity OrderItemType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity OrderItem {
+	sequenceNo Integer
+	quantity BigDecimal
+	cancelQuantity BigDecimal
+	selectedAmount BigDecimal
+	unitPrice BigDecimal
+	unitListPrice BigDecimal
+	cgst BigDecimal
+    igst BigDecimal
+    sgst BigDecimal
+    cgstPercentage BigDecimal
+    igstPercentage BigDecimal
+    sgstPercentage BigDecimal
+    totalPrice BigDecimal
+	isModifiedPrice Boolean
+	estimatedShipDate ZonedDateTime
+	estimatedDeliveryDate ZonedDateTime
+	shipBeforeDate ZonedDateTime
+	shipAfterDate ZonedDateTime
+}
+
+entity OrderContactMech {
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+}
+
+entity OrderStatus {
+	statusDateTime ZonedDateTime
+	sequenceNo Integer
+}
+
+entity OrderItemBilling {
+	quantity BigDecimal
+	amount BigDecimal
+}
+
+entity OrderTermType {
+	name String unique maxlength(25)
+	description String maxlength(60)
+}
+
+entity OrderTerm {
+	sequenceNo Integer
+	name String
+	detail String
+	termValue BigDecimal
+	termDays Integer
+	textValue String
+}
+
+entity PartyRole {
+	
+}
+
+entity PartyType {
+	name String unique maxlength(25)
+	description String maxlength(60)
+}
+
+entity Party {
+	isOrganisation Boolean
+	organisationName String maxlength(200)
+	organisationShortName String maxlength(100)
+	salutation String
+	firstName String maxlength(60)
+	middleName String maxlength(60)
+	lastName String maxlength(60)
+	gender Gender
+	birthDate LocalDate
+	primaryPhone String maxlength(20)
+	primaryEmail String minlength(5) maxlength(75)
+	isTemporaryPassword Boolean
+	logoImageUrl String
+	profileImageUrl String
+	notes TextBlob
+	birthdate Instant
+	notes String maxlength(255)
+	dateOfJoining Instant
+	trainingCompletedDate Instant
+	jdApprovedOn Instant
+	employeeId String
+	authString TextBlob
+	userGroupString TextBlob
+	tanNo String maxlength(25)
+	panNo String maxlength(25)
+	gstNo String maxlength(25)
+	aadharNo String maxlength(25)
+}
+
+entity PartyClassificationType {
+	name String maxlength(25)
+	description String maxlength(60)
+}
+
+entity PartyClassificationGroup {
+	name String maxlength(25)
+	description String maxlength(60)
+}
+
+entity PartyClassification {
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+}
+
+entity Permission {
+  name String maxlength(60)
+  description String maxlength(100)
+}
+
+entity PermissionAuthority {
+  authority String
+}
+
+entity PartyContactMech {
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+}
+
+entity PostalAddress {
+	toName String maxlength(100)
+  	address1 String maxlength(200)
+  	address2 String maxlength(200)
+  	city String maxlength(60)
+  	landmark String maxlength(60)
+  	postalCode String maxlength(10)
+  	isDefault Boolean
+  	customAddressType String maxlength(25)
+  	stateStr String maxlength(40)
+  	countryStr String maxlength(40)
+  	isIndianAddress Boolean
+  	note String maxlength(255)
+    directions String maxlength(255)
+}
+
+entity ProductCategoryType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity ProductCategory {
+	name String unique maxlength(60)
+	description String maxlength(100)
+	longDescription String
+	attribute String maxlength(25)
+	sequenceNo Integer
+	imageUrl String
+	altImageUrl String
+	info TextBlob
+}
+
+entity ProductCategoryMember {
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+	sequenceNo Integer
+}
+
+entity Product {
+	name String maxlength(100)
+	internalName String maxlength(60)
+	brandName String maxlength(60)
+	variant String maxlength(60)
+	sku String maxlength(60)
+	introductionDate ZonedDateTime
+	releaseDate ZonedDateTime
+	quantityIncluded BigDecimal
+	piecesIncluded Integer
+	weight BigDecimal
+	height BigDecimal
+	width BigDecimal
+	depth BigDecimal
+	smallImageUrl String maxlength(2000)
+	mediumImageUrl String maxlength(2000)
+	largeImageUrl String maxlength(2000)
+	detailImageUrl String maxlength(2000)
+	originalImageUrl String maxlength(2000)
+	quantity BigDecimal
+    cgst BigDecimal
+    igst BigDecimal
+    sgst BigDecimal
+    price BigDecimal
+    cgstPercentage BigDecimal
+    igstPercentage BigDecimal
+    sgstPercentage BigDecimal
+    totalPrice BigDecimal
+    description String maxlength(100)
+	longDescription String
+	info TextBlob
+	isVirtual Boolean
+	isVariant Boolean
+	requireInventory Boolean
+	returnable Boolean
+	isPopular Boolean
+	changeControlNo String maxlength(20)
+	retestDuration Duration
+	expiryDuration Duration
+	validationType String maxlength(20)
+	shelfLife Integer
+}
+
+entity ProductType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity ProductPriceType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity ProductPricePurpose {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity ProductPrice {
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+	price BigDecimal
+	cgst BigDecimal
+    igst BigDecimal
+    sgst BigDecimal
+    totalPrice BigDecimal
+}
+
+entity ProductKeyword {
+	keyword String maxlength(60)
+	relevancyWeight Integer
+}
+
+entity ProductFacility {
+	minimumStock BigDecimal
+	reorderQty BigDecimal
+	daysToShip Integer
+	lastInventoryCount BigDecimal
+}
+
+entity PaymentType{
+  name String unique maxlength(25)
+  description String maxlength(60)
+}
+
+entity PaymentMethodType{
+  name String unique maxlength(25)
+  description String maxlength(60)
+}
+
+entity PaymentMethod{
+  name String unique maxlength(25)
+  description String maxlength(60)
+  fromDate ZonedDateTime
+  thruDate ZonedDateTime
+}
+
+entity Payment{
+  effectiveDate Instant
+  paymentDate Instant
+  paymentRefNumber String
+  amount BigDecimal
+  paymentStatus String
+  mihpayId String
+  email String
+  phone String
+  productInfo String
+  txnId String
+  actualAmount BigDecimal
+}
+
+entity PaymentApplication{
+  amountApplied Double
+}
+
+entity PaymentGatewayConfig{
+  name String unique maxlength(25)
+  authUrl String
+  releaseUrl String
+  refundUrl String  
+}
+
+entity PaymentGatewayResponse{
+  amount Double
+  referenceNumber String maxlength(25)
+  gatewayMessage String
+}
+
+entity ProductStoreType {
+  name String unique maxlength(25)
+  description String maxlength(60)
+}
+
+entity ProductStore {
+  name String maxlength(100)
+  title String maxlength(100)
+  subtitle String 
+  imageUrl String
+  comments String
+  code String maxlength(20)
+}
+
+entity ProductStoreFacility {
+  fromDate Instant
+  thruDate Instant
+  sequenceNo Integer
+}
+
+entity ProductStoreProduct {
+  fromDate Instant
+  thruDate Instant
+  sequenceNo Integer
+}
+
+entity ProductStoreUserGroup {
+}
+
+entity RoleType {
+	name String maxlength(25)
+	description String maxlength(60)
+}
+
+entity ReasonType {
+  name String unique maxlength(25)
+  description String maxlength(100)
+}
+
+entity Reason {
+  name String maxlength(25)
+  description String maxlength(255)
+}
+
+entity TermType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity Term {
+	name String unique maxlength(60)
+	description String maxlength(100)
+	termDetail String
+	termValue BigDecimal
+	termDays Integer
+	textValue String
+}
+
+entity WorkEffortType {
+  name String unique maxlength(25)
+  description String maxlength(100) 
+}
+
+entity WorkEffortPurpose {
+  name String unique maxlength(25)
+  description String maxlength(100) 
+}
+
+entity WorkEffort {
+  name String unique maxlength(60)
+  description String maxlength(100)
+  code String maxlength(60)
+  batchSize Double
+  minYieldRange Double
+  maxYieldRange Double
+  description String maxlength(60)
+  percentComplete Double
+  validationType String maxlength(25)
+  shelfLife Integer
+  outputQty Double
+}
+
+entity WorkEffortProduct {
+  sequenceNo Integer
+  quantity Double
+  
+  
+}
+
+entity WorkEffortAssocType {
+  name String unique maxlength(25)
+  description String maxlength(100) 
+}
+
+entity WorkEffortAssoc {
+  sequenceNo Integer
+  fromDate ZonedDateTime
+  thruDate ZonedDateTime
+}
+
+entity WorkEffortInventoryAssign {
+  quantity Double
+}
+
+entity WorkEffortInventoryProduced {
+  quantity Double
+}
+
+entity WorkEffortStatus {
+  reason String
+}
+
+entity SupplierProduct {
+	fromDate ZonedDateTime
+	thruDate ZonedDateTime
+	minOrderQty BigDecimal
+	lastPrice BigDecimal
+	shippingPrice BigDecimal
+	supplierProductId String
+	leadTimeDays Integer
+	cgst BigDecimal
+    igst BigDecimal
+    sgst BigDecimal
+    totalPrice BigDecimal
+    comments String maxlength(255)
+	supplierProductName String
+	manufacturerName String
+}
+
+entity StatusCategory {
+  name String unique maxlength(60)
+  description String maxlength(100)
+}
+
+entity Status {
+  name String unique maxlength(60)
+  sequenceNo Integer
+  description String maxlength(100)
+  action String maxlength(60)
+}
+
+entity StatusValidChange {
+  transitionName String maxlength(60)
+  rules TextBlob
+}
+
+entity SalesChannel {
+    name String unique maxlength(25)  
+    description String maxlength(100)
+    sequenceNo Integer
+}
+
+entity TaxAuthority{
+  name String unique maxlength(25)
+}
+
+entity TaxAuthorityRateType{
+  name String unique maxlength(25)
+  description String maxlength(60)
+}
+
+entity TaxSlab{
+  name String unique maxlength(25)
+  rate BigDecimal
+}
+
+entity Uom {
+	name String unique maxlength(60)
+	description String maxlength(100)
+	sequenceNo Integer
+	abbreviation String maxlength(10)
+}
+
+entity UomType {
+	name String unique maxlength(60)
+	description String maxlength(100)
+}
+
+entity UserGroup {
+  name String maxlength(60)
+  description String maxlength(100)
+}
+
+entity UserGroupAuthority {
+  authority String
+}
+
+entity UserGroupMember {
+  fromDate Instant
+  thruDate Instant
+}
+
+
+entity TerminationType {
+  name String unique maxlength(20)
+  description String maxlength(40)
+}
+
+entity EmplPositionGroup {
+  name String unique maxlength(25)
+  description String maxlength(60) 
+}
+
+entity EmplPositionType {
+  name String unique maxlength(25)
+  description String maxlength(60) 
+}
+
+entity EmplPosition {
+  maxBudget BigDecimal
+  minBudget BigDecimal
+  estimatedFromDate LocalDate
+  estimatedThruDate LocalDate
+  paidJob Boolean
+  isFulltime Boolean
+  isTemporary Boolean
+  actualFromDate LocalDate
+  actualThruDate LocalDate
+  
+}
+
+entity EmplPositionFulfillment {
+   fromDate LocalDate
+   thruDate LocalDate
+   comments String
+}
+
+entity EmplPositionReportingStruct {
+   fromDate LocalDate
+   thruDate LocalDate
+   comments String
+}
+
+entity PayGrade {
+  name String unique maxlength(25)
+  description String
+}
+
+entity RateType {
+  name String unique maxlength(25)
+  description String
+}
+
+entity EmplPositionTypeRate {
+  rateAmount BigDecimal
+  fromDate LocalDate
+  thruDate LocalDate	
+}
+
+entity EmploymentAppSourceType {
+  name String unique maxlength(25)
+  description String
+}
+
+entity SkillType {
+  name String unique maxlength(25)
+  description String
+}
+
+entity Qualification {
+  name String unique maxlength(25)
+  description String
+}
+
+entity ExamType {
+  name String unique maxlength(25)
+  description String
+}
+
+entity JobRequisition {
+  duration Duration
+  age Integer
+  gender Gender
+  experienceMonths Integer
+  experienceYears Integer
+  qualificationStr String maxlength(60)
+  noOfResource Integer
+  requiredOnDate LocalDate
+  
+}
+
+entity EmploymentApp {
+  applicationDate Instant
+  
+}
+
+entity EmplLeaveType {
+  name String unique maxlength(25)
+  description String
+}	
+
+entity EmplLeaveReasonType {
+  name String unique maxlength(25)
+  description String
+}
+
+entity JobInterviewType {
+  name String unique maxlength(25)
+  description String
+}
+
+entity InterviewGrade {
+  name String unique maxlength(25)
+  description String
+}
+
+entity InterviewResult {
+  name String unique maxlength(25)
+  description String
+}
+
+entity JobInterview {
+  remarks String
+  interviewDate Instant
+}
+
+entity EmplLeave {
+  description String
+  fromDate LocalDate
+  thruDate LocalDate
+  
+}
+
+entity PartyResume {
+  Text String
+  resumeDate LocalDate
+  fileAttachment Blob
+  attachmentUrl String
+  mimeType String
+}
+
+entity PerfRatingType {
+  name String unique maxlength(25)
+  description String
+}
+
+entity PerfReview {
+  fromDate LocalDate
+  thruDate LocalDate
+  Comments String
+  
+}
+
+entity PerfReviewItemType {
+  name String unique maxlength(25)
+  description String
+}
+
+entity PerfReviewItem {
+  sequenceNo Integer
+  Comments String
+  
+}
+
+entity PeriodType {
+  name String unique maxlength(25)
+  description String
+  periodLength Integer
+}
+
+entity CustomTimePeriod {
+  fromDate Instant
+  thruDate Instant
+  isClosed Boolean
+  periodName String
+  periodNum Integer
+}
+
+entity DeductionType {
+  name String unique maxlength(25)
+  description String
+}
+
+entity Deduction {
+  amount BigDecimal
+}
+
+entity PayrollPreference {
+  fromDate Instant
+  thruDate Instant
+  sequenceNo Integer
+  percentage BigDecimal
+  flatAmount BigDecimal
+  accountNumber String
+  bankName String
+  ifscCode String
+  branch String
+  
+}
+
+entity Attendance {
+  punchIn Instant
+  punchOut Instant
+}
+
+entity TimeSheet {
+  overTimeDays Integer
+  leaves Integer
+  unappliedLeaves Integer
+  halfDays Integer
+  totalWorkingHours Double
+}
+
+entity Shift {
+  name String
+  fromTime Instant
+  toTime Instant
+  workingHrs Float
+  monthlyPaidLeaves Integer
+}
+
+enum DayOfheWeek {
+  SATURDAY,
+  SUNDAY,
+  MONDAY,
+  TUESDAY,
+  WEDNESDAY,
+  THURSDAY,
+  FRIDAY,
+  SATURDAY
+}
+
+entity ShiftHolidays {
+  dayOfheWeek DayOfheWeek
+  monthlyPaidLeaves Integer
+  yearlyPaidLeaves Integer
+}
+
+entity HolidayType {
+  name String unique maxlength(25)
+  description String 
+}
+
+entity PublicHolidays {
+  name String
+  fromDate LocalDate
+  thruDate LocalDate
+  NoOfHolidays Integer
+}
+
+entity ShiftWeekends {
+  fromDate LocalDate
+  thruDate LocalDate
+}
+
+relationship ManyToOne {
+   
+   Attendance{employee} to Party
+   
+   PublicHolidays{type(name)} to HolidayType
+  
+   ShiftWeekends{shift(name)} to Shift
+   
+   ShiftHolidays{shift(name)} to Shift
+   
+   TimeSheet{timePeriod(periodName)} to CustomTimePeriod
+
+   PayrollPreference{employee} to Party
+   PayrollPreference{deductionType(name)} to DeductionType
+   PayrollPreference{paymentMethodType(name)} to PaymentMethodType  
+   PayrollPreference{periodType(name)} to PeriodType  
+
+	
+   
+   Deduction{type(name)} to DeductionType
+   
+
+   PeriodType{uom(name)} to Uom
+   
+   CustomTimePeriod{periodType(name)} to PeriodType
+   CustomTimePeriod{organisationParty} to Party
+   CustomTimePeriod{parent} to CustomTimePeriod
+   
+
+   EmplLeave{employee} to Party
+   EmplLeave{approver} to Party
+   EmplLeave{leaveType(name)} to EmplLeaveType
+   EmplLeave{reason(name)} to EmplLeaveReasonType
+   EmplLeave{status(name)} to Status
+   
+   PartyResume{party} to Party
+   
+   PerfReview{employee} to Party
+   PerfReview{manager} to Party
+   PerfReview{emplPosition} to EmplPosition
+   PerfReview{employee} to Party
+   
+   PerfReviewItem{perfReview} to PerfReview
+   PerfReviewItem{perfRatingType(name)} to PerfRatingType
+   PerfReviewItem{type(name)} to PerfReviewItemType
+   PerfReviewItem{employee} to Party
+
+
+   JobInterview{interviewee} to Party
+   JobInterview{interviewer} to Party
+   JobInterview{type(name)} to JobInterviewType
+   JobInterview{jobRequisition} to JobRequisition
+   JobInterview{gradeSecured(name)} to InterviewGrade
+   JobInterview{result(name)} to InterviewResult
+   
+ 
+   JobRequisition{qualificiation(name)} to Qualification
+   JobRequisition{skillType(name)} to SkillType
+   JobRequisition{jobLocation(name)} to Geo
+   JobRequisition{examType(name)} to ExamType
+   
+   EmploymentApp{emplPosition} to EmplPosition
+   EmploymentApp{status(name)} to Status
+   EmploymentApp{source(name)} to EmploymentAppSourceType
+   EmploymentApp{applyingParty} to Party
+   EmploymentApp{referredByParty} to Party
+   EmploymentApp{approverParty} to Party
+   EmploymentApp{jobRequisition} to JobRequisition
+   
+
+   EmplPositionType{group(name)} to EmplPositionGroup
+   
+   EmplPositionTypeRate{rateType(name)} to RateType
+   EmplPositionTypeRate{emplPositionType} to EmplPositionType
+   EmplPositionTypeRate{payGrade(name)} to PayGrade
+   
+
+   EmplPosition{type(name)} to EmplPositionType
+   EmplPosition{party} to Party
+   EmplPosition{status(name)} to Status
+
+   EmplPositionFulfillment{emplPosition} to EmplPosition
+   EmplPositionFulfillment{Party} to Party
+
+   EmplPositionFulfillment{reportingTo} to Party
+   EmplPositionFulfillment{managedBy} to Party
+
+
+      Employment{terminationReason(name)} to Reason
+      Employment{terminationType(name)} to TerminationType
+      Employment{employee} to Party
+      Employment{fromParty} to Party
+      Employment{roleTypeFrom(name)} to RoleType
+      Employment{roleTypeTo(name)} to Party
+      
+	
+
+	OrderTerm{order} to Order
+	OrderTerm{item} to OrderItem
+	OrderTerm{term(name)} to Term
+	OrderTerm{type(name)} to OrderTermType
+	
+	Term{termType(name)} to TermType
+
+      CommunicationEventType{contactMechType(name)} to ContactMechType
+	
+	CommunicationEvent{communicationEventType(name)} to CommunicationEventType
+	CommunicationEvent{status(name)} to Status
+	CommunicationEvent{contactMechType(name)} to ContactMechType
+	CommunicationEvent{contactMechFrom} to ContactMech
+	CommunicationEvent{contactMechTo} to ContactMech
+	CommunicationEvent{fromParty} to Party
+	CommunicationEvent{toParty} to Party
+	
+	UserGroupMember{userGroup(name) required} to UserGroup
+    UserGroupMember{user(login) required} to User
+  
+    UserGroupAuthority{userGroup(name) required} to UserGroup
+	
+	ProductStoreUserGroup{userGroup(name)} to UserGroup
+    ProductStoreUserGroup{user(login)} to User
+    ProductStoreUserGroup{party} to Party
+    ProductStoreUserGroup{productStore(name) required} to ProductStore
+  
+	ProductStore{type(name)} to ProductStoreType
+    ProductStore{parent(name)} to ProductStore
+    ProductStore{owner} to Party
+    ProductStore{postalAddress} to PostalAddress
+  
+    ProductStoreFacility{productStore(name) required} to ProductStore
+    ProductStoreFacility{facility(name) required} to Facility
+  
+	ProductStoreProduct{productStore(name) required} to ProductStore
+    ProductStoreProduct{product required} to Product
+    
+	WorkEffort{product(name)} to Product
+	WorkEffort{ksm(name)} to Product
+	WorkEffort{type(name)} to WorkEffortType
+	WorkEffort{purpose(name)} to WorkEffortPurpose
+	WorkEffort{status(name)} to Status
+	WorkEffort{facility(name)} to Facility
+	WorkEffort{shelfListUom(name)} to Uom
+	WorkEffort{productCategory(name)} to ProductCategory
+	WorkEffort{productStore(name)} to ProductStore
+    
+	 
+	WorkEffortAssoc{type(name)} to WorkEffortAssocType
+	WorkEffortAssoc{weIdFrom(name)} to WorkEffort
+	WorkEffortAssoc{weIdTo(name)} to WorkEffort
+	
+	WorkEffortProduct{workEffort} to WorkEffort
+	WorkEffortProduct{product(name)} to Product
+	
+	WorkEffortInventoryAssign{workEffort} to WorkEffort
+	WorkEffortInventoryAssign{inventoryItem} to InventoryItem
+	WorkEffortInventoryAssign{status(name)} to Status
+	
+	WorkEffortInventoryProduced{workEffort} to WorkEffort
+	WorkEffortInventoryProduced{inventoryItem} to InventoryItem
+	WorkEffortInventoryProduced{status(name)} to Status
+		
+	WorkEffortStatus{workEffort} to WorkEffort
+	WorkEffortStatus{status(name)} to Status
+	
+	FacilityUsageLog{facility(name)} to Facility
+	FacilityUsageLog{cleanedBy(login)} to User
+	FacilityUsageLog{checkedBy(login)} to User
+	
+	EquipmentUsageLog{equipment(name)} to Equipment
+	EquipmentUsageLog{cleanedBy(login)} to User
+	EquipmentUsageLog{checkedBy(login)} to User
+	
+	Status{category(name)} to StatusCategory
+	
+	TaxAuthorityRateType{taxAuthority(name)} to TaxAuthority
+	TaxAuthorityRateType{taxSlab(rate)} to TaxSlab
+	
+	InventoryTransfer{status(name)} to Status
+	InventoryTransfer{inventoryItem} to InventoryItem
+	InventoryTransfer{facility(name)} to Facility
+	InventoryTransfer{facilityTo(name)} to Facility
+	InventoryTransfer{issuance} to ItemIssuance
+	
+	InventoryItemVariance{inventoryItem} to InventoryItem
+	InventoryItemVariance{reason(name)} to Reason
+	
+	Reason{reasonType} to ReasonType
+	
+	ItemIssuance{order} to Order
+    ItemIssuance{orderItem} to OrderItem
+    ItemIssuance{inventoryItem} to InventoryItem
+	ItemIssuance{issuedByUserLogin(login)} to User
+	ItemIssuance{varianceReason(name)} to Reason
+	ItemIssuance{facility(name)} to Facility
+	ItemIssuance{status(name)} to Status
+	
+	InventoryItemDelegate{invoice} to Invoice 
+    InventoryItemDelegate{invoiceItem} to InvoiceItem
+    InventoryItemDelegate{order} to Order
+    InventoryItemDelegate{orderItem} to OrderItem
+    InventoryItemDelegate{itemIssuance} to ItemIssuance
+	InventoryItemDelegate{inventoryTransfer} to InventoryTransfer
+	InventoryItemDelegate{InventoryItemVariance} to InventoryItemVariance
+	InventoryItemDelegate{inventoryItem} to InventoryItem
+	
+	PaymentApplication{payment} to Payment 
+  	PaymentApplication{invoice} to Invoice 
+    PaymentApplication{invoiceItem} to InvoiceItem
+    PaymentApplication{order} to Order
+    PaymentApplication{orderItem} to OrderItem
+    PaymentApplication{toPayment} to Payment 
+  	
+  
+  	Payment{paymentType(name)} to PaymentType  
+  	Payment{paymentMethodType(name)}  to PaymentMethodType
+	Payment{status(name)} to Status 
+  	Payment{paymentMethod} to PaymentMethod
+  	Payment{paymentGatewayResponse} to PaymentGatewayResponse
+  	Payment{partyIdFrom} to Party
+	Payment{partyIdTo} to Party
+	Payment{roleType(name)} to RoleType
+	Payment{currencyUom(name)} to Uom
+	
+  	PaymentGatewayResponse{paymentMethodType(name)} to PaymentMethodType  
+		
+	PaymentMethod{paymentMethodType(name)} to PaymentMethodType
+	PaymentMethod{party} to Party
+	PaymentMethod{paymentMethodType(name)} to PaymentMethodType
+	PaymentMethod{paymentMethodType(name)} to PaymentMethodType
+	
+	Invoice{invoiceType(name)} to InvoiceType
+	Invoice{partyIdFrom} to Party
+	Invoice{partyIdTo} to Party
+	Invoice{roleType(name)} to RoleType
+	Invoice{status(name)} to Status
+	Invoice{contactMech} to ContactMech
+	
+	InvoiceItem{invoice} to Invoice
+	InvoiceItem{invoiceItemType(name)} to InvoiceItemType
+	InvoiceItem{fromInventoryItem} to InventoryItem
+	InvoiceItem{product(name)} to Product
+	InvoiceItem{taxAuthRate(name)} to TaxAuthorityRateType
+	
+	
+	OrderItemBilling{orderItem} to OrderItem
+	OrderItemBilling{invoiceItem} to InvoiceItem
+	OrderItemBilling{invoiceItem} to InvoiceItem
+	OrderItemBilling{invoiceItem} to InvoiceItem
+	
+	Order{orderType(name)} to OrderType
+	Order{salesChannel(name)} to SalesChannel
+	Order{party} to Party
+	Order{status(name)} to Status
+	
+	OrderStatus{status(name)} to Status
+	OrderStatus{order} to Order
+	OrderStatus{reason(name)} to Reason
+	
+	
+	OrderItem{order} to Order
+	OrderItem{orderItemType(name)} to OrderItemType
+	OrderItem{fromInventoryItem} to InventoryItem
+	OrderItem{product(name)} to Product
+	OrderItem{supplierProduct} to SupplierProduct
+	OrderItem{status(name)} to Status
+	OrderItem{taxAuthRate(name)} to TaxAuthorityRateType
+	
+	InventoryItem{inventoryItemType(name)} to InventoryItemType
+	InventoryItem{product(name)} to Product
+	InventoryItem{supplier(organisationName)} to Party
+	InventoryItem{ownerParty} to Party
+	InventoryItem{status(name)} to Status
+	InventoryItem{facility(name)} to Facility
+	InventoryItem{uom(name)} to Uom
+	InventoryItem{currencyUom(name)} to Uom
+	InventoryItem{lot} to Lot
+	
+	ProductFacility{product(name)} to Product
+	ProductFacility{facility(name)} to Facility
+	
+	
+	Facility{facilityType(name)} to FacilityType
+	Facility{parentFacility(name)} to Facility
+	Facility{ownerParty} to Party
+	Facility{facilityGroup(name)} to FacilityGroup
+	Facility{sizeUom(name)} to Uom
+    Facility{geoPoint} to GeoPoint
+    Facility{inventoryItemType(name)} to InventoryItemType
+    Facility{status(name)} to Status
+    Facility{usageStatus(name)} to Status
+    Facility{reviewedBy(login)} to User
+    Facility{approvedBy(login)} to User
+	
+	FacilityParty{facility(name)} to Facility
+	FacilityParty{party} to Party
+	FacilityParty{roleType(name)} to RoleType
+	
+	
+	FacilityGroup{facilityGroupType(name)} to FacilityGroupType
+	FacilityGroup{facilityGroup(name)} to FacilityGroup
+	
+	FacilityGroupMember{facility(name)} to Facility
+	FacilityGroupMember{facilityGroup(name)} to FacilityGroup
+	
+	FacilityContactMech{facility(name)} to Facility
+	FacilityContactMech{contactMech} to ContactMech
+	FacilityContactMech{contactMechPurpose} to ContactMechPurpose
+	
+	StatusValidChange{status(name)} to Status
+  	StatusValidChange{statusTo(name)} to Status
+	
+	Party{partyType(name)} to PartyType 
+	Party{status(name)} to Status 
+	
+	PartyRole{party} to Party
+	PartyRole{roleType(name)} to RoleType
+	
+	RoleType{parent(name)} to RoleType
+	
+	PartyClassificationGroup{classificationType(name)} to PartyClassificationType
+	
+	PartyClassification{party} to Party
+	PartyClassification{classificationGroup(name)} to PartyClassificationGroup
+	
+	ContactMech{contactMechType(name)} to ContactMechType
+	
+	PartyContactMech{party} to Party
+	PartyContactMech{contactMech} to ContactMech
+	PartyContactMech{contactMechPurpose} to ContactMechPurpose
+	
+	OrderContactMech{order} to Order
+	OrderContactMech{contactMech} to ContactMech
+	OrderContactMech{contactMechPurpose} to ContactMechPurpose
+	
+	Geo{geoType(name)} to GeoType
+  
+	GeoAssoc{geo(name)} to Geo
+	GeoAssoc{geoTo(name)} to Geo
+	GeoAssoc{geoAssocType(name)} to GeoAssocType
+	
+	PostalAddress{state(name)} to Geo
+    PostalAddress{pincode(code)} to Geo
+    PostalAddress{country(name)} to Geo
+    PostalAddress{contactMech} to ContactMech
+    PostalAddress{geoPoint} to GeoPoint
+    
+    CatalogueCategory{catalogue(name)} to Catalogue
+    CatalogueCategory{productCategory(name)} to ProductCategory
+    CatalogueCategory{catalogueCategoryType(name)} to CatalogueCategoryType
+    
+    Product{productType(name)} to ProductType 
+    Product{quantityUom(name)} to Uom
+    Product{weightUom(name)} to Uom
+    Product{sizeUom(name)} to Uom 
+    Product{uom(name)} to Uom
+    Product{primaryProductCategory(name)} to ProductCategory
+    Product{virtualProduct(name)} to Product
+    Product{inventoryItemType(name)} to InventoryItemType
+    Product{taxSlab(rate)} to TaxSlab
+    Product{shelfLifeUom(name)} to Uom
+	
+    ProductCategory{productCategoryType(name)} to ProductCategoryType 
+    ProductCategory{parent(name)} to ProductCategory
+    
+    ProductCategoryMember{product(name)} to Product
+    ProductCategoryMember{productCategory(name)} to ProductCategory
+    
+      ProductPrice{product(name)} to Product
+	ProductPrice{productPriceType(name)} to ProductPriceType
+	ProductPrice{productPricePurpose(name)} to ProductPricePurpose
+	ProductPrice{currencyUom(name)} to Uom
+	
+	ProductKeyword{product(name)} to Product
+	ProductKeyword{keywordType(name)} to KeywordType
+    
+	SupplierProduct{product(name)} to Product
+	SupplierProduct{supplier} to Party
+	SupplierProduct{quantityUom(name)} to Uom
+	SupplierProduct{currencyUom(name)} to Uom
+	SupplierProduct{manufacturer} to Party
+	
+	Uom{uomType} to UomType
+	
+	Equipment{equipmentType} to EquipmentType
+	Equipment{status(name)} to Status
+	
+    FacilityEquipment{facility(name)} to Facility
+	FacilityEquipment{Equipment(name)} to Equipment
+	  
+}
+
+relationship OneToOne {
+  Party{user(login)} to User
+}
+
+paginate Attachment, ContactMech, Catalogue, CatalogueCategory, Facility, FacilityParty, FacilityGroupMember, FacilityContactMech, Geo, GeoAssoc, GeoPoint, Invoice, InvoiceItem, InventoryItem, InventoryItemDelegate, ItemIssuance, InventoryItemVariance, InventoryTransfer, Order, OrderItem, OrderContactMech, OrderStatus, OrderItemBilling, PartyRole, PartyClassification, Permission, PermissionAuthority, PartyContactMech, PostalAddress, ProductCategory, ProductCategoryMember, Product, ProductPrice, ProductFacility, Payment, PaymentApplication, ProductStore, ProductStoreFacility, ProductStoreUserGroup, Reason, WorkEffort, WorkEffortProduct, WorkEffortAssoc, WorkEffortInventoryAssign, WorkEffortInventoryProduced, WorkEffortStatus, SupplierProduct, StatusCategory, Status, StatusValidChange, Uom, UserGroup, UserGroupMember, UserGroupAuthority, Party with pagination
+
+service Attachment, ContactMech, Catalogue, CatalogueCategory, Facility, FacilityParty, FacilityGroupMember, FacilityContactMech, Geo, GeoAssoc, GeoPoint, Invoice, InvoiceItem, InventoryItem, InventoryItemDelegate, ItemIssuance, InventoryItemVariance, InventoryTransfer, Order, OrderItem, OrderContactMech, OrderStatus, OrderItemBilling, PartyRole, PartyClassification, Permission, PermissionAuthority, PartyContactMech, PostalAddress, ProductCategory, ProductCategoryMember, Product, ProductPrice, ProductFacility, Payment, PaymentApplication, ProductStore, ProductStoreFacility, ProductStoreUserGroup, Reason, WorkEffort, WorkEffortProduct, WorkEffortAssoc, WorkEffortInventoryAssign, WorkEffortInventoryProduced, WorkEffortStatus, SupplierProduct, StatusCategory, Status, StatusValidChange, Uom, UserGroup, UserGroupMember, UserGroupAuthority, Party with serviceClass
+
+filter Attachment, ContactMech, Catalogue, CatalogueCategory, Facility, FacilityParty, FacilityGroupMember, FacilityContactMech, Geo, GeoAssoc, GeoPoint, Invoice, InvoiceItem, InventoryItem, InventoryItemDelegate, ItemIssuance, InventoryItemVariance, InventoryTransfer, Order, OrderItem, OrderContactMech, OrderStatus, OrderItemBilling, PartyRole, PartyClassification, Permission, PermissionAuthority, PartyContactMech, PostalAddress, ProductCategory, ProductCategoryMember, Product, ProductPrice, ProductFacility, Payment, PaymentApplication, ProductStore, ProductStoreFacility, ProductStoreUserGroup, Reason, WorkEffort, WorkEffortProduct, WorkEffortAssoc, WorkEffortInventoryAssign, WorkEffortInventoryProduced, WorkEffortStatus, SupplierProduct, StatusCategory, Status, StatusValidChange, Uom, UserGroup, UserGroupMember, UserGroupAuthority, Party

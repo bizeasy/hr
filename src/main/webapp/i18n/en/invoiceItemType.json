@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "invoiceItemType": {
+      "home": {
+        "title": "Invoice Item Types",
+        "createLabel": "Create a new Invoice Item Type",
+        "createOrEditLabel": "Create or edit a Invoice Item Type",
+        "notFound": "No Invoice Item Types found"
+      },
+      "created": "A new Invoice Item Type is created with identifier {{ param }}",
+      "updated": "A Invoice Item Type is updated with identifier {{ param }}",
+      "deleted": "A Invoice Item Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Invoice Item Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Invoice Item Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

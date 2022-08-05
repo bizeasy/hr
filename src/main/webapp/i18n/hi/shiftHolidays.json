@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "shiftHolidays": {
+      "home": {
+        "title": "ShiftHolidays",
+        "createLabel": "नया Shift Holidays बनाएँ",
+        "createOrEditLabel": "Shift Holidays बनाएँ या संपादित करें",
+        "notFound": "No Shift Holidays found"
+      },
+      "created": "एक नया Shift Holidays [identifier: {{ param }}] तैयार है",
+      "updated": "एक Shift Holidays [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Shift Holidays [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Shift Holidays [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Shift Holidays"
+      },
+      "dayOfheWeek": "Day Ofhe Week",
+      "monthlyPaidLeaves": "Monthly Paid Leaves",
+      "yearlyPaidLeaves": "Yearly Paid Leaves",
+      "shift": "Shift"
+    }
+  }
+}

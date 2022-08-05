@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "shiftWeekends": {
+      "home": {
+        "title": "Shift Weekends",
+        "createLabel": "Create a new Shift Weekends",
+        "createOrEditLabel": "Create or edit a Shift Weekends",
+        "notFound": "No Shift Weekends found"
+      },
+      "created": "A new Shift Weekends is created with identifier {{ param }}",
+      "updated": "A Shift Weekends is updated with identifier {{ param }}",
+      "deleted": "A Shift Weekends is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shift Weekends {{ id }}?"
+      },
+      "detail": {
+        "title": "Shift Weekends"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "shift": "Shift"
+    }
+  }
+}

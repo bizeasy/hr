@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emplPositionType">
+            <h2><span jhiTranslate="hrApp.emplPositionType.detail.title">Empl Position Type</span> {{ emplPositionType.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.emplPositionType.name">Name</span></dt>
+                <dd>
+                    <span>{{ emplPositionType.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionType.description">Description</span></dt>
+                <dd>
+                    <span>{{ emplPositionType.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionType.group">Group</span></dt>
+                <dd>
+                    <div *ngIf="emplPositionType.group">
+                        <a [routerLink]="['/empl-position-group', emplPositionType.group?.id, 'view']">{{ emplPositionType.group?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empl-position-type', emplPositionType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

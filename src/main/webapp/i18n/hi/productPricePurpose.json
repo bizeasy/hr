@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productPricePurpose": {
+      "home": {
+        "title": "ProductPricePurposes",
+        "createLabel": "नया Product Price Purpose बनाएँ",
+        "createOrEditLabel": "Product Price Purpose बनाएँ या संपादित करें",
+        "notFound": "No Product Price Purposes found"
+      },
+      "created": "एक नया Product Price Purpose [identifier: {{ param }}] तैयार है",
+      "updated": "एक Product Price Purpose [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Product Price Purpose [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Product Price Purpose [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Product Price Purpose"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="workEffortStatus">
+            <h2><span jhiTranslate="hrApp.workEffortStatus.detail.title">Work Effort Status</span> {{ workEffortStatus.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.workEffortStatus.reason">Reason</span></dt>
+                <dd>
+                    <span>{{ workEffortStatus.reason }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortStatus.workEffort">Work Effort</span></dt>
+                <dd>
+                    <div *ngIf="workEffortStatus.workEffort">
+                        <a [routerLink]="['/work-effort', workEffortStatus.workEffort?.id, 'view']">{{ workEffortStatus.workEffort?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortStatus.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="workEffortStatus.status">
+                        <a [routerLink]="['/status', workEffortStatus.status?.id, 'view']">{{ workEffortStatus.status?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/work-effort-status', workEffortStatus.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "emplLeave": {
+      "home": {
+        "title": "EmplLeaves",
+        "createLabel": "नया Empl Leave बनाएँ",
+        "createOrEditLabel": "Empl Leave बनाएँ या संपादित करें",
+        "notFound": "No Empl Leaves found"
+      },
+      "created": "एक नया Empl Leave [identifier: {{ param }}] तैयार है",
+      "updated": "एक Empl Leave [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Empl Leave [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Empl Leave [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Empl Leave"
+      },
+      "description": "Description",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "employee": "Employee",
+      "approver": "Approver",
+      "leaveType": "Leave Type",
+      "reason": "Reason",
+      "status": "Status"
+    }
+  }
+}

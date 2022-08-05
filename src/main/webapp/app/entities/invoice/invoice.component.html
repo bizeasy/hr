@@ -1,0 +1,115 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.invoice.home.title">Invoices</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-invoice" [routerLink]="['/invoice/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.invoice.home.createLabel">
+            Create a new Invoice
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="invoices?.length === 0">
+        <span jhiTranslate="hrApp.invoice.home.notFound">No invoices found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="invoices && invoices.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoiceDate"><span jhiTranslate="hrApp.invoice.invoiceDate">Invoice Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dueDate"><span jhiTranslate="hrApp.invoice.dueDate">Due Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paidDate"><span jhiTranslate="hrApp.invoice.paidDate">Paid Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoiceMessage"><span jhiTranslate="hrApp.invoice.invoiceMessage">Invoice Message</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="referenceNumber"><span jhiTranslate="hrApp.invoice.referenceNumber">Reference Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoiceType.name"><span jhiTranslate="hrApp.invoice.invoiceType">Invoice Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="partyIdFrom.id"><span jhiTranslate="hrApp.invoice.partyIdFrom">Party Id From</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="partyIdTo.id"><span jhiTranslate="hrApp.invoice.partyIdTo">Party Id To</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="roleType.name"><span jhiTranslate="hrApp.invoice.roleType">Role Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status.name"><span jhiTranslate="hrApp.invoice.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contactMech.id"><span jhiTranslate="hrApp.invoice.contactMech">Contact Mech</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let invoice of invoices ;trackBy: trackId">
+                    <td><a [routerLink]="['/invoice', invoice.id, 'view']">{{ invoice.id }}</a></td>
+                    <td>{{ invoice.invoiceDate | date:'medium' }}</td>
+                    <td>{{ invoice.dueDate | date:'medium' }}</td>
+                    <td>{{ invoice.paidDate | date:'medium' }}</td>
+                    <td>{{ invoice.invoiceMessage }}</td>
+                    <td>{{ invoice.referenceNumber }}</td>
+                    <td>
+                        <div *ngIf="invoice.invoiceType">
+                            <a [routerLink]="['/invoice-type', invoice.invoiceType?.id, 'view']" >{{ invoice.invoiceType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invoice.partyIdFrom">
+                            <a [routerLink]="['/party', invoice.partyIdFrom?.id, 'view']" >{{ invoice.partyIdFrom?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invoice.partyIdTo">
+                            <a [routerLink]="['/party', invoice.partyIdTo?.id, 'view']" >{{ invoice.partyIdTo?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invoice.roleType">
+                            <a [routerLink]="['/role-type', invoice.roleType?.id, 'view']" >{{ invoice.roleType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invoice.status">
+                            <a [routerLink]="['/status', invoice.status?.id, 'view']" >{{ invoice.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invoice.contactMech">
+                            <a [routerLink]="['/contact-mech', invoice.contactMech?.id, 'view']" >{{ invoice.contactMech?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/invoice', invoice.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/invoice', invoice.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(invoice)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="invoices && invoices.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

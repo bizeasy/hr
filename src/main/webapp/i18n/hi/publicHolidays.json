@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "publicHolidays": {
+      "home": {
+        "title": "PublicHolidays",
+        "createLabel": "नया Public Holidays बनाएँ",
+        "createOrEditLabel": "Public Holidays बनाएँ या संपादित करें",
+        "notFound": "No Public Holidays found"
+      },
+      "created": "एक नया Public Holidays [identifier: {{ param }}] तैयार है",
+      "updated": "एक Public Holidays [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Public Holidays [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Public Holidays [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Public Holidays"
+      },
+      "name": "Name",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "noOfHolidays": "No Of Holidays",
+      "type": "Type"
+    }
+  }
+}

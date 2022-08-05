@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productStoreUserGroup">
+            <h2><span jhiTranslate="hrApp.productStoreUserGroup.detail.title">Product Store User Group</span> {{ productStoreUserGroup.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.productStoreUserGroup.userGroup">User Group</span></dt>
+                <dd>
+                    <div *ngIf="productStoreUserGroup.userGroup">
+                        <a [routerLink]="['/user-group', productStoreUserGroup.userGroup?.id, 'view']">{{ productStoreUserGroup.userGroup?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStoreUserGroup.user">User</span></dt>
+                <dd>
+                    {{ productStoreUserGroup.user?.login }}
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStoreUserGroup.party">Party</span></dt>
+                <dd>
+                    <div *ngIf="productStoreUserGroup.party">
+                        <a [routerLink]="['/party', productStoreUserGroup.party?.id, 'view']">{{ productStoreUserGroup.party?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStoreUserGroup.productStore">Product Store</span></dt>
+                <dd>
+                    <div *ngIf="productStoreUserGroup.productStore">
+                        <a [routerLink]="['/product-store', productStoreUserGroup.productStore?.id, 'view']">{{ productStoreUserGroup.productStore?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-store-user-group', productStoreUserGroup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

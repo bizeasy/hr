@@ -1,0 +1,28 @@
+{
+  "hrApp": {
+    "emplPositionFulfillment": {
+      "home": {
+        "title": "Empl Position Fulfillments",
+        "createLabel": "Create a new Empl Position Fulfillment",
+        "createOrEditLabel": "Create or edit a Empl Position Fulfillment",
+        "notFound": "No Empl Position Fulfillments found"
+      },
+      "created": "A new Empl Position Fulfillment is created with identifier {{ param }}",
+      "updated": "A Empl Position Fulfillment is updated with identifier {{ param }}",
+      "deleted": "A Empl Position Fulfillment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empl Position Fulfillment {{ id }}?"
+      },
+      "detail": {
+        "title": "Empl Position Fulfillment"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "comments": "Comments",
+      "emplPosition": "Empl Position",
+      "party": "Party",
+      "reportingTo": "Reporting To",
+      "managedBy": "Managed By"
+    }
+  }
+}

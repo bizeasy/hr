@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "customTimePeriod": {
+      "home": {
+        "title": "CustomTimePeriods",
+        "createLabel": "नया Custom Time Period बनाएँ",
+        "createOrEditLabel": "Custom Time Period बनाएँ या संपादित करें",
+        "notFound": "No Custom Time Periods found"
+      },
+      "created": "एक नया Custom Time Period [identifier: {{ param }}] तैयार है",
+      "updated": "एक Custom Time Period [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Custom Time Period [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Custom Time Period [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Custom Time Period"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "isClosed": "Is Closed",
+      "periodName": "Period Name",
+      "periodNum": "Period Num",
+      "periodType": "Period Type",
+      "organisationParty": "Organisation Party",
+      "parent": "Parent"
+    }
+  }
+}

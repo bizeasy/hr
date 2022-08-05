@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="inventoryItemDelegate">
+            <h2><span jhiTranslate="hrApp.inventoryItemDelegate.detail.title">Inventory Item Delegate</span> {{ inventoryItemDelegate.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ inventoryItemDelegate.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.effectiveDate">Effective Date</span></dt>
+                <dd>
+                    <span>{{ inventoryItemDelegate.effectiveDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.quantityOnHandDiff">Quantity On Hand Diff</span></dt>
+                <dd>
+                    <span>{{ inventoryItemDelegate.quantityOnHandDiff }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.availableToPromiseDiff">Available To Promise Diff</span></dt>
+                <dd>
+                    <span>{{ inventoryItemDelegate.availableToPromiseDiff }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.accountingQuantityDiff">Accounting Quantity Diff</span></dt>
+                <dd>
+                    <span>{{ inventoryItemDelegate.accountingQuantityDiff }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.unitCost">Unit Cost</span></dt>
+                <dd>
+                    <span>{{ inventoryItemDelegate.unitCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ inventoryItemDelegate.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.invoice">Invoice</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemDelegate.invoice">
+                        <a [routerLink]="['/invoice', inventoryItemDelegate.invoice?.id, 'view']">{{ inventoryItemDelegate.invoice?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.invoiceItem">Invoice Item</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemDelegate.invoiceItem">
+                        <a [routerLink]="['/invoice-item', inventoryItemDelegate.invoiceItem?.id, 'view']">{{ inventoryItemDelegate.invoiceItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemDelegate.order">
+                        <a [routerLink]="['/order', inventoryItemDelegate.order?.id, 'view']">{{ inventoryItemDelegate.order?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.orderItem">Order Item</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemDelegate.orderItem">
+                        <a [routerLink]="['/order-item', inventoryItemDelegate.orderItem?.id, 'view']">{{ inventoryItemDelegate.orderItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.itemIssuance">Item Issuance</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemDelegate.itemIssuance">
+                        <a [routerLink]="['/item-issuance', inventoryItemDelegate.itemIssuance?.id, 'view']">{{ inventoryItemDelegate.itemIssuance?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.inventoryTransfer">Inventory Transfer</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemDelegate.inventoryTransfer">
+                        <a [routerLink]="['/inventory-transfer', inventoryItemDelegate.inventoryTransfer?.id, 'view']">{{ inventoryItemDelegate.inventoryTransfer?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.inventoryItemVariance">Inventory Item Variance</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemDelegate.inventoryItemVariance">
+                        <a [routerLink]="['/inventory-item-variance', inventoryItemDelegate.inventoryItemVariance?.id, 'view']">{{ inventoryItemDelegate.inventoryItemVariance?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItemDelegate.inventoryItem">Inventory Item</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItemDelegate.inventoryItem">
+                        <a [routerLink]="['/inventory-item', inventoryItemDelegate.inventoryItem?.id, 'view']">{{ inventoryItemDelegate.inventoryItem?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/inventory-item-delegate', inventoryItemDelegate.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

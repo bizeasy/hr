@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "paymentGatewayConfig": {
+      "home": {
+        "title": "PaymentGatewayConfigs",
+        "createLabel": "नया Payment Gateway Config बनाएँ",
+        "createOrEditLabel": "Payment Gateway Config बनाएँ या संपादित करें",
+        "notFound": "No Payment Gateway Configs found"
+      },
+      "created": "एक नया Payment Gateway Config [identifier: {{ param }}] तैयार है",
+      "updated": "एक Payment Gateway Config [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Payment Gateway Config [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Payment Gateway Config [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Payment Gateway Config"
+      },
+      "name": "Name",
+      "authUrl": "Auth Url",
+      "releaseUrl": "Release Url",
+      "refundUrl": "Refund Url"
+    }
+  }
+}

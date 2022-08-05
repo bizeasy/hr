@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-perf-review-heading" jhiTranslate="hrApp.perfReview.home.createOrEditLabel">Create or edit a Perf Review</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.perfReview.fromDate" for="field_fromDate">From Date</label>
+                    <div class="input-group">
+                        <input id="field_fromDate" type="text" class="form-control" name="fromDate" ngbDatepicker #fromDateDp="ngbDatepicker" formControlName="fromDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fromDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.perfReview.thruDate" for="field_thruDate">Thru Date</label>
+                    <div class="input-group">
+                        <input id="field_thruDate" type="text" class="form-control" name="thruDate" ngbDatepicker #thruDateDp="ngbDatepicker" formControlName="thruDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="thruDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.perfReview.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.perfReview.employee" for="field_employee">Employee</label>
+                    <select class="form-control" id="field_employee" name="employee" formControlName="employee">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('employee')!.value?.id ? editForm.get('employee')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.perfReview.manager" for="field_manager">Manager</label>
+                    <select class="form-control" id="field_manager" name="manager" formControlName="manager">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('manager')!.value?.id ? editForm.get('manager')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.perfReview.emplPosition" for="field_emplPosition">Empl Position</label>
+                    <select class="form-control" id="field_emplPosition" name="emplPosition" formControlName="emplPosition">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emplPositionOption.id === editForm.get('emplPosition')!.value?.id ? editForm.get('emplPosition')!.value : emplPositionOption" *ngFor="let emplPositionOption of emplpositions; trackBy: trackById">{{ emplPositionOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

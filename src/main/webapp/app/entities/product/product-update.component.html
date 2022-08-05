@@ -1,0 +1,426 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-product-heading" jhiTranslate="hrApp.product.home.createOrEditLabel">Create or edit a Product</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.internalName" for="field_internalName">Internal Name</label>
+                    <input type="text" class="form-control" name="internalName" id="field_internalName"
+                           formControlName="internalName"/>
+                    <div *ngIf="editForm.get('internalName')!.invalid && (editForm.get('internalName')!.dirty || editForm.get('internalName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('internalName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.brandName" for="field_brandName">Brand Name</label>
+                    <input type="text" class="form-control" name="brandName" id="field_brandName"
+                           formControlName="brandName"/>
+                    <div *ngIf="editForm.get('brandName')!.invalid && (editForm.get('brandName')!.dirty || editForm.get('brandName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('brandName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.variant" for="field_variant">Variant</label>
+                    <input type="text" class="form-control" name="variant" id="field_variant"
+                           formControlName="variant"/>
+                    <div *ngIf="editForm.get('variant')!.invalid && (editForm.get('variant')!.dirty || editForm.get('variant')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('variant')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.sku" for="field_sku">Sku</label>
+                    <input type="text" class="form-control" name="sku" id="field_sku"
+                           formControlName="sku"/>
+                    <div *ngIf="editForm.get('sku')!.invalid && (editForm.get('sku')!.dirty || editForm.get('sku')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sku')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.introductionDate" for="field_introductionDate">Introduction Date</label>
+                    <div class="d-flex">
+                        <input id="field_introductionDate" type="datetime-local" class="form-control" name="introductionDate" formControlName="introductionDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.releaseDate" for="field_releaseDate">Release Date</label>
+                    <div class="d-flex">
+                        <input id="field_releaseDate" type="datetime-local" class="form-control" name="releaseDate" formControlName="releaseDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.quantityIncluded" for="field_quantityIncluded">Quantity Included</label>
+                    <input type="number" class="form-control" name="quantityIncluded" id="field_quantityIncluded"
+                           formControlName="quantityIncluded"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.piecesIncluded" for="field_piecesIncluded">Pieces Included</label>
+                    <input type="number" class="form-control" name="piecesIncluded" id="field_piecesIncluded"
+                           formControlName="piecesIncluded"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.weight" for="field_weight">Weight</label>
+                    <input type="number" class="form-control" name="weight" id="field_weight"
+                           formControlName="weight"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.height" for="field_height">Height</label>
+                    <input type="number" class="form-control" name="height" id="field_height"
+                           formControlName="height"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.width" for="field_width">Width</label>
+                    <input type="number" class="form-control" name="width" id="field_width"
+                           formControlName="width"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.depth" for="field_depth">Depth</label>
+                    <input type="number" class="form-control" name="depth" id="field_depth"
+                           formControlName="depth"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.smallImageUrl" for="field_smallImageUrl">Small Image Url</label>
+                    <input type="text" class="form-control" name="smallImageUrl" id="field_smallImageUrl"
+                           formControlName="smallImageUrl"/>
+                    <div *ngIf="editForm.get('smallImageUrl')!.invalid && (editForm.get('smallImageUrl')!.dirty || editForm.get('smallImageUrl')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('smallImageUrl')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2000 }">
+                        This field cannot be longer than 2000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.mediumImageUrl" for="field_mediumImageUrl">Medium Image Url</label>
+                    <input type="text" class="form-control" name="mediumImageUrl" id="field_mediumImageUrl"
+                           formControlName="mediumImageUrl"/>
+                    <div *ngIf="editForm.get('mediumImageUrl')!.invalid && (editForm.get('mediumImageUrl')!.dirty || editForm.get('mediumImageUrl')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mediumImageUrl')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2000 }">
+                        This field cannot be longer than 2000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.largeImageUrl" for="field_largeImageUrl">Large Image Url</label>
+                    <input type="text" class="form-control" name="largeImageUrl" id="field_largeImageUrl"
+                           formControlName="largeImageUrl"/>
+                    <div *ngIf="editForm.get('largeImageUrl')!.invalid && (editForm.get('largeImageUrl')!.dirty || editForm.get('largeImageUrl')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('largeImageUrl')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2000 }">
+                        This field cannot be longer than 2000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.detailImageUrl" for="field_detailImageUrl">Detail Image Url</label>
+                    <input type="text" class="form-control" name="detailImageUrl" id="field_detailImageUrl"
+                           formControlName="detailImageUrl"/>
+                    <div *ngIf="editForm.get('detailImageUrl')!.invalid && (editForm.get('detailImageUrl')!.dirty || editForm.get('detailImageUrl')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('detailImageUrl')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2000 }">
+                        This field cannot be longer than 2000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.originalImageUrl" for="field_originalImageUrl">Original Image Url</label>
+                    <input type="text" class="form-control" name="originalImageUrl" id="field_originalImageUrl"
+                           formControlName="originalImageUrl"/>
+                    <div *ngIf="editForm.get('originalImageUrl')!.invalid && (editForm.get('originalImageUrl')!.dirty || editForm.get('originalImageUrl')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('originalImageUrl')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2000 }">
+                        This field cannot be longer than 2000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.quantity" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                           formControlName="quantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.cgst" for="field_cgst">Cgst</label>
+                    <input type="number" class="form-control" name="cgst" id="field_cgst"
+                           formControlName="cgst"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.igst" for="field_igst">Igst</label>
+                    <input type="number" class="form-control" name="igst" id="field_igst"
+                           formControlName="igst"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.sgst" for="field_sgst">Sgst</label>
+                    <input type="number" class="form-control" name="sgst" id="field_sgst"
+                           formControlName="sgst"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                           formControlName="price"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.cgstPercentage" for="field_cgstPercentage">Cgst Percentage</label>
+                    <input type="number" class="form-control" name="cgstPercentage" id="field_cgstPercentage"
+                           formControlName="cgstPercentage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.igstPercentage" for="field_igstPercentage">Igst Percentage</label>
+                    <input type="number" class="form-control" name="igstPercentage" id="field_igstPercentage"
+                           formControlName="igstPercentage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.sgstPercentage" for="field_sgstPercentage">Sgst Percentage</label>
+                    <input type="number" class="form-control" name="sgstPercentage" id="field_sgstPercentage"
+                           formControlName="sgstPercentage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.totalPrice" for="field_totalPrice">Total Price</label>
+                    <input type="number" class="form-control" name="totalPrice" id="field_totalPrice"
+                           formControlName="totalPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.longDescription" for="field_longDescription">Long Description</label>
+                    <input type="text" class="form-control" name="longDescription" id="field_longDescription"
+                           formControlName="longDescription"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.info" for="field_info">Info</label>
+                    <textarea class="form-control" name="info" id="field_info"
+                              formControlName="info"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.isVirtual" for="field_isVirtual">Is Virtual</label>
+                    <input type="checkbox" class="form-control" name="isVirtual" id="field_isVirtual"
+                           formControlName="isVirtual"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.isVariant" for="field_isVariant">Is Variant</label>
+                    <input type="checkbox" class="form-control" name="isVariant" id="field_isVariant"
+                           formControlName="isVariant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.requireInventory" for="field_requireInventory">Require Inventory</label>
+                    <input type="checkbox" class="form-control" name="requireInventory" id="field_requireInventory"
+                           formControlName="requireInventory"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.returnable" for="field_returnable">Returnable</label>
+                    <input type="checkbox" class="form-control" name="returnable" id="field_returnable"
+                           formControlName="returnable"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.isPopular" for="field_isPopular">Is Popular</label>
+                    <input type="checkbox" class="form-control" name="isPopular" id="field_isPopular"
+                           formControlName="isPopular"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.changeControlNo" for="field_changeControlNo">Change Control No</label>
+                    <input type="text" class="form-control" name="changeControlNo" id="field_changeControlNo"
+                           formControlName="changeControlNo"/>
+                    <div *ngIf="editForm.get('changeControlNo')!.invalid && (editForm.get('changeControlNo')!.dirty || editForm.get('changeControlNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('changeControlNo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.retestDuration" for="field_retestDuration">Retest Duration</label>
+                    <input type="number" class="form-control" name="retestDuration" id="field_retestDuration"
+                           formControlName="retestDuration"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.expiryDuration" for="field_expiryDuration">Expiry Duration</label>
+                    <input type="number" class="form-control" name="expiryDuration" id="field_expiryDuration"
+                           formControlName="expiryDuration"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.validationType" for="field_validationType">Validation Type</label>
+                    <input type="text" class="form-control" name="validationType" id="field_validationType"
+                           formControlName="validationType"/>
+                    <div *ngIf="editForm.get('validationType')!.invalid && (editForm.get('validationType')!.dirty || editForm.get('validationType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('validationType')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.shelfLife" for="field_shelfLife">Shelf Life</label>
+                    <input type="number" class="form-control" name="shelfLife" id="field_shelfLife"
+                           formControlName="shelfLife"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.productType" for="field_productType">Product Type</label>
+                    <select class="form-control" id="field_productType" name="productType" formControlName="productType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productTypeOption.id === editForm.get('productType')!.value?.id ? editForm.get('productType')!.value : productTypeOption" *ngFor="let productTypeOption of producttypes; trackBy: trackById">{{ productTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.quantityUom" for="field_quantityUom">Quantity Uom</label>
+                    <select class="form-control" id="field_quantityUom" name="quantityUom" formControlName="quantityUom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('quantityUom')!.value?.id ? editForm.get('quantityUom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.weightUom" for="field_weightUom">Weight Uom</label>
+                    <select class="form-control" id="field_weightUom" name="weightUom" formControlName="weightUom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('weightUom')!.value?.id ? editForm.get('weightUom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.sizeUom" for="field_sizeUom">Size Uom</label>
+                    <select class="form-control" id="field_sizeUom" name="sizeUom" formControlName="sizeUom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('sizeUom')!.value?.id ? editForm.get('sizeUom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.uom" for="field_uom">Uom</label>
+                    <select class="form-control" id="field_uom" name="uom" formControlName="uom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('uom')!.value?.id ? editForm.get('uom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.primaryProductCategory" for="field_primaryProductCategory">Primary Product Category</label>
+                    <select class="form-control" id="field_primaryProductCategory" name="primaryProductCategory" formControlName="primaryProductCategory">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productCategoryOption.id === editForm.get('primaryProductCategory')!.value?.id ? editForm.get('primaryProductCategory')!.value : productCategoryOption" *ngFor="let productCategoryOption of productcategories; trackBy: trackById">{{ productCategoryOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.virtualProduct" for="field_virtualProduct">Virtual Product</label>
+                    <select class="form-control" id="field_virtualProduct" name="virtualProduct" formControlName="virtualProduct">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id === editForm.get('virtualProduct')!.value?.id ? editForm.get('virtualProduct')!.value : productOption" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.inventoryItemType" for="field_inventoryItemType">Inventory Item Type</label>
+                    <select class="form-control" id="field_inventoryItemType" name="inventoryItemType" formControlName="inventoryItemType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryItemTypeOption.id === editForm.get('inventoryItemType')!.value?.id ? editForm.get('inventoryItemType')!.value : inventoryItemTypeOption" *ngFor="let inventoryItemTypeOption of inventoryitemtypes; trackBy: trackById">{{ inventoryItemTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.taxSlab" for="field_taxSlab">Tax Slab</label>
+                    <select class="form-control" id="field_taxSlab" name="taxSlab" formControlName="taxSlab">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="taxSlabOption.id === editForm.get('taxSlab')!.value?.id ? editForm.get('taxSlab')!.value : taxSlabOption" *ngFor="let taxSlabOption of taxslabs; trackBy: trackById">{{ taxSlabOption.rate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.product.shelfLifeUom" for="field_shelfLifeUom">Shelf Life Uom</label>
+                    <select class="form-control" id="field_shelfLifeUom" name="shelfLifeUom" formControlName="shelfLifeUom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('shelfLifeUom')!.value?.id ? editForm.get('shelfLifeUom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

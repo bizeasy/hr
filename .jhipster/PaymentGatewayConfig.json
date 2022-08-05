@@ -1,0 +1,35 @@
+{
+  "name": "PaymentGatewayConfig",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "authUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "releaseUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "refundUrl",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20220805151049",
+  "entityTableName": "payment_gateway_config",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

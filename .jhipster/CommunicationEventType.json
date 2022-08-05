@@ -1,0 +1,33 @@
+{
+  "name": "CommunicationEventType",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contactMechType",
+      "otherEntityRelationshipName": "communicationEventType",
+      "relationshipName": "contactMechType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805140449",
+  "entityTableName": "communication_event_type",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

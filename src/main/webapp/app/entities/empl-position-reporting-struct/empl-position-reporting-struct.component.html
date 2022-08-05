@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.emplPositionReportingStruct.home.title">Empl Position Reporting Structs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-empl-position-reporting-struct" [routerLink]="['/empl-position-reporting-struct/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.emplPositionReportingStruct.home.createLabel">
+            Create a new Empl Position Reporting Struct
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="emplPositionReportingStructs?.length === 0">
+        <span jhiTranslate="hrApp.emplPositionReportingStruct.home.notFound">No emplPositionReportingStructs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="emplPositionReportingStructs && emplPositionReportingStructs.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPositionReportingStruct.fromDate">From Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPositionReportingStruct.thruDate">Thru Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPositionReportingStruct.comments">Comments</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emplPositionReportingStruct of emplPositionReportingStructs ;trackBy: trackId">
+                    <td><a [routerLink]="['/empl-position-reporting-struct', emplPositionReportingStruct.id, 'view']">{{ emplPositionReportingStruct.id }}</a></td>
+                    <td>{{ emplPositionReportingStruct.fromDate | date:'mediumDate' }}</td>
+                    <td>{{ emplPositionReportingStruct.thruDate | date:'mediumDate' }}</td>
+                    <td>{{ emplPositionReportingStruct.comments }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/empl-position-reporting-struct', emplPositionReportingStruct.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/empl-position-reporting-struct', emplPositionReportingStruct.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(emplPositionReportingStruct)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

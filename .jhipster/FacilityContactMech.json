@@ -1,0 +1,47 @@
+{
+  "name": "FacilityContactMech",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facility",
+      "otherEntityRelationshipName": "facilityContactMech",
+      "relationshipName": "facility",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contactMech",
+      "otherEntityRelationshipName": "facilityContactMech",
+      "relationshipName": "contactMech",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contactMechPurpose",
+      "otherEntityRelationshipName": "facilityContactMech",
+      "relationshipName": "contactMechPurpose",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805141649",
+  "entityTableName": "facility_contact_mech",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

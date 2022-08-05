@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.communicationEvent.home.title">Communication Events</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-communication-event" [routerLink]="['/communication-event/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.communicationEvent.home.createLabel">
+            Create a new Communication Event
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="communicationEvents?.length === 0">
+        <span jhiTranslate="hrApp.communicationEvent.home.notFound">No communicationEvents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="communicationEvents && communicationEvents.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.entryDate">Entry Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.subject">Subject</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.content">Content</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.fromString">From String</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.toString">To String</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.ccString">Cc String</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.message">Message</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.dateStarted">Date Started</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.dateEnded">Date Ended</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.info">Info</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.communicationEventType">Communication Event Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.status">Status</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.contactMechType">Contact Mech Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.contactMechFrom">Contact Mech From</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.contactMechTo">Contact Mech To</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.fromParty">From Party</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.communicationEvent.toParty">To Party</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let communicationEvent of communicationEvents ;trackBy: trackId">
+                    <td><a [routerLink]="['/communication-event', communicationEvent.id, 'view']">{{ communicationEvent.id }}</a></td>
+                    <td>{{ communicationEvent.entryDate | date:'medium' }}</td>
+                    <td>{{ communicationEvent.subject }}</td>
+                    <td>{{ communicationEvent.content }}</td>
+                    <td>{{ communicationEvent.fromString }}</td>
+                    <td>{{ communicationEvent.toString }}</td>
+                    <td>{{ communicationEvent.ccString }}</td>
+                    <td>{{ communicationEvent.message }}</td>
+                    <td>{{ communicationEvent.dateStarted | date:'medium' }}</td>
+                    <td>{{ communicationEvent.dateEnded | date:'medium' }}</td>
+                    <td>{{ communicationEvent.info }}</td>
+                    <td>
+                        <div *ngIf="communicationEvent.communicationEventType">
+                            <a [routerLink]="['/communication-event-type', communicationEvent.communicationEventType?.id, 'view']" >{{ communicationEvent.communicationEventType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="communicationEvent.status">
+                            <a [routerLink]="['/status', communicationEvent.status?.id, 'view']" >{{ communicationEvent.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="communicationEvent.contactMechType">
+                            <a [routerLink]="['/contact-mech-type', communicationEvent.contactMechType?.id, 'view']" >{{ communicationEvent.contactMechType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="communicationEvent.contactMechFrom">
+                            <a [routerLink]="['/contact-mech', communicationEvent.contactMechFrom?.id, 'view']" >{{ communicationEvent.contactMechFrom?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="communicationEvent.contactMechTo">
+                            <a [routerLink]="['/contact-mech', communicationEvent.contactMechTo?.id, 'view']" >{{ communicationEvent.contactMechTo?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="communicationEvent.fromParty">
+                            <a [routerLink]="['/party', communicationEvent.fromParty?.id, 'view']" >{{ communicationEvent.fromParty?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="communicationEvent.toParty">
+                            <a [routerLink]="['/party', communicationEvent.toParty?.id, 'view']" >{{ communicationEvent.toParty?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/communication-event', communicationEvent.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/communication-event', communicationEvent.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(communicationEvent)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

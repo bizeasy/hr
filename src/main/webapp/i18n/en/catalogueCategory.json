@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "catalogueCategory": {
+      "home": {
+        "title": "Catalogue Categories",
+        "createLabel": "Create a new Catalogue Category",
+        "createOrEditLabel": "Create or edit a Catalogue Category",
+        "notFound": "No Catalogue Categories found"
+      },
+      "created": "A new Catalogue Category is created with identifier {{ param }}",
+      "updated": "A Catalogue Category is updated with identifier {{ param }}",
+      "deleted": "A Catalogue Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Catalogue Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Catalogue Category"
+      },
+      "sequenceNo": "Sequence No",
+      "catalogue": "Catalogue",
+      "productCategory": "Product Category",
+      "catalogueCategoryType": "Catalogue Category Type"
+    }
+  }
+}

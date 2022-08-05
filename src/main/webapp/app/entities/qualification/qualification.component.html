@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.qualification.home.title">Qualifications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-qualification" [routerLink]="['/qualification/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.qualification.home.createLabel">
+            Create a new Qualification
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="qualifications?.length === 0">
+        <span jhiTranslate="hrApp.qualification.home.notFound">No qualifications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="qualifications && qualifications.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.qualification.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.qualification.description">Description</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let qualification of qualifications ;trackBy: trackId">
+                    <td><a [routerLink]="['/qualification', qualification.id, 'view']">{{ qualification.id }}</a></td>
+                    <td>{{ qualification.name }}</td>
+                    <td>{{ qualification.description }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/qualification', qualification.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/qualification', qualification.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(qualification)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+{
+  "name": "EmploymentApp",
+  "fields": [
+    {
+      "fieldName": "applicationDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "emplPosition",
+      "otherEntityRelationshipName": "employmentApp",
+      "relationshipName": "emplPosition",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "employmentApp",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employmentAppSourceType",
+      "otherEntityRelationshipName": "employmentApp",
+      "relationshipName": "source",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "employmentApp",
+      "relationshipName": "applyingParty",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "employmentApp",
+      "relationshipName": "referredByParty",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "employmentApp",
+      "relationshipName": "approverParty",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "jobRequisition",
+      "otherEntityRelationshipName": "employmentApp",
+      "relationshipName": "jobRequisition",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805155849",
+  "entityTableName": "employment_app",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

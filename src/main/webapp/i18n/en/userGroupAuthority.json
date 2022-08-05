@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "userGroupAuthority": {
+      "home": {
+        "title": "User Group Authorities",
+        "createLabel": "Create a new User Group Authority",
+        "createOrEditLabel": "Create or edit a User Group Authority",
+        "notFound": "No User Group Authorities found"
+      },
+      "created": "A new User Group Authority is created with identifier {{ param }}",
+      "updated": "A User Group Authority is updated with identifier {{ param }}",
+      "deleted": "A User Group Authority is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Group Authority {{ id }}?"
+      },
+      "detail": {
+        "title": "User Group Authority"
+      },
+      "authority": "Authority",
+      "userGroup": "User Group"
+    }
+  }
+}

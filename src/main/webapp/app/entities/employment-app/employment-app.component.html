@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.employmentApp.home.title">Employment Apps</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-employment-app" [routerLink]="['/employment-app/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.employmentApp.home.createLabel">
+            Create a new Employment App
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="employmentApps?.length === 0">
+        <span jhiTranslate="hrApp.employmentApp.home.notFound">No employmentApps found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="employmentApps && employmentApps.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.employmentApp.applicationDate">Application Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.employmentApp.emplPosition">Empl Position</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.employmentApp.status">Status</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.employmentApp.source">Source</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.employmentApp.applyingParty">Applying Party</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.employmentApp.referredByParty">Referred By Party</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.employmentApp.approverParty">Approver Party</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.employmentApp.jobRequisition">Job Requisition</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employmentApp of employmentApps ;trackBy: trackId">
+                    <td><a [routerLink]="['/employment-app', employmentApp.id, 'view']">{{ employmentApp.id }}</a></td>
+                    <td>{{ employmentApp.applicationDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="employmentApp.emplPosition">
+                            <a [routerLink]="['/empl-position', employmentApp.emplPosition?.id, 'view']" >{{ employmentApp.emplPosition?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="employmentApp.status">
+                            <a [routerLink]="['/status', employmentApp.status?.id, 'view']" >{{ employmentApp.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="employmentApp.source">
+                            <a [routerLink]="['/employment-app-source-type', employmentApp.source?.id, 'view']" >{{ employmentApp.source?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="employmentApp.applyingParty">
+                            <a [routerLink]="['/party', employmentApp.applyingParty?.id, 'view']" >{{ employmentApp.applyingParty?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="employmentApp.referredByParty">
+                            <a [routerLink]="['/party', employmentApp.referredByParty?.id, 'view']" >{{ employmentApp.referredByParty?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="employmentApp.approverParty">
+                            <a [routerLink]="['/party', employmentApp.approverParty?.id, 'view']" >{{ employmentApp.approverParty?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="employmentApp.jobRequisition">
+                            <a [routerLink]="['/job-requisition', employmentApp.jobRequisition?.id, 'view']" >{{ employmentApp.jobRequisition?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/employment-app', employmentApp.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/employment-app', employmentApp.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(employmentApp)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

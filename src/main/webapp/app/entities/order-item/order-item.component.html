@@ -1,0 +1,147 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.orderItem.home.title">Order Items</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-item" [routerLink]="['/order-item/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.orderItem.home.createLabel">
+            Create a new Order Item
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orderItems?.length === 0">
+        <span jhiTranslate="hrApp.orderItem.home.notFound">No orderItems found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orderItems && orderItems.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sequenceNo"><span jhiTranslate="hrApp.orderItem.sequenceNo">Sequence No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span jhiTranslate="hrApp.orderItem.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cancelQuantity"><span jhiTranslate="hrApp.orderItem.cancelQuantity">Cancel Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="selectedAmount"><span jhiTranslate="hrApp.orderItem.selectedAmount">Selected Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unitPrice"><span jhiTranslate="hrApp.orderItem.unitPrice">Unit Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unitListPrice"><span jhiTranslate="hrApp.orderItem.unitListPrice">Unit List Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cgst"><span jhiTranslate="hrApp.orderItem.cgst">Cgst</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="igst"><span jhiTranslate="hrApp.orderItem.igst">Igst</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sgst"><span jhiTranslate="hrApp.orderItem.sgst">Sgst</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cgstPercentage"><span jhiTranslate="hrApp.orderItem.cgstPercentage">Cgst Percentage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="igstPercentage"><span jhiTranslate="hrApp.orderItem.igstPercentage">Igst Percentage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sgstPercentage"><span jhiTranslate="hrApp.orderItem.sgstPercentage">Sgst Percentage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalPrice"><span jhiTranslate="hrApp.orderItem.totalPrice">Total Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isModifiedPrice"><span jhiTranslate="hrApp.orderItem.isModifiedPrice">Is Modified Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="estimatedShipDate"><span jhiTranslate="hrApp.orderItem.estimatedShipDate">Estimated Ship Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="estimatedDeliveryDate"><span jhiTranslate="hrApp.orderItem.estimatedDeliveryDate">Estimated Delivery Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shipBeforeDate"><span jhiTranslate="hrApp.orderItem.shipBeforeDate">Ship Before Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shipAfterDate"><span jhiTranslate="hrApp.orderItem.shipAfterDate">Ship After Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="order.id"><span jhiTranslate="hrApp.orderItem.order">Order</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderItemType.name"><span jhiTranslate="hrApp.orderItem.orderItemType">Order Item Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fromInventoryItem.id"><span jhiTranslate="hrApp.orderItem.fromInventoryItem">From Inventory Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="product.name"><span jhiTranslate="hrApp.orderItem.product">Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="supplierProduct.id"><span jhiTranslate="hrApp.orderItem.supplierProduct">Supplier Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status.name"><span jhiTranslate="hrApp.orderItem.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taxAuthRate.name"><span jhiTranslate="hrApp.orderItem.taxAuthRate">Tax Auth Rate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let orderItem of orderItems ;trackBy: trackId">
+                    <td><a [routerLink]="['/order-item', orderItem.id, 'view']">{{ orderItem.id }}</a></td>
+                    <td>{{ orderItem.sequenceNo }}</td>
+                    <td>{{ orderItem.quantity }}</td>
+                    <td>{{ orderItem.cancelQuantity }}</td>
+                    <td>{{ orderItem.selectedAmount }}</td>
+                    <td>{{ orderItem.unitPrice }}</td>
+                    <td>{{ orderItem.unitListPrice }}</td>
+                    <td>{{ orderItem.cgst }}</td>
+                    <td>{{ orderItem.igst }}</td>
+                    <td>{{ orderItem.sgst }}</td>
+                    <td>{{ orderItem.cgstPercentage }}</td>
+                    <td>{{ orderItem.igstPercentage }}</td>
+                    <td>{{ orderItem.sgstPercentage }}</td>
+                    <td>{{ orderItem.totalPrice }}</td>
+                    <td>{{ orderItem.isModifiedPrice }}</td>
+                    <td>{{ orderItem.estimatedShipDate | date:'medium' }}</td>
+                    <td>{{ orderItem.estimatedDeliveryDate | date:'medium' }}</td>
+                    <td>{{ orderItem.shipBeforeDate | date:'medium' }}</td>
+                    <td>{{ orderItem.shipAfterDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="orderItem.order">
+                            <a [routerLink]="['/order', orderItem.order?.id, 'view']" >{{ orderItem.order?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderItem.orderItemType">
+                            <a [routerLink]="['/order-item-type', orderItem.orderItemType?.id, 'view']" >{{ orderItem.orderItemType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderItem.fromInventoryItem">
+                            <a [routerLink]="['/inventory-item', orderItem.fromInventoryItem?.id, 'view']" >{{ orderItem.fromInventoryItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderItem.product">
+                            <a [routerLink]="['/product', orderItem.product?.id, 'view']" >{{ orderItem.product?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderItem.supplierProduct">
+                            <a [routerLink]="['/supplier-product', orderItem.supplierProduct?.id, 'view']" >{{ orderItem.supplierProduct?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderItem.status">
+                            <a [routerLink]="['/status', orderItem.status?.id, 'view']" >{{ orderItem.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="orderItem.taxAuthRate">
+                            <a [routerLink]="['/tax-authority-rate-type', orderItem.taxAuthRate?.id, 'view']" >{{ orderItem.taxAuthRate?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order-item', orderItem.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order-item', orderItem.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(orderItem)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="orderItems && orderItems.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

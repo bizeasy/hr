@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-public-holidays-heading" jhiTranslate="hrApp.publicHolidays.home.createOrEditLabel">Create or edit a Public Holidays</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.publicHolidays.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.publicHolidays.fromDate" for="field_fromDate">From Date</label>
+                    <div class="input-group">
+                        <input id="field_fromDate" type="text" class="form-control" name="fromDate" ngbDatepicker #fromDateDp="ngbDatepicker" formControlName="fromDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fromDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.publicHolidays.thruDate" for="field_thruDate">Thru Date</label>
+                    <div class="input-group">
+                        <input id="field_thruDate" type="text" class="form-control" name="thruDate" ngbDatepicker #thruDateDp="ngbDatepicker" formControlName="thruDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="thruDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.publicHolidays.noOfHolidays" for="field_noOfHolidays">No Of Holidays</label>
+                    <input type="number" class="form-control" name="noOfHolidays" id="field_noOfHolidays"
+                           formControlName="noOfHolidays"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.publicHolidays.type" for="field_type">Type</label>
+                    <select class="form-control" id="field_type" name="type" formControlName="type">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="holidayTypeOption.id === editForm.get('type')!.value?.id ? editForm.get('type')!.value : holidayTypeOption" *ngFor="let holidayTypeOption of holidaytypes; trackBy: trackById">{{ holidayTypeOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "timeSheet": {
+      "home": {
+        "title": "Time Sheets",
+        "createLabel": "కొత్త Time Sheet  సృష్టించండి",
+        "createOrEditLabel": "Time Sheet సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Time Sheets found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Time Sheet సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Time Sheet సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Time Sheet తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Time Sheet {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Time Sheet"
+      },
+      "overTimeDays": "Over Time Days",
+      "leaves": "Leaves",
+      "unappliedLeaves": "Unapplied Leaves",
+      "halfDays": "Half Days",
+      "totalWorkingHours": "Total Working Hours",
+      "timePeriod": "Time Period"
+    }
+  }
+}

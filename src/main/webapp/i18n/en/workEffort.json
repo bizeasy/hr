@@ -1,0 +1,40 @@
+{
+  "hrApp": {
+    "workEffort": {
+      "home": {
+        "title": "Work Efforts",
+        "createLabel": "Create a new Work Effort",
+        "createOrEditLabel": "Create or edit a Work Effort",
+        "notFound": "No Work Efforts found"
+      },
+      "created": "A new Work Effort is created with identifier {{ param }}",
+      "updated": "A Work Effort is updated with identifier {{ param }}",
+      "deleted": "A Work Effort is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Effort {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Effort"
+      },
+      "name": "Name",
+      "description": "Description",
+      "code": "Code",
+      "batchSize": "Batch Size",
+      "minYieldRange": "Min Yield Range",
+      "maxYieldRange": "Max Yield Range",
+      "percentComplete": "Percent Complete",
+      "validationType": "Validation Type",
+      "shelfLife": "Shelf Life",
+      "outputQty": "Output Qty",
+      "product": "Product",
+      "ksm": "Ksm",
+      "type": "Type",
+      "purpose": "Purpose",
+      "status": "Status",
+      "facility": "Facility",
+      "shelfListUom": "Shelf List Uom",
+      "productCategory": "Product Category",
+      "productStore": "Product Store"
+    }
+  }
+}

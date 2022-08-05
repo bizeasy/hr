@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "partyRole": {
+      "home": {
+        "title": "PartyRoles",
+        "createLabel": "नया Party Role बनाएँ",
+        "createOrEditLabel": "Party Role बनाएँ या संपादित करें",
+        "notFound": "No Party Roles found"
+      },
+      "created": "एक नया Party Role [identifier: {{ param }}] तैयार है",
+      "updated": "एक Party Role [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Party Role [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Party Role [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Party Role"
+      },
+      "party": "Party",
+      "roleType": "Role Type"
+    }
+  }
+}

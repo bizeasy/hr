@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-product-keyword-heading" jhiTranslate="hrApp.productKeyword.home.createOrEditLabel">Create or edit a Product Keyword</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.productKeyword.keyword" for="field_keyword">Keyword</label>
+                    <input type="text" class="form-control" name="keyword" id="field_keyword"
+                           formControlName="keyword"/>
+                    <div *ngIf="editForm.get('keyword')!.invalid && (editForm.get('keyword')!.dirty || editForm.get('keyword')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('keyword')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.productKeyword.relevancyWeight" for="field_relevancyWeight">Relevancy Weight</label>
+                    <input type="number" class="form-control" name="relevancyWeight" id="field_relevancyWeight"
+                           formControlName="relevancyWeight"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.productKeyword.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="product">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id === editForm.get('product')!.value?.id ? editForm.get('product')!.value : productOption" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.productKeyword.keywordType" for="field_keywordType">Keyword Type</label>
+                    <select class="form-control" id="field_keywordType" name="keywordType" formControlName="keywordType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="keywordTypeOption.id === editForm.get('keywordType')!.value?.id ? editForm.get('keywordType')!.value : keywordTypeOption" *ngFor="let keywordTypeOption of keywordtypes; trackBy: trackById">{{ keywordTypeOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

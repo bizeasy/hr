@@ -1,0 +1,141 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.facility.home.title">Facilities</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-facility" [routerLink]="['/facility/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.facility.home.createLabel">
+            Create a new Facility
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="facilities?.length === 0">
+        <span jhiTranslate="hrApp.facility.home.notFound">No facilities found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="facilities && facilities.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="hrApp.facility.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="hrApp.facility.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facilityCode"><span jhiTranslate="hrApp.facility.facilityCode">Facility Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facilitySize"><span jhiTranslate="hrApp.facility.facilitySize">Facility Size</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="costCenterCode"><span jhiTranslate="hrApp.facility.costCenterCode">Cost Center Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facilityType.name"><span jhiTranslate="hrApp.facility.facilityType">Facility Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="parentFacility.name"><span jhiTranslate="hrApp.facility.parentFacility">Parent Facility</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ownerParty.id"><span jhiTranslate="hrApp.facility.ownerParty">Owner Party</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facilityGroup.name"><span jhiTranslate="hrApp.facility.facilityGroup">Facility Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sizeUom.name"><span jhiTranslate="hrApp.facility.sizeUom">Size Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="geoPoint.id"><span jhiTranslate="hrApp.facility.geoPoint">Geo Point</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventoryItemType.name"><span jhiTranslate="hrApp.facility.inventoryItemType">Inventory Item Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status.name"><span jhiTranslate="hrApp.facility.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="usageStatus.name"><span jhiTranslate="hrApp.facility.usageStatus">Usage Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reviewedBy.login"><span jhiTranslate="hrApp.facility.reviewedBy">Reviewed By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="approvedBy.login"><span jhiTranslate="hrApp.facility.approvedBy">Approved By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let facility of facilities ;trackBy: trackId">
+                    <td><a [routerLink]="['/facility', facility.id, 'view']">{{ facility.id }}</a></td>
+                    <td>{{ facility.name }}</td>
+                    <td>{{ facility.description }}</td>
+                    <td>{{ facility.facilityCode }}</td>
+                    <td>{{ facility.facilitySize }}</td>
+                    <td>{{ facility.costCenterCode }}</td>
+                    <td>
+                        <div *ngIf="facility.facilityType">
+                            <a [routerLink]="['/facility-type', facility.facilityType?.id, 'view']" >{{ facility.facilityType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="facility.parentFacility">
+                            <a [routerLink]="['/facility', facility.parentFacility?.id, 'view']" >{{ facility.parentFacility?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="facility.ownerParty">
+                            <a [routerLink]="['/party', facility.ownerParty?.id, 'view']" >{{ facility.ownerParty?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="facility.facilityGroup">
+                            <a [routerLink]="['/facility-group', facility.facilityGroup?.id, 'view']" >{{ facility.facilityGroup?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="facility.sizeUom">
+                            <a [routerLink]="['/uom', facility.sizeUom?.id, 'view']" >{{ facility.sizeUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="facility.geoPoint">
+                            <a [routerLink]="['/geo-point', facility.geoPoint?.id, 'view']" >{{ facility.geoPoint?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="facility.inventoryItemType">
+                            <a [routerLink]="['/inventory-item-type', facility.inventoryItemType?.id, 'view']" >{{ facility.inventoryItemType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="facility.status">
+                            <a [routerLink]="['/status', facility.status?.id, 'view']" >{{ facility.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="facility.usageStatus">
+                            <a [routerLink]="['/status', facility.usageStatus?.id, 'view']" >{{ facility.usageStatus?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        {{ facility.reviewedBy?.login }}
+                    </td>
+                    <td>
+                        {{ facility.approvedBy?.login }}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/facility', facility.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/facility', facility.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(facility)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="facilities && facilities.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

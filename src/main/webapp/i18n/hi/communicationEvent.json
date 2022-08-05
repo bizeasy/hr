@@ -1,0 +1,38 @@
+{
+  "hrApp": {
+    "communicationEvent": {
+      "home": {
+        "title": "CommunicationEvents",
+        "createLabel": "नया Communication Event बनाएँ",
+        "createOrEditLabel": "Communication Event बनाएँ या संपादित करें",
+        "notFound": "No Communication Events found"
+      },
+      "created": "एक नया Communication Event [identifier: {{ param }}] तैयार है",
+      "updated": "एक Communication Event [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Communication Event [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Communication Event [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Communication Event"
+      },
+      "entryDate": "Entry Date",
+      "subject": "Subject",
+      "content": "Content",
+      "fromString": "From String",
+      "toString": "To String",
+      "ccString": "Cc String",
+      "message": "Message",
+      "dateStarted": "Date Started",
+      "dateEnded": "Date Ended",
+      "info": "Info",
+      "communicationEventType": "Communication Event Type",
+      "status": "Status",
+      "contactMechType": "Contact Mech Type",
+      "contactMechFrom": "Contact Mech From",
+      "contactMechTo": "Contact Mech To",
+      "fromParty": "From Party",
+      "toParty": "To Party"
+    }
+  }
+}

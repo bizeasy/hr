@@ -1,0 +1,128 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-equipment-heading" jhiTranslate="hrApp.equipment.home.createOrEditLabel">Create or edit a Equipment</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 200 }">
+                        This field cannot be longer than 200 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.equipmentNumber" for="field_equipmentNumber">Equipment Number</label>
+                    <input type="text" class="form-control" name="equipmentNumber" id="field_equipmentNumber"
+                           formControlName="equipmentNumber"/>
+                    <div *ngIf="editForm.get('equipmentNumber')!.invalid && (editForm.get('equipmentNumber')!.dirty || editForm.get('equipmentNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('equipmentNumber')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.minCapacityRange" for="field_minCapacityRange">Min Capacity Range</label>
+                    <input type="number" class="form-control" name="minCapacityRange" id="field_minCapacityRange"
+                           formControlName="minCapacityRange"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.maxCapacityRange" for="field_maxCapacityRange">Max Capacity Range</label>
+                    <input type="number" class="form-control" name="maxCapacityRange" id="field_maxCapacityRange"
+                           formControlName="maxCapacityRange"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.minOperationalRange" for="field_minOperationalRange">Min Operational Range</label>
+                    <input type="number" class="form-control" name="minOperationalRange" id="field_minOperationalRange"
+                           formControlName="minOperationalRange"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.maxOperationalRange" for="field_maxOperationalRange">Max Operational Range</label>
+                    <input type="number" class="form-control" name="maxOperationalRange" id="field_maxOperationalRange"
+                           formControlName="maxOperationalRange"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.lastCalibratedDate" for="field_lastCalibratedDate">Last Calibrated Date</label>
+                    <div class="d-flex">
+                        <input id="field_lastCalibratedDate" type="datetime-local" class="form-control" name="lastCalibratedDate" formControlName="lastCalibratedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.calibrationDueDate" for="field_calibrationDueDate">Calibration Due Date</label>
+                    <div class="d-flex">
+                        <input id="field_calibrationDueDate" type="datetime-local" class="form-control" name="calibrationDueDate" formControlName="calibrationDueDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.changeControlNo" for="field_changeControlNo">Change Control No</label>
+                    <input type="text" class="form-control" name="changeControlNo" id="field_changeControlNo"
+                           formControlName="changeControlNo"/>
+                    <div *ngIf="editForm.get('changeControlNo')!.invalid && (editForm.get('changeControlNo')!.dirty || editForm.get('changeControlNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('changeControlNo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.equipmentType" for="field_equipmentType">Equipment Type</label>
+                    <select class="form-control" id="field_equipmentType" name="equipmentType" formControlName="equipmentType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="equipmentTypeOption.id === editForm.get('equipmentType')!.value?.id ? editForm.get('equipmentType')!.value : equipmentTypeOption" *ngFor="let equipmentTypeOption of equipmenttypes; trackBy: trackById">{{ equipmentTypeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.equipment.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

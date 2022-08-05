@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "workEffortProduct": {
+      "home": {
+        "title": "Work Effort Products",
+        "createLabel": "Create a new Work Effort Product",
+        "createOrEditLabel": "Create or edit a Work Effort Product",
+        "notFound": "No Work Effort Products found"
+      },
+      "created": "A new Work Effort Product is created with identifier {{ param }}",
+      "updated": "A Work Effort Product is updated with identifier {{ param }}",
+      "deleted": "A Work Effort Product is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Effort Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Effort Product"
+      },
+      "sequenceNo": "Sequence No",
+      "quantity": "Quantity",
+      "workEffort": "Work Effort",
+      "product": "Product"
+    }
+  }
+}

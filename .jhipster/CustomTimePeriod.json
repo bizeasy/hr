@@ -1,0 +1,59 @@
+{
+  "name": "CustomTimePeriod",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isClosed",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "periodName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "periodNum",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "periodType",
+      "otherEntityRelationshipName": "customTimePeriod",
+      "relationshipName": "periodType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "customTimePeriod",
+      "relationshipName": "organisationParty",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "customTimePeriod",
+      "otherEntityRelationshipName": "customTimePeriod",
+      "relationshipName": "parent",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805161249",
+  "entityTableName": "custom_time_period",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

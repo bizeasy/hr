@@ -1,0 +1,33 @@
+{
+  "hrApp": {
+    "jobRequisition": {
+      "home": {
+        "title": "Job Requisitions",
+        "createLabel": "Create a new Job Requisition",
+        "createOrEditLabel": "Create or edit a Job Requisition",
+        "notFound": "No Job Requisitions found"
+      },
+      "created": "A new Job Requisition is created with identifier {{ param }}",
+      "updated": "A Job Requisition is updated with identifier {{ param }}",
+      "deleted": "A Job Requisition is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Job Requisition {{ id }}?"
+      },
+      "detail": {
+        "title": "Job Requisition"
+      },
+      "duration": "Duration",
+      "age": "Age",
+      "gender": "Gender",
+      "experienceMonths": "Experience Months",
+      "experienceYears": "Experience Years",
+      "qualificationStr": "Qualification Str",
+      "noOfResource": "No Of Resource",
+      "requiredOnDate": "Required On Date",
+      "qualificiation": "Qualificiation",
+      "skillType": "Skill Type",
+      "jobLocation": "Job Location",
+      "examType": "Exam Type"
+    }
+  }
+}

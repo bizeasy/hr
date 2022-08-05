@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "facilityContactMech": {
+      "home": {
+        "title": "FacilityContactMeches",
+        "createLabel": "नया Facility Contact Mech बनाएँ",
+        "createOrEditLabel": "Facility Contact Mech बनाएँ या संपादित करें",
+        "notFound": "No Facility Contact Meches found"
+      },
+      "created": "एक नया Facility Contact Mech [identifier: {{ param }}] तैयार है",
+      "updated": "एक Facility Contact Mech [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Facility Contact Mech [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Facility Contact Mech [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Facility Contact Mech"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "facility": "Facility",
+      "contactMech": "Contact Mech",
+      "contactMechPurpose": "Contact Mech Purpose"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "hrApp": {
+    "payrollPreference": {
+      "home": {
+        "title": "PayrollPreferences",
+        "createLabel": "नया Payroll Preference बनाएँ",
+        "createOrEditLabel": "Payroll Preference बनाएँ या संपादित करें",
+        "notFound": "No Payroll Preferences found"
+      },
+      "created": "एक नया Payroll Preference [identifier: {{ param }}] तैयार है",
+      "updated": "एक Payroll Preference [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Payroll Preference [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Payroll Preference [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Payroll Preference"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "sequenceNo": "Sequence No",
+      "percentage": "Percentage",
+      "flatAmount": "Flat Amount",
+      "accountNumber": "Account Number",
+      "bankName": "Bank Name",
+      "ifscCode": "Ifsc Code",
+      "branch": "Branch",
+      "employee": "Employee",
+      "deductionType": "Deduction Type",
+      "paymentMethodType": "Payment Method Type",
+      "periodType": "Period Type"
+    }
+  }
+}

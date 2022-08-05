@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paymentGatewayConfig">
+            <h2><span jhiTranslate="hrApp.paymentGatewayConfig.detail.title">Payment Gateway Config</span> {{ paymentGatewayConfig.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.paymentGatewayConfig.name">Name</span></dt>
+                <dd>
+                    <span>{{ paymentGatewayConfig.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentGatewayConfig.authUrl">Auth Url</span></dt>
+                <dd>
+                    <span>{{ paymentGatewayConfig.authUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentGatewayConfig.releaseUrl">Release Url</span></dt>
+                <dd>
+                    <span>{{ paymentGatewayConfig.releaseUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentGatewayConfig.refundUrl">Refund Url</span></dt>
+                <dd>
+                    <span>{{ paymentGatewayConfig.refundUrl }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payment-gateway-config', paymentGatewayConfig.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

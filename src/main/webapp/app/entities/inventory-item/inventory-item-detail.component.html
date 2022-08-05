@@ -1,0 +1,160 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="inventoryItem">
+            <h2><span jhiTranslate="hrApp.inventoryItem.detail.title">Inventory Item</span> {{ inventoryItem.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.inventoryItem.receivedDate">Received Date</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.receivedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.manufacturedDate">Manufactured Date</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.manufacturedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.expiryDate">Expiry Date</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.expiryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.retestDate">Retest Date</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.retestDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.containerId">Container Id</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.containerId }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.batchNo">Batch No</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.batchNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.mfgBatchNo">Mfg Batch No</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.mfgBatchNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.lotNoStr">Lot No Str</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.lotNoStr }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.binNumber">Bin Number</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.binNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.quantityOnHandTotal">Quantity On Hand Total</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.quantityOnHandTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.availableToPromiseTotal">Available To Promise Total</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.availableToPromiseTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.accountingQuantityTotal">Accounting Quantity Total</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.accountingQuantityTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.oldQuantityOnHand">Old Quantity On Hand</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.oldQuantityOnHand }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.oldAvailableToPromise">Old Available To Promise</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.oldAvailableToPromise }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.serialNumber">Serial Number</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.serialNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.softIdentifier">Soft Identifier</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.softIdentifier }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.activationNumber">Activation Number</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.activationNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.activationValidTrue">Activation Valid True</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.activationValidTrue }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.unitCost">Unit Cost</span></dt>
+                <dd>
+                    <span>{{ inventoryItem.unitCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.inventoryItemType">Inventory Item Type</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItem.inventoryItemType">
+                        <a [routerLink]="['/inventory-item-type', inventoryItem.inventoryItemType?.id, 'view']">{{ inventoryItem.inventoryItemType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItem.product">
+                        <a [routerLink]="['/product', inventoryItem.product?.id, 'view']">{{ inventoryItem.product?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItem.supplier">
+                        <a [routerLink]="['/party', inventoryItem.supplier?.id, 'view']">{{ inventoryItem.supplier?.organisationName }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.ownerParty">Owner Party</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItem.ownerParty">
+                        <a [routerLink]="['/party', inventoryItem.ownerParty?.id, 'view']">{{ inventoryItem.ownerParty?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItem.status">
+                        <a [routerLink]="['/status', inventoryItem.status?.id, 'view']">{{ inventoryItem.status?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.facility">Facility</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItem.facility">
+                        <a [routerLink]="['/facility', inventoryItem.facility?.id, 'view']">{{ inventoryItem.facility?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.uom">Uom</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItem.uom">
+                        <a [routerLink]="['/uom', inventoryItem.uom?.id, 'view']">{{ inventoryItem.uom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.currencyUom">Currency Uom</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItem.currencyUom">
+                        <a [routerLink]="['/uom', inventoryItem.currencyUom?.id, 'view']">{{ inventoryItem.currencyUom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryItem.lot">Lot</span></dt>
+                <dd>
+                    <div *ngIf="inventoryItem.lot">
+                        <a [routerLink]="['/lot', inventoryItem.lot?.id, 'view']">{{ inventoryItem.lot?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/inventory-item', inventoryItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

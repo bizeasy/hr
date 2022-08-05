@@ -1,0 +1,28 @@
+{
+  "hrApp": {
+    "paymentApplication": {
+      "home": {
+        "title": "Payment Applications",
+        "createLabel": "కొత్త Payment Application  సృష్టించండి",
+        "createOrEditLabel": "Payment Application సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Payment Applications found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Payment Application సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Payment Application సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Payment Application తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Payment Application {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Payment Application"
+      },
+      "amountApplied": "Amount Applied",
+      "payment": "Payment",
+      "invoice": "Invoice",
+      "invoiceItem": "Invoice Item",
+      "order": "Order",
+      "orderItem": "Order Item",
+      "toPayment": "To Payment"
+    }
+  }
+}

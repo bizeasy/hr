@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="perfReviewItemType">
+            <h2><span jhiTranslate="hrApp.perfReviewItemType.detail.title">Perf Review Item Type</span> {{ perfReviewItemType.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.perfReviewItemType.name">Name</span></dt>
+                <dd>
+                    <span>{{ perfReviewItemType.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReviewItemType.description">Description</span></dt>
+                <dd>
+                    <span>{{ perfReviewItemType.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/perf-review-item-type', perfReviewItemType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

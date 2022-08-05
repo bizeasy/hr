@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "jobInterview": {
+      "home": {
+        "title": "Job Interviews",
+        "createLabel": "కొత్త Job Interview  సృష్టించండి",
+        "createOrEditLabel": "Job Interview సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Job Interviews found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Job Interview సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Job Interview సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Job Interview తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Job Interview {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Job Interview"
+      },
+      "remarks": "Remarks",
+      "interviewDate": "Interview Date",
+      "interviewee": "Interviewee",
+      "interviewer": "Interviewer",
+      "type": "Type",
+      "jobRequisition": "Job Requisition",
+      "gradeSecured": "Grade Secured",
+      "result": "Result"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "employmentAppSourceType": {
+      "home": {
+        "title": "Employment App Source Types",
+        "createLabel": "కొత్త Employment App Source Type  సృష్టించండి",
+        "createOrEditLabel": "Employment App Source Type సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Employment App Source Types found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Employment App Source Type సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Employment App Source Type సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Employment App Source Type తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Employment App Source Type {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Employment App Source Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

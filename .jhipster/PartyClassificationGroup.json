@@ -1,0 +1,37 @@
+{
+  "name": "PartyClassificationGroup",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "partyClassificationType",
+      "otherEntityRelationshipName": "partyClassificationGroup",
+      "relationshipName": "classificationType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805144949",
+  "entityTableName": "party_classification_group",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,293 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-party-heading" jhiTranslate="hrApp.party.home.createOrEditLabel">Create or edit a Party</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.isOrganisation" for="field_isOrganisation">Is Organisation</label>
+                    <input type="checkbox" class="form-control" name="isOrganisation" id="field_isOrganisation"
+                           formControlName="isOrganisation"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.organisationName" for="field_organisationName">Organisation Name</label>
+                    <input type="text" class="form-control" name="organisationName" id="field_organisationName"
+                           formControlName="organisationName"/>
+                    <div *ngIf="editForm.get('organisationName')!.invalid && (editForm.get('organisationName')!.dirty || editForm.get('organisationName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('organisationName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 200 }">
+                        This field cannot be longer than 200 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.organisationShortName" for="field_organisationShortName">Organisation Short Name</label>
+                    <input type="text" class="form-control" name="organisationShortName" id="field_organisationShortName"
+                           formControlName="organisationShortName"/>
+                    <div *ngIf="editForm.get('organisationShortName')!.invalid && (editForm.get('organisationShortName')!.dirty || editForm.get('organisationShortName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('organisationShortName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.salutation" for="field_salutation">Salutation</label>
+                    <input type="text" class="form-control" name="salutation" id="field_salutation"
+                           formControlName="salutation"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                           formControlName="firstName"/>
+                    <div *ngIf="editForm.get('firstName')!.invalid && (editForm.get('firstName')!.dirty || editForm.get('firstName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('firstName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.middleName" for="field_middleName">Middle Name</label>
+                    <input type="text" class="form-control" name="middleName" id="field_middleName"
+                           formControlName="middleName"/>
+                    <div *ngIf="editForm.get('middleName')!.invalid && (editForm.get('middleName')!.dirty || editForm.get('middleName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('middleName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                    <div *ngIf="editForm.get('lastName')!.invalid && (editForm.get('lastName')!.dirty || editForm.get('lastName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.gender" for="field_gender">Gender</label>
+                    <select class="form-control" name="gender" formControlName="gender" id="field_gender">
+                        <option value="MALE">{{ 'hrApp.Gender.MALE' | translate }}</option>
+                        <option value="FEMALE">{{ 'hrApp.Gender.FEMALE' | translate }}</option>
+                        <option value="OTHER">{{ 'hrApp.Gender.OTHER' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.birthDate" for="field_birthDate">Birth Date</label>
+                    <div class="input-group">
+                        <input id="field_birthDate" type="text" class="form-control" name="birthDate" ngbDatepicker #birthDateDp="ngbDatepicker" formControlName="birthDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="birthDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.primaryPhone" for="field_primaryPhone">Primary Phone</label>
+                    <input type="text" class="form-control" name="primaryPhone" id="field_primaryPhone"
+                           formControlName="primaryPhone"/>
+                    <div *ngIf="editForm.get('primaryPhone')!.invalid && (editForm.get('primaryPhone')!.dirty || editForm.get('primaryPhone')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('primaryPhone')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.primaryEmail" for="field_primaryEmail">Primary Email</label>
+                    <input type="text" class="form-control" name="primaryEmail" id="field_primaryEmail"
+                           formControlName="primaryEmail"/>
+                    <div *ngIf="editForm.get('primaryEmail')!.invalid && (editForm.get('primaryEmail')!.dirty || editForm.get('primaryEmail')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('primaryEmail')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 5 }">
+                        This field is required to be at least 5 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('primaryEmail')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 75 }">
+                        This field cannot be longer than 75 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.isTemporaryPassword" for="field_isTemporaryPassword">Is Temporary Password</label>
+                    <input type="checkbox" class="form-control" name="isTemporaryPassword" id="field_isTemporaryPassword"
+                           formControlName="isTemporaryPassword"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.logoImageUrl" for="field_logoImageUrl">Logo Image Url</label>
+                    <input type="text" class="form-control" name="logoImageUrl" id="field_logoImageUrl"
+                           formControlName="logoImageUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.profileImageUrl" for="field_profileImageUrl">Profile Image Url</label>
+                    <input type="text" class="form-control" name="profileImageUrl" id="field_profileImageUrl"
+                           formControlName="profileImageUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.notes" for="field_notes">Notes</label>
+                    <input type="text" class="form-control" name="notes" id="field_notes"
+                           formControlName="notes"/>
+                    <div *ngIf="editForm.get('notes')!.invalid && (editForm.get('notes')!.dirty || editForm.get('notes')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notes')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.birthdate" for="field_birthdate">Birthdate</label>
+                    <div class="d-flex">
+                        <input id="field_birthdate" type="datetime-local" class="form-control" name="birthdate" formControlName="birthdate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.dateOfJoining" for="field_dateOfJoining">Date Of Joining</label>
+                    <div class="d-flex">
+                        <input id="field_dateOfJoining" type="datetime-local" class="form-control" name="dateOfJoining" formControlName="dateOfJoining" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.trainingCompletedDate" for="field_trainingCompletedDate">Training Completed Date</label>
+                    <div class="d-flex">
+                        <input id="field_trainingCompletedDate" type="datetime-local" class="form-control" name="trainingCompletedDate" formControlName="trainingCompletedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.jdApprovedOn" for="field_jdApprovedOn">Jd Approved On</label>
+                    <div class="d-flex">
+                        <input id="field_jdApprovedOn" type="datetime-local" class="form-control" name="jdApprovedOn" formControlName="jdApprovedOn" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.employeeId" for="field_employeeId">Employee Id</label>
+                    <input type="text" class="form-control" name="employeeId" id="field_employeeId"
+                           formControlName="employeeId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.authString" for="field_authString">Auth String</label>
+                    <textarea class="form-control" name="authString" id="field_authString"
+                              formControlName="authString"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.userGroupString" for="field_userGroupString">User Group String</label>
+                    <textarea class="form-control" name="userGroupString" id="field_userGroupString"
+                              formControlName="userGroupString"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.tanNo" for="field_tanNo">Tan No</label>
+                    <input type="text" class="form-control" name="tanNo" id="field_tanNo"
+                           formControlName="tanNo"/>
+                    <div *ngIf="editForm.get('tanNo')!.invalid && (editForm.get('tanNo')!.dirty || editForm.get('tanNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tanNo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.panNo" for="field_panNo">Pan No</label>
+                    <input type="text" class="form-control" name="panNo" id="field_panNo"
+                           formControlName="panNo"/>
+                    <div *ngIf="editForm.get('panNo')!.invalid && (editForm.get('panNo')!.dirty || editForm.get('panNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('panNo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.gstNo" for="field_gstNo">Gst No</label>
+                    <input type="text" class="form-control" name="gstNo" id="field_gstNo"
+                           formControlName="gstNo"/>
+                    <div *ngIf="editForm.get('gstNo')!.invalid && (editForm.get('gstNo')!.dirty || editForm.get('gstNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('gstNo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.aadharNo" for="field_aadharNo">Aadhar No</label>
+                    <input type="text" class="form-control" name="aadharNo" id="field_aadharNo"
+                           formControlName="aadharNo"/>
+                    <div *ngIf="editForm.get('aadharNo')!.invalid && (editForm.get('aadharNo')!.dirty || editForm.get('aadharNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('aadharNo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.partyType" for="field_partyType">Party Type</label>
+                    <select class="form-control" id="field_partyType" name="partyType" formControlName="partyType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyTypeOption.id === editForm.get('partyType')!.value?.id ? editForm.get('partyType')!.value : partyTypeOption" *ngFor="let partyTypeOption of partytypes; trackBy: trackById">{{ partyTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.party.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "rateType": {
+      "home": {
+        "title": "Rate Types",
+        "createLabel": "Create a new Rate Type",
+        "createOrEditLabel": "Create or edit a Rate Type",
+        "notFound": "No Rate Types found"
+      },
+      "created": "A new Rate Type is created with identifier {{ param }}",
+      "updated": "A Rate Type is updated with identifier {{ param }}",
+      "deleted": "A Rate Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rate Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Rate Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

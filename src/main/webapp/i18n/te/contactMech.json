@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "contactMech": {
+      "home": {
+        "title": "Contact Meches",
+        "createLabel": "కొత్త Contact Mech  సృష్టించండి",
+        "createOrEditLabel": "Contact Mech సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Contact Meches found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Contact Mech సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Contact Mech సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Contact Mech తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Contact Mech {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Contact Mech"
+      },
+      "infoString": "Info String",
+      "contactMechType": "Contact Mech Type"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "employmentAppSourceType": {
+      "home": {
+        "title": "EmploymentAppSourceTypes",
+        "createLabel": "नया Employment App Source Type बनाएँ",
+        "createOrEditLabel": "Employment App Source Type बनाएँ या संपादित करें",
+        "notFound": "No Employment App Source Types found"
+      },
+      "created": "एक नया Employment App Source Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Employment App Source Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Employment App Source Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Employment App Source Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Employment App Source Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

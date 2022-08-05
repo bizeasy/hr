@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="attachment">
+            <h2><span jhiTranslate="hrApp.attachment.detail.title">Attachment</span> {{ attachment.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.attachment.name">Name</span></dt>
+                <dd>
+                    <span>{{ attachment.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.attachment.fileAttachment">File Attachment</span></dt>
+                <dd>
+                    <div *ngIf="attachment.fileAttachment">
+                        <a (click)="openFile(attachment.fileAttachmentContentType, attachment.fileAttachment)" jhiTranslate="entity.action.open">open</a>
+                        {{ attachment.fileAttachmentContentType }}, {{ byteSize(attachment.fileAttachment) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.attachment.attachmentUrl">Attachment Url</span></dt>
+                <dd>
+                    <span>{{ attachment.attachmentUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.attachment.mimeType">Mime Type</span></dt>
+                <dd>
+                    <span>{{ attachment.mimeType }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/attachment', attachment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

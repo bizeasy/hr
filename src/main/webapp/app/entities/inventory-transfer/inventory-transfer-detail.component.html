@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="inventoryTransfer">
+            <h2><span jhiTranslate="hrApp.inventoryTransfer.detail.title">Inventory Transfer</span> {{ inventoryTransfer.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.inventoryTransfer.sentDate">Sent Date</span></dt>
+                <dd>
+                    <span>{{ inventoryTransfer.sentDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryTransfer.receivedDate">Received Date</span></dt>
+                <dd>
+                    <span>{{ inventoryTransfer.receivedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryTransfer.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ inventoryTransfer.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryTransfer.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="inventoryTransfer.status">
+                        <a [routerLink]="['/status', inventoryTransfer.status?.id, 'view']">{{ inventoryTransfer.status?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryTransfer.inventoryItem">Inventory Item</span></dt>
+                <dd>
+                    <div *ngIf="inventoryTransfer.inventoryItem">
+                        <a [routerLink]="['/inventory-item', inventoryTransfer.inventoryItem?.id, 'view']">{{ inventoryTransfer.inventoryItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryTransfer.facility">Facility</span></dt>
+                <dd>
+                    <div *ngIf="inventoryTransfer.facility">
+                        <a [routerLink]="['/facility', inventoryTransfer.facility?.id, 'view']">{{ inventoryTransfer.facility?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryTransfer.facilityTo">Facility To</span></dt>
+                <dd>
+                    <div *ngIf="inventoryTransfer.facilityTo">
+                        <a [routerLink]="['/facility', inventoryTransfer.facilityTo?.id, 'view']">{{ inventoryTransfer.facilityTo?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.inventoryTransfer.issuance">Issuance</span></dt>
+                <dd>
+                    <div *ngIf="inventoryTransfer.issuance">
+                        <a [routerLink]="['/item-issuance', inventoryTransfer.issuance?.id, 'view']">{{ inventoryTransfer.issuance?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/inventory-transfer', inventoryTransfer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

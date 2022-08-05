@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "facilityContactMech": {
+      "home": {
+        "title": "Facility Contact Meches",
+        "createLabel": "Create a new Facility Contact Mech",
+        "createOrEditLabel": "Create or edit a Facility Contact Mech",
+        "notFound": "No Facility Contact Meches found"
+      },
+      "created": "A new Facility Contact Mech is created with identifier {{ param }}",
+      "updated": "A Facility Contact Mech is updated with identifier {{ param }}",
+      "deleted": "A Facility Contact Mech is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Facility Contact Mech {{ id }}?"
+      },
+      "detail": {
+        "title": "Facility Contact Mech"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "facility": "Facility",
+      "contactMech": "Contact Mech",
+      "contactMechPurpose": "Contact Mech Purpose"
+    }
+  }
+}

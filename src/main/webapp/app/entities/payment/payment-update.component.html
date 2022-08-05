@@ -1,0 +1,166 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-payment-heading" jhiTranslate="hrApp.payment.home.createOrEditLabel">Create or edit a Payment</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.effectiveDate" for="field_effectiveDate">Effective Date</label>
+                    <div class="d-flex">
+                        <input id="field_effectiveDate" type="datetime-local" class="form-control" name="effectiveDate" formControlName="effectiveDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.paymentDate" for="field_paymentDate">Payment Date</label>
+                    <div class="d-flex">
+                        <input id="field_paymentDate" type="datetime-local" class="form-control" name="paymentDate" formControlName="paymentDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.paymentRefNumber" for="field_paymentRefNumber">Payment Ref Number</label>
+                    <input type="text" class="form-control" name="paymentRefNumber" id="field_paymentRefNumber"
+                           formControlName="paymentRefNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.paymentStatus" for="field_paymentStatus">Payment Status</label>
+                    <input type="text" class="form-control" name="paymentStatus" id="field_paymentStatus"
+                           formControlName="paymentStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.mihpayId" for="field_mihpayId">Mihpay Id</label>
+                    <input type="text" class="form-control" name="mihpayId" id="field_mihpayId"
+                           formControlName="mihpayId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                           formControlName="phone"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.productInfo" for="field_productInfo">Product Info</label>
+                    <input type="text" class="form-control" name="productInfo" id="field_productInfo"
+                           formControlName="productInfo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.txnId" for="field_txnId">Txn Id</label>
+                    <input type="text" class="form-control" name="txnId" id="field_txnId"
+                           formControlName="txnId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.actualAmount" for="field_actualAmount">Actual Amount</label>
+                    <input type="number" class="form-control" name="actualAmount" id="field_actualAmount"
+                           formControlName="actualAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.paymentType" for="field_paymentType">Payment Type</label>
+                    <select class="form-control" id="field_paymentType" name="paymentType" formControlName="paymentType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paymentTypeOption.id === editForm.get('paymentType')!.value?.id ? editForm.get('paymentType')!.value : paymentTypeOption" *ngFor="let paymentTypeOption of paymenttypes; trackBy: trackById">{{ paymentTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.paymentMethodType" for="field_paymentMethodType">Payment Method Type</label>
+                    <select class="form-control" id="field_paymentMethodType" name="paymentMethodType" formControlName="paymentMethodType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paymentMethodTypeOption.id === editForm.get('paymentMethodType')!.value?.id ? editForm.get('paymentMethodType')!.value : paymentMethodTypeOption" *ngFor="let paymentMethodTypeOption of paymentmethodtypes; trackBy: trackById">{{ paymentMethodTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.paymentMethod" for="field_paymentMethod">Payment Method</label>
+                    <select class="form-control" id="field_paymentMethod" name="paymentMethod" formControlName="paymentMethod">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paymentMethodOption.id === editForm.get('paymentMethod')!.value?.id ? editForm.get('paymentMethod')!.value : paymentMethodOption" *ngFor="let paymentMethodOption of paymentmethods; trackBy: trackById">{{ paymentMethodOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.paymentGatewayResponse" for="field_paymentGatewayResponse">Payment Gateway Response</label>
+                    <select class="form-control" id="field_paymentGatewayResponse" name="paymentGatewayResponse" formControlName="paymentGatewayResponse">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paymentGatewayResponseOption.id === editForm.get('paymentGatewayResponse')!.value?.id ? editForm.get('paymentGatewayResponse')!.value : paymentGatewayResponseOption" *ngFor="let paymentGatewayResponseOption of paymentgatewayresponses; trackBy: trackById">{{ paymentGatewayResponseOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.partyIdFrom" for="field_partyIdFrom">Party Id From</label>
+                    <select class="form-control" id="field_partyIdFrom" name="partyIdFrom" formControlName="partyIdFrom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('partyIdFrom')!.value?.id ? editForm.get('partyIdFrom')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.partyIdTo" for="field_partyIdTo">Party Id To</label>
+                    <select class="form-control" id="field_partyIdTo" name="partyIdTo" formControlName="partyIdTo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('partyIdTo')!.value?.id ? editForm.get('partyIdTo')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.roleType" for="field_roleType">Role Type</label>
+                    <select class="form-control" id="field_roleType" name="roleType" formControlName="roleType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="roleTypeOption.id === editForm.get('roleType')!.value?.id ? editForm.get('roleType')!.value : roleTypeOption" *ngFor="let roleTypeOption of roletypes; trackBy: trackById">{{ roleTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.payment.currencyUom" for="field_currencyUom">Currency Uom</label>
+                    <select class="form-control" id="field_currencyUom" name="currencyUom" formControlName="currencyUom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="uomOption.id === editForm.get('currencyUom')!.value?.id ? editForm.get('currencyUom')!.value : uomOption" *ngFor="let uomOption of uoms; trackBy: trackById">{{ uomOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

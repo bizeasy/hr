@@ -1,0 +1,81 @@
+{
+  "name": "JobRequisition",
+  "fields": [
+    {
+      "fieldName": "duration",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE,FEMALE,OTHER"
+    },
+    {
+      "fieldName": "experienceMonths",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "experienceYears",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "qualificationStr",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "noOfResource",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "requiredOnDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "qualification",
+      "otherEntityRelationshipName": "jobRequisition",
+      "relationshipName": "qualificiation",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "skillType",
+      "otherEntityRelationshipName": "jobRequisition",
+      "relationshipName": "skillType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geo",
+      "otherEntityRelationshipName": "jobRequisition",
+      "relationshipName": "jobLocation",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "examType",
+      "otherEntityRelationshipName": "jobRequisition",
+      "relationshipName": "examType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805155749",
+  "entityTableName": "job_requisition",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

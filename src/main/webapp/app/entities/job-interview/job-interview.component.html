@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.jobInterview.home.title">Job Interviews</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-job-interview" [routerLink]="['/job-interview/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.jobInterview.home.createLabel">
+            Create a new Job Interview
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="jobInterviews?.length === 0">
+        <span jhiTranslate="hrApp.jobInterview.home.notFound">No jobInterviews found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="jobInterviews && jobInterviews.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.jobInterview.remarks">Remarks</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.jobInterview.interviewDate">Interview Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.jobInterview.interviewee">Interviewee</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.jobInterview.interviewer">Interviewer</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.jobInterview.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.jobInterview.jobRequisition">Job Requisition</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.jobInterview.gradeSecured">Grade Secured</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.jobInterview.result">Result</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jobInterview of jobInterviews ;trackBy: trackId">
+                    <td><a [routerLink]="['/job-interview', jobInterview.id, 'view']">{{ jobInterview.id }}</a></td>
+                    <td>{{ jobInterview.remarks }}</td>
+                    <td>{{ jobInterview.interviewDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="jobInterview.interviewee">
+                            <a [routerLink]="['/party', jobInterview.interviewee?.id, 'view']" >{{ jobInterview.interviewee?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="jobInterview.interviewer">
+                            <a [routerLink]="['/party', jobInterview.interviewer?.id, 'view']" >{{ jobInterview.interviewer?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="jobInterview.type">
+                            <a [routerLink]="['/job-interview-type', jobInterview.type?.id, 'view']" >{{ jobInterview.type?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="jobInterview.jobRequisition">
+                            <a [routerLink]="['/job-requisition', jobInterview.jobRequisition?.id, 'view']" >{{ jobInterview.jobRequisition?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="jobInterview.gradeSecured">
+                            <a [routerLink]="['/interview-grade', jobInterview.gradeSecured?.id, 'view']" >{{ jobInterview.gradeSecured?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="jobInterview.result">
+                            <a [routerLink]="['/interview-result', jobInterview.result?.id, 'view']" >{{ jobInterview.result?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/job-interview', jobInterview.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/job-interview', jobInterview.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(jobInterview)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

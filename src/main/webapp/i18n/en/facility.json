@@ -1,0 +1,37 @@
+{
+  "hrApp": {
+    "facility": {
+      "home": {
+        "title": "Facilities",
+        "createLabel": "Create a new Facility",
+        "createOrEditLabel": "Create or edit a Facility",
+        "notFound": "No Facilities found"
+      },
+      "created": "A new Facility is created with identifier {{ param }}",
+      "updated": "A Facility is updated with identifier {{ param }}",
+      "deleted": "A Facility is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Facility {{ id }}?"
+      },
+      "detail": {
+        "title": "Facility"
+      },
+      "name": "Name",
+      "description": "Description",
+      "facilityCode": "Facility Code",
+      "facilitySize": "Facility Size",
+      "costCenterCode": "Cost Center Code",
+      "facilityType": "Facility Type",
+      "parentFacility": "Parent Facility",
+      "ownerParty": "Owner Party",
+      "facilityGroup": "Facility Group",
+      "sizeUom": "Size Uom",
+      "geoPoint": "Geo Point",
+      "inventoryItemType": "Inventory Item Type",
+      "status": "Status",
+      "usageStatus": "Usage Status",
+      "reviewedBy": "Reviewed By",
+      "approvedBy": "Approved By"
+    }
+  }
+}

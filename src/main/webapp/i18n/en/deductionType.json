@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "deductionType": {
+      "home": {
+        "title": "Deduction Types",
+        "createLabel": "Create a new Deduction Type",
+        "createOrEditLabel": "Create or edit a Deduction Type",
+        "notFound": "No Deduction Types found"
+      },
+      "created": "A new Deduction Type is created with identifier {{ param }}",
+      "updated": "A Deduction Type is updated with identifier {{ param }}",
+      "deleted": "A Deduction Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Deduction Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Deduction Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

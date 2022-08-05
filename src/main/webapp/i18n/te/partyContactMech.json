@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "partyContactMech": {
+      "home": {
+        "title": "Party Contact Meches",
+        "createLabel": "కొత్త Party Contact Mech  సృష్టించండి",
+        "createOrEditLabel": "Party Contact Mech సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Party Contact Meches found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Party Contact Mech సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Party Contact Mech సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Party Contact Mech తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Party Contact Mech {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Party Contact Mech"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "party": "Party",
+      "contactMech": "Contact Mech",
+      "contactMechPurpose": "Contact Mech Purpose"
+    }
+  }
+}

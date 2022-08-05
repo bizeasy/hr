@@ -1,0 +1,209 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.product.home.title">Products</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.product.home.createLabel">
+            Create a new Product
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="products?.length === 0">
+        <span jhiTranslate="hrApp.product.home.notFound">No products found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="products && products.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="hrApp.product.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="internalName"><span jhiTranslate="hrApp.product.internalName">Internal Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="brandName"><span jhiTranslate="hrApp.product.brandName">Brand Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="variant"><span jhiTranslate="hrApp.product.variant">Variant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sku"><span jhiTranslate="hrApp.product.sku">Sku</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="introductionDate"><span jhiTranslate="hrApp.product.introductionDate">Introduction Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="releaseDate"><span jhiTranslate="hrApp.product.releaseDate">Release Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantityIncluded"><span jhiTranslate="hrApp.product.quantityIncluded">Quantity Included</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="piecesIncluded"><span jhiTranslate="hrApp.product.piecesIncluded">Pieces Included</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="weight"><span jhiTranslate="hrApp.product.weight">Weight</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="height"><span jhiTranslate="hrApp.product.height">Height</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="width"><span jhiTranslate="hrApp.product.width">Width</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="depth"><span jhiTranslate="hrApp.product.depth">Depth</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="smallImageUrl"><span jhiTranslate="hrApp.product.smallImageUrl">Small Image Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mediumImageUrl"><span jhiTranslate="hrApp.product.mediumImageUrl">Medium Image Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="largeImageUrl"><span jhiTranslate="hrApp.product.largeImageUrl">Large Image Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="detailImageUrl"><span jhiTranslate="hrApp.product.detailImageUrl">Detail Image Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="originalImageUrl"><span jhiTranslate="hrApp.product.originalImageUrl">Original Image Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span jhiTranslate="hrApp.product.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cgst"><span jhiTranslate="hrApp.product.cgst">Cgst</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="igst"><span jhiTranslate="hrApp.product.igst">Igst</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sgst"><span jhiTranslate="hrApp.product.sgst">Sgst</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="price"><span jhiTranslate="hrApp.product.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cgstPercentage"><span jhiTranslate="hrApp.product.cgstPercentage">Cgst Percentage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="igstPercentage"><span jhiTranslate="hrApp.product.igstPercentage">Igst Percentage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sgstPercentage"><span jhiTranslate="hrApp.product.sgstPercentage">Sgst Percentage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalPrice"><span jhiTranslate="hrApp.product.totalPrice">Total Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="hrApp.product.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longDescription"><span jhiTranslate="hrApp.product.longDescription">Long Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="info"><span jhiTranslate="hrApp.product.info">Info</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isVirtual"><span jhiTranslate="hrApp.product.isVirtual">Is Virtual</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isVariant"><span jhiTranslate="hrApp.product.isVariant">Is Variant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="requireInventory"><span jhiTranslate="hrApp.product.requireInventory">Require Inventory</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="returnable"><span jhiTranslate="hrApp.product.returnable">Returnable</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isPopular"><span jhiTranslate="hrApp.product.isPopular">Is Popular</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="changeControlNo"><span jhiTranslate="hrApp.product.changeControlNo">Change Control No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="retestDuration"><span jhiTranslate="hrApp.product.retestDuration">Retest Duration</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="expiryDuration"><span jhiTranslate="hrApp.product.expiryDuration">Expiry Duration</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="validationType"><span jhiTranslate="hrApp.product.validationType">Validation Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shelfLife"><span jhiTranslate="hrApp.product.shelfLife">Shelf Life</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productType.name"><span jhiTranslate="hrApp.product.productType">Product Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantityUom.name"><span jhiTranslate="hrApp.product.quantityUom">Quantity Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="weightUom.name"><span jhiTranslate="hrApp.product.weightUom">Weight Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sizeUom.name"><span jhiTranslate="hrApp.product.sizeUom">Size Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="uom.name"><span jhiTranslate="hrApp.product.uom">Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primaryProductCategory.name"><span jhiTranslate="hrApp.product.primaryProductCategory">Primary Product Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="virtualProduct.name"><span jhiTranslate="hrApp.product.virtualProduct">Virtual Product</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventoryItemType.name"><span jhiTranslate="hrApp.product.inventoryItemType">Inventory Item Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taxSlab.rate"><span jhiTranslate="hrApp.product.taxSlab">Tax Slab</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="shelfLifeUom.name"><span jhiTranslate="hrApp.product.shelfLifeUom">Shelf Life Uom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products ;trackBy: trackId">
+                    <td><a [routerLink]="['/product', product.id, 'view']">{{ product.id }}</a></td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.internalName }}</td>
+                    <td>{{ product.brandName }}</td>
+                    <td>{{ product.variant }}</td>
+                    <td>{{ product.sku }}</td>
+                    <td>{{ product.introductionDate | date:'medium' }}</td>
+                    <td>{{ product.releaseDate | date:'medium' }}</td>
+                    <td>{{ product.quantityIncluded }}</td>
+                    <td>{{ product.piecesIncluded }}</td>
+                    <td>{{ product.weight }}</td>
+                    <td>{{ product.height }}</td>
+                    <td>{{ product.width }}</td>
+                    <td>{{ product.depth }}</td>
+                    <td>{{ product.smallImageUrl }}</td>
+                    <td>{{ product.mediumImageUrl }}</td>
+                    <td>{{ product.largeImageUrl }}</td>
+                    <td>{{ product.detailImageUrl }}</td>
+                    <td>{{ product.originalImageUrl }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.cgst }}</td>
+                    <td>{{ product.igst }}</td>
+                    <td>{{ product.sgst }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.cgstPercentage }}</td>
+                    <td>{{ product.igstPercentage }}</td>
+                    <td>{{ product.sgstPercentage }}</td>
+                    <td>{{ product.totalPrice }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.longDescription }}</td>
+                    <td>{{ product.info }}</td>
+                    <td>{{ product.isVirtual }}</td>
+                    <td>{{ product.isVariant }}</td>
+                    <td>{{ product.requireInventory }}</td>
+                    <td>{{ product.returnable }}</td>
+                    <td>{{ product.isPopular }}</td>
+                    <td>{{ product.changeControlNo }}</td>
+                    <td>{{ product.retestDuration }}</td>
+                    <td>{{ product.expiryDuration }}</td>
+                    <td>{{ product.validationType }}</td>
+                    <td>{{ product.shelfLife }}</td>
+                    <td>
+                        <div *ngIf="product.productType">
+                            <a [routerLink]="['/product-type', product.productType?.id, 'view']" >{{ product.productType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.quantityUom">
+                            <a [routerLink]="['/uom', product.quantityUom?.id, 'view']" >{{ product.quantityUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.weightUom">
+                            <a [routerLink]="['/uom', product.weightUom?.id, 'view']" >{{ product.weightUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.sizeUom">
+                            <a [routerLink]="['/uom', product.sizeUom?.id, 'view']" >{{ product.sizeUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.uom">
+                            <a [routerLink]="['/uom', product.uom?.id, 'view']" >{{ product.uom?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.primaryProductCategory">
+                            <a [routerLink]="['/product-category', product.primaryProductCategory?.id, 'view']" >{{ product.primaryProductCategory?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.virtualProduct">
+                            <a [routerLink]="['/product', product.virtualProduct?.id, 'view']" >{{ product.virtualProduct?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.inventoryItemType">
+                            <a [routerLink]="['/inventory-item-type', product.inventoryItemType?.id, 'view']" >{{ product.inventoryItemType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.taxSlab">
+                            <a [routerLink]="['/tax-slab', product.taxSlab?.id, 'view']" >{{ product.taxSlab?.rate }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="product.shelfLifeUom">
+                            <a [routerLink]="['/uom', product.shelfLifeUom?.id, 'view']" >{{ product.shelfLifeUom?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product', product.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product', product.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(product)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="products && products.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

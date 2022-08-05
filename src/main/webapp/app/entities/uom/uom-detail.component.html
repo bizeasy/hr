@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="uom">
+            <h2><span jhiTranslate="hrApp.uom.detail.title">Uom</span> {{ uom.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.uom.name">Name</span></dt>
+                <dd>
+                    <span>{{ uom.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.uom.description">Description</span></dt>
+                <dd>
+                    <span>{{ uom.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.uom.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ uom.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.uom.abbreviation">Abbreviation</span></dt>
+                <dd>
+                    <span>{{ uom.abbreviation }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.uom.uomType">Uom Type</span></dt>
+                <dd>
+                    <div *ngIf="uom.uomType">
+                        <a [routerLink]="['/uom-type', uom.uomType?.id, 'view']">{{ uom.uomType?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/uom', uom.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

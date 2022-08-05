@@ -1,0 +1,104 @@
+{
+  "name": "InventoryItemDelegate",
+  "fields": [
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "effectiveDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quantityOnHandDiff",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "availableToPromiseDiff",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "accountingQuantityDiff",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "unitCost",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "remarks",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "inventoryItemDelegate",
+      "relationshipName": "invoice",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invoiceItem",
+      "otherEntityRelationshipName": "inventoryItemDelegate",
+      "relationshipName": "invoiceItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "inventoryItemDelegate",
+      "relationshipName": "order",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "orderItem",
+      "otherEntityRelationshipName": "inventoryItemDelegate",
+      "relationshipName": "orderItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "itemIssuance",
+      "otherEntityRelationshipName": "inventoryItemDelegate",
+      "relationshipName": "itemIssuance",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryTransfer",
+      "otherEntityRelationshipName": "inventoryItemDelegate",
+      "relationshipName": "inventoryTransfer",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryItemVariance",
+      "otherEntityRelationshipName": "inventoryItemDelegate",
+      "relationshipName": "inventoryItemVariance",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryItem",
+      "otherEntityRelationshipName": "inventoryItemDelegate",
+      "relationshipName": "inventoryItem",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805142949",
+  "entityTableName": "inventory_item_delegate",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

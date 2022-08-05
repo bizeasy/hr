@@ -1,0 +1,71 @@
+{
+  "hrApp": {
+    "product": {
+      "home": {
+        "title": "Products",
+        "createLabel": "కొత్త Product  సృష్టించండి",
+        "createOrEditLabel": "Product సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Products found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Product సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Product సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Product తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Product {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Product"
+      },
+      "name": "Name",
+      "internalName": "Internal Name",
+      "brandName": "Brand Name",
+      "variant": "Variant",
+      "sku": "Sku",
+      "introductionDate": "Introduction Date",
+      "releaseDate": "Release Date",
+      "quantityIncluded": "Quantity Included",
+      "piecesIncluded": "Pieces Included",
+      "weight": "Weight",
+      "height": "Height",
+      "width": "Width",
+      "depth": "Depth",
+      "smallImageUrl": "Small Image Url",
+      "mediumImageUrl": "Medium Image Url",
+      "largeImageUrl": "Large Image Url",
+      "detailImageUrl": "Detail Image Url",
+      "originalImageUrl": "Original Image Url",
+      "quantity": "Quantity",
+      "cgst": "Cgst",
+      "igst": "Igst",
+      "sgst": "Sgst",
+      "price": "Price",
+      "cgstPercentage": "Cgst Percentage",
+      "igstPercentage": "Igst Percentage",
+      "sgstPercentage": "Sgst Percentage",
+      "totalPrice": "Total Price",
+      "description": "Description",
+      "longDescription": "Long Description",
+      "info": "Info",
+      "isVirtual": "Is Virtual",
+      "isVariant": "Is Variant",
+      "requireInventory": "Require Inventory",
+      "returnable": "Returnable",
+      "isPopular": "Is Popular",
+      "changeControlNo": "Change Control No",
+      "retestDuration": "Retest Duration",
+      "expiryDuration": "Expiry Duration",
+      "validationType": "Validation Type",
+      "shelfLife": "Shelf Life",
+      "productType": "Product Type",
+      "quantityUom": "Quantity Uom",
+      "weightUom": "Weight Uom",
+      "sizeUom": "Size Uom",
+      "uom": "Uom",
+      "primaryProductCategory": "Primary Product Category",
+      "virtualProduct": "Virtual Product",
+      "inventoryItemType": "Inventory Item Type",
+      "taxSlab": "Tax Slab",
+      "shelfLifeUom": "Shelf Life Uom"
+    }
+  }
+}

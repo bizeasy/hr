@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "productStoreProduct": {
+      "home": {
+        "title": "Product Store Products",
+        "createLabel": "కొత్త Product Store Product  సృష్టించండి",
+        "createOrEditLabel": "Product Store Product సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Product Store Products found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Product Store Product సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Product Store Product సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Product Store Product తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Product Store Product {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Product Store Product"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "sequenceNo": "Sequence No",
+      "productStore": "Product Store",
+      "product": "Product"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "hrApp": {
+    "inventoryItemDelegate": {
+      "home": {
+        "title": "Inventory Item Delegates",
+        "createLabel": "Create a new Inventory Item Delegate",
+        "createOrEditLabel": "Create or edit a Inventory Item Delegate",
+        "notFound": "No Inventory Item Delegates found"
+      },
+      "created": "A new Inventory Item Delegate is created with identifier {{ param }}",
+      "updated": "A Inventory Item Delegate is updated with identifier {{ param }}",
+      "deleted": "A Inventory Item Delegate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Inventory Item Delegate {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory Item Delegate"
+      },
+      "sequenceNo": "Sequence No",
+      "effectiveDate": "Effective Date",
+      "quantityOnHandDiff": "Quantity On Hand Diff",
+      "availableToPromiseDiff": "Available To Promise Diff",
+      "accountingQuantityDiff": "Accounting Quantity Diff",
+      "unitCost": "Unit Cost",
+      "remarks": "Remarks",
+      "invoice": "Invoice",
+      "invoiceItem": "Invoice Item",
+      "order": "Order",
+      "orderItem": "Order Item",
+      "itemIssuance": "Item Issuance",
+      "inventoryTransfer": "Inventory Transfer",
+      "inventoryItemVariance": "Inventory Item Variance",
+      "inventoryItem": "Inventory Item"
+    }
+  }
+}

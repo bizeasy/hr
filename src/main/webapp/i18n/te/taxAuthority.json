@@ -1,0 +1,22 @@
+{
+  "hrApp": {
+    "taxAuthority": {
+      "home": {
+        "title": "Tax Authorities",
+        "createLabel": "కొత్త Tax Authority  సృష్టించండి",
+        "createOrEditLabel": "Tax Authority సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Tax Authorities found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Tax Authority సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Tax Authority సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Tax Authority తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Tax Authority {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Tax Authority"
+      },
+      "name": "Name"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "termType": {
+      "home": {
+        "title": "TermTypes",
+        "createLabel": "नया Term Type बनाएँ",
+        "createOrEditLabel": "Term Type बनाएँ या संपादित करें",
+        "notFound": "No Term Types found"
+      },
+      "created": "एक नया Term Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Term Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Term Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Term Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Term Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

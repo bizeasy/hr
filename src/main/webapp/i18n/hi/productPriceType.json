@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "productPriceType": {
+      "home": {
+        "title": "ProductPriceTypes",
+        "createLabel": "नया Product Price Type बनाएँ",
+        "createOrEditLabel": "Product Price Type बनाएँ या संपादित करें",
+        "notFound": "No Product Price Types found"
+      },
+      "created": "एक नया Product Price Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Product Price Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Product Price Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Product Price Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Product Price Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

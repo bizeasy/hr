@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "employmentApp": {
+      "home": {
+        "title": "Employment Apps",
+        "createLabel": "Create a new Employment App",
+        "createOrEditLabel": "Create or edit a Employment App",
+        "notFound": "No Employment Apps found"
+      },
+      "created": "A new Employment App is created with identifier {{ param }}",
+      "updated": "A Employment App is updated with identifier {{ param }}",
+      "deleted": "A Employment App is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employment App {{ id }}?"
+      },
+      "detail": {
+        "title": "Employment App"
+      },
+      "applicationDate": "Application Date",
+      "emplPosition": "Empl Position",
+      "status": "Status",
+      "source": "Source",
+      "applyingParty": "Applying Party",
+      "referredByParty": "Referred By Party",
+      "approverParty": "Approver Party",
+      "jobRequisition": "Job Requisition"
+    }
+  }
+}

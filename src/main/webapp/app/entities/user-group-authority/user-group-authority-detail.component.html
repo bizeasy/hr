@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userGroupAuthority">
+            <h2><span jhiTranslate="hrApp.userGroupAuthority.detail.title">User Group Authority</span> {{ userGroupAuthority.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.userGroupAuthority.authority">Authority</span></dt>
+                <dd>
+                    <span>{{ userGroupAuthority.authority }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.userGroupAuthority.userGroup">User Group</span></dt>
+                <dd>
+                    <div *ngIf="userGroupAuthority.userGroup">
+                        <a [routerLink]="['/user-group', userGroupAuthority.userGroup?.id, 'view']">{{ userGroupAuthority.userGroup?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-group-authority', userGroupAuthority.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="equipmentUsageLog">
+            <h2><span jhiTranslate="hrApp.equipmentUsageLog.detail.title">Equipment Usage Log</span> {{ equipmentUsageLog.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.equipmentUsageLog.fromTime">From Time</span></dt>
+                <dd>
+                    <span>{{ equipmentUsageLog.fromTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipmentUsageLog.toTime">To Time</span></dt>
+                <dd>
+                    <span>{{ equipmentUsageLog.toTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipmentUsageLog.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ equipmentUsageLog.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipmentUsageLog.equipment">Equipment</span></dt>
+                <dd>
+                    <div *ngIf="equipmentUsageLog.equipment">
+                        <a [routerLink]="['/equipment', equipmentUsageLog.equipment?.id, 'view']">{{ equipmentUsageLog.equipment?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipmentUsageLog.cleanedBy">Cleaned By</span></dt>
+                <dd>
+                    {{ equipmentUsageLog.cleanedBy?.login }}
+                </dd>
+                <dt><span jhiTranslate="hrApp.equipmentUsageLog.checkedBy">Checked By</span></dt>
+                <dd>
+                    {{ equipmentUsageLog.checkedBy?.login }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/equipment-usage-log', equipmentUsageLog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

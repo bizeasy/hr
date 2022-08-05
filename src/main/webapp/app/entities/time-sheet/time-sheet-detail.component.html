@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="timeSheet">
+            <h2><span jhiTranslate="hrApp.timeSheet.detail.title">Time Sheet</span> {{ timeSheet.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.timeSheet.overTimeDays">Over Time Days</span></dt>
+                <dd>
+                    <span>{{ timeSheet.overTimeDays }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.timeSheet.leaves">Leaves</span></dt>
+                <dd>
+                    <span>{{ timeSheet.leaves }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.timeSheet.unappliedLeaves">Unapplied Leaves</span></dt>
+                <dd>
+                    <span>{{ timeSheet.unappliedLeaves }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.timeSheet.halfDays">Half Days</span></dt>
+                <dd>
+                    <span>{{ timeSheet.halfDays }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.timeSheet.totalWorkingHours">Total Working Hours</span></dt>
+                <dd>
+                    <span>{{ timeSheet.totalWorkingHours }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.timeSheet.timePeriod">Time Period</span></dt>
+                <dd>
+                    <div *ngIf="timeSheet.timePeriod">
+                        <a [routerLink]="['/custom-time-period', timeSheet.timePeriod?.id, 'view']">{{ timeSheet.timePeriod?.periodName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/time-sheet', timeSheet.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

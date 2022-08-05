@@ -1,0 +1,37 @@
+{
+  "hrApp": {
+    "facility": {
+      "home": {
+        "title": "Facilities",
+        "createLabel": "కొత్త Facility  సృష్టించండి",
+        "createOrEditLabel": "Facility సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Facilities found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Facility సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Facility సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Facility తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Facility {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Facility"
+      },
+      "name": "Name",
+      "description": "Description",
+      "facilityCode": "Facility Code",
+      "facilitySize": "Facility Size",
+      "costCenterCode": "Cost Center Code",
+      "facilityType": "Facility Type",
+      "parentFacility": "Parent Facility",
+      "ownerParty": "Owner Party",
+      "facilityGroup": "Facility Group",
+      "sizeUom": "Size Uom",
+      "geoPoint": "Geo Point",
+      "inventoryItemType": "Inventory Item Type",
+      "status": "Status",
+      "usageStatus": "Usage Status",
+      "reviewedBy": "Reviewed By",
+      "approvedBy": "Approved By"
+    }
+  }
+}

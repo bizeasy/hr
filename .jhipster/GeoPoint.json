@@ -1,0 +1,25 @@
+{
+  "name": "GeoPoint",
+  "fields": [
+    {
+      "fieldName": "latitude",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20220805142249",
+  "entityTableName": "geo_point",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "facilityUsageLog": {
+      "home": {
+        "title": "FacilityUsageLogs",
+        "createLabel": "नया Facility Usage Log बनाएँ",
+        "createOrEditLabel": "Facility Usage Log बनाएँ या संपादित करें",
+        "notFound": "No Facility Usage Logs found"
+      },
+      "created": "एक नया Facility Usage Log [identifier: {{ param }}] तैयार है",
+      "updated": "एक Facility Usage Log [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Facility Usage Log [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Facility Usage Log [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Facility Usage Log"
+      },
+      "fromTime": "From Time",
+      "toTime": "To Time",
+      "remarks": "Remarks",
+      "facility": "Facility",
+      "cleanedBy": "Cleaned By",
+      "checkedBy": "Checked By"
+    }
+  }
+}

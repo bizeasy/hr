@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-invoice-item-heading" jhiTranslate="hrApp.invoiceItem.home.createOrEditLabel">Create or edit a Invoice Item</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.invoiceItem.sequenceNo" for="field_sequenceNo">Sequence No</label>
+                    <input type="number" class="form-control" name="sequenceNo" id="field_sequenceNo"
+                           formControlName="sequenceNo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.invoiceItem.quantity" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                           formControlName="quantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.invoiceItem.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.invoiceItem.invoice" for="field_invoice">Invoice</label>
+                    <select class="form-control" id="field_invoice" name="invoice" formControlName="invoice">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="invoiceOption.id === editForm.get('invoice')!.value?.id ? editForm.get('invoice')!.value : invoiceOption" *ngFor="let invoiceOption of invoices; trackBy: trackById">{{ invoiceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.invoiceItem.invoiceItemType" for="field_invoiceItemType">Invoice Item Type</label>
+                    <select class="form-control" id="field_invoiceItemType" name="invoiceItemType" formControlName="invoiceItemType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="invoiceItemTypeOption.id === editForm.get('invoiceItemType')!.value?.id ? editForm.get('invoiceItemType')!.value : invoiceItemTypeOption" *ngFor="let invoiceItemTypeOption of invoiceitemtypes; trackBy: trackById">{{ invoiceItemTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.invoiceItem.fromInventoryItem" for="field_fromInventoryItem">From Inventory Item</label>
+                    <select class="form-control" id="field_fromInventoryItem" name="fromInventoryItem" formControlName="fromInventoryItem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryItemOption.id === editForm.get('fromInventoryItem')!.value?.id ? editForm.get('fromInventoryItem')!.value : inventoryItemOption" *ngFor="let inventoryItemOption of inventoryitems; trackBy: trackById">{{ inventoryItemOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.invoiceItem.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="product">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id === editForm.get('product')!.value?.id ? editForm.get('product')!.value : productOption" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.invoiceItem.taxAuthRate" for="field_taxAuthRate">Tax Auth Rate</label>
+                    <select class="form-control" id="field_taxAuthRate" name="taxAuthRate" formControlName="taxAuthRate">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="taxAuthorityRateTypeOption.id === editForm.get('taxAuthRate')!.value?.id ? editForm.get('taxAuthRate')!.value : taxAuthorityRateTypeOption" *ngFor="let taxAuthorityRateTypeOption of taxauthorityratetypes; trackBy: trackById">{{ taxAuthorityRateTypeOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

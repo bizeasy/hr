@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-job-interview-heading" jhiTranslate="hrApp.jobInterview.home.createOrEditLabel">Create or edit a Job Interview</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.jobInterview.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                           formControlName="remarks"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.jobInterview.interviewDate" for="field_interviewDate">Interview Date</label>
+                    <div class="d-flex">
+                        <input id="field_interviewDate" type="datetime-local" class="form-control" name="interviewDate" formControlName="interviewDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.jobInterview.interviewee" for="field_interviewee">Interviewee</label>
+                    <select class="form-control" id="field_interviewee" name="interviewee" formControlName="interviewee">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('interviewee')!.value?.id ? editForm.get('interviewee')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.jobInterview.interviewer" for="field_interviewer">Interviewer</label>
+                    <select class="form-control" id="field_interviewer" name="interviewer" formControlName="interviewer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('interviewer')!.value?.id ? editForm.get('interviewer')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.jobInterview.type" for="field_type">Type</label>
+                    <select class="form-control" id="field_type" name="type" formControlName="type">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="jobInterviewTypeOption.id === editForm.get('type')!.value?.id ? editForm.get('type')!.value : jobInterviewTypeOption" *ngFor="let jobInterviewTypeOption of jobinterviewtypes; trackBy: trackById">{{ jobInterviewTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.jobInterview.jobRequisition" for="field_jobRequisition">Job Requisition</label>
+                    <select class="form-control" id="field_jobRequisition" name="jobRequisition" formControlName="jobRequisition">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="jobRequisitionOption.id === editForm.get('jobRequisition')!.value?.id ? editForm.get('jobRequisition')!.value : jobRequisitionOption" *ngFor="let jobRequisitionOption of jobrequisitions; trackBy: trackById">{{ jobRequisitionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.jobInterview.gradeSecured" for="field_gradeSecured">Grade Secured</label>
+                    <select class="form-control" id="field_gradeSecured" name="gradeSecured" formControlName="gradeSecured">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="interviewGradeOption.id === editForm.get('gradeSecured')!.value?.id ? editForm.get('gradeSecured')!.value : interviewGradeOption" *ngFor="let interviewGradeOption of interviewgrades; trackBy: trackById">{{ interviewGradeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.jobInterview.result" for="field_result">Result</label>
+                    <select class="form-control" id="field_result" name="result" formControlName="result">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="interviewResultOption.id === editForm.get('result')!.value?.id ? editForm.get('result')!.value : interviewResultOption" *ngFor="let interviewResultOption of interviewresults; trackBy: trackById">{{ interviewResultOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

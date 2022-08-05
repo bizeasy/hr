@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "jobInterviewType": {
+      "home": {
+        "title": "Job Interview Types",
+        "createLabel": "Create a new Job Interview Type",
+        "createOrEditLabel": "Create or edit a Job Interview Type",
+        "notFound": "No Job Interview Types found"
+      },
+      "created": "A new Job Interview Type is created with identifier {{ param }}",
+      "updated": "A Job Interview Type is updated with identifier {{ param }}",
+      "deleted": "A Job Interview Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Job Interview Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Job Interview Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

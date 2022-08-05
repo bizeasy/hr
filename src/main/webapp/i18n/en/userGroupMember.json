@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "userGroupMember": {
+      "home": {
+        "title": "User Group Members",
+        "createLabel": "Create a new User Group Member",
+        "createOrEditLabel": "Create or edit a User Group Member",
+        "notFound": "No User Group Members found"
+      },
+      "created": "A new User Group Member is created with identifier {{ param }}",
+      "updated": "A User Group Member is updated with identifier {{ param }}",
+      "deleted": "A User Group Member is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Group Member {{ id }}?"
+      },
+      "detail": {
+        "title": "User Group Member"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "userGroup": "User Group",
+      "user": "User"
+    }
+  }
+}

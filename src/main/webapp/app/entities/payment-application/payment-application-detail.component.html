@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paymentApplication">
+            <h2><span jhiTranslate="hrApp.paymentApplication.detail.title">Payment Application</span> {{ paymentApplication.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.paymentApplication.amountApplied">Amount Applied</span></dt>
+                <dd>
+                    <span>{{ paymentApplication.amountApplied }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentApplication.payment">Payment</span></dt>
+                <dd>
+                    <div *ngIf="paymentApplication.payment">
+                        <a [routerLink]="['/payment', paymentApplication.payment?.id, 'view']">{{ paymentApplication.payment?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentApplication.invoice">Invoice</span></dt>
+                <dd>
+                    <div *ngIf="paymentApplication.invoice">
+                        <a [routerLink]="['/invoice', paymentApplication.invoice?.id, 'view']">{{ paymentApplication.invoice?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentApplication.invoiceItem">Invoice Item</span></dt>
+                <dd>
+                    <div *ngIf="paymentApplication.invoiceItem">
+                        <a [routerLink]="['/invoice-item', paymentApplication.invoiceItem?.id, 'view']">{{ paymentApplication.invoiceItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentApplication.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="paymentApplication.order">
+                        <a [routerLink]="['/order', paymentApplication.order?.id, 'view']">{{ paymentApplication.order?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentApplication.orderItem">Order Item</span></dt>
+                <dd>
+                    <div *ngIf="paymentApplication.orderItem">
+                        <a [routerLink]="['/order-item', paymentApplication.orderItem?.id, 'view']">{{ paymentApplication.orderItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentApplication.toPayment">To Payment</span></dt>
+                <dd>
+                    <div *ngIf="paymentApplication.toPayment">
+                        <a [routerLink]="['/payment', paymentApplication.toPayment?.id, 'view']">{{ paymentApplication.toPayment?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payment-application', paymentApplication.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

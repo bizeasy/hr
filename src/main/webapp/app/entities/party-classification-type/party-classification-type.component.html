@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.partyClassificationType.home.title">Party Classification Types</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-party-classification-type" [routerLink]="['/party-classification-type/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.partyClassificationType.home.createLabel">
+            Create a new Party Classification Type
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="partyClassificationTypes?.length === 0">
+        <span jhiTranslate="hrApp.partyClassificationType.home.notFound">No partyClassificationTypes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="partyClassificationTypes && partyClassificationTypes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.partyClassificationType.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.partyClassificationType.description">Description</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let partyClassificationType of partyClassificationTypes ;trackBy: trackId">
+                    <td><a [routerLink]="['/party-classification-type', partyClassificationType.id, 'view']">{{ partyClassificationType.id }}</a></td>
+                    <td>{{ partyClassificationType.name }}</td>
+                    <td>{{ partyClassificationType.description }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/party-classification-type', partyClassificationType.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/party-classification-type', partyClassificationType.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(partyClassificationType)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

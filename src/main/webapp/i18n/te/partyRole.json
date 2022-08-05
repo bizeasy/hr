@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "partyRole": {
+      "home": {
+        "title": "Party Roles",
+        "createLabel": "కొత్త Party Role  సృష్టించండి",
+        "createOrEditLabel": "Party Role సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Party Roles found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Party Role సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Party Role సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Party Role తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Party Role {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Party Role"
+      },
+      "party": "Party",
+      "roleType": "Role Type"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "WorkEffortProduct",
+  "fields": [
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "workEffort",
+      "otherEntityRelationshipName": "workEffortProduct",
+      "relationshipName": "workEffort",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "workEffortProduct",
+      "relationshipName": "product",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805152549",
+  "entityTableName": "work_effort_product",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

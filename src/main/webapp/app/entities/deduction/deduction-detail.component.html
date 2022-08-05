@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="deduction">
+            <h2><span jhiTranslate="hrApp.deduction.detail.title">Deduction</span> {{ deduction.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.deduction.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ deduction.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.deduction.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="deduction.type">
+                        <a [routerLink]="['/deduction-type', deduction.type?.id, 'view']">{{ deduction.type?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/deduction', deduction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

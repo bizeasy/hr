@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employment">
+            <h2><span jhiTranslate="hrApp.employment.detail.title">Employment</span> {{ employment.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.employment.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ employment.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employment.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ employment.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employment.terminationReason">Termination Reason</span></dt>
+                <dd>
+                    <div *ngIf="employment.terminationReason">
+                        <a [routerLink]="['/reason', employment.terminationReason?.id, 'view']">{{ employment.terminationReason?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employment.terminationType">Termination Type</span></dt>
+                <dd>
+                    <div *ngIf="employment.terminationType">
+                        <a [routerLink]="['/termination-type', employment.terminationType?.id, 'view']">{{ employment.terminationType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employment.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="employment.employee">
+                        <a [routerLink]="['/party', employment.employee?.id, 'view']">{{ employment.employee?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employment.fromParty">From Party</span></dt>
+                <dd>
+                    <div *ngIf="employment.fromParty">
+                        <a [routerLink]="['/party', employment.fromParty?.id, 'view']">{{ employment.fromParty?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employment.roleTypeFrom">Role Type From</span></dt>
+                <dd>
+                    <div *ngIf="employment.roleTypeFrom">
+                        <a [routerLink]="['/role-type', employment.roleTypeFrom?.id, 'view']">{{ employment.roleTypeFrom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employment.roleTypeTo">Role Type To</span></dt>
+                <dd>
+                    <div *ngIf="employment.roleTypeTo">
+                        <a [routerLink]="['/party', employment.roleTypeTo?.id, 'view']">{{ employment.roleTypeTo?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employment', employment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

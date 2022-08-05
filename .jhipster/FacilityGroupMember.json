@@ -1,0 +1,44 @@
+{
+  "name": "FacilityGroupMember",
+  "fields": [
+    {
+      "fieldName": "fromDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "sequenceNo",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facility",
+      "otherEntityRelationshipName": "facilityGroupMember",
+      "relationshipName": "facility",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "facilityGroup",
+      "otherEntityRelationshipName": "facilityGroupMember",
+      "relationshipName": "facilityGroup",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805141549",
+  "entityTableName": "facility_group_member",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

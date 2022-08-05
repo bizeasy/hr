@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employmentApp">
+            <h2><span jhiTranslate="hrApp.employmentApp.detail.title">Employment App</span> {{ employmentApp.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.employmentApp.applicationDate">Application Date</span></dt>
+                <dd>
+                    <span>{{ employmentApp.applicationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employmentApp.emplPosition">Empl Position</span></dt>
+                <dd>
+                    <div *ngIf="employmentApp.emplPosition">
+                        <a [routerLink]="['/empl-position', employmentApp.emplPosition?.id, 'view']">{{ employmentApp.emplPosition?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employmentApp.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="employmentApp.status">
+                        <a [routerLink]="['/status', employmentApp.status?.id, 'view']">{{ employmentApp.status?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employmentApp.source">Source</span></dt>
+                <dd>
+                    <div *ngIf="employmentApp.source">
+                        <a [routerLink]="['/employment-app-source-type', employmentApp.source?.id, 'view']">{{ employmentApp.source?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employmentApp.applyingParty">Applying Party</span></dt>
+                <dd>
+                    <div *ngIf="employmentApp.applyingParty">
+                        <a [routerLink]="['/party', employmentApp.applyingParty?.id, 'view']">{{ employmentApp.applyingParty?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employmentApp.referredByParty">Referred By Party</span></dt>
+                <dd>
+                    <div *ngIf="employmentApp.referredByParty">
+                        <a [routerLink]="['/party', employmentApp.referredByParty?.id, 'view']">{{ employmentApp.referredByParty?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employmentApp.approverParty">Approver Party</span></dt>
+                <dd>
+                    <div *ngIf="employmentApp.approverParty">
+                        <a [routerLink]="['/party', employmentApp.approverParty?.id, 'view']">{{ employmentApp.approverParty?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employmentApp.jobRequisition">Job Requisition</span></dt>
+                <dd>
+                    <div *ngIf="employmentApp.jobRequisition">
+                        <a [routerLink]="['/job-requisition', employmentApp.jobRequisition?.id, 'view']">{{ employmentApp.jobRequisition?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employment-app', employmentApp.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

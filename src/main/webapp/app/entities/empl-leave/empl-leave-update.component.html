@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-empl-leave-heading" jhiTranslate="hrApp.emplLeave.home.createOrEditLabel">Create or edit a Empl Leave</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplLeave.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplLeave.fromDate" for="field_fromDate">From Date</label>
+                    <div class="input-group">
+                        <input id="field_fromDate" type="text" class="form-control" name="fromDate" ngbDatepicker #fromDateDp="ngbDatepicker" formControlName="fromDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fromDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplLeave.thruDate" for="field_thruDate">Thru Date</label>
+                    <div class="input-group">
+                        <input id="field_thruDate" type="text" class="form-control" name="thruDate" ngbDatepicker #thruDateDp="ngbDatepicker" formControlName="thruDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="thruDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplLeave.employee" for="field_employee">Employee</label>
+                    <select class="form-control" id="field_employee" name="employee" formControlName="employee">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('employee')!.value?.id ? editForm.get('employee')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplLeave.approver" for="field_approver">Approver</label>
+                    <select class="form-control" id="field_approver" name="approver" formControlName="approver">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('approver')!.value?.id ? editForm.get('approver')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplLeave.leaveType" for="field_leaveType">Leave Type</label>
+                    <select class="form-control" id="field_leaveType" name="leaveType" formControlName="leaveType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emplLeaveTypeOption.id === editForm.get('leaveType')!.value?.id ? editForm.get('leaveType')!.value : emplLeaveTypeOption" *ngFor="let emplLeaveTypeOption of emplleavetypes; trackBy: trackById">{{ emplLeaveTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplLeave.reason" for="field_reason">Reason</label>
+                    <select class="form-control" id="field_reason" name="reason" formControlName="reason">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emplLeaveReasonTypeOption.id === editForm.get('reason')!.value?.id ? editForm.get('reason')!.value : emplLeaveReasonTypeOption" *ngFor="let emplLeaveReasonTypeOption of emplleavereasontypes; trackBy: trackById">{{ emplLeaveReasonTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplLeave.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

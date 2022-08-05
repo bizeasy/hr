@@ -1,0 +1,38 @@
+{
+  "hrApp": {
+    "communicationEvent": {
+      "home": {
+        "title": "Communication Events",
+        "createLabel": "Create a new Communication Event",
+        "createOrEditLabel": "Create or edit a Communication Event",
+        "notFound": "No Communication Events found"
+      },
+      "created": "A new Communication Event is created with identifier {{ param }}",
+      "updated": "A Communication Event is updated with identifier {{ param }}",
+      "deleted": "A Communication Event is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Communication Event {{ id }}?"
+      },
+      "detail": {
+        "title": "Communication Event"
+      },
+      "entryDate": "Entry Date",
+      "subject": "Subject",
+      "content": "Content",
+      "fromString": "From String",
+      "toString": "To String",
+      "ccString": "Cc String",
+      "message": "Message",
+      "dateStarted": "Date Started",
+      "dateEnded": "Date Ended",
+      "info": "Info",
+      "communicationEventType": "Communication Event Type",
+      "status": "Status",
+      "contactMechType": "Contact Mech Type",
+      "contactMechFrom": "Contact Mech From",
+      "contactMechTo": "Contact Mech To",
+      "fromParty": "From Party",
+      "toParty": "To Party"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "workEffortAssocType": {
+      "home": {
+        "title": "Work Effort Assoc Types",
+        "createLabel": "Create a new Work Effort Assoc Type",
+        "createOrEditLabel": "Create or edit a Work Effort Assoc Type",
+        "notFound": "No Work Effort Assoc Types found"
+      },
+      "created": "A new Work Effort Assoc Type is created with identifier {{ param }}",
+      "updated": "A Work Effort Assoc Type is updated with identifier {{ param }}",
+      "deleted": "A Work Effort Assoc Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Effort Assoc Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Effort Assoc Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paymentMethod">
+            <h2><span jhiTranslate="hrApp.paymentMethod.detail.title">Payment Method</span> {{ paymentMethod.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.paymentMethod.name">Name</span></dt>
+                <dd>
+                    <span>{{ paymentMethod.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentMethod.description">Description</span></dt>
+                <dd>
+                    <span>{{ paymentMethod.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentMethod.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ paymentMethod.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentMethod.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ paymentMethod.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentMethod.paymentMethodType">Payment Method Type</span></dt>
+                <dd>
+                    <div *ngIf="paymentMethod.paymentMethodType">
+                        <a [routerLink]="['/payment-method-type', paymentMethod.paymentMethodType?.id, 'view']">{{ paymentMethod.paymentMethodType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.paymentMethod.party">Party</span></dt>
+                <dd>
+                    <div *ngIf="paymentMethod.party">
+                        <a [routerLink]="['/party', paymentMethod.party?.id, 'view']">{{ paymentMethod.party?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payment-method', paymentMethod.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

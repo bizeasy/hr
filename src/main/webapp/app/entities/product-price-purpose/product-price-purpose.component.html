@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.productPricePurpose.home.title">Product Price Purposes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-price-purpose" [routerLink]="['/product-price-purpose/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.productPricePurpose.home.createLabel">
+            Create a new Product Price Purpose
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productPricePurposes?.length === 0">
+        <span jhiTranslate="hrApp.productPricePurpose.home.notFound">No productPricePurposes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productPricePurposes && productPricePurposes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.productPricePurpose.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.productPricePurpose.description">Description</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productPricePurpose of productPricePurposes ;trackBy: trackId">
+                    <td><a [routerLink]="['/product-price-purpose', productPricePurpose.id, 'view']">{{ productPricePurpose.id }}</a></td>
+                    <td>{{ productPricePurpose.name }}</td>
+                    <td>{{ productPricePurpose.description }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product-price-purpose', productPricePurpose.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product-price-purpose', productPricePurpose.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productPricePurpose)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

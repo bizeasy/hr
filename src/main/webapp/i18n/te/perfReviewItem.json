@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "perfReviewItem": {
+      "home": {
+        "title": "Perf Review Items",
+        "createLabel": "కొత్త Perf Review Item  సృష్టించండి",
+        "createOrEditLabel": "Perf Review Item సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Perf Review Items found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Perf Review Item సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Perf Review Item సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Perf Review Item తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Perf Review Item {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Perf Review Item"
+      },
+      "sequenceNo": "Sequence No",
+      "comments": "Comments",
+      "perfReview": "Perf Review",
+      "perfRatingType": "Perf Rating Type",
+      "type": "Type",
+      "employee": "Employee"
+    }
+  }
+}

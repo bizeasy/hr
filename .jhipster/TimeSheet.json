@@ -1,0 +1,45 @@
+{
+  "name": "TimeSheet",
+  "fields": [
+    {
+      "fieldName": "overTimeDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "leaves",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "unappliedLeaves",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "halfDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalWorkingHours",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "customTimePeriod",
+      "otherEntityRelationshipName": "timeSheet",
+      "relationshipName": "timePeriod",
+      "otherEntityField": "periodName"
+    }
+  ],
+  "changelogDate": "20220805161749",
+  "entityTableName": "time_sheet",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

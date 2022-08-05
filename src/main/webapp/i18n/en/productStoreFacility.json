@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "productStoreFacility": {
+      "home": {
+        "title": "Product Store Facilities",
+        "createLabel": "Create a new Product Store Facility",
+        "createOrEditLabel": "Create or edit a Product Store Facility",
+        "notFound": "No Product Store Facilities found"
+      },
+      "created": "A new Product Store Facility is created with identifier {{ param }}",
+      "updated": "A Product Store Facility is updated with identifier {{ param }}",
+      "deleted": "A Product Store Facility is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Store Facility {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Store Facility"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "sequenceNo": "Sequence No",
+      "productStore": "Product Store",
+      "facility": "Facility"
+    }
+  }
+}

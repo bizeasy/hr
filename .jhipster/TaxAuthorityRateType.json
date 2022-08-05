@@ -1,0 +1,44 @@
+{
+  "name": "TaxAuthorityRateType",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taxAuthority",
+      "otherEntityRelationshipName": "taxAuthorityRateType",
+      "relationshipName": "taxAuthority",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taxSlab",
+      "otherEntityRelationshipName": "taxAuthorityRateType",
+      "relationshipName": "taxSlab",
+      "otherEntityField": "rate"
+    }
+  ],
+  "changelogDate": "20220805153749",
+  "entityTableName": "tax_authority_rate_type",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

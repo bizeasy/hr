@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "facilityUsageLog": {
+      "home": {
+        "title": "Facility Usage Logs",
+        "createLabel": "Create a new Facility Usage Log",
+        "createOrEditLabel": "Create or edit a Facility Usage Log",
+        "notFound": "No Facility Usage Logs found"
+      },
+      "created": "A new Facility Usage Log is created with identifier {{ param }}",
+      "updated": "A Facility Usage Log is updated with identifier {{ param }}",
+      "deleted": "A Facility Usage Log is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Facility Usage Log {{ id }}?"
+      },
+      "detail": {
+        "title": "Facility Usage Log"
+      },
+      "fromTime": "From Time",
+      "toTime": "To Time",
+      "remarks": "Remarks",
+      "facility": "Facility",
+      "cleanedBy": "Cleaned By",
+      "checkedBy": "Checked By"
+    }
+  }
+}

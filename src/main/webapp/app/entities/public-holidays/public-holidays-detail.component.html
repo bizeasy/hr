@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="publicHolidays">
+            <h2><span jhiTranslate="hrApp.publicHolidays.detail.title">Public Holidays</span> {{ publicHolidays.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.publicHolidays.name">Name</span></dt>
+                <dd>
+                    <span>{{ publicHolidays.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.publicHolidays.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ publicHolidays.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.publicHolidays.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ publicHolidays.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.publicHolidays.noOfHolidays">No Of Holidays</span></dt>
+                <dd>
+                    <span>{{ publicHolidays.noOfHolidays }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.publicHolidays.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="publicHolidays.type">
+                        <a [routerLink]="['/holiday-type', publicHolidays.type?.id, 'view']">{{ publicHolidays.type?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/public-holidays', publicHolidays.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

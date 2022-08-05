@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "payGrade": {
+      "home": {
+        "title": "Pay Grades",
+        "createLabel": "Create a new Pay Grade",
+        "createOrEditLabel": "Create or edit a Pay Grade",
+        "notFound": "No Pay Grades found"
+      },
+      "created": "A new Pay Grade is created with identifier {{ param }}",
+      "updated": "A Pay Grade is updated with identifier {{ param }}",
+      "deleted": "A Pay Grade is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pay Grade {{ id }}?"
+      },
+      "detail": {
+        "title": "Pay Grade"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

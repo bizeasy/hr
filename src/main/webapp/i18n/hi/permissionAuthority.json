@@ -1,0 +1,22 @@
+{
+  "hrApp": {
+    "permissionAuthority": {
+      "home": {
+        "title": "PermissionAuthorities",
+        "createLabel": "नया Permission Authority बनाएँ",
+        "createOrEditLabel": "Permission Authority बनाएँ या संपादित करें",
+        "notFound": "No Permission Authorities found"
+      },
+      "created": "एक नया Permission Authority [identifier: {{ param }}] तैयार है",
+      "updated": "एक Permission Authority [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Permission Authority [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Permission Authority [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Permission Authority"
+      },
+      "authority": "Authority"
+    }
+  }
+}

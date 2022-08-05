@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-employment-app-heading" jhiTranslate="hrApp.employmentApp.home.createOrEditLabel">Create or edit a Employment App</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employmentApp.applicationDate" for="field_applicationDate">Application Date</label>
+                    <div class="d-flex">
+                        <input id="field_applicationDate" type="datetime-local" class="form-control" name="applicationDate" formControlName="applicationDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employmentApp.emplPosition" for="field_emplPosition">Empl Position</label>
+                    <select class="form-control" id="field_emplPosition" name="emplPosition" formControlName="emplPosition">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emplPositionOption.id === editForm.get('emplPosition')!.value?.id ? editForm.get('emplPosition')!.value : emplPositionOption" *ngFor="let emplPositionOption of emplpositions; trackBy: trackById">{{ emplPositionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employmentApp.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employmentApp.source" for="field_source">Source</label>
+                    <select class="form-control" id="field_source" name="source" formControlName="source">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employmentAppSourceTypeOption.id === editForm.get('source')!.value?.id ? editForm.get('source')!.value : employmentAppSourceTypeOption" *ngFor="let employmentAppSourceTypeOption of employmentappsourcetypes; trackBy: trackById">{{ employmentAppSourceTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employmentApp.applyingParty" for="field_applyingParty">Applying Party</label>
+                    <select class="form-control" id="field_applyingParty" name="applyingParty" formControlName="applyingParty">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('applyingParty')!.value?.id ? editForm.get('applyingParty')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employmentApp.referredByParty" for="field_referredByParty">Referred By Party</label>
+                    <select class="form-control" id="field_referredByParty" name="referredByParty" formControlName="referredByParty">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('referredByParty')!.value?.id ? editForm.get('referredByParty')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employmentApp.approverParty" for="field_approverParty">Approver Party</label>
+                    <select class="form-control" id="field_approverParty" name="approverParty" formControlName="approverParty">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('approverParty')!.value?.id ? editForm.get('approverParty')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employmentApp.jobRequisition" for="field_jobRequisition">Job Requisition</label>
+                    <select class="form-control" id="field_jobRequisition" name="jobRequisition" formControlName="jobRequisition">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="jobRequisitionOption.id === editForm.get('jobRequisition')!.value?.id ? editForm.get('jobRequisition')!.value : jobRequisitionOption" *ngFor="let jobRequisitionOption of jobrequisitions; trackBy: trackById">{{ jobRequisitionOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

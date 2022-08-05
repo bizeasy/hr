@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "employmentAppSourceType": {
+      "home": {
+        "title": "Employment App Source Types",
+        "createLabel": "Create a new Employment App Source Type",
+        "createOrEditLabel": "Create or edit a Employment App Source Type",
+        "notFound": "No Employment App Source Types found"
+      },
+      "created": "A new Employment App Source Type is created with identifier {{ param }}",
+      "updated": "A Employment App Source Type is updated with identifier {{ param }}",
+      "deleted": "A Employment App Source Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employment App Source Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Employment App Source Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

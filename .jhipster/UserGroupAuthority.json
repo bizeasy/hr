@@ -1,0 +1,30 @@
+{
+  "name": "UserGroupAuthority",
+  "fields": [
+    {
+      "fieldName": "authority",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userGroup",
+      "otherEntityRelationshipName": "userGroupAuthority",
+      "relationshipValidateRules": "required",
+      "relationshipName": "userGroup",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805154249",
+  "entityTableName": "user_group_authority",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "orderContactMech": {
+      "home": {
+        "title": "OrderContactMeches",
+        "createLabel": "नया Order Contact Mech बनाएँ",
+        "createOrEditLabel": "Order Contact Mech बनाएँ या संपादित करें",
+        "notFound": "No Order Contact Meches found"
+      },
+      "created": "एक नया Order Contact Mech [identifier: {{ param }}] तैयार है",
+      "updated": "एक Order Contact Mech [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Order Contact Mech [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Order Contact Mech [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Order Contact Mech"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "order": "Order",
+      "contactMech": "Contact Mech",
+      "contactMechPurpose": "Contact Mech Purpose"
+    }
+  }
+}

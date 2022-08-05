@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invoiceItem">
+            <h2><span jhiTranslate="hrApp.invoiceItem.detail.title">Invoice Item</span> {{ invoiceItem.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.invoiceItem.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ invoiceItem.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoiceItem.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ invoiceItem.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoiceItem.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ invoiceItem.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoiceItem.invoice">Invoice</span></dt>
+                <dd>
+                    <div *ngIf="invoiceItem.invoice">
+                        <a [routerLink]="['/invoice', invoiceItem.invoice?.id, 'view']">{{ invoiceItem.invoice?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoiceItem.invoiceItemType">Invoice Item Type</span></dt>
+                <dd>
+                    <div *ngIf="invoiceItem.invoiceItemType">
+                        <a [routerLink]="['/invoice-item-type', invoiceItem.invoiceItemType?.id, 'view']">{{ invoiceItem.invoiceItemType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoiceItem.fromInventoryItem">From Inventory Item</span></dt>
+                <dd>
+                    <div *ngIf="invoiceItem.fromInventoryItem">
+                        <a [routerLink]="['/inventory-item', invoiceItem.fromInventoryItem?.id, 'view']">{{ invoiceItem.fromInventoryItem?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoiceItem.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="invoiceItem.product">
+                        <a [routerLink]="['/product', invoiceItem.product?.id, 'view']">{{ invoiceItem.product?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoiceItem.taxAuthRate">Tax Auth Rate</span></dt>
+                <dd>
+                    <div *ngIf="invoiceItem.taxAuthRate">
+                        <a [routerLink]="['/tax-authority-rate-type', invoiceItem.taxAuthRate?.id, 'view']">{{ invoiceItem.taxAuthRate?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invoice-item', invoiceItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

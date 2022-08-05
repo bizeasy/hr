@@ -1,0 +1,41 @@
+{
+  "hrApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "createLabel": "नया Order बनाएँ",
+        "createOrEditLabel": "Order बनाएँ या संपादित करें",
+        "notFound": "No Orders found"
+      },
+      "created": "एक नया Order [identifier: {{ param }}] तैयार है",
+      "updated": "एक Order [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Order [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Order [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "name": "Name",
+      "externalId": "External Id",
+      "orderDate": "Order Date",
+      "priority": "Priority",
+      "entryDate": "Entry Date",
+      "isRushOrder": "Is Rush Order",
+      "needsInventoryIssuance": "Needs Inventory Issuance",
+      "remainingSubTotal": "Remaining Sub Total",
+      "grandTotal": "Grand Total",
+      "hasRateContract": "Has Rate Contract",
+      "gotQuoteFromVendors": "Got Quote From Vendors",
+      "vendorReason": "Vendor Reason",
+      "expectedDeliveryDate": "Expected Delivery Date",
+      "insuranceResp": "Insurance Resp",
+      "transportResp": "Transport Resp",
+      "unloadingResp": "Unloading Resp",
+      "orderType": "Order Type",
+      "salesChannel": "Sales Channel",
+      "party": "Party",
+      "status": "Status"
+    }
+  }
+}

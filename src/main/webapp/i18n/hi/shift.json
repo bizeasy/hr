@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "shift": {
+      "home": {
+        "title": "Shifts",
+        "createLabel": "नया Shift बनाएँ",
+        "createOrEditLabel": "Shift बनाएँ या संपादित करें",
+        "notFound": "No Shifts found"
+      },
+      "created": "एक नया Shift [identifier: {{ param }}] तैयार है",
+      "updated": "एक Shift [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Shift [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Shift [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Shift"
+      },
+      "name": "Name",
+      "fromTime": "From Time",
+      "toTime": "To Time",
+      "workingHrs": "Working Hrs",
+      "monthlyPaidLeaves": "Monthly Paid Leaves"
+    }
+  }
+}

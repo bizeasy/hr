@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "userGroupAuthority": {
+      "home": {
+        "title": "UserGroupAuthorities",
+        "createLabel": "नया User Group Authority बनाएँ",
+        "createOrEditLabel": "User Group Authority बनाएँ या संपादित करें",
+        "notFound": "No User Group Authorities found"
+      },
+      "created": "एक नया User Group Authority [identifier: {{ param }}] तैयार है",
+      "updated": "एक User Group Authority [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "User Group Authority [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "User Group Authority [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "User Group Authority"
+      },
+      "authority": "Authority",
+      "userGroup": "User Group"
+    }
+  }
+}

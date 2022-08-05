@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PerfReview.
+    -->
+    <changeSet id="20220805160849-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="perf_review"
+                                 constraintName="fk_perf_review_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="manager_id"
+                                 baseTableName="perf_review"
+                                 constraintName="fk_perf_review_manager_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="empl_position_id"
+                                 baseTableName="perf_review"
+                                 constraintName="fk_perf_review_empl_position_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empl_position"/>
+
+    </changeSet>
+</databaseChangeLog>

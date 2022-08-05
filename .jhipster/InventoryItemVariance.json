@@ -1,0 +1,52 @@
+{
+  "name": "InventoryItemVariance",
+  "fields": [
+    {
+      "fieldName": "varianceReason",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "atpVar",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "qohVar",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventoryItem",
+      "otherEntityRelationshipName": "inventoryItemVariance",
+      "relationshipName": "inventoryItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "reason",
+      "otherEntityRelationshipName": "inventoryItemVariance",
+      "relationshipName": "reason",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805143149",
+  "entityTableName": "inventory_item_variance",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="facilityParty">
+            <h2><span jhiTranslate="hrApp.facilityParty.detail.title">Facility Party</span> {{ facilityParty.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.facilityParty.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ facilityParty.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityParty.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ facilityParty.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityParty.facility">Facility</span></dt>
+                <dd>
+                    <div *ngIf="facilityParty.facility">
+                        <a [routerLink]="['/facility', facilityParty.facility?.id, 'view']">{{ facilityParty.facility?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityParty.party">Party</span></dt>
+                <dd>
+                    <div *ngIf="facilityParty.party">
+                        <a [routerLink]="['/party', facilityParty.party?.id, 'view']">{{ facilityParty.party?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityParty.roleType">Role Type</span></dt>
+                <dd>
+                    <div *ngIf="facilityParty.roleType">
+                        <a [routerLink]="['/role-type', facilityParty.roleType?.id, 'view']">{{ facilityParty.roleType?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/facility-party', facilityParty.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

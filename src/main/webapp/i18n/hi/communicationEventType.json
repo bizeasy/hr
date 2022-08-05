@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "communicationEventType": {
+      "home": {
+        "title": "CommunicationEventTypes",
+        "createLabel": "नया Communication Event Type बनाएँ",
+        "createOrEditLabel": "Communication Event Type बनाएँ या संपादित करें",
+        "notFound": "No Communication Event Types found"
+      },
+      "created": "एक नया Communication Event Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Communication Event Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Communication Event Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Communication Event Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Communication Event Type"
+      },
+      "name": "Name",
+      "description": "Description",
+      "contactMechType": "Contact Mech Type"
+    }
+  }
+}

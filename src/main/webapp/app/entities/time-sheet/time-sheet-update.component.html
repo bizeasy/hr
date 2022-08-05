@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-time-sheet-heading" jhiTranslate="hrApp.timeSheet.home.createOrEditLabel">Create or edit a Time Sheet</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.timeSheet.overTimeDays" for="field_overTimeDays">Over Time Days</label>
+                    <input type="number" class="form-control" name="overTimeDays" id="field_overTimeDays"
+                           formControlName="overTimeDays"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.timeSheet.leaves" for="field_leaves">Leaves</label>
+                    <input type="number" class="form-control" name="leaves" id="field_leaves"
+                           formControlName="leaves"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.timeSheet.unappliedLeaves" for="field_unappliedLeaves">Unapplied Leaves</label>
+                    <input type="number" class="form-control" name="unappliedLeaves" id="field_unappliedLeaves"
+                           formControlName="unappliedLeaves"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.timeSheet.halfDays" for="field_halfDays">Half Days</label>
+                    <input type="number" class="form-control" name="halfDays" id="field_halfDays"
+                           formControlName="halfDays"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.timeSheet.totalWorkingHours" for="field_totalWorkingHours">Total Working Hours</label>
+                    <input type="number" class="form-control" name="totalWorkingHours" id="field_totalWorkingHours"
+                           formControlName="totalWorkingHours"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.timeSheet.timePeriod" for="field_timePeriod">Time Period</label>
+                    <select class="form-control" id="field_timePeriod" name="timePeriod" formControlName="timePeriod">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customTimePeriodOption.id === editForm.get('timePeriod')!.value?.id ? editForm.get('timePeriod')!.value : customTimePeriodOption" *ngFor="let customTimePeriodOption of customtimeperiods; trackBy: trackById">{{ customTimePeriodOption.periodName }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

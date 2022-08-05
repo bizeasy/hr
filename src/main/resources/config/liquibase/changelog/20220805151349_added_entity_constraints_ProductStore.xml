@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity ProductStore.
+    -->
+    <changeSet id="20220805151349-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="type_id"
+                                 baseTableName="product_store"
+                                 constraintName="fk_product_store_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_store_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="parent_id"
+                                 baseTableName="product_store"
+                                 constraintName="fk_product_store_parent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_store"/>
+
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="product_store"
+                                 constraintName="fk_product_store_owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="postal_address_id"
+                                 baseTableName="product_store"
+                                 constraintName="fk_product_store_postal_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="postal_address"/>
+
+    </changeSet>
+</databaseChangeLog>

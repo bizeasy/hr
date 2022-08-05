@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "examType": {
+      "home": {
+        "title": "Exam Types",
+        "createLabel": "కొత్త Exam Type  సృష్టించండి",
+        "createOrEditLabel": "Exam Type సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Exam Types found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Exam Type సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Exam Type సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Exam Type తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Exam Type {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Exam Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

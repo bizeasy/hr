@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="payment">
+            <h2><span jhiTranslate="hrApp.payment.detail.title">Payment</span> {{ payment.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.payment.effectiveDate">Effective Date</span></dt>
+                <dd>
+                    <span>{{ payment.effectiveDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.paymentDate">Payment Date</span></dt>
+                <dd>
+                    <span>{{ payment.paymentDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.paymentRefNumber">Payment Ref Number</span></dt>
+                <dd>
+                    <span>{{ payment.paymentRefNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ payment.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.paymentStatus">Payment Status</span></dt>
+                <dd>
+                    <span>{{ payment.paymentStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.mihpayId">Mihpay Id</span></dt>
+                <dd>
+                    <span>{{ payment.mihpayId }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.email">Email</span></dt>
+                <dd>
+                    <span>{{ payment.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ payment.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.productInfo">Product Info</span></dt>
+                <dd>
+                    <span>{{ payment.productInfo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.txnId">Txn Id</span></dt>
+                <dd>
+                    <span>{{ payment.txnId }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.actualAmount">Actual Amount</span></dt>
+                <dd>
+                    <span>{{ payment.actualAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.paymentType">Payment Type</span></dt>
+                <dd>
+                    <div *ngIf="payment.paymentType">
+                        <a [routerLink]="['/payment-type', payment.paymentType?.id, 'view']">{{ payment.paymentType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.paymentMethodType">Payment Method Type</span></dt>
+                <dd>
+                    <div *ngIf="payment.paymentMethodType">
+                        <a [routerLink]="['/payment-method-type', payment.paymentMethodType?.id, 'view']">{{ payment.paymentMethodType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="payment.status">
+                        <a [routerLink]="['/status', payment.status?.id, 'view']">{{ payment.status?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.paymentMethod">Payment Method</span></dt>
+                <dd>
+                    <div *ngIf="payment.paymentMethod">
+                        <a [routerLink]="['/payment-method', payment.paymentMethod?.id, 'view']">{{ payment.paymentMethod?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.paymentGatewayResponse">Payment Gateway Response</span></dt>
+                <dd>
+                    <div *ngIf="payment.paymentGatewayResponse">
+                        <a [routerLink]="['/payment-gateway-response', payment.paymentGatewayResponse?.id, 'view']">{{ payment.paymentGatewayResponse?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.partyIdFrom">Party Id From</span></dt>
+                <dd>
+                    <div *ngIf="payment.partyIdFrom">
+                        <a [routerLink]="['/party', payment.partyIdFrom?.id, 'view']">{{ payment.partyIdFrom?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.partyIdTo">Party Id To</span></dt>
+                <dd>
+                    <div *ngIf="payment.partyIdTo">
+                        <a [routerLink]="['/party', payment.partyIdTo?.id, 'view']">{{ payment.partyIdTo?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.roleType">Role Type</span></dt>
+                <dd>
+                    <div *ngIf="payment.roleType">
+                        <a [routerLink]="['/role-type', payment.roleType?.id, 'view']">{{ payment.roleType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.payment.currencyUom">Currency Uom</span></dt>
+                <dd>
+                    <div *ngIf="payment.currencyUom">
+                        <a [routerLink]="['/uom', payment.currencyUom?.id, 'view']">{{ payment.currencyUom?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payment', payment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "name": "PermissionAuthority",
+  "fields": [
+    {
+      "fieldName": "authority",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20220805145249",
+  "entityTableName": "permission_authority",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

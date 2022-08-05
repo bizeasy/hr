@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="postalAddress">
+            <h2><span jhiTranslate="hrApp.postalAddress.detail.title">Postal Address</span> {{ postalAddress.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.postalAddress.toName">To Name</span></dt>
+                <dd>
+                    <span>{{ postalAddress.toName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.address1">Address 1</span></dt>
+                <dd>
+                    <span>{{ postalAddress.address1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.address2">Address 2</span></dt>
+                <dd>
+                    <span>{{ postalAddress.address2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.city">City</span></dt>
+                <dd>
+                    <span>{{ postalAddress.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.landmark">Landmark</span></dt>
+                <dd>
+                    <span>{{ postalAddress.landmark }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{ postalAddress.postalCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.isDefault">Is Default</span></dt>
+                <dd>
+                    <span>{{ postalAddress.isDefault }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.customAddressType">Custom Address Type</span></dt>
+                <dd>
+                    <span>{{ postalAddress.customAddressType }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.stateStr">State Str</span></dt>
+                <dd>
+                    <span>{{ postalAddress.stateStr }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.countryStr">Country Str</span></dt>
+                <dd>
+                    <span>{{ postalAddress.countryStr }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.isIndianAddress">Is Indian Address</span></dt>
+                <dd>
+                    <span>{{ postalAddress.isIndianAddress }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.note">Note</span></dt>
+                <dd>
+                    <span>{{ postalAddress.note }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.directions">Directions</span></dt>
+                <dd>
+                    <span>{{ postalAddress.directions }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.state">State</span></dt>
+                <dd>
+                    <div *ngIf="postalAddress.state">
+                        <a [routerLink]="['/geo', postalAddress.state?.id, 'view']">{{ postalAddress.state?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.pincode">Pincode</span></dt>
+                <dd>
+                    <div *ngIf="postalAddress.pincode">
+                        <a [routerLink]="['/geo', postalAddress.pincode?.id, 'view']">{{ postalAddress.pincode?.code }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.country">Country</span></dt>
+                <dd>
+                    <div *ngIf="postalAddress.country">
+                        <a [routerLink]="['/geo', postalAddress.country?.id, 'view']">{{ postalAddress.country?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.contactMech">Contact Mech</span></dt>
+                <dd>
+                    <div *ngIf="postalAddress.contactMech">
+                        <a [routerLink]="['/contact-mech', postalAddress.contactMech?.id, 'view']">{{ postalAddress.contactMech?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.postalAddress.geoPoint">Geo Point</span></dt>
+                <dd>
+                    <div *ngIf="postalAddress.geoPoint">
+                        <a [routerLink]="['/geo-point', postalAddress.geoPoint?.id, 'view']">{{ postalAddress.geoPoint?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/postal-address', postalAddress.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

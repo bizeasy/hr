@@ -1,0 +1,46 @@
+{
+  "name": "PartyResume",
+  "fields": [
+    {
+      "fieldName": "text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resumeDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "fileAttachment",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "attachmentUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mimeType",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "partyResume",
+      "relationshipName": "party",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805160649",
+  "entityTableName": "party_resume",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

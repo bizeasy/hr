@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="facilityUsageLog">
+            <h2><span jhiTranslate="hrApp.facilityUsageLog.detail.title">Facility Usage Log</span> {{ facilityUsageLog.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.facilityUsageLog.fromTime">From Time</span></dt>
+                <dd>
+                    <span>{{ facilityUsageLog.fromTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityUsageLog.toTime">To Time</span></dt>
+                <dd>
+                    <span>{{ facilityUsageLog.toTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityUsageLog.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ facilityUsageLog.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityUsageLog.facility">Facility</span></dt>
+                <dd>
+                    <div *ngIf="facilityUsageLog.facility">
+                        <a [routerLink]="['/facility', facilityUsageLog.facility?.id, 'view']">{{ facilityUsageLog.facility?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityUsageLog.cleanedBy">Cleaned By</span></dt>
+                <dd>
+                    {{ facilityUsageLog.cleanedBy?.login }}
+                </dd>
+                <dt><span jhiTranslate="hrApp.facilityUsageLog.checkedBy">Checked By</span></dt>
+                <dd>
+                    {{ facilityUsageLog.checkedBy?.login }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/facility-usage-log', facilityUsageLog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

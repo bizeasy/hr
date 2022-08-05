@@ -1,0 +1,78 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.partyResume.home.title">Party Resumes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-party-resume" [routerLink]="['/party-resume/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.partyResume.home.createLabel">
+            Create a new Party Resume
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="partyResumes?.length === 0">
+        <span jhiTranslate="hrApp.partyResume.home.notFound">No partyResumes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="partyResumes && partyResumes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.partyResume.text">Text</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.partyResume.resumeDate">Resume Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.partyResume.fileAttachment">File Attachment</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.partyResume.attachmentUrl">Attachment Url</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.partyResume.mimeType">Mime Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.partyResume.party">Party</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let partyResume of partyResumes ;trackBy: trackId">
+                    <td><a [routerLink]="['/party-resume', partyResume.id, 'view']">{{ partyResume.id }}</a></td>
+                    <td>{{ partyResume.text }}</td>
+                    <td>{{ partyResume.resumeDate | date:'mediumDate' }}</td>
+                    <td>
+                        <a *ngIf="partyResume.fileAttachment" (click)="openFile(partyResume.fileAttachmentContentType, partyResume.fileAttachment)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="partyResume.fileAttachment">{{ partyResume.fileAttachmentContentType }}, {{ byteSize(partyResume.fileAttachment) }}</span>
+                    </td>
+                    <td>{{ partyResume.attachmentUrl }}</td>
+                    <td>{{ partyResume.mimeType }}</td>
+                    <td>
+                        <div *ngIf="partyResume.party">
+                            <a [routerLink]="['/party', partyResume.party?.id, 'view']" >{{ partyResume.party?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/party-resume', partyResume.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/party-resume', partyResume.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(partyResume)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

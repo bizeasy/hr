@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.productStoreFacility.home.title">Product Store Facilities</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-store-facility" [routerLink]="['/product-store-facility/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.productStoreFacility.home.createLabel">
+            Create a new Product Store Facility
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productStoreFacilities?.length === 0">
+        <span jhiTranslate="hrApp.productStoreFacility.home.notFound">No productStoreFacilities found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productStoreFacilities && productStoreFacilities.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fromDate"><span jhiTranslate="hrApp.productStoreFacility.fromDate">From Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="thruDate"><span jhiTranslate="hrApp.productStoreFacility.thruDate">Thru Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sequenceNo"><span jhiTranslate="hrApp.productStoreFacility.sequenceNo">Sequence No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productStore.name"><span jhiTranslate="hrApp.productStoreFacility.productStore">Product Store</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facility.name"><span jhiTranslate="hrApp.productStoreFacility.facility">Facility</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let productStoreFacility of productStoreFacilities ;trackBy: trackId">
+                    <td><a [routerLink]="['/product-store-facility', productStoreFacility.id, 'view']">{{ productStoreFacility.id }}</a></td>
+                    <td>{{ productStoreFacility.fromDate | date:'medium' }}</td>
+                    <td>{{ productStoreFacility.thruDate | date:'medium' }}</td>
+                    <td>{{ productStoreFacility.sequenceNo }}</td>
+                    <td>
+                        <div *ngIf="productStoreFacility.productStore">
+                            <a [routerLink]="['/product-store', productStoreFacility.productStore?.id, 'view']" >{{ productStoreFacility.productStore?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="productStoreFacility.facility">
+                            <a [routerLink]="['/facility', productStoreFacility.facility?.id, 'view']" >{{ productStoreFacility.facility?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/product-store-facility', productStoreFacility.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/product-store-facility', productStoreFacility.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productStoreFacility)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="productStoreFacilities && productStoreFacilities.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

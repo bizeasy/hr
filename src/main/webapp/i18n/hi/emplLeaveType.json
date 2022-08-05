@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "emplLeaveType": {
+      "home": {
+        "title": "EmplLeaveTypes",
+        "createLabel": "नया Empl Leave Type बनाएँ",
+        "createOrEditLabel": "Empl Leave Type बनाएँ या संपादित करें",
+        "notFound": "No Empl Leave Types found"
+      },
+      "created": "एक नया Empl Leave Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Empl Leave Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Empl Leave Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Empl Leave Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Empl Leave Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "shiftWeekends": {
+      "home": {
+        "title": "ShiftWeekends",
+        "createLabel": "नया Shift Weekends बनाएँ",
+        "createOrEditLabel": "Shift Weekends बनाएँ या संपादित करें",
+        "notFound": "No Shift Weekends found"
+      },
+      "created": "एक नया Shift Weekends [identifier: {{ param }}] तैयार है",
+      "updated": "एक Shift Weekends [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Shift Weekends [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Shift Weekends [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Shift Weekends"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "shift": "Shift"
+    }
+  }
+}

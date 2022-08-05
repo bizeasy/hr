@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="perfReview">
+            <h2><span jhiTranslate="hrApp.perfReview.detail.title">Perf Review</span> {{ perfReview.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.perfReview.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ perfReview.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReview.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ perfReview.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReview.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ perfReview.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReview.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="perfReview.employee">
+                        <a [routerLink]="['/party', perfReview.employee?.id, 'view']">{{ perfReview.employee?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReview.manager">Manager</span></dt>
+                <dd>
+                    <div *ngIf="perfReview.manager">
+                        <a [routerLink]="['/party', perfReview.manager?.id, 'view']">{{ perfReview.manager?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.perfReview.emplPosition">Empl Position</span></dt>
+                <dd>
+                    <div *ngIf="perfReview.emplPosition">
+                        <a [routerLink]="['/empl-position', perfReview.emplPosition?.id, 'view']">{{ perfReview.emplPosition?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/perf-review', perfReview.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

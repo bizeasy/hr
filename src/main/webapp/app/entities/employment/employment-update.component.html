@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-employment-heading" jhiTranslate="hrApp.employment.home.createOrEditLabel">Create or edit a Employment</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employment.fromDate" for="field_fromDate">From Date</label>
+                    <div class="input-group">
+                        <input id="field_fromDate" type="text" class="form-control" name="fromDate" ngbDatepicker #fromDateDp="ngbDatepicker" formControlName="fromDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fromDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employment.thruDate" for="field_thruDate">Thru Date</label>
+                    <div class="input-group">
+                        <input id="field_thruDate" type="text" class="form-control" name="thruDate" ngbDatepicker #thruDateDp="ngbDatepicker" formControlName="thruDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="thruDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employment.terminationReason" for="field_terminationReason">Termination Reason</label>
+                    <select class="form-control" id="field_terminationReason" name="terminationReason" formControlName="terminationReason">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reasonOption.id === editForm.get('terminationReason')!.value?.id ? editForm.get('terminationReason')!.value : reasonOption" *ngFor="let reasonOption of reasons; trackBy: trackById">{{ reasonOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employment.terminationType" for="field_terminationType">Termination Type</label>
+                    <select class="form-control" id="field_terminationType" name="terminationType" formControlName="terminationType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="terminationTypeOption.id === editForm.get('terminationType')!.value?.id ? editForm.get('terminationType')!.value : terminationTypeOption" *ngFor="let terminationTypeOption of terminationtypes; trackBy: trackById">{{ terminationTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employment.employee" for="field_employee">Employee</label>
+                    <select class="form-control" id="field_employee" name="employee" formControlName="employee">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('employee')!.value?.id ? editForm.get('employee')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employment.fromParty" for="field_fromParty">From Party</label>
+                    <select class="form-control" id="field_fromParty" name="fromParty" formControlName="fromParty">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('fromParty')!.value?.id ? editForm.get('fromParty')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employment.roleTypeFrom" for="field_roleTypeFrom">Role Type From</label>
+                    <select class="form-control" id="field_roleTypeFrom" name="roleTypeFrom" formControlName="roleTypeFrom">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="roleTypeOption.id === editForm.get('roleTypeFrom')!.value?.id ? editForm.get('roleTypeFrom')!.value : roleTypeOption" *ngFor="let roleTypeOption of roletypes; trackBy: trackById">{{ roleTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.employment.roleTypeTo" for="field_roleTypeTo">Role Type To</label>
+                    <select class="form-control" id="field_roleTypeTo" name="roleTypeTo" formControlName="roleTypeTo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('roleTypeTo')!.value?.id ? editForm.get('roleTypeTo')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

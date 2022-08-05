@@ -1,0 +1,194 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-order-item-heading" jhiTranslate="hrApp.orderItem.home.createOrEditLabel">Create or edit a Order Item</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.sequenceNo" for="field_sequenceNo">Sequence No</label>
+                    <input type="number" class="form-control" name="sequenceNo" id="field_sequenceNo"
+                           formControlName="sequenceNo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.quantity" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                           formControlName="quantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.cancelQuantity" for="field_cancelQuantity">Cancel Quantity</label>
+                    <input type="number" class="form-control" name="cancelQuantity" id="field_cancelQuantity"
+                           formControlName="cancelQuantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.selectedAmount" for="field_selectedAmount">Selected Amount</label>
+                    <input type="number" class="form-control" name="selectedAmount" id="field_selectedAmount"
+                           formControlName="selectedAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.unitPrice" for="field_unitPrice">Unit Price</label>
+                    <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
+                           formControlName="unitPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.unitListPrice" for="field_unitListPrice">Unit List Price</label>
+                    <input type="number" class="form-control" name="unitListPrice" id="field_unitListPrice"
+                           formControlName="unitListPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.cgst" for="field_cgst">Cgst</label>
+                    <input type="number" class="form-control" name="cgst" id="field_cgst"
+                           formControlName="cgst"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.igst" for="field_igst">Igst</label>
+                    <input type="number" class="form-control" name="igst" id="field_igst"
+                           formControlName="igst"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.sgst" for="field_sgst">Sgst</label>
+                    <input type="number" class="form-control" name="sgst" id="field_sgst"
+                           formControlName="sgst"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.cgstPercentage" for="field_cgstPercentage">Cgst Percentage</label>
+                    <input type="number" class="form-control" name="cgstPercentage" id="field_cgstPercentage"
+                           formControlName="cgstPercentage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.igstPercentage" for="field_igstPercentage">Igst Percentage</label>
+                    <input type="number" class="form-control" name="igstPercentage" id="field_igstPercentage"
+                           formControlName="igstPercentage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.sgstPercentage" for="field_sgstPercentage">Sgst Percentage</label>
+                    <input type="number" class="form-control" name="sgstPercentage" id="field_sgstPercentage"
+                           formControlName="sgstPercentage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.totalPrice" for="field_totalPrice">Total Price</label>
+                    <input type="number" class="form-control" name="totalPrice" id="field_totalPrice"
+                           formControlName="totalPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.isModifiedPrice" for="field_isModifiedPrice">Is Modified Price</label>
+                    <input type="checkbox" class="form-control" name="isModifiedPrice" id="field_isModifiedPrice"
+                           formControlName="isModifiedPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.estimatedShipDate" for="field_estimatedShipDate">Estimated Ship Date</label>
+                    <div class="d-flex">
+                        <input id="field_estimatedShipDate" type="datetime-local" class="form-control" name="estimatedShipDate" formControlName="estimatedShipDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.estimatedDeliveryDate" for="field_estimatedDeliveryDate">Estimated Delivery Date</label>
+                    <div class="d-flex">
+                        <input id="field_estimatedDeliveryDate" type="datetime-local" class="form-control" name="estimatedDeliveryDate" formControlName="estimatedDeliveryDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.shipBeforeDate" for="field_shipBeforeDate">Ship Before Date</label>
+                    <div class="d-flex">
+                        <input id="field_shipBeforeDate" type="datetime-local" class="form-control" name="shipBeforeDate" formControlName="shipBeforeDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.shipAfterDate" for="field_shipAfterDate">Ship After Date</label>
+                    <div class="d-flex">
+                        <input id="field_shipAfterDate" type="datetime-local" class="form-control" name="shipAfterDate" formControlName="shipAfterDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="order">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderOption.id === editForm.get('order')!.value?.id ? editForm.get('order')!.value : orderOption" *ngFor="let orderOption of orders; trackBy: trackById">{{ orderOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.orderItemType" for="field_orderItemType">Order Item Type</label>
+                    <select class="form-control" id="field_orderItemType" name="orderItemType" formControlName="orderItemType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderItemTypeOption.id === editForm.get('orderItemType')!.value?.id ? editForm.get('orderItemType')!.value : orderItemTypeOption" *ngFor="let orderItemTypeOption of orderitemtypes; trackBy: trackById">{{ orderItemTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.fromInventoryItem" for="field_fromInventoryItem">From Inventory Item</label>
+                    <select class="form-control" id="field_fromInventoryItem" name="fromInventoryItem" formControlName="fromInventoryItem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inventoryItemOption.id === editForm.get('fromInventoryItem')!.value?.id ? editForm.get('fromInventoryItem')!.value : inventoryItemOption" *ngFor="let inventoryItemOption of inventoryitems; trackBy: trackById">{{ inventoryItemOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="product">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id === editForm.get('product')!.value?.id ? editForm.get('product')!.value : productOption" *ngFor="let productOption of products; trackBy: trackById">{{ productOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.supplierProduct" for="field_supplierProduct">Supplier Product</label>
+                    <select class="form-control" id="field_supplierProduct" name="supplierProduct" formControlName="supplierProduct">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="supplierProductOption.id === editForm.get('supplierProduct')!.value?.id ? editForm.get('supplierProduct')!.value : supplierProductOption" *ngFor="let supplierProductOption of supplierproducts; trackBy: trackById">{{ supplierProductOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.orderItem.taxAuthRate" for="field_taxAuthRate">Tax Auth Rate</label>
+                    <select class="form-control" id="field_taxAuthRate" name="taxAuthRate" formControlName="taxAuthRate">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="taxAuthorityRateTypeOption.id === editForm.get('taxAuthRate')!.value?.id ? editForm.get('taxAuthRate')!.value : taxAuthorityRateTypeOption" *ngFor="let taxAuthorityRateTypeOption of taxauthorityratetypes; trackBy: trackById">{{ taxAuthorityRateTypeOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invoice">
+            <h2><span jhiTranslate="hrApp.invoice.detail.title">Invoice</span> {{ invoice.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.invoice.invoiceDate">Invoice Date</span></dt>
+                <dd>
+                    <span>{{ invoice.invoiceDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.dueDate">Due Date</span></dt>
+                <dd>
+                    <span>{{ invoice.dueDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.paidDate">Paid Date</span></dt>
+                <dd>
+                    <span>{{ invoice.paidDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.invoiceMessage">Invoice Message</span></dt>
+                <dd>
+                    <span>{{ invoice.invoiceMessage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.referenceNumber">Reference Number</span></dt>
+                <dd>
+                    <span>{{ invoice.referenceNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.invoiceType">Invoice Type</span></dt>
+                <dd>
+                    <div *ngIf="invoice.invoiceType">
+                        <a [routerLink]="['/invoice-type', invoice.invoiceType?.id, 'view']">{{ invoice.invoiceType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.partyIdFrom">Party Id From</span></dt>
+                <dd>
+                    <div *ngIf="invoice.partyIdFrom">
+                        <a [routerLink]="['/party', invoice.partyIdFrom?.id, 'view']">{{ invoice.partyIdFrom?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.partyIdTo">Party Id To</span></dt>
+                <dd>
+                    <div *ngIf="invoice.partyIdTo">
+                        <a [routerLink]="['/party', invoice.partyIdTo?.id, 'view']">{{ invoice.partyIdTo?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.roleType">Role Type</span></dt>
+                <dd>
+                    <div *ngIf="invoice.roleType">
+                        <a [routerLink]="['/role-type', invoice.roleType?.id, 'view']">{{ invoice.roleType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="invoice.status">
+                        <a [routerLink]="['/status', invoice.status?.id, 'view']">{{ invoice.status?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.invoice.contactMech">Contact Mech</span></dt>
+                <dd>
+                    <div *ngIf="invoice.contactMech">
+                        <a [routerLink]="['/contact-mech', invoice.contactMech?.id, 'view']">{{ invoice.contactMech?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invoice', invoice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

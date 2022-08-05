@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.paymentApplication.home.title">Payment Applications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-payment-application" [routerLink]="['/payment-application/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.paymentApplication.home.createLabel">
+            Create a new Payment Application
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="paymentApplications?.length === 0">
+        <span jhiTranslate="hrApp.paymentApplication.home.notFound">No paymentApplications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="paymentApplications && paymentApplications.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amountApplied"><span jhiTranslate="hrApp.paymentApplication.amountApplied">Amount Applied</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="payment.id"><span jhiTranslate="hrApp.paymentApplication.payment">Payment</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoice.id"><span jhiTranslate="hrApp.paymentApplication.invoice">Invoice</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoiceItem.id"><span jhiTranslate="hrApp.paymentApplication.invoiceItem">Invoice Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="order.id"><span jhiTranslate="hrApp.paymentApplication.order">Order</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderItem.id"><span jhiTranslate="hrApp.paymentApplication.orderItem">Order Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="toPayment.id"><span jhiTranslate="hrApp.paymentApplication.toPayment">To Payment</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paymentApplication of paymentApplications ;trackBy: trackId">
+                    <td><a [routerLink]="['/payment-application', paymentApplication.id, 'view']">{{ paymentApplication.id }}</a></td>
+                    <td>{{ paymentApplication.amountApplied }}</td>
+                    <td>
+                        <div *ngIf="paymentApplication.payment">
+                            <a [routerLink]="['/payment', paymentApplication.payment?.id, 'view']" >{{ paymentApplication.payment?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paymentApplication.invoice">
+                            <a [routerLink]="['/invoice', paymentApplication.invoice?.id, 'view']" >{{ paymentApplication.invoice?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paymentApplication.invoiceItem">
+                            <a [routerLink]="['/invoice-item', paymentApplication.invoiceItem?.id, 'view']" >{{ paymentApplication.invoiceItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paymentApplication.order">
+                            <a [routerLink]="['/order', paymentApplication.order?.id, 'view']" >{{ paymentApplication.order?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paymentApplication.orderItem">
+                            <a [routerLink]="['/order-item', paymentApplication.orderItem?.id, 'view']" >{{ paymentApplication.orderItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="paymentApplication.toPayment">
+                            <a [routerLink]="['/payment', paymentApplication.toPayment?.id, 'view']" >{{ paymentApplication.toPayment?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/payment-application', paymentApplication.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/payment-application', paymentApplication.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(paymentApplication)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="paymentApplications && paymentApplications.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

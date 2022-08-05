@@ -1,0 +1,50 @@
+{
+  "hrApp": {
+    "inventoryItem": {
+      "home": {
+        "title": "InventoryItems",
+        "createLabel": "नया Inventory Item बनाएँ",
+        "createOrEditLabel": "Inventory Item बनाएँ या संपादित करें",
+        "notFound": "No Inventory Items found"
+      },
+      "created": "एक नया Inventory Item [identifier: {{ param }}] तैयार है",
+      "updated": "एक Inventory Item [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Inventory Item [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Inventory Item [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Inventory Item"
+      },
+      "receivedDate": "Received Date",
+      "manufacturedDate": "Manufactured Date",
+      "expiryDate": "Expiry Date",
+      "retestDate": "Retest Date",
+      "containerId": "Container Id",
+      "batchNo": "Batch No",
+      "mfgBatchNo": "Mfg Batch No",
+      "lotNoStr": "Lot No Str",
+      "binNumber": "Bin Number",
+      "comments": "Comments",
+      "quantityOnHandTotal": "Quantity On Hand Total",
+      "availableToPromiseTotal": "Available To Promise Total",
+      "accountingQuantityTotal": "Accounting Quantity Total",
+      "oldQuantityOnHand": "Old Quantity On Hand",
+      "oldAvailableToPromise": "Old Available To Promise",
+      "serialNumber": "Serial Number",
+      "softIdentifier": "Soft Identifier",
+      "activationNumber": "Activation Number",
+      "activationValidTrue": "Activation Valid True",
+      "unitCost": "Unit Cost",
+      "inventoryItemType": "Inventory Item Type",
+      "product": "Product",
+      "supplier": "Supplier",
+      "ownerParty": "Owner Party",
+      "status": "Status",
+      "facility": "Facility",
+      "uom": "Uom",
+      "currencyUom": "Currency Uom",
+      "lot": "Lot"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "employment": {
+      "home": {
+        "title": "Employments",
+        "createLabel": "కొత్త Employment  సృష్టించండి",
+        "createOrEditLabel": "Employment సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Employments found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Employment సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Employment సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Employment తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Employment {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Employment"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "terminationReason": "Termination Reason",
+      "terminationType": "Termination Type",
+      "employee": "Employee",
+      "fromParty": "From Party",
+      "roleTypeFrom": "Role Type From",
+      "roleTypeTo": "Role Type To"
+    }
+  }
+}

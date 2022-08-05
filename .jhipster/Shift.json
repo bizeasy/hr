@@ -1,0 +1,37 @@
+{
+  "name": "Shift",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fromTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "toTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "workingHrs",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "monthlyPaidLeaves",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20220805161849",
+  "entityTableName": "shift",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

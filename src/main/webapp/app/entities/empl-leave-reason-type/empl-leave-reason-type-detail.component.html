@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emplLeaveReasonType">
+            <h2><span jhiTranslate="hrApp.emplLeaveReasonType.detail.title">Empl Leave Reason Type</span> {{ emplLeaveReasonType.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.emplLeaveReasonType.name">Name</span></dt>
+                <dd>
+                    <span>{{ emplLeaveReasonType.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplLeaveReasonType.description">Description</span></dt>
+                <dd>
+                    <span>{{ emplLeaveReasonType.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empl-leave-reason-type', emplLeaveReasonType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

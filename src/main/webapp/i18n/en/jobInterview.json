@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "jobInterview": {
+      "home": {
+        "title": "Job Interviews",
+        "createLabel": "Create a new Job Interview",
+        "createOrEditLabel": "Create or edit a Job Interview",
+        "notFound": "No Job Interviews found"
+      },
+      "created": "A new Job Interview is created with identifier {{ param }}",
+      "updated": "A Job Interview is updated with identifier {{ param }}",
+      "deleted": "A Job Interview is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Job Interview {{ id }}?"
+      },
+      "detail": {
+        "title": "Job Interview"
+      },
+      "remarks": "Remarks",
+      "interviewDate": "Interview Date",
+      "interviewee": "Interviewee",
+      "interviewer": "Interviewer",
+      "type": "Type",
+      "jobRequisition": "Job Requisition",
+      "gradeSecured": "Grade Secured",
+      "result": "Result"
+    }
+  }
+}

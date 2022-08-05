@@ -1,0 +1,64 @@
+{
+  "name": "PaymentApplication",
+  "fields": [
+    {
+      "fieldName": "amountApplied",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "payment",
+      "otherEntityRelationshipName": "paymentApplication",
+      "relationshipName": "payment",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "paymentApplication",
+      "relationshipName": "invoice",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invoiceItem",
+      "otherEntityRelationshipName": "paymentApplication",
+      "relationshipName": "invoiceItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "paymentApplication",
+      "relationshipName": "order",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "orderItem",
+      "otherEntityRelationshipName": "paymentApplication",
+      "relationshipName": "orderItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "payment",
+      "otherEntityRelationshipName": "paymentApplication",
+      "relationshipName": "toPayment",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805150949",
+  "entityTableName": "payment_application",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

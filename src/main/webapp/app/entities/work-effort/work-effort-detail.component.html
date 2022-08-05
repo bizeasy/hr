@@ -1,0 +1,120 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="workEffort">
+            <h2><span jhiTranslate="hrApp.workEffort.detail.title">Work Effort</span> {{ workEffort.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.workEffort.name">Name</span></dt>
+                <dd>
+                    <span>{{ workEffort.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.description">Description</span></dt>
+                <dd>
+                    <span>{{ workEffort.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.code">Code</span></dt>
+                <dd>
+                    <span>{{ workEffort.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.batchSize">Batch Size</span></dt>
+                <dd>
+                    <span>{{ workEffort.batchSize }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.minYieldRange">Min Yield Range</span></dt>
+                <dd>
+                    <span>{{ workEffort.minYieldRange }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.maxYieldRange">Max Yield Range</span></dt>
+                <dd>
+                    <span>{{ workEffort.maxYieldRange }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.percentComplete">Percent Complete</span></dt>
+                <dd>
+                    <span>{{ workEffort.percentComplete }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.validationType">Validation Type</span></dt>
+                <dd>
+                    <span>{{ workEffort.validationType }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.shelfLife">Shelf Life</span></dt>
+                <dd>
+                    <span>{{ workEffort.shelfLife }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.outputQty">Output Qty</span></dt>
+                <dd>
+                    <span>{{ workEffort.outputQty }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="workEffort.product">
+                        <a [routerLink]="['/product', workEffort.product?.id, 'view']">{{ workEffort.product?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.ksm">Ksm</span></dt>
+                <dd>
+                    <div *ngIf="workEffort.ksm">
+                        <a [routerLink]="['/product', workEffort.ksm?.id, 'view']">{{ workEffort.ksm?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="workEffort.type">
+                        <a [routerLink]="['/work-effort-type', workEffort.type?.id, 'view']">{{ workEffort.type?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.purpose">Purpose</span></dt>
+                <dd>
+                    <div *ngIf="workEffort.purpose">
+                        <a [routerLink]="['/work-effort-purpose', workEffort.purpose?.id, 'view']">{{ workEffort.purpose?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="workEffort.status">
+                        <a [routerLink]="['/status', workEffort.status?.id, 'view']">{{ workEffort.status?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.facility">Facility</span></dt>
+                <dd>
+                    <div *ngIf="workEffort.facility">
+                        <a [routerLink]="['/facility', workEffort.facility?.id, 'view']">{{ workEffort.facility?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.shelfListUom">Shelf List Uom</span></dt>
+                <dd>
+                    <div *ngIf="workEffort.shelfListUom">
+                        <a [routerLink]="['/uom', workEffort.shelfListUom?.id, 'view']">{{ workEffort.shelfListUom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.productCategory">Product Category</span></dt>
+                <dd>
+                    <div *ngIf="workEffort.productCategory">
+                        <a [routerLink]="['/product-category', workEffort.productCategory?.id, 'view']">{{ workEffort.productCategory?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffort.productStore">Product Store</span></dt>
+                <dd>
+                    <div *ngIf="workEffort.productStore">
+                        <a [routerLink]="['/product-store', workEffort.productStore?.id, 'view']">{{ workEffort.productStore?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/work-effort', workEffort.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

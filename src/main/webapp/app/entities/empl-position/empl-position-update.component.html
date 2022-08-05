@@ -1,0 +1,120 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-empl-position-heading" jhiTranslate="hrApp.emplPosition.home.createOrEditLabel">Create or edit a Empl Position</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.maxBudget" for="field_maxBudget">Max Budget</label>
+                    <input type="number" class="form-control" name="maxBudget" id="field_maxBudget"
+                           formControlName="maxBudget"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.minBudget" for="field_minBudget">Min Budget</label>
+                    <input type="number" class="form-control" name="minBudget" id="field_minBudget"
+                           formControlName="minBudget"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.estimatedFromDate" for="field_estimatedFromDate">Estimated From Date</label>
+                    <div class="input-group">
+                        <input id="field_estimatedFromDate" type="text" class="form-control" name="estimatedFromDate" ngbDatepicker #estimatedFromDateDp="ngbDatepicker" formControlName="estimatedFromDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="estimatedFromDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.estimatedThruDate" for="field_estimatedThruDate">Estimated Thru Date</label>
+                    <div class="input-group">
+                        <input id="field_estimatedThruDate" type="text" class="form-control" name="estimatedThruDate" ngbDatepicker #estimatedThruDateDp="ngbDatepicker" formControlName="estimatedThruDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="estimatedThruDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.paidJob" for="field_paidJob">Paid Job</label>
+                    <input type="checkbox" class="form-control" name="paidJob" id="field_paidJob"
+                           formControlName="paidJob"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.isFulltime" for="field_isFulltime">Is Fulltime</label>
+                    <input type="checkbox" class="form-control" name="isFulltime" id="field_isFulltime"
+                           formControlName="isFulltime"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.isTemporary" for="field_isTemporary">Is Temporary</label>
+                    <input type="checkbox" class="form-control" name="isTemporary" id="field_isTemporary"
+                           formControlName="isTemporary"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.actualFromDate" for="field_actualFromDate">Actual From Date</label>
+                    <div class="input-group">
+                        <input id="field_actualFromDate" type="text" class="form-control" name="actualFromDate" ngbDatepicker #actualFromDateDp="ngbDatepicker" formControlName="actualFromDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualFromDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.actualThruDate" for="field_actualThruDate">Actual Thru Date</label>
+                    <div class="input-group">
+                        <input id="field_actualThruDate" type="text" class="form-control" name="actualThruDate" ngbDatepicker #actualThruDateDp="ngbDatepicker" formControlName="actualThruDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualThruDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.type" for="field_type">Type</label>
+                    <select class="form-control" id="field_type" name="type" formControlName="type">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emplPositionTypeOption.id === editForm.get('type')!.value?.id ? editForm.get('type')!.value : emplPositionTypeOption" *ngFor="let emplPositionTypeOption of emplpositiontypes; trackBy: trackById">{{ emplPositionTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.party" for="field_party">Party</label>
+                    <select class="form-control" id="field_party" name="party" formControlName="party">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partyOption.id === editForm.get('party')!.value?.id ? editForm.get('party')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.emplPosition.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="status">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption" *ngFor="let statusOption of statuses; trackBy: trackById">{{ statusOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

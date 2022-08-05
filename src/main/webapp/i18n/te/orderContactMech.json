@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "orderContactMech": {
+      "home": {
+        "title": "Order Contact Meches",
+        "createLabel": "కొత్త Order Contact Mech  సృష్టించండి",
+        "createOrEditLabel": "Order Contact Mech సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Order Contact Meches found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Order Contact Mech సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Order Contact Mech సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Order Contact Mech తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Order Contact Mech {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Order Contact Mech"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "order": "Order",
+      "contactMech": "Contact Mech",
+      "contactMechPurpose": "Contact Mech Purpose"
+    }
+  }
+}

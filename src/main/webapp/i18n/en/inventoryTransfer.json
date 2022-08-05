@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "inventoryTransfer": {
+      "home": {
+        "title": "Inventory Transfers",
+        "createLabel": "Create a new Inventory Transfer",
+        "createOrEditLabel": "Create or edit a Inventory Transfer",
+        "notFound": "No Inventory Transfers found"
+      },
+      "created": "A new Inventory Transfer is created with identifier {{ param }}",
+      "updated": "A Inventory Transfer is updated with identifier {{ param }}",
+      "deleted": "A Inventory Transfer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Inventory Transfer {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory Transfer"
+      },
+      "sentDate": "Sent Date",
+      "receivedDate": "Received Date",
+      "comments": "Comments",
+      "status": "Status",
+      "inventoryItem": "Inventory Item",
+      "facility": "Facility",
+      "facilityTo": "Facility To",
+      "issuance": "Issuance"
+    }
+  }
+}

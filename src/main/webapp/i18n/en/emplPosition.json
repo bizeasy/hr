@@ -1,0 +1,33 @@
+{
+  "hrApp": {
+    "emplPosition": {
+      "home": {
+        "title": "Empl Positions",
+        "createLabel": "Create a new Empl Position",
+        "createOrEditLabel": "Create or edit a Empl Position",
+        "notFound": "No Empl Positions found"
+      },
+      "created": "A new Empl Position is created with identifier {{ param }}",
+      "updated": "A Empl Position is updated with identifier {{ param }}",
+      "deleted": "A Empl Position is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empl Position {{ id }}?"
+      },
+      "detail": {
+        "title": "Empl Position"
+      },
+      "maxBudget": "Max Budget",
+      "minBudget": "Min Budget",
+      "estimatedFromDate": "Estimated From Date",
+      "estimatedThruDate": "Estimated Thru Date",
+      "paidJob": "Paid Job",
+      "isFulltime": "Is Fulltime",
+      "isTemporary": "Is Temporary",
+      "actualFromDate": "Actual From Date",
+      "actualThruDate": "Actual Thru Date",
+      "type": "Type",
+      "party": "Party",
+      "status": "Status"
+    }
+  }
+}

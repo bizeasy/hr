@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "workEffortPurpose": {
+      "home": {
+        "title": "Work Effort Purposes",
+        "createLabel": "Create a new Work Effort Purpose",
+        "createOrEditLabel": "Create or edit a Work Effort Purpose",
+        "notFound": "No Work Effort Purposes found"
+      },
+      "created": "A new Work Effort Purpose is created with identifier {{ param }}",
+      "updated": "A Work Effort Purpose is updated with identifier {{ param }}",
+      "deleted": "A Work Effort Purpose is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Effort Purpose {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Effort Purpose"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderContactMech">
+            <h2><span jhiTranslate="hrApp.orderContactMech.detail.title">Order Contact Mech</span> {{ orderContactMech.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.orderContactMech.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ orderContactMech.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderContactMech.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ orderContactMech.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderContactMech.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="orderContactMech.order">
+                        <a [routerLink]="['/order', orderContactMech.order?.id, 'view']">{{ orderContactMech.order?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderContactMech.contactMech">Contact Mech</span></dt>
+                <dd>
+                    <div *ngIf="orderContactMech.contactMech">
+                        <a [routerLink]="['/contact-mech', orderContactMech.contactMech?.id, 'view']">{{ orderContactMech.contactMech?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.orderContactMech.contactMechPurpose">Contact Mech Purpose</span></dt>
+                <dd>
+                    <div *ngIf="orderContactMech.contactMechPurpose">
+                        <a [routerLink]="['/contact-mech-purpose', orderContactMech.contactMechPurpose?.id, 'view']">{{ orderContactMech.contactMechPurpose?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-contact-mech', orderContactMech.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-attachment-heading" jhiTranslate="hrApp.attachment.home.createOrEditLabel">Create or edit a Attachment</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.attachment.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.attachment.fileAttachment" for="field_fileAttachment">File Attachment</label>
+                    <div>
+                        <div *ngIf="editForm.get('fileAttachment')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('fileAttachmentContentType')!.value, editForm.get('fileAttachment')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('fileAttachmentContentType')!.value }}, {{ byteSize(editForm.get('fileAttachment')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({fileAttachment: null});editForm.patchValue({fileAttachmentContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_fileAttachment" (change)="setFileData($event, 'fileAttachment', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="fileAttachment" id="field_fileAttachment"
+                           formControlName="fileAttachment"/>
+                    <input type="hidden" class="form-control" name="fileAttachmentContentType" id="field_fileAttachmentContentType"
+                           formControlName="fileAttachmentContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.attachment.attachmentUrl" for="field_attachmentUrl">Attachment Url</label>
+                    <input type="text" class="form-control" name="attachmentUrl" id="field_attachmentUrl"
+                           formControlName="attachmentUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.attachment.mimeType" for="field_mimeType">Mime Type</label>
+                    <input type="text" class="form-control" name="mimeType" id="field_mimeType"
+                           formControlName="mimeType"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

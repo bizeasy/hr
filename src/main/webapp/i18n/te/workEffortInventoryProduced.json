@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "workEffortInventoryProduced": {
+      "home": {
+        "title": "Work Effort Inventory Produceds",
+        "createLabel": "కొత్త Work Effort Inventory Produced  సృష్టించండి",
+        "createOrEditLabel": "Work Effort Inventory Produced సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Work Effort Inventory Produceds found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Inventory Produced సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Inventory Produced సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Inventory Produced తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Work Effort Inventory Produced {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Work Effort Inventory Produced"
+      },
+      "quantity": "Quantity",
+      "workEffort": "Work Effort",
+      "inventoryItem": "Inventory Item",
+      "status": "Status"
+    }
+  }
+}

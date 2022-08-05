@@ -1,0 +1,22 @@
+{
+  "hrApp": {
+    "keywordType": {
+      "home": {
+        "title": "KeywordTypes",
+        "createLabel": "नया Keyword Type बनाएँ",
+        "createOrEditLabel": "Keyword Type बनाएँ या संपादित करें",
+        "notFound": "No Keyword Types found"
+      },
+      "created": "एक नया Keyword Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Keyword Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Keyword Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Keyword Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Keyword Type"
+      },
+      "name": "Name"
+    }
+  }
+}

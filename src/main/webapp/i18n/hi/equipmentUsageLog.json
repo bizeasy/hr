@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "equipmentUsageLog": {
+      "home": {
+        "title": "EquipmentUsageLogs",
+        "createLabel": "नया Equipment Usage Log बनाएँ",
+        "createOrEditLabel": "Equipment Usage Log बनाएँ या संपादित करें",
+        "notFound": "No Equipment Usage Logs found"
+      },
+      "created": "एक नया Equipment Usage Log [identifier: {{ param }}] तैयार है",
+      "updated": "एक Equipment Usage Log [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Equipment Usage Log [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Equipment Usage Log [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Equipment Usage Log"
+      },
+      "fromTime": "From Time",
+      "toTime": "To Time",
+      "remarks": "Remarks",
+      "equipment": "Equipment",
+      "cleanedBy": "Cleaned By",
+      "checkedBy": "Checked By"
+    }
+  }
+}

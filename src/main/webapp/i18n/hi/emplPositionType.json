@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "emplPositionType": {
+      "home": {
+        "title": "EmplPositionTypes",
+        "createLabel": "नया Empl Position Type बनाएँ",
+        "createOrEditLabel": "Empl Position Type बनाएँ या संपादित करें",
+        "notFound": "No Empl Position Types found"
+      },
+      "created": "एक नया Empl Position Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Empl Position Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Empl Position Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Empl Position Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Empl Position Type"
+      },
+      "name": "Name",
+      "description": "Description",
+      "group": "Group"
+    }
+  }
+}

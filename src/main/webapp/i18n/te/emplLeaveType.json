@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "emplLeaveType": {
+      "home": {
+        "title": "Empl Leave Types",
+        "createLabel": "కొత్త Empl Leave Type  సృష్టించండి",
+        "createOrEditLabel": "Empl Leave Type సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Empl Leave Types found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Empl Leave Type సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Empl Leave Type సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Empl Leave Type తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Empl Leave Type {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Empl Leave Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

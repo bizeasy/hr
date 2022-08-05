@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "paymentMethod": {
+      "home": {
+        "title": "Payment Methods",
+        "createLabel": "కొత్త Payment Method  సృష్టించండి",
+        "createOrEditLabel": "Payment Method సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Payment Methods found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Payment Method సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Payment Method సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Payment Method తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Payment Method {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Payment Method"
+      },
+      "name": "Name",
+      "description": "Description",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "paymentMethodType": "Payment Method Type",
+      "party": "Party"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "name": "Invoice",
+  "fields": [
+    {
+      "fieldName": "invoiceDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dueDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "paidDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "invoiceMessage",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "referenceNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "60"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invoiceType",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "invoiceType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "partyIdFrom",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "partyIdTo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "roleType",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "roleType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "status",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "status",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contactMech",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "contactMech",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805142549",
+  "entityTableName": "invoice",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

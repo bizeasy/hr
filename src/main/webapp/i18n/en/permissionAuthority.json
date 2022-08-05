@@ -1,0 +1,22 @@
+{
+  "hrApp": {
+    "permissionAuthority": {
+      "home": {
+        "title": "Permission Authorities",
+        "createLabel": "Create a new Permission Authority",
+        "createOrEditLabel": "Create or edit a Permission Authority",
+        "notFound": "No Permission Authorities found"
+      },
+      "created": "A new Permission Authority is created with identifier {{ param }}",
+      "updated": "A Permission Authority is updated with identifier {{ param }}",
+      "deleted": "A Permission Authority is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Permission Authority {{ id }}?"
+      },
+      "detail": {
+        "title": "Permission Authority"
+      },
+      "authority": "Authority"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "productCategoryMember": {
+      "home": {
+        "title": "Product Category Members",
+        "createLabel": "Create a new Product Category Member",
+        "createOrEditLabel": "Create or edit a Product Category Member",
+        "notFound": "No Product Category Members found"
+      },
+      "created": "A new Product Category Member is created with identifier {{ param }}",
+      "updated": "A Product Category Member is updated with identifier {{ param }}",
+      "deleted": "A Product Category Member is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Category Member {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Category Member"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "sequenceNo": "Sequence No",
+      "product": "Product",
+      "productCategory": "Product Category"
+    }
+  }
+}

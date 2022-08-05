@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "taxSlab": {
+      "home": {
+        "title": "Tax Slabs",
+        "createLabel": "కొత్త Tax Slab  సృష్టించండి",
+        "createOrEditLabel": "Tax Slab సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Tax Slabs found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Tax Slab సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Tax Slab సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Tax Slab తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Tax Slab {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Tax Slab"
+      },
+      "name": "Name",
+      "rate": "Rate"
+    }
+  }
+}

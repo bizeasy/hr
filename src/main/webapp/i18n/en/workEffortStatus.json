@@ -1,0 +1,24 @@
+{
+  "hrApp": {
+    "workEffortStatus": {
+      "home": {
+        "title": "Work Effort Statuses",
+        "createLabel": "Create a new Work Effort Status",
+        "createOrEditLabel": "Create or edit a Work Effort Status",
+        "notFound": "No Work Effort Statuses found"
+      },
+      "created": "A new Work Effort Status is created with identifier {{ param }}",
+      "updated": "A Work Effort Status is updated with identifier {{ param }}",
+      "deleted": "A Work Effort Status is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Effort Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Effort Status"
+      },
+      "reason": "Reason",
+      "workEffort": "Work Effort",
+      "status": "Status"
+    }
+  }
+}

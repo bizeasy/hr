@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "productStoreUserGroup": {
+      "home": {
+        "title": "ProductStoreUserGroups",
+        "createLabel": "नया Product Store User Group बनाएँ",
+        "createOrEditLabel": "Product Store User Group बनाएँ या संपादित करें",
+        "notFound": "No Product Store User Groups found"
+      },
+      "created": "एक नया Product Store User Group [identifier: {{ param }}] तैयार है",
+      "updated": "एक Product Store User Group [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Product Store User Group [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Product Store User Group [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Product Store User Group"
+      },
+      "userGroup": "User Group",
+      "user": "User",
+      "party": "Party",
+      "productStore": "Product Store"
+    }
+  }
+}

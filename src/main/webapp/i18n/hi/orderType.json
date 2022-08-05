@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "orderType": {
+      "home": {
+        "title": "OrderTypes",
+        "createLabel": "नया Order Type बनाएँ",
+        "createOrEditLabel": "Order Type बनाएँ या संपादित करें",
+        "notFound": "No Order Types found"
+      },
+      "created": "एक नया Order Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Order Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Order Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Order Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Order Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

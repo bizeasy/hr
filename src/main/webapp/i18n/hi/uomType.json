@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "uomType": {
+      "home": {
+        "title": "UomTypes",
+        "createLabel": "नया Uom Type बनाएँ",
+        "createOrEditLabel": "Uom Type बनाएँ या संपादित करें",
+        "notFound": "No Uom Types found"
+      },
+      "created": "एक नया Uom Type [identifier: {{ param }}] तैयार है",
+      "updated": "एक Uom Type [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Uom Type [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Uom Type [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Uom Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productCategoryMember">
+            <h2><span jhiTranslate="hrApp.productCategoryMember.detail.title">Product Category Member</span> {{ productCategoryMember.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.productCategoryMember.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ productCategoryMember.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategoryMember.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ productCategoryMember.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategoryMember.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ productCategoryMember.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategoryMember.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="productCategoryMember.product">
+                        <a [routerLink]="['/product', productCategoryMember.product?.id, 'view']">{{ productCategoryMember.product?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategoryMember.productCategory">Product Category</span></dt>
+                <dd>
+                    <div *ngIf="productCategoryMember.productCategory">
+                        <a [routerLink]="['/product-category', productCategoryMember.productCategory?.id, 'view']">{{ productCategoryMember.productCategory?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-category-member', productCategoryMember.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

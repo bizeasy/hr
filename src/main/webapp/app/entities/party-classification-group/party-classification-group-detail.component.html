@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="partyClassificationGroup">
+            <h2><span jhiTranslate="hrApp.partyClassificationGroup.detail.title">Party Classification Group</span> {{ partyClassificationGroup.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.partyClassificationGroup.name">Name</span></dt>
+                <dd>
+                    <span>{{ partyClassificationGroup.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.partyClassificationGroup.description">Description</span></dt>
+                <dd>
+                    <span>{{ partyClassificationGroup.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.partyClassificationGroup.classificationType">Classification Type</span></dt>
+                <dd>
+                    <div *ngIf="partyClassificationGroup.classificationType">
+                        <a [routerLink]="['/party-classification-type', partyClassificationGroup.classificationType?.id, 'view']">{{ partyClassificationGroup.classificationType?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/party-classification-group', partyClassificationGroup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

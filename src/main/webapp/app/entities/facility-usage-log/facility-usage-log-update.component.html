@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-facility-usage-log-heading" jhiTranslate="hrApp.facilityUsageLog.home.createOrEditLabel">Create or edit a Facility Usage Log</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facilityUsageLog.fromTime" for="field_fromTime">From Time</label>
+                    <div class="d-flex">
+                        <input id="field_fromTime" type="datetime-local" class="form-control" name="fromTime" formControlName="fromTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facilityUsageLog.toTime" for="field_toTime">To Time</label>
+                    <div class="d-flex">
+                        <input id="field_toTime" type="datetime-local" class="form-control" name="toTime" formControlName="toTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facilityUsageLog.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                           formControlName="remarks"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facilityUsageLog.facility" for="field_facility">Facility</label>
+                    <select class="form-control" id="field_facility" name="facility" formControlName="facility">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="facilityOption.id === editForm.get('facility')!.value?.id ? editForm.get('facility')!.value : facilityOption" *ngFor="let facilityOption of facilities; trackBy: trackById">{{ facilityOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facilityUsageLog.cleanedBy" for="field_cleanedBy">Cleaned By</label>
+                    <select class="form-control" id="field_cleanedBy" name="cleanedBy" formControlName="cleanedBy">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('cleanedBy')!.value?.id ? editForm.get('cleanedBy')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.facilityUsageLog.checkedBy" for="field_checkedBy">Checked By</label>
+                    <select class="form-control" id="field_checkedBy" name="checkedBy" formControlName="checkedBy">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('checkedBy')!.value?.id ? editForm.get('checkedBy')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

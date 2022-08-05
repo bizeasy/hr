@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="workEffortAssoc">
+            <h2><span jhiTranslate="hrApp.workEffortAssoc.detail.title">Work Effort Assoc</span> {{ workEffortAssoc.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.workEffortAssoc.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ workEffortAssoc.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortAssoc.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ workEffortAssoc.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortAssoc.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ workEffortAssoc.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortAssoc.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="workEffortAssoc.type">
+                        <a [routerLink]="['/work-effort-assoc-type', workEffortAssoc.type?.id, 'view']">{{ workEffortAssoc.type?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortAssoc.weIdFrom">We Id From</span></dt>
+                <dd>
+                    <div *ngIf="workEffortAssoc.weIdFrom">
+                        <a [routerLink]="['/work-effort', workEffortAssoc.weIdFrom?.id, 'view']">{{ workEffortAssoc.weIdFrom?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.workEffortAssoc.weIdTo">We Id To</span></dt>
+                <dd>
+                    <div *ngIf="workEffortAssoc.weIdTo">
+                        <a [routerLink]="['/work-effort', workEffortAssoc.weIdTo?.id, 'view']">{{ workEffortAssoc.weIdTo?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/work-effort-assoc', workEffortAssoc.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "hrApp": {
+    "attachment": {
+      "home": {
+        "title": "Attachments",
+        "createLabel": "కొత్త Attachment  సృష్టించండి",
+        "createOrEditLabel": "Attachment సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Attachments found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Attachment సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Attachment సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Attachment తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Attachment {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Attachment"
+      },
+      "name": "Name",
+      "fileAttachment": "File Attachment",
+      "attachmentUrl": "Attachment Url",
+      "mimeType": "Mime Type"
+    }
+  }
+}

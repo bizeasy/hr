@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.emplPositionTypeRate.home.title">Empl Position Type Rates</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-empl-position-type-rate" [routerLink]="['/empl-position-type-rate/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.emplPositionTypeRate.home.createLabel">
+            Create a new Empl Position Type Rate
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="emplPositionTypeRates?.length === 0">
+        <span jhiTranslate="hrApp.emplPositionTypeRate.home.notFound">No emplPositionTypeRates found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="emplPositionTypeRates && emplPositionTypeRates.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPositionTypeRate.rateAmount">Rate Amount</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPositionTypeRate.fromDate">From Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPositionTypeRate.thruDate">Thru Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPositionTypeRate.rateType">Rate Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPositionTypeRate.emplPositionType">Empl Position Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPositionTypeRate.payGrade">Pay Grade</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emplPositionTypeRate of emplPositionTypeRates ;trackBy: trackId">
+                    <td><a [routerLink]="['/empl-position-type-rate', emplPositionTypeRate.id, 'view']">{{ emplPositionTypeRate.id }}</a></td>
+                    <td>{{ emplPositionTypeRate.rateAmount }}</td>
+                    <td>{{ emplPositionTypeRate.fromDate | date:'mediumDate' }}</td>
+                    <td>{{ emplPositionTypeRate.thruDate | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="emplPositionTypeRate.rateType">
+                            <a [routerLink]="['/rate-type', emplPositionTypeRate.rateType?.id, 'view']" >{{ emplPositionTypeRate.rateType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emplPositionTypeRate.emplPositionType">
+                            <a [routerLink]="['/empl-position-type', emplPositionTypeRate.emplPositionType?.id, 'view']" >{{ emplPositionTypeRate.emplPositionType?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emplPositionTypeRate.payGrade">
+                            <a [routerLink]="['/pay-grade', emplPositionTypeRate.payGrade?.id, 'view']" >{{ emplPositionTypeRate.payGrade?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/empl-position-type-rate', emplPositionTypeRate.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/empl-position-type-rate', emplPositionTypeRate.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(emplPositionTypeRate)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

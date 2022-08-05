@@ -1,0 +1,51 @@
+{
+  "name": "EmplPositionTypeRate",
+  "fields": [
+    {
+      "fieldName": "rateAmount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "fromDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "rateType",
+      "otherEntityRelationshipName": "emplPositionTypeRate",
+      "relationshipName": "rateType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "emplPositionType",
+      "otherEntityRelationshipName": "emplPositionTypeRate",
+      "relationshipName": "emplPositionType",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "payGrade",
+      "otherEntityRelationshipName": "emplPositionTypeRate",
+      "relationshipName": "payGrade",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805155249",
+  "entityTableName": "empl_position_type_rate",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

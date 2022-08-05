@@ -1,0 +1,68 @@
+{
+  "name": "JobInterview",
+  "fields": [
+    {
+      "fieldName": "remarks",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "interviewDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "jobInterview",
+      "relationshipName": "interviewee",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "jobInterview",
+      "relationshipName": "interviewer",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "jobInterviewType",
+      "otherEntityRelationshipName": "jobInterview",
+      "relationshipName": "type",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "jobRequisition",
+      "otherEntityRelationshipName": "jobInterview",
+      "relationshipName": "jobRequisition",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "interviewGrade",
+      "otherEntityRelationshipName": "jobInterview",
+      "relationshipName": "gradeSecured",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "interviewResult",
+      "otherEntityRelationshipName": "jobInterview",
+      "relationshipName": "result",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20220805160449",
+  "entityTableName": "job_interview",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

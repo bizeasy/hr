@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "payGrade": {
+      "home": {
+        "title": "PayGrades",
+        "createLabel": "नया Pay Grade बनाएँ",
+        "createOrEditLabel": "Pay Grade बनाएँ या संपादित करें",
+        "notFound": "No Pay Grades found"
+      },
+      "created": "एक नया Pay Grade [identifier: {{ param }}] तैयार है",
+      "updated": "एक Pay Grade [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Pay Grade [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Pay Grade [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Pay Grade"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

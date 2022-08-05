@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productStoreFacility">
+            <h2><span jhiTranslate="hrApp.productStoreFacility.detail.title">Product Store Facility</span> {{ productStoreFacility.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.productStoreFacility.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ productStoreFacility.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStoreFacility.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ productStoreFacility.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStoreFacility.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ productStoreFacility.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStoreFacility.productStore">Product Store</span></dt>
+                <dd>
+                    <div *ngIf="productStoreFacility.productStore">
+                        <a [routerLink]="['/product-store', productStoreFacility.productStore?.id, 'view']">{{ productStoreFacility.productStore?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productStoreFacility.facility">Facility</span></dt>
+                <dd>
+                    <div *ngIf="productStoreFacility.facility">
+                        <a [routerLink]="['/facility', productStoreFacility.facility?.id, 'view']">{{ productStoreFacility.facility?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-store-facility', productStoreFacility.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

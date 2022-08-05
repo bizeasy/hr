@@ -1,0 +1,40 @@
+{
+  "hrApp": {
+    "workEffort": {
+      "home": {
+        "title": "WorkEfforts",
+        "createLabel": "नया Work Effort बनाएँ",
+        "createOrEditLabel": "Work Effort बनाएँ या संपादित करें",
+        "notFound": "No Work Efforts found"
+      },
+      "created": "एक नया Work Effort [identifier: {{ param }}] तैयार है",
+      "updated": "एक Work Effort [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Work Effort [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Work Effort [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Work Effort"
+      },
+      "name": "Name",
+      "description": "Description",
+      "code": "Code",
+      "batchSize": "Batch Size",
+      "minYieldRange": "Min Yield Range",
+      "maxYieldRange": "Max Yield Range",
+      "percentComplete": "Percent Complete",
+      "validationType": "Validation Type",
+      "shelfLife": "Shelf Life",
+      "outputQty": "Output Qty",
+      "product": "Product",
+      "ksm": "Ksm",
+      "type": "Type",
+      "purpose": "Purpose",
+      "status": "Status",
+      "facility": "Facility",
+      "shelfListUom": "Shelf List Uom",
+      "productCategory": "Product Category",
+      "productStore": "Product Store"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "workEffortPurpose": {
+      "home": {
+        "title": "Work Effort Purposes",
+        "createLabel": "కొత్త Work Effort Purpose  సృష్టించండి",
+        "createOrEditLabel": "Work Effort Purpose సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Work Effort Purposes found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Purpose సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Purpose సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Work Effort Purpose తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Work Effort Purpose {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Work Effort Purpose"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employmentAppSourceType">
+            <h2><span jhiTranslate="hrApp.employmentAppSourceType.detail.title">Employment App Source Type</span> {{ employmentAppSourceType.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.employmentAppSourceType.name">Name</span></dt>
+                <dd>
+                    <span>{{ employmentAppSourceType.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.employmentAppSourceType.description">Description</span></dt>
+                <dd>
+                    <span>{{ employmentAppSourceType.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employment-app-source-type', employmentAppSourceType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="sys-contact-mech-heading" jhiTranslate="hrApp.contactMech.home.createOrEditLabel">Create or edit a Contact Mech</h2>
+
+            <div>
+                <sys-alert-error></sys-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.contactMech.infoString" for="field_infoString">Info String</label>
+                    <input type="text" class="form-control" name="infoString" id="field_infoString"
+                           formControlName="infoString"/>
+                    <div *ngIf="editForm.get('infoString')!.invalid && (editForm.get('infoString')!.dirty || editForm.get('infoString')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('infoString')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hrApp.contactMech.contactMechType" for="field_contactMechType">Contact Mech Type</label>
+                    <select class="form-control" id="field_contactMechType" name="contactMechType" formControlName="contactMechType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactMechTypeOption.id === editForm.get('contactMechType')!.value?.id ? editForm.get('contactMechType')!.value : contactMechTypeOption" *ngFor="let contactMechTypeOption of contactmechtypes; trackBy: trackById">{{ contactMechTypeOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

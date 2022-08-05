@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity JobRequisition.
+    -->
+    <changeSet id="20220805155749-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="qualificiation_id"
+                                 baseTableName="job_requisition"
+                                 constraintName="fk_job_requisition_qualificiation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="qualification"/>
+
+        <addForeignKeyConstraint baseColumnNames="skill_type_id"
+                                 baseTableName="job_requisition"
+                                 constraintName="fk_job_requisition_skill_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="skill_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="job_location_id"
+                                 baseTableName="job_requisition"
+                                 constraintName="fk_job_requisition_job_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="geo"/>
+
+        <addForeignKeyConstraint baseColumnNames="exam_type_id"
+                                 baseTableName="job_requisition"
+                                 constraintName="fk_job_requisition_exam_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exam_type"/>
+
+    </changeSet>
+</databaseChangeLog>

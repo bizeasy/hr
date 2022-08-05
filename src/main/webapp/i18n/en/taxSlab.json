@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "taxSlab": {
+      "home": {
+        "title": "Tax Slabs",
+        "createLabel": "Create a new Tax Slab",
+        "createOrEditLabel": "Create or edit a Tax Slab",
+        "notFound": "No Tax Slabs found"
+      },
+      "created": "A new Tax Slab is created with identifier {{ param }}",
+      "updated": "A Tax Slab is updated with identifier {{ param }}",
+      "deleted": "A Tax Slab is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tax Slab {{ id }}?"
+      },
+      "detail": {
+        "title": "Tax Slab"
+      },
+      "name": "Name",
+      "rate": "Rate"
+    }
+  }
+}

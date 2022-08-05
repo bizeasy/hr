@@ -1,0 +1,105 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.inventoryTransfer.home.title">Inventory Transfers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventory-transfer" [routerLink]="['/inventory-transfer/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.inventoryTransfer.home.createLabel">
+            Create a new Inventory Transfer
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="inventoryTransfers?.length === 0">
+        <span jhiTranslate="hrApp.inventoryTransfer.home.notFound">No inventoryTransfers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="inventoryTransfers && inventoryTransfers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sentDate"><span jhiTranslate="hrApp.inventoryTransfer.sentDate">Sent Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="receivedDate"><span jhiTranslate="hrApp.inventoryTransfer.receivedDate">Received Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="comments"><span jhiTranslate="hrApp.inventoryTransfer.comments">Comments</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status.name"><span jhiTranslate="hrApp.inventoryTransfer.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inventoryItem.id"><span jhiTranslate="hrApp.inventoryTransfer.inventoryItem">Inventory Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facility.name"><span jhiTranslate="hrApp.inventoryTransfer.facility">Facility</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facilityTo.name"><span jhiTranslate="hrApp.inventoryTransfer.facilityTo">Facility To</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="issuance.id"><span jhiTranslate="hrApp.inventoryTransfer.issuance">Issuance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventoryTransfer of inventoryTransfers ;trackBy: trackId">
+                    <td><a [routerLink]="['/inventory-transfer', inventoryTransfer.id, 'view']">{{ inventoryTransfer.id }}</a></td>
+                    <td>{{ inventoryTransfer.sentDate | date:'medium' }}</td>
+                    <td>{{ inventoryTransfer.receivedDate | date:'medium' }}</td>
+                    <td>{{ inventoryTransfer.comments }}</td>
+                    <td>
+                        <div *ngIf="inventoryTransfer.status">
+                            <a [routerLink]="['/status', inventoryTransfer.status?.id, 'view']" >{{ inventoryTransfer.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryTransfer.inventoryItem">
+                            <a [routerLink]="['/inventory-item', inventoryTransfer.inventoryItem?.id, 'view']" >{{ inventoryTransfer.inventoryItem?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryTransfer.facility">
+                            <a [routerLink]="['/facility', inventoryTransfer.facility?.id, 'view']" >{{ inventoryTransfer.facility?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryTransfer.facilityTo">
+                            <a [routerLink]="['/facility', inventoryTransfer.facilityTo?.id, 'view']" >{{ inventoryTransfer.facilityTo?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inventoryTransfer.issuance">
+                            <a [routerLink]="['/item-issuance', inventoryTransfer.issuance?.id, 'view']" >{{ inventoryTransfer.issuance?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/inventory-transfer', inventoryTransfer.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/inventory-transfer', inventoryTransfer.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(inventoryTransfer)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="inventoryTransfers && inventoryTransfers.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

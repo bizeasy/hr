@@ -1,0 +1,40 @@
+{
+  "name": "OrderItemBilling",
+  "fields": [
+    {
+      "fieldName": "quantity",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "orderItem",
+      "otherEntityRelationshipName": "orderItemBilling",
+      "relationshipName": "orderItem",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invoiceItem",
+      "otherEntityRelationshipName": "orderItemBilling",
+      "relationshipName": "invoiceItem",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220805144249",
+  "entityTableName": "order_item_billing",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["hr"]
+}

@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "productFacility": {
+      "home": {
+        "title": "ProductFacilities",
+        "createLabel": "नया Product Facility बनाएँ",
+        "createOrEditLabel": "Product Facility बनाएँ या संपादित करें",
+        "notFound": "No Product Facilities found"
+      },
+      "created": "एक नया Product Facility [identifier: {{ param }}] तैयार है",
+      "updated": "एक Product Facility [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Product Facility [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Product Facility [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Product Facility"
+      },
+      "minimumStock": "Minimum Stock",
+      "reorderQty": "Reorder Qty",
+      "daysToShip": "Days To Ship",
+      "lastInventoryCount": "Last Inventory Count",
+      "product": "Product",
+      "facility": "Facility"
+    }
+  }
+}

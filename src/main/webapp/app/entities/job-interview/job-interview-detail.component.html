@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="jobInterview">
+            <h2><span jhiTranslate="hrApp.jobInterview.detail.title">Job Interview</span> {{ jobInterview.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.jobInterview.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{ jobInterview.remarks }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobInterview.interviewDate">Interview Date</span></dt>
+                <dd>
+                    <span>{{ jobInterview.interviewDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobInterview.interviewee">Interviewee</span></dt>
+                <dd>
+                    <div *ngIf="jobInterview.interviewee">
+                        <a [routerLink]="['/party', jobInterview.interviewee?.id, 'view']">{{ jobInterview.interviewee?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobInterview.interviewer">Interviewer</span></dt>
+                <dd>
+                    <div *ngIf="jobInterview.interviewer">
+                        <a [routerLink]="['/party', jobInterview.interviewer?.id, 'view']">{{ jobInterview.interviewer?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobInterview.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="jobInterview.type">
+                        <a [routerLink]="['/job-interview-type', jobInterview.type?.id, 'view']">{{ jobInterview.type?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobInterview.jobRequisition">Job Requisition</span></dt>
+                <dd>
+                    <div *ngIf="jobInterview.jobRequisition">
+                        <a [routerLink]="['/job-requisition', jobInterview.jobRequisition?.id, 'view']">{{ jobInterview.jobRequisition?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobInterview.gradeSecured">Grade Secured</span></dt>
+                <dd>
+                    <div *ngIf="jobInterview.gradeSecured">
+                        <a [routerLink]="['/interview-grade', jobInterview.gradeSecured?.id, 'view']">{{ jobInterview.gradeSecured?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.jobInterview.result">Result</span></dt>
+                <dd>
+                    <div *ngIf="jobInterview.result">
+                        <a [routerLink]="['/interview-result', jobInterview.result?.id, 'view']">{{ jobInterview.result?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/job-interview', jobInterview.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

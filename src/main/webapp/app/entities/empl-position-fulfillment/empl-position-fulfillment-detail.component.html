@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emplPositionFulfillment">
+            <h2><span jhiTranslate="hrApp.emplPositionFulfillment.detail.title">Empl Position Fulfillment</span> {{ emplPositionFulfillment.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.emplPositionFulfillment.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{ emplPositionFulfillment.fromDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionFulfillment.thruDate">Thru Date</span></dt>
+                <dd>
+                    <span>{{ emplPositionFulfillment.thruDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionFulfillment.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ emplPositionFulfillment.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionFulfillment.emplPosition">Empl Position</span></dt>
+                <dd>
+                    <div *ngIf="emplPositionFulfillment.emplPosition">
+                        <a [routerLink]="['/empl-position', emplPositionFulfillment.emplPosition?.id, 'view']">{{ emplPositionFulfillment.emplPosition?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionFulfillment.party">Party</span></dt>
+                <dd>
+                    <div *ngIf="emplPositionFulfillment.party">
+                        <a [routerLink]="['/party', emplPositionFulfillment.party?.id, 'view']">{{ emplPositionFulfillment.party?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionFulfillment.reportingTo">Reporting To</span></dt>
+                <dd>
+                    <div *ngIf="emplPositionFulfillment.reportingTo">
+                        <a [routerLink]="['/party', emplPositionFulfillment.reportingTo?.id, 'view']">{{ emplPositionFulfillment.reportingTo?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.emplPositionFulfillment.managedBy">Managed By</span></dt>
+                <dd>
+                    <div *ngIf="emplPositionFulfillment.managedBy">
+                        <a [routerLink]="['/party', emplPositionFulfillment.managedBy?.id, 'view']">{{ emplPositionFulfillment.managedBy?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empl-position-fulfillment', emplPositionFulfillment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

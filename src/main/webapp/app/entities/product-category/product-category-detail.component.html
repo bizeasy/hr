@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productCategory">
+            <h2><span jhiTranslate="hrApp.productCategory.detail.title">Product Category</span> {{ productCategory.id }}</h2>
+
+            <hr>
+
+            <sys-alert-error></sys-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hrApp.productCategory.name">Name</span></dt>
+                <dd>
+                    <span>{{ productCategory.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategory.description">Description</span></dt>
+                <dd>
+                    <span>{{ productCategory.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategory.longDescription">Long Description</span></dt>
+                <dd>
+                    <span>{{ productCategory.longDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategory.attribute">Attribute</span></dt>
+                <dd>
+                    <span>{{ productCategory.attribute }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategory.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ productCategory.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategory.imageUrl">Image Url</span></dt>
+                <dd>
+                    <span>{{ productCategory.imageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategory.altImageUrl">Alt Image Url</span></dt>
+                <dd>
+                    <span>{{ productCategory.altImageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategory.info">Info</span></dt>
+                <dd>
+                    <span>{{ productCategory.info }}</span>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategory.productCategoryType">Product Category Type</span></dt>
+                <dd>
+                    <div *ngIf="productCategory.productCategoryType">
+                        <a [routerLink]="['/product-category-type', productCategory.productCategoryType?.id, 'view']">{{ productCategory.productCategoryType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hrApp.productCategory.parent">Parent</span></dt>
+                <dd>
+                    <div *ngIf="productCategory.parent">
+                        <a [routerLink]="['/product-category', productCategory.parent?.id, 'view']">{{ productCategory.parent?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-category', productCategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

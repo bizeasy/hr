@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "workEffortType": {
+      "home": {
+        "title": "Work Effort Types",
+        "createLabel": "Create a new Work Effort Type",
+        "createOrEditLabel": "Create or edit a Work Effort Type",
+        "notFound": "No Work Effort Types found"
+      },
+      "created": "A new Work Effort Type is created with identifier {{ param }}",
+      "updated": "A Work Effort Type is updated with identifier {{ param }}",
+      "deleted": "A Work Effort Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Effort Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Effort Type"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

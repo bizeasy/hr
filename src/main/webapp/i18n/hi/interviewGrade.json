@@ -1,0 +1,23 @@
+{
+  "hrApp": {
+    "interviewGrade": {
+      "home": {
+        "title": "InterviewGrades",
+        "createLabel": "नया Interview Grade बनाएँ",
+        "createOrEditLabel": "Interview Grade बनाएँ या संपादित करें",
+        "notFound": "No Interview Grades found"
+      },
+      "created": "एक नया Interview Grade [identifier: {{ param }}] तैयार है",
+      "updated": "एक Interview Grade [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Interview Grade [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Interview Grade [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Interview Grade"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "hrApp": {
+    "partyResume": {
+      "home": {
+        "title": "Party Resumes",
+        "createLabel": "Create a new Party Resume",
+        "createOrEditLabel": "Create or edit a Party Resume",
+        "notFound": "No Party Resumes found"
+      },
+      "created": "A new Party Resume is created with identifier {{ param }}",
+      "updated": "A Party Resume is updated with identifier {{ param }}",
+      "deleted": "A Party Resume is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Party Resume {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Resume"
+      },
+      "text": "Text",
+      "resumeDate": "Resume Date",
+      "fileAttachment": "File Attachment",
+      "attachmentUrl": "Attachment Url",
+      "mimeType": "Mime Type",
+      "party": "Party"
+    }
+  }
+}

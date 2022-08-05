@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hrApp.emplPosition.home.title">Empl Positions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-empl-position" [routerLink]="['/empl-position/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hrApp.emplPosition.home.createLabel">
+            Create a new Empl Position
+            </span>
+        </button>
+    </h2>
+
+    <sys-alert-error></sys-alert-error>
+
+    <sys-alert></sys-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="emplPositions?.length === 0">
+        <span jhiTranslate="hrApp.emplPosition.home.notFound">No emplPositions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="emplPositions && emplPositions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.maxBudget">Max Budget</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.minBudget">Min Budget</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.estimatedFromDate">Estimated From Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.estimatedThruDate">Estimated Thru Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.paidJob">Paid Job</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.isFulltime">Is Fulltime</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.isTemporary">Is Temporary</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.actualFromDate">Actual From Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.actualThruDate">Actual Thru Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.party">Party</span></th>
+                    <th scope="col" ><span jhiTranslate="hrApp.emplPosition.status">Status</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emplPosition of emplPositions ;trackBy: trackId">
+                    <td><a [routerLink]="['/empl-position', emplPosition.id, 'view']">{{ emplPosition.id }}</a></td>
+                    <td>{{ emplPosition.maxBudget }}</td>
+                    <td>{{ emplPosition.minBudget }}</td>
+                    <td>{{ emplPosition.estimatedFromDate | date:'mediumDate' }}</td>
+                    <td>{{ emplPosition.estimatedThruDate | date:'mediumDate' }}</td>
+                    <td>{{ emplPosition.paidJob }}</td>
+                    <td>{{ emplPosition.isFulltime }}</td>
+                    <td>{{ emplPosition.isTemporary }}</td>
+                    <td>{{ emplPosition.actualFromDate | date:'mediumDate' }}</td>
+                    <td>{{ emplPosition.actualThruDate | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="emplPosition.type">
+                            <a [routerLink]="['/empl-position-type', emplPosition.type?.id, 'view']" >{{ emplPosition.type?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emplPosition.party">
+                            <a [routerLink]="['/party', emplPosition.party?.id, 'view']" >{{ emplPosition.party?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emplPosition.status">
+                            <a [routerLink]="['/status', emplPosition.status?.id, 'view']" >{{ emplPosition.status?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/empl-position', emplPosition.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/empl-position', emplPosition.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(emplPosition)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

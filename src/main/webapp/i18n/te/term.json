@@ -1,0 +1,28 @@
+{
+  "hrApp": {
+    "term": {
+      "home": {
+        "title": "Terms",
+        "createLabel": "కొత్త Term  సృష్టించండి",
+        "createOrEditLabel": "Term సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Terms found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Term సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Term సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Term తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Term {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Term"
+      },
+      "name": "Name",
+      "description": "Description",
+      "termDetail": "Term Detail",
+      "termValue": "Term Value",
+      "termDays": "Term Days",
+      "textValue": "Text Value",
+      "termType": "Term Type"
+    }
+  }
+}

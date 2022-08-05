@@ -1,0 +1,29 @@
+{
+  "hrApp": {
+    "employment": {
+      "home": {
+        "title": "Employments",
+        "createLabel": "नया Employment बनाएँ",
+        "createOrEditLabel": "Employment बनाएँ या संपादित करें",
+        "notFound": "No Employments found"
+      },
+      "created": "एक नया Employment [identifier: {{ param }}] तैयार है",
+      "updated": "एक Employment [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Employment [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Employment [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Employment"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "terminationReason": "Termination Reason",
+      "terminationType": "Termination Type",
+      "employee": "Employee",
+      "fromParty": "From Party",
+      "roleTypeFrom": "Role Type From",
+      "roleTypeTo": "Role Type To"
+    }
+  }
+}

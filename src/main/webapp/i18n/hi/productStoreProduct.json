@@ -1,0 +1,26 @@
+{
+  "hrApp": {
+    "productStoreProduct": {
+      "home": {
+        "title": "ProductStoreProducts",
+        "createLabel": "नया Product Store Product बनाएँ",
+        "createOrEditLabel": "Product Store Product बनाएँ या संपादित करें",
+        "notFound": "No Product Store Products found"
+      },
+      "created": "एक नया Product Store Product [identifier: {{ param }}] तैयार है",
+      "updated": "एक Product Store Product [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Product Store Product [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Product Store Product [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Product Store Product"
+      },
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "sequenceNo": "Sequence No",
+      "productStore": "Product Store",
+      "product": "Product"
+    }
+  }
+}
