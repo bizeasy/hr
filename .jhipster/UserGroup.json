@@ -15,7 +15,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805154149",
+  "changelogDate": "20220808085703",
   "entityTableName": "user_group",
   "dto": "no",
   "pagination": "pagination",

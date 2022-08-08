@@ -34,7 +34,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805150449",
+  "changelogDate": "20220808082003",
   "entityTableName": "product_facility",
   "dto": "no",
   "pagination": "pagination",

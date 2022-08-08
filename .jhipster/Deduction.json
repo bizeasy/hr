@@ -15,7 +15,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805161449",
+  "changelogDate": "20220808093003",
   "entityTableName": "deduction",
   "dto": "no",
   "pagination": "no",

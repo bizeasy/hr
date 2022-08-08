@@ -54,7 +54,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805160449",
+  "changelogDate": "20220808092003",
   "entityTableName": "job_interview",
   "dto": "no",
   "pagination": "no",

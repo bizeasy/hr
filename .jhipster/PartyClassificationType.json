@@ -15,7 +15,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805144849",
+  "changelogDate": "20220808080403",
   "entityTableName": "party_classification_type",
   "dto": "no",
   "pagination": "no",

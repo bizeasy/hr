@@ -15,7 +15,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805142649",
+  "changelogDate": "20220808074203",
   "entityTableName": "invoice_item_type",
   "dto": "no",
   "pagination": "no",

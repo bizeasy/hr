@@ -49,7 +49,7 @@
                 <dt><span jhiTranslate="hrApp.employment.roleTypeTo">Role Type To</span></dt>
                 <dd>
                     <div *ngIf="employment.roleTypeTo">
-                        <a [routerLink]="['/party', employment.roleTypeTo?.id, 'view']">{{ employment.roleTypeTo?.name }}</a>
+                        <a [routerLink]="['/role-type', employment.roleTypeTo?.id, 'view']">{{ employment.roleTypeTo?.name }}</a>
                     </div>
                 </dd>
             </dl>

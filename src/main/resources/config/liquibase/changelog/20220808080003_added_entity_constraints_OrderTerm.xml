@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity OrderTerm.
+    -->
+    <changeSet id="20220808080003-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="order_id"
+                                 baseTableName="order_term"
+                                 constraintName="fk_order_term_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sys_order"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_id"
+                                 baseTableName="order_term"
+                                 constraintName="fk_order_term_item_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="order_item"/>
+
+        <addForeignKeyConstraint baseColumnNames="term_id"
+                                 baseTableName="order_term"
+                                 constraintName="fk_order_term_term_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="term"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_id"
+                                 baseTableName="order_term"
+                                 constraintName="fk_order_term_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="order_term_type"/>
+
+    </changeSet>
+</databaseChangeLog>

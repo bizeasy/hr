@@ -60,7 +60,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805150249",
+  "changelogDate": "20220808081803",
   "entityTableName": "product_price",
   "dto": "no",
   "pagination": "pagination",

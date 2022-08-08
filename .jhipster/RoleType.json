@@ -23,7 +23,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805151749",
+  "changelogDate": "20220808083303",
   "entityTableName": "role_type",
   "dto": "no",
   "pagination": "no",

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Invoice.
+    -->
+    <changeSet id="20220808074103-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="invoice_type_id"
+                                 baseTableName="invoice"
+                                 constraintName="fk_invoice_invoice_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="invoice_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="party_id_from_id"
+                                 baseTableName="invoice"
+                                 constraintName="fk_invoice_party_id_from_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="party_id_to_id"
+                                 baseTableName="invoice"
+                                 constraintName="fk_invoice_party_id_to_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="role_type_id"
+                                 baseTableName="invoice"
+                                 constraintName="fk_invoice_role_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="role_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="invoice"
+                                 constraintName="fk_invoice_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_mech_id"
+                                 baseTableName="invoice"
+                                 constraintName="fk_invoice_contact_mech_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_mech"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -13,7 +13,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805153849",
+  "changelogDate": "20220808085403",
   "entityTableName": "tax_slab",
   "dto": "no",
   "pagination": "no",

@@ -45,7 +45,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805161249",
+  "changelogDate": "20220808092803",
   "entityTableName": "custom_time_period",
   "dto": "no",
   "pagination": "no",

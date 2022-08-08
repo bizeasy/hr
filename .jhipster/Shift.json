@@ -23,7 +23,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805161849",
+  "changelogDate": "20220808093403",
   "entityTableName": "shift",
   "dto": "no",
   "pagination": "no",

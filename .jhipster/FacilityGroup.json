@@ -30,7 +30,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805141149",
+  "changelogDate": "20220808072703",
   "entityTableName": "facility_group",
   "dto": "no",
   "pagination": "no",

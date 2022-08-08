@@ -37,7 +37,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805152749",
+  "changelogDate": "20220808084303",
   "entityTableName": "work_effort_assoc",
   "dto": "no",
   "pagination": "pagination",

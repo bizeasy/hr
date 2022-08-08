@@ -48,13 +48,13 @@
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "party",
+      "otherEntityName": "roleType",
       "otherEntityRelationshipName": "employment",
       "relationshipName": "roleTypeTo",
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805135549",
+  "changelogDate": "20220808071103",
   "entityTableName": "employment",
   "dto": "no",
   "pagination": "no",

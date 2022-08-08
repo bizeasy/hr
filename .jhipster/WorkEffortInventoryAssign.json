@@ -29,7 +29,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805152849",
+  "changelogDate": "20220808084403",
   "entityTableName": "work_effort_inventory_assign",
   "dto": "no",
   "pagination": "pagination",

@@ -57,7 +57,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805145649",
+  "changelogDate": "20220808081203",
   "entityTableName": "product_category",
   "dto": "no",
   "pagination": "pagination",

@@ -23,7 +23,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805154649",
+  "changelogDate": "20220808090203",
   "entityTableName": "empl_position_type",
   "dto": "no",
   "pagination": "no",

@@ -13,7 +13,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805160949",
+  "changelogDate": "20220808092503",
   "entityTableName": "perf_review_item_type",
   "dto": "no",
   "pagination": "no",

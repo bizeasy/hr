@@ -37,7 +37,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805160849",
+  "changelogDate": "20220808092403",
   "entityTableName": "perf_review",
   "dto": "no",
   "pagination": "no",

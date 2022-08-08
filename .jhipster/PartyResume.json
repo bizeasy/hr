@@ -32,7 +32,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805160649",
+  "changelogDate": "20220808092203",
   "entityTableName": "party_resume",
   "dto": "no",
   "pagination": "no",

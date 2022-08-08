@@ -15,7 +15,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805135849",
+  "changelogDate": "20220808071403",
   "entityTableName": "contact_mech_type",
   "dto": "no",
   "pagination": "no",

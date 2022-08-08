@@ -33,7 +33,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805145349",
+  "changelogDate": "20220808080903",
   "entityTableName": "party_contact_mech",
   "dto": "no",
   "pagination": "pagination",

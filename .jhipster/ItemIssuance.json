@@ -91,7 +91,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805143049",
+  "changelogDate": "20220808074603",
   "entityTableName": "item_issuance",
   "dto": "no",
   "pagination": "pagination",

@@ -38,7 +38,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805143149",
+  "changelogDate": "20220808074703",
   "entityTableName": "inventory_item_variance",
   "dto": "no",
   "pagination": "pagination",

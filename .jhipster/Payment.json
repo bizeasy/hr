@@ -111,7 +111,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805150849",
+  "changelogDate": "20220808082403",
   "entityTableName": "payment",
   "dto": "no",
   "pagination": "pagination",

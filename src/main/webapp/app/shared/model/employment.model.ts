@@ -13,7 +13,7 @@ export interface IEmployment {
   employee?: IParty;
   fromParty?: IParty;
   roleTypeFrom?: IRoleType;
-  roleTypeTo?: IParty;
+  roleTypeTo?: IRoleType;
 }
 
 export class Employment implements IEmployment {
@@ -26,6 +26,6 @@ export class Employment implements IEmployment {
     public employee?: IParty,
     public fromParty?: IParty,
     public roleTypeFrom?: IRoleType,
-    public roleTypeTo?: IParty
+    public roleTypeTo?: IRoleType
   ) {}
 }

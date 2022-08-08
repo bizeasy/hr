@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity FacilityContactMech.
+    -->
+    <changeSet id="20220808073203-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="facility_id"
+                                 baseTableName="facility_contact_mech"
+                                 constraintName="fk_facility_contact_mech_facility_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="facility"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_mech_id"
+                                 baseTableName="facility_contact_mech"
+                                 constraintName="fk_facility_contact_mech_contact_mech_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_mech"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_mech_purpose_id"
+                                 baseTableName="facility_contact_mech"
+                                 constraintName="fk_facility_contact_mech_contact_mech_purpose_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_mech_purpose"/>
+
+    </changeSet>
+</databaseChangeLog>

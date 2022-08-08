@@ -38,7 +38,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805150749",
+  "changelogDate": "20220808082303",
   "entityTableName": "payment_method",
   "dto": "no",
   "pagination": "no",

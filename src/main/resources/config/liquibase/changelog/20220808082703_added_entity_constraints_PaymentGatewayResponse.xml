@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PaymentGatewayResponse.
+    -->
+    <changeSet id="20220808082703-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="payment_method_type_id"
+                                 baseTableName="payment_gateway_response"
+                                 constraintName="fk_payment_gateway_response_payment_method_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_method_type"/>
+
+    </changeSet>
+</databaseChangeLog>

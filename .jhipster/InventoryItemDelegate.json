@@ -90,7 +90,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805142949",
+  "changelogDate": "20220808074503",
   "entityTableName": "inventory_item_delegate",
   "dto": "no",
   "pagination": "pagination",

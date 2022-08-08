@@ -32,7 +32,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805151649",
+  "changelogDate": "20220808083203",
   "entityTableName": "product_store_user_group",
   "dto": "no",
   "pagination": "pagination",

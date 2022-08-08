@@ -109,7 +109,7 @@
       "otherEntityField": "login"
     }
   ],
-  "changelogDate": "20220805141249",
+  "changelogDate": "20220808072803",
   "entityTableName": "facility",
   "dto": "no",
   "pagination": "pagination",

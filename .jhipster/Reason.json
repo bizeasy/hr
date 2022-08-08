@@ -23,7 +23,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805151949",
+  "changelogDate": "20220808083503",
   "entityTableName": "reason",
   "dto": "no",
   "pagination": "pagination",

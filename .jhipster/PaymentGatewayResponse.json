@@ -25,7 +25,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805151149",
+  "changelogDate": "20220808082703",
   "entityTableName": "payment_gateway_response",
   "dto": "no",
   "pagination": "no",

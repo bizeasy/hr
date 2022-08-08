@@ -25,7 +25,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805161149",
+  "changelogDate": "20220808092703",
   "entityTableName": "period_type",
   "dto": "no",
   "pagination": "no",

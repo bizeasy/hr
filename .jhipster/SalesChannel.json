@@ -19,7 +19,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805153549",
+  "changelogDate": "20220808085103",
   "entityTableName": "sales_channel",
   "dto": "no",
   "pagination": "no",

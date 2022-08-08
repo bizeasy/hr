@@ -39,7 +39,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805140149",
+  "changelogDate": "20220808071703",
   "entityTableName": "catalogue",
   "dto": "no",
   "pagination": "pagination",

@@ -44,7 +44,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805154849",
+  "changelogDate": "20220808090403",
   "entityTableName": "empl_position_fulfillment",
   "dto": "no",
   "pagination": "no",

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity WorkEffortAssoc.
+    -->
+    <changeSet id="20220808084303-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="type_id"
+                                 baseTableName="work_effort_assoc"
+                                 constraintName="fk_work_effort_assoc_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_effort_assoc_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="we_id_from_id"
+                                 baseTableName="work_effort_assoc"
+                                 constraintName="fk_work_effort_assoc_we_id_from_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_effort"/>
+
+        <addForeignKeyConstraint baseColumnNames="we_id_to_id"
+                                 baseTableName="work_effort_assoc"
+                                 constraintName="fk_work_effort_assoc_we_id_to_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_effort"/>
+
+    </changeSet>
+</databaseChangeLog>

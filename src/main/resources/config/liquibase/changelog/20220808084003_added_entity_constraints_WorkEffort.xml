@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity WorkEffort.
+    -->
+    <changeSet id="20220808084003-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="work_effort"
+                                 constraintName="fk_work_effort_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
+        <addForeignKeyConstraint baseColumnNames="ksm_id"
+                                 baseTableName="work_effort"
+                                 constraintName="fk_work_effort_ksm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_id"
+                                 baseTableName="work_effort"
+                                 constraintName="fk_work_effort_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_effort_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="purpose_id"
+                                 baseTableName="work_effort"
+                                 constraintName="fk_work_effort_purpose_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_effort_purpose"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="work_effort"
+                                 constraintName="fk_work_effort_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+        <addForeignKeyConstraint baseColumnNames="facility_id"
+                                 baseTableName="work_effort"
+                                 constraintName="fk_work_effort_facility_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="facility"/>
+
+        <addForeignKeyConstraint baseColumnNames="shelf_list_uom_id"
+                                 baseTableName="work_effort"
+                                 constraintName="fk_work_effort_shelf_list_uom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+        <addForeignKeyConstraint baseColumnNames="product_category_id"
+                                 baseTableName="work_effort"
+                                 constraintName="fk_work_effort_product_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_category"/>
+
+        <addForeignKeyConstraint baseColumnNames="product_store_id"
+                                 baseTableName="work_effort"
+                                 constraintName="fk_work_effort_product_store_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_store"/>
+
+    </changeSet>
+</databaseChangeLog>

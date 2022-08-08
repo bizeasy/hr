@@ -50,7 +50,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805150949",
+  "changelogDate": "20220808082503",
   "entityTableName": "payment_application",
   "dto": "no",
   "pagination": "pagination",

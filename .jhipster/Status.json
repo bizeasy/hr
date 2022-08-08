@@ -33,7 +33,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805153349",
+  "changelogDate": "20220808084903",
   "entityTableName": "status",
   "dto": "no",
   "pagination": "pagination",

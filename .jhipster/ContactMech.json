@@ -17,7 +17,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805135949",
+  "changelogDate": "20220808071503",
   "entityTableName": "contact_mech",
   "dto": "no",
   "pagination": "pagination",

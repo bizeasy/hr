@@ -27,7 +27,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805162149",
+  "changelogDate": "20220808093703",
   "entityTableName": "public_holidays",
   "dto": "no",
   "pagination": "no",

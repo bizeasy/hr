@@ -33,7 +33,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805141649",
+  "changelogDate": "20220808073203",
   "entityTableName": "facility_contact_mech",
   "dto": "no",
   "pagination": "pagination",

@@ -75,7 +75,7 @@
                     <label class="form-control-label" jhiTranslate="hrApp.employment.roleTypeTo" for="field_roleTypeTo">Role Type To</label>
                     <select class="form-control" id="field_roleTypeTo" name="roleTypeTo" formControlName="roleTypeTo">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="partyOption.id === editForm.get('roleTypeTo')!.value?.id ? editForm.get('roleTypeTo')!.value : partyOption" *ngFor="let partyOption of parties; trackBy: trackById">{{ partyOption.name }}</option>
+                        <option [ngValue]="roleTypeOption.id === editForm.get('roleTypeTo')!.value?.id ? editForm.get('roleTypeTo')!.value : roleTypeOption" *ngFor="let roleTypeOption of roletypes; trackBy: trackById">{{ roleTypeOption.name }}</option>
                     </select>
                 </div>
             </div>

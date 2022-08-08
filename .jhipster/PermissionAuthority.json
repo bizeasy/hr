@@ -7,7 +7,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805145249",
+  "changelogDate": "20220808080803",
   "entityTableName": "permission_authority",
   "dto": "no",
   "pagination": "pagination",

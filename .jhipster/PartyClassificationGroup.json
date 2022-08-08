@@ -23,7 +23,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805144949",
+  "changelogDate": "20220808080503",
   "entityTableName": "party_classification_group",
   "dto": "no",
   "pagination": "no",

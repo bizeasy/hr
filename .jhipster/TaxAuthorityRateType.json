@@ -30,7 +30,7 @@
       "otherEntityField": "rate"
     }
   ],
-  "changelogDate": "20220805153749",
+  "changelogDate": "20220808085303",
   "entityTableName": "tax_authority_rate_type",
   "dto": "no",
   "pagination": "no",

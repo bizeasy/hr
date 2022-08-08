@@ -15,7 +15,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805153249",
+  "changelogDate": "20220808084803",
   "entityTableName": "status_category",
   "dto": "no",
   "pagination": "pagination",

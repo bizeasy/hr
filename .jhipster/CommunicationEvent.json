@@ -94,7 +94,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805140549",
+  "changelogDate": "20220808072103",
   "entityTableName": "communication_event",
   "dto": "no",
   "pagination": "no",

@@ -19,7 +19,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805140449",
+  "changelogDate": "20220808072003",
   "entityTableName": "communication_event_type",
   "dto": "no",
   "pagination": "no",

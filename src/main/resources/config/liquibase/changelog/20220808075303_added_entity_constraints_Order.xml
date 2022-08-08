@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Order.
+    -->
+    <changeSet id="20220808075303-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="order_type_id"
+                                 baseTableName="sys_order"
+                                 constraintName="fk_sys_order_order_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="order_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="sales_channel_id"
+                                 baseTableName="sys_order"
+                                 constraintName="fk_sys_order_sales_channel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sales_channel"/>
+
+        <addForeignKeyConstraint baseColumnNames="party_id"
+                                 baseTableName="sys_order"
+                                 constraintName="fk_sys_order_party_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="sys_order"
+                                 constraintName="fk_sys_order_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+    </changeSet>
+</databaseChangeLog>

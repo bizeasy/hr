@@ -53,7 +53,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805143249",
+  "changelogDate": "20220808074803",
   "entityTableName": "inventory_transfer",
   "dto": "no",
   "pagination": "pagination",

@@ -68,7 +68,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805161549",
+  "changelogDate": "20220808093103",
   "entityTableName": "payroll_preference",
   "dto": "no",
   "pagination": "no",

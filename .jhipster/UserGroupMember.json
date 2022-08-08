@@ -28,7 +28,7 @@
       "otherEntityField": "login"
     }
   ],
-  "changelogDate": "20220805154349",
+  "changelogDate": "20220808085903",
   "entityTableName": "user_group_member",
   "dto": "no",
   "pagination": "pagination",

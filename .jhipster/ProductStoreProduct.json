@@ -32,7 +32,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805151549",
+  "changelogDate": "20220808083103",
   "entityTableName": "product_store_product",
   "dto": "no",
   "pagination": "no",

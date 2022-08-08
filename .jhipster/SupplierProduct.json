@@ -97,7 +97,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805153149",
+  "changelogDate": "20220808084703",
   "entityTableName": "supplier_product",
   "dto": "no",
   "pagination": "pagination",

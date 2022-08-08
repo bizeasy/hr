@@ -158,7 +158,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805144749",
+  "changelogDate": "20220808080303",
   "entityTableName": "party",
   "dto": "no",
   "pagination": "pagination",

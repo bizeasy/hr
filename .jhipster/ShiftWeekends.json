@@ -19,7 +19,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805162249",
+  "changelogDate": "20220808093803",
   "entityTableName": "shift_weekends",
   "dto": "no",
   "pagination": "no",

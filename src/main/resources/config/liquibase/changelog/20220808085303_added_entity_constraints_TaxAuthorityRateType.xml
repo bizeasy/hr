@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity TaxAuthorityRateType.
+    -->
+    <changeSet id="20220808085303-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tax_authority_id"
+                                 baseTableName="tax_authority_rate_type"
+                                 constraintName="fk_tax_authority_rate_type_tax_authority_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_authority"/>
+
+        <addForeignKeyConstraint baseColumnNames="tax_slab_id"
+                                 baseTableName="tax_authority_rate_type"
+                                 constraintName="fk_tax_authority_rate_type_tax_slab_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_slab"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -24,7 +24,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805161949",
+  "changelogDate": "20220808093503",
   "entityTableName": "shift_holidays",
   "dto": "no",
   "pagination": "no",

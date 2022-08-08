@@ -1,11 +1,11 @@
 id;from_date;thru_date;is_closed;period_name;period_num
-1;2022-08-05T14:13:42;2022-08-05T00:38:18;false;International Sleek Fresh Keyboard;95309
-2;2022-08-05T10:57:47;2022-08-04T23:23:32;false;Utah Bedfordshire;82156
-3;2022-08-05T03:58:16;2022-08-04T19:01:16;false;service-desk;69729
-4;2022-08-05T06:40:19;2022-08-04T17:47:54;false;Coordinator Cotton;66191
-5;2022-08-05T07:08:23;2022-08-04T16:36:54;true;compelling;25595
-6;2022-08-05T15:31:50;2022-08-04T23:38:39;false;enhance Research Gloves;66942
-7;2022-08-05T09:52:28;2022-08-05T06:50:55;true;aggregate Plastic;89687
-8;2022-08-04T16:56:11;2022-08-04T19:33:58;true;Sleek Dynamic Manager;5133
-9;2022-08-05T02:50:52;2022-08-05T09:09:46;true;bandwidth;33557
-10;2022-08-05T06:02:01;2022-08-05T08:45:29;true;connect morph;78387
+1;2022-08-08T07:28:56;2022-08-07T17:53:32;false;International Sleek Fresh Keyboard;95309
+2;2022-08-08T04:13:01;2022-08-07T16:38:46;false;Utah Bedfordshire;82156
+3;2022-08-07T21:13:30;2022-08-07T12:16:30;false;service-desk;69729
+4;2022-08-07T23:55:33;2022-08-07T11:03:08;false;Coordinator Cotton;66191
+5;2022-08-08T00:23:37;2022-08-07T09:52:08;true;compelling;25595
+6;2022-08-08T08:47:04;2022-08-07T16:53:53;false;enhance Research Gloves;66942
+7;2022-08-08T03:07:42;2022-08-08T00:06:09;true;aggregate Plastic;89687
+8;2022-08-07T10:11:25;2022-08-07T12:49:12;true;Sleek Dynamic Manager;5133
+9;2022-08-07T20:06:06;2022-08-08T02:25:00;true;bandwidth;33557
+10;2022-08-07T23:17:15;2022-08-08T02:00:43;true;connect morph;78387

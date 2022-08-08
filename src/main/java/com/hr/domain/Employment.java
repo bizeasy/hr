@@ -52,7 +52,7 @@ public class Employment implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "employments", allowSetters = true)
-    private Party roleTypeTo;
+    private RoleType roleTypeTo;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -154,17 +154,17 @@ public class Employment implements Serializable {
         this.roleTypeFrom = roleType;
     }
 
-    public Party getRoleTypeTo() {
+    public RoleType getRoleTypeTo() {
         return roleTypeTo;
     }
 
-    public Employment roleTypeTo(Party party) {
-        this.roleTypeTo = party;
+    public Employment roleTypeTo(RoleType roleType) {
+        this.roleTypeTo = roleType;
         return this;
     }
 
-    public void setRoleTypeTo(Party party) {
-        this.roleTypeTo = party;
+    public void setRoleTypeTo(RoleType roleType) {
+        this.roleTypeTo = roleType;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

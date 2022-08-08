@@ -15,7 +15,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805150649",
+  "changelogDate": "20220808082203",
   "entityTableName": "payment_method_type",
   "dto": "no",
   "pagination": "no",

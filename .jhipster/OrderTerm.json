@@ -56,7 +56,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805144449",
+  "changelogDate": "20220808080003",
   "entityTableName": "order_term",
   "dto": "no",
   "pagination": "no",

@@ -31,7 +31,7 @@
       "otherEntityField": "periodName"
     }
   ],
-  "changelogDate": "20220805161749",
+  "changelogDate": "20220808093303",
   "entityTableName": "time_sheet",
   "dto": "no",
   "pagination": "no",

@@ -51,7 +51,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805160549",
+  "changelogDate": "20220808092103",
   "entityTableName": "empl_leave",
   "dto": "no",
   "pagination": "no",

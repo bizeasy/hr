@@ -33,7 +33,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805141449",
+  "changelogDate": "20220808073003",
   "entityTableName": "facility_party",
   "dto": "no",
   "pagination": "pagination",

@@ -26,7 +26,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805144249",
+  "changelogDate": "20220808075803",
   "entityTableName": "order_item_billing",
   "dto": "no",
   "pagination": "pagination",

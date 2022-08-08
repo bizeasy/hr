@@ -15,7 +15,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805150149",
+  "changelogDate": "20220808081703",
   "entityTableName": "product_price_purpose",
   "dto": "no",
   "pagination": "no",

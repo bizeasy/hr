@@ -113,7 +113,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20220805145449",
+  "changelogDate": "20220808081003",
   "entityTableName": "postal_address",
   "dto": "no",
   "pagination": "pagination",

@@ -11,7 +11,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805142249",
+  "changelogDate": "20220808073803",
   "entityTableName": "geo_point",
   "dto": "no",
   "pagination": "pagination",

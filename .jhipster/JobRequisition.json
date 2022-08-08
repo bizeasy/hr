@@ -67,7 +67,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805155749",
+  "changelogDate": "20220808091303",
   "entityTableName": "job_requisition",
   "dto": "no",
   "pagination": "no",

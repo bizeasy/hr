@@ -13,7 +13,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805160149",
+  "changelogDate": "20220808091703",
   "entityTableName": "job_interview_type",
   "dto": "no",
   "pagination": "no",

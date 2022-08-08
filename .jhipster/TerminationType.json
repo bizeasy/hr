@@ -15,7 +15,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20220805154449",
+  "changelogDate": "20220808090003",
   "entityTableName": "termination_type",
   "dto": "no",
   "pagination": "no",

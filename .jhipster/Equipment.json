@@ -66,7 +66,7 @@
       "otherEntityField": "name"
     }
   ],
-  "changelogDate": "20220805140649",
+  "changelogDate": "20220808072203",
   "entityTableName": "equipment",
   "dto": "no",
   "pagination": "no",
